@@ -10,7 +10,7 @@ Source assertions and inferred relationships remain distinguishable. For support
 
 ## Run it yourself
 
-The public sample contains **15 conditions, 4 genes and 16 condition–gene associations** from Orphadata and HGNC. Each association retains its source evidence. Search, graph inspection and all 16 association hashes passed **22 checks on the Linux API**. These numbers describe this sample; the hosted app has broader coverage. It contains no researcher/person records, identity merges or inferred mechanisms; these sample checks do not validate end-to-end collaborator matching.
+The public sample contains **15 conditions, 4 genes and 16 condition–gene associations** from Orphadata and HGNC. Each association retains its source evidence. Search, graph inspection and all 16 association hashes passed **22 checks on the Linux API**. These numbers describe this sample; the hosted app has broader coverage. The sample contains no researcher/person records, identity merges or inferred mechanisms; these sample checks do not validate end-to-end collaborator matching.
 
 Requires Node.js 24, Python 3.11+ and Rust 1.91+. Start the sample API in one terminal:
 
