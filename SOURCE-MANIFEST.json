@@ -192,6 +192,116 @@
       "purpose": "Official organisation role contact, not a personal research/patient record",
       "source": "https://download2.eurordis.org/EURORDIS_flyer_digital.pdf",
       "verified": "2026-10-04"
+    },
+    "web/messages/zebra/ar.json": {
+      "approved_email_sha256": [
+        "e958fb52ecfb02d36e6efefe55ba1bab7cef999bccef640cf877b738185692b0"
+      ],
+      "reason": "Exact same intentionally public institutional controller address bytes as approved English/German Zebra catalogs; no added address, personal inbox or acquired contact record.",
+      "reviewed_public_commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+      "matched_catalogs": [
+        "web/messages/zebra/en.json",
+        "web/messages/zebra/de.json"
+      ]
+    },
+    "web/messages/zebra/es.json": {
+      "approved_email_sha256": [
+        "e958fb52ecfb02d36e6efefe55ba1bab7cef999bccef640cf877b738185692b0"
+      ],
+      "reason": "Exact same intentionally public institutional controller address bytes as approved English/German Zebra catalogs; no added address, personal inbox or acquired contact record.",
+      "reviewed_public_commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+      "matched_catalogs": [
+        "web/messages/zebra/en.json",
+        "web/messages/zebra/de.json"
+      ]
+    },
+    "web/messages/zebra/fr.json": {
+      "approved_email_sha256": [
+        "e958fb52ecfb02d36e6efefe55ba1bab7cef999bccef640cf877b738185692b0"
+      ],
+      "reason": "Exact same intentionally public institutional controller address bytes as approved English/German Zebra catalogs; no added address, personal inbox or acquired contact record.",
+      "reviewed_public_commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+      "matched_catalogs": [
+        "web/messages/zebra/en.json",
+        "web/messages/zebra/de.json"
+      ]
+    },
+    "web/messages/zebra/hi.json": {
+      "approved_email_sha256": [
+        "e958fb52ecfb02d36e6efefe55ba1bab7cef999bccef640cf877b738185692b0"
+      ],
+      "reason": "Exact same intentionally public institutional controller address bytes as approved English/German Zebra catalogs; no added address, personal inbox or acquired contact record.",
+      "reviewed_public_commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+      "matched_catalogs": [
+        "web/messages/zebra/en.json",
+        "web/messages/zebra/de.json"
+      ]
+    },
+    "web/messages/zebra/it.json": {
+      "approved_email_sha256": [
+        "e958fb52ecfb02d36e6efefe55ba1bab7cef999bccef640cf877b738185692b0"
+      ],
+      "reason": "Exact same intentionally public institutional controller address bytes as approved English/German Zebra catalogs; no added address, personal inbox or acquired contact record.",
+      "reviewed_public_commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+      "matched_catalogs": [
+        "web/messages/zebra/en.json",
+        "web/messages/zebra/de.json"
+      ]
+    },
+    "web/messages/zebra/ja.json": {
+      "approved_email_sha256": [
+        "e958fb52ecfb02d36e6efefe55ba1bab7cef999bccef640cf877b738185692b0"
+      ],
+      "reason": "Exact same intentionally public institutional controller address bytes as approved English/German Zebra catalogs; no added address, personal inbox or acquired contact record.",
+      "reviewed_public_commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+      "matched_catalogs": [
+        "web/messages/zebra/en.json",
+        "web/messages/zebra/de.json"
+      ]
+    },
+    "web/messages/zebra/pt.json": {
+      "approved_email_sha256": [
+        "e958fb52ecfb02d36e6efefe55ba1bab7cef999bccef640cf877b738185692b0"
+      ],
+      "reason": "Exact same intentionally public institutional controller address bytes as approved English/German Zebra catalogs; no added address, personal inbox or acquired contact record.",
+      "reviewed_public_commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+      "matched_catalogs": [
+        "web/messages/zebra/en.json",
+        "web/messages/zebra/de.json"
+      ]
+    },
+    "web/messages/zebra/ru.json": {
+      "approved_email_sha256": [
+        "e958fb52ecfb02d36e6efefe55ba1bab7cef999bccef640cf877b738185692b0"
+      ],
+      "reason": "Exact same intentionally public institutional controller address bytes as approved English/German Zebra catalogs; no added address, personal inbox or acquired contact record.",
+      "reviewed_public_commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+      "matched_catalogs": [
+        "web/messages/zebra/en.json",
+        "web/messages/zebra/de.json"
+      ]
+    },
+    "web/messages/zebra/tr.json": {
+      "approved_email_sha256": [
+        "e958fb52ecfb02d36e6efefe55ba1bab7cef999bccef640cf877b738185692b0"
+      ],
+      "reason": "Exact same intentionally public institutional controller address bytes as approved English/German Zebra catalogs; no added address, personal inbox or acquired contact record.",
+      "reviewed_public_commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+      "matched_catalogs": [
+        "web/messages/zebra/en.json",
+        "web/messages/zebra/de.json"
+      ]
+    },
+    "web/messages/zebra/zh-Hans.json": {
+      "approved_email_sha256": [
+        "e958fb52ecfb02d36e6efefe55ba1bab7cef999bccef640cf877b738185692b0"
+      ],
+      "reason": "Exact same intentionally public institutional controller address bytes as approved English/German Zebra catalogs; no added address, personal inbox or acquired contact record.",
+      "reviewed_public_commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+      "matched_catalogs": [
+        "web/messages/zebra/en.json",
+        "web/messages/zebra/de.json"
+      ]
     }
   },
   "entries": [
@@ -210,9 +320,15 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 372,
-      "sha256": "66156eb64ec7dd535bdda4b891bf529528730564d21f5865ce1a3b833f07e36a",
-      "origin": "Submission packaging and concise documentation"
+      "bytes": 392,
+      "sha256": "73f86395c9135ae51071c288a499bb753258e953d46cc76dcb52174f32ceb71b",
+      "origin": "Submission packaging and concise documentation",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "22103dc0c2c01466a1dd59df8e1d26809b63dfcf",
+        "previous_packaged_sha256": "66156eb64ec7dd535bdda4b891bf529528730564d21f5865ce1a3b833f07e36a",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "CITATION.cff",
@@ -228,9 +344,15 @@
     },
     {
       "path": "Cargo.lock",
-      "bytes": 112574,
-      "sha256": "0262bc7a320aef103bd894b7ce8dfb61603133a4a50726e60ddb0a833b032bff",
-      "source_sha256": "0262bc7a320aef103bd894b7ce8dfb61603133a4a50726e60ddb0a833b032bff"
+      "bytes": 113076,
+      "sha256": "2cd116def267021048f2ae804cbde03f2ba7d5934fde0820218f8f0beabf5e85",
+      "source_sha256": "0262bc7a320aef103bd894b7ce8dfb61603133a4a50726e60ddb0a833b032bff",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "2be0d1028dd4aa521239b9c05e7af15d22ff6cfa",
+        "previous_packaged_sha256": "0262bc7a320aef103bd894b7ce8dfb61603133a4a50726e60ddb0a833b032bff",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "Cargo.toml",
@@ -271,9 +393,15 @@
     },
     {
       "path": "README.md",
-      "bytes": 3598,
-      "sha256": "45c959d74c5dee23955e3e639ec0bee671ad4204d2aa6509b4c6e73ff4a89b53",
-      "origin": "Submission packaging and concise documentation"
+      "bytes": 6148,
+      "sha256": "cd465a4926f4ff6df0146f516cffc4c8a36da46290970be8360308b179eab43f",
+      "origin": "Submission packaging and concise documentation",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "89e50e66676a630333a2b08cf348b202c0d3dcef",
+        "previous_packaged_sha256": "45c959d74c5dee23955e3e639ec0bee671ad4204d2aa6509b4c6e73ff4a89b53",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "crates/atlas-accounts/Cargo.toml",
@@ -2101,9 +2229,15 @@
     },
     {
       "path": "crates/atlas-llm/src/http.rs",
-      "bytes": 22414,
-      "sha256": "910ca8698bc5adf652ddfe89869d4a6aaa2dfa10796f41dc5e27e93be96a11f0",
-      "source_sha256": "910ca8698bc5adf652ddfe89869d4a6aaa2dfa10796f41dc5e27e93be96a11f0"
+      "bytes": 22715,
+      "sha256": "bdfeb39e11ae3af2836714f71d238ad0b67de8431cbab5d23ba20b5ac00ac5e2",
+      "source_sha256": "910ca8698bc5adf652ddfe89869d4a6aaa2dfa10796f41dc5e27e93be96a11f0",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "203cf8491649a3033b6dc4e83ca653e9ae56249a",
+        "previous_packaged_sha256": "910ca8698bc5adf652ddfe89869d4a6aaa2dfa10796f41dc5e27e93be96a11f0",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "crates/atlas-llm/src/lib.rs",
@@ -2113,9 +2247,15 @@
     },
     {
       "path": "crates/atlas-llm/src/llm.rs",
-      "bytes": 40990,
-      "sha256": "836d6a397bfdfb40b283caedf5dd6f898f352c85f55b3bb2b4144c864bcb2ba5",
-      "source_sha256": "836d6a397bfdfb40b283caedf5dd6f898f352c85f55b3bb2b4144c864bcb2ba5"
+      "bytes": 41591,
+      "sha256": "0147fba46a6c0ca351ddad79650568b7b2efcc617fa85fbff39c8b8c8b30ef77",
+      "source_sha256": "836d6a397bfdfb40b283caedf5dd6f898f352c85f55b3bb2b4144c864bcb2ba5",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "492069d9da93bcb8035835dcb798caaed47eb88b",
+        "previous_packaged_sha256": "836d6a397bfdfb40b283caedf5dd6f898f352c85f55b3bb2b4144c864bcb2ba5",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "crates/atlas-llm/src/model_label.rs",
@@ -2131,9 +2271,15 @@
     },
     {
       "path": "crates/atlas-llm/src/provider.rs",
-      "bytes": 5458,
-      "sha256": "1a9ff94b110cd960f9ee4c4ddf62f7572faec8e44adc6c2b91145bea54139a1c",
-      "source_sha256": "1a9ff94b110cd960f9ee4c4ddf62f7572faec8e44adc6c2b91145bea54139a1c"
+      "bytes": 5655,
+      "sha256": "5233eb76656b2742df21923ad6415dcaeb1e6566c5b580bce39ed7edd6596294",
+      "source_sha256": "1a9ff94b110cd960f9ee4c4ddf62f7572faec8e44adc6c2b91145bea54139a1c",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "f1cfac8583e1bb5bbceb8eeb2b9b4da0c54c3e7e",
+        "previous_packaged_sha256": "1a9ff94b110cd960f9ee4c4ddf62f7572faec8e44adc6c2b91145bea54139a1c",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "crates/atlas-llm/src/registry.rs",
@@ -2349,9 +2495,15 @@
     },
     {
       "path": "crates/atlas-server/Cargo.toml",
-      "bytes": 1313,
-      "sha256": "33efb7080fc36e083bd67300dc487e03c012bd2e255702537de43f15dfe0fd73",
-      "source_sha256": "33efb7080fc36e083bd67300dc487e03c012bd2e255702537de43f15dfe0fd73"
+      "bytes": 1331,
+      "sha256": "068998c961c2658f45d998b7f7424950a5eb2cb6db641e45b6797e94e19e0abe",
+      "source_sha256": "33efb7080fc36e083bd67300dc487e03c012bd2e255702537de43f15dfe0fd73",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "11c9635b7c0cee4b1c2201be75e2d6d1fc61a74a",
+        "previous_packaged_sha256": "33efb7080fc36e083bd67300dc487e03c012bd2e255702537de43f15dfe0fd73",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "crates/atlas-server/examples/copy_audit_snapshot.rs",
@@ -2463,9 +2615,15 @@
     },
     {
       "path": "crates/atlas-server/src/connector.rs",
-      "bytes": 12292,
-      "sha256": "f21d41819d56acc7fdf4c8dadccc13ece197f17a83dc306443787d27836a3849",
-      "source_sha256": "f21d41819d56acc7fdf4c8dadccc13ece197f17a83dc306443787d27836a3849"
+      "bytes": 12621,
+      "sha256": "8d358b35984ea562f072bc5a1440c71628f2a73d42eaf56e5a8e5acab5256f88",
+      "source_sha256": "f21d41819d56acc7fdf4c8dadccc13ece197f17a83dc306443787d27836a3849",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "6f7039dad8e7abc2144013da1b964b1e2476f1ce",
+        "previous_packaged_sha256": "f21d41819d56acc7fdf4c8dadccc13ece197f17a83dc306443787d27836a3849",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "crates/atlas-server/src/connector_test_support.rs",
@@ -2673,9 +2831,15 @@
     },
     {
       "path": "crates/atlas-server/src/main.rs",
-      "bytes": 17289,
-      "sha256": "e40bc9d57c2193d2dacb89b3eeeb4a057c2d2148c0f5a549c36c1e60717177c5",
-      "source_sha256": "e40bc9d57c2193d2dacb89b3eeeb4a057c2d2148c0f5a549c36c1e60717177c5"
+      "bytes": 17311,
+      "sha256": "1ece377fe791c46659558ab81fef45e1a639d37802b65dfbe2397a2d4142b0eb",
+      "source_sha256": "e40bc9d57c2193d2dacb89b3eeeb4a057c2d2148c0f5a549c36c1e60717177c5",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "77e313ae1fb9275c775a35e0a613776df126fae9",
+        "previous_packaged_sha256": "e40bc9d57c2193d2dacb89b3eeeb4a057c2d2148c0f5a549c36c1e60717177c5",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "crates/atlas-server/src/models.rs",
@@ -2733,9 +2897,15 @@
     },
     {
       "path": "crates/atlas-server/src/routes.rs",
-      "bytes": 21908,
-      "sha256": "098f5a349caa87c5964e5880079ae431c6a03ddce7095ff4416817b99b04883c",
-      "source_sha256": "098f5a349caa87c5964e5880079ae431c6a03ddce7095ff4416817b99b04883c"
+      "bytes": 21989,
+      "sha256": "33b200969753950a61e0f50c435724570761ca1a31f8c722e1768ff1697788f5",
+      "source_sha256": "098f5a349caa87c5964e5880079ae431c6a03ddce7095ff4416817b99b04883c",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "bf1a95f2242757dbbfb17d0fa742ecfb2d234ff4",
+        "previous_packaged_sha256": "098f5a349caa87c5964e5880079ae431c6a03ddce7095ff4416817b99b04883c",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "crates/atlas-server/src/runtime_snapshots.rs",
@@ -2883,9 +3053,15 @@
     },
     {
       "path": "docs/SETUP.md",
-      "bytes": 2447,
-      "sha256": "88aa855066a2d2cba362555c27fed8a53dad78e2d6f2106bf13fc0d16c56b961",
-      "origin": "Submission packaging and concise documentation"
+      "bytes": 9387,
+      "sha256": "18ad216fce71902610814ae16409e3e4ea357737cb8315806e100c18d004002c",
+      "origin": "Submission packaging and concise documentation",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "a4407a77376554deee43ad6a4ade8c4c689c48a0",
+        "previous_packaged_sha256": "88aa855066a2d2cba362555c27fed8a53dad78e2d6f2106bf13fc0d16c56b961",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "docs/design/SOURCES.md",
@@ -3168,9 +3344,15 @@
     },
     {
       "path": "web/app/zebra/api/[operation]/route.ts",
-      "bytes": 26003,
-      "sha256": "a14e9fc69c68dcbf31fa3ac1ac8bfd883c6d40968200d024c81e850e8185cd43",
-      "source_sha256": "a14e9fc69c68dcbf31fa3ac1ac8bfd883c6d40968200d024c81e850e8185cd43"
+      "bytes": 25918,
+      "sha256": "e27c3195df2ca63acfdae9c623c43af7f196fb4dcfedb89868a2240a37a4ef5b",
+      "source_sha256": "a14e9fc69c68dcbf31fa3ac1ac8bfd883c6d40968200d024c81e850e8185cd43",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "5514da1ae42c04d0963544cdc0dd452f8a74afbf",
+        "previous_packaged_sha256": "a14e9fc69c68dcbf31fa3ac1ac8bfd883c6d40968200d024c81e850e8185cd43",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/app/zebra/community/page.tsx",
@@ -3192,9 +3374,15 @@
     },
     {
       "path": "web/app/zebra/layout.tsx",
-      "bytes": 1387,
-      "sha256": "f8dd6a8323cf389c1cf67f661d0e98a85e871c1d29eb132f724445bc1885a9cf",
-      "source_sha256": "f8dd6a8323cf389c1cf67f661d0e98a85e871c1d29eb132f724445bc1885a9cf"
+      "bytes": 1528,
+      "sha256": "120278c801d13619acd04ac1298e94e39f6b44f3ca4918608028ead6785cf785",
+      "source_sha256": "f8dd6a8323cf389c1cf67f661d0e98a85e871c1d29eb132f724445bc1885a9cf",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "26d863bdbbeb937b9d77c31b962e19ee5a4cfcb0",
+        "previous_packaged_sha256": "f8dd6a8323cf389c1cf67f661d0e98a85e871c1d29eb132f724445bc1885a9cf",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/app/zebra/page.tsx",
@@ -3282,9 +3470,15 @@
     },
     {
       "path": "web/components/zebra/AccountProfile.tsx",
-      "bytes": 7359,
-      "sha256": "6e2c06872d793aa89172be61a6a91aae98d8ee580afb24f6e829cf00298605c2",
-      "source_sha256": "6e2c06872d793aa89172be61a6a91aae98d8ee580afb24f6e829cf00298605c2"
+      "bytes": 7437,
+      "sha256": "35f534afcd620a9f48dae8fcb2c48cc75ea460e28fb1eb57d02c85511e9b0119",
+      "source_sha256": "6e2c06872d793aa89172be61a6a91aae98d8ee580afb24f6e829cf00298605c2",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "5b590596d7fc9643a613bd380c7392d409e53d14",
+        "previous_packaged_sha256": "6e2c06872d793aa89172be61a6a91aae98d8ee580afb24f6e829cf00298605c2",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/AccountProvider.tsx",
@@ -3300,15 +3494,27 @@
     },
     {
       "path": "web/components/zebra/Brand.tsx",
-      "bytes": 2009,
-      "sha256": "0f6c90deba5b39a906b02ca29d46acd4bdcd7ec998ea68541237c86860657d02",
-      "source_sha256": "0f6c90deba5b39a906b02ca29d46acd4bdcd7ec998ea68541237c86860657d02"
+      "bytes": 2019,
+      "sha256": "51ebd1cad53bb7149d57adc6c6ba1364d65300e678acfd3e94ce4e0f3517bdd7",
+      "source_sha256": "0f6c90deba5b39a906b02ca29d46acd4bdcd7ec998ea68541237c86860657d02",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "7a5da9c5903fc03db75bde55037a43c62eb375b0",
+        "previous_packaged_sha256": "0f6c90deba5b39a906b02ca29d46acd4bdcd7ec998ea68541237c86860657d02",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/ConditionPanel.tsx",
-      "bytes": 17946,
-      "sha256": "7d2c3532757cf0217828bb2c3d41363685ccdfd5973afaff8ca51ab37e8d3aee",
-      "source_sha256": "7d2c3532757cf0217828bb2c3d41363685ccdfd5973afaff8ca51ab37e8d3aee"
+      "bytes": 17959,
+      "sha256": "a733a6c09f2a4002fee8badded78c7687e50a329258213069413cf0c8a8e4e52",
+      "source_sha256": "7d2c3532757cf0217828bb2c3d41363685ccdfd5973afaff8ca51ab37e8d3aee",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "3296943688f66cdfa247c72cf3ae6b81cbace421",
+        "previous_packaged_sha256": "7d2c3532757cf0217828bb2c3d41363685ccdfd5973afaff8ca51ab37e8d3aee",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/ContactFilters.module.css",
@@ -3462,9 +3668,15 @@
     },
     {
       "path": "web/components/zebra/QueryAnswer.tsx",
-      "bytes": 9091,
-      "sha256": "fbf0d63545f1dff725d85089bb473234c39c26bc1f13a504e0c52f1ea066c430",
-      "source_sha256": "fbf0d63545f1dff725d85089bb473234c39c26bc1f13a504e0c52f1ea066c430"
+      "bytes": 7362,
+      "sha256": "e08e743cfa000e59ec1dd48884d02719e87cadfc49231feac67319f5c98d06e4",
+      "source_sha256": "fbf0d63545f1dff725d85089bb473234c39c26bc1f13a504e0c52f1ea066c430",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "c39443d382e36bda6a4fb7373d0374e5978424e3",
+        "previous_packaged_sha256": "fbf0d63545f1dff725d85089bb473234c39c26bc1f13a504e0c52f1ea066c430",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/QueryGraphView.module.css",
@@ -3474,9 +3686,15 @@
     },
     {
       "path": "web/components/zebra/QueryGraphView.tsx",
-      "bytes": 4215,
-      "sha256": "3b778309fff9fb92b349ec37aa34998c17d1d6e10814d2a729bd4c084323dc91",
-      "source_sha256": "3b778309fff9fb92b349ec37aa34998c17d1d6e10814d2a729bd4c084323dc91"
+      "bytes": 4150,
+      "sha256": "4e7669da95e0476afe5ba4553566db3e959780c2d683b0e4c1635c8e5007b0ed",
+      "source_sha256": "3b778309fff9fb92b349ec37aa34998c17d1d6e10814d2a729bd4c084323dc91",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "e8897e61960f997afa84ae1f3dafd339581e41fb",
+        "previous_packaged_sha256": "3b778309fff9fb92b349ec37aa34998c17d1d6e10814d2a729bd4c084323dc91",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/QueryPlan.module.css",
@@ -3486,9 +3704,15 @@
     },
     {
       "path": "web/components/zebra/QueryPlan.tsx",
-      "bytes": 21729,
-      "sha256": "c73ab1bad7a3612477485b857f3f8400e4fee52ac53a7fdabdddfb9f6d1439a1",
-      "source_sha256": "c73ab1bad7a3612477485b857f3f8400e4fee52ac53a7fdabdddfb9f6d1439a1"
+      "bytes": 21664,
+      "sha256": "15fb95cd3942017cc15c29368d369a85a5c05b1b4919b9bafc549c492714ce73",
+      "source_sha256": "c73ab1bad7a3612477485b857f3f8400e4fee52ac53a7fdabdddfb9f6d1439a1",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "dd90ed404b011db5616be87abd4e7f3d5c2f00ff",
+        "previous_packaged_sha256": "c73ab1bad7a3612477485b857f3f8400e4fee52ac53a7fdabdddfb9f6d1439a1",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/QueryWorkspace.module.css",
@@ -3504,15 +3728,27 @@
     },
     {
       "path": "web/components/zebra/ReasoningProof.tsx",
-      "bytes": 3286,
-      "sha256": "9d7d44258445a7ee2ce96301ba59cfced7110df4c31cd6d11ee7cbf86490a3fa",
-      "source_sha256": "9d7d44258445a7ee2ce96301ba59cfced7110df4c31cd6d11ee7cbf86490a3fa"
+      "bytes": 2931,
+      "sha256": "7240e11c9541db94101714b31c41c5372465e6fe72302bede5f5aa82324f5447",
+      "source_sha256": "9d7d44258445a7ee2ce96301ba59cfced7110df4c31cd6d11ee7cbf86490a3fa",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "1051bc8294d458cfc3bdf6b884e1e113a1144c23",
+        "previous_packaged_sha256": "9d7d44258445a7ee2ce96301ba59cfced7110df4c31cd6d11ee7cbf86490a3fa",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/ResearchBrief.tsx",
-      "bytes": 27827,
-      "sha256": "741462489240e9cee94889e0dafa4e99d48ce85e584ae010a954ded2139655c2",
-      "source_sha256": "741462489240e9cee94889e0dafa4e99d48ce85e584ae010a954ded2139655c2"
+      "bytes": 27396,
+      "sha256": "1eeff1da64618409b39aeced6c06a5823705383911b5d94f1210902b6ae1360a",
+      "source_sha256": "741462489240e9cee94889e0dafa4e99d48ce85e584ae010a954ded2139655c2",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "d973ba8ac713b82774798f7c04fba26fb27833f3",
+        "previous_packaged_sha256": "741462489240e9cee94889e0dafa4e99d48ce85e584ae010a954ded2139655c2",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/ResearchPanels.module.css",
@@ -3528,9 +3764,15 @@
     },
     {
       "path": "web/components/zebra/ResultOverview.tsx",
-      "bytes": 15270,
-      "sha256": "e182489f2bafb444fdcd053ab264ea019cc0d209a194a69a5c0f691426e92102",
-      "source_sha256": "e182489f2bafb444fdcd053ab264ea019cc0d209a194a69a5c0f691426e92102"
+      "bytes": 15182,
+      "sha256": "9eb1dcb41ff454a1e6417fed38fb979c737eb775037cfddc9f5668cf231a3634",
+      "source_sha256": "e182489f2bafb444fdcd053ab264ea019cc0d209a194a69a5c0f691426e92102",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "561d0a0f8839a8686646939b0029cce49ec23849",
+        "previous_packaged_sha256": "e182489f2bafb444fdcd053ab264ea019cc0d209a194a69a5c0f691426e92102",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/SavedDraft.tsx",
@@ -3540,9 +3782,15 @@
     },
     {
       "path": "web/components/zebra/SearchBox.tsx",
-      "bytes": 18071,
-      "sha256": "388e64b8cf89d84125e94ab5d85887548ca42e0448d22208a5979903a845e32e",
-      "source_sha256": "388e64b8cf89d84125e94ab5d85887548ca42e0448d22208a5979903a845e32e"
+      "bytes": 18014,
+      "sha256": "0e3bc8b5a5a10db65d11d2c5fa60250f734d7ae6bb2bc26ad4b01537770d9a5d",
+      "source_sha256": "388e64b8cf89d84125e94ab5d85887548ca42e0448d22208a5979903a845e32e",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "5a7ecfb69ea01929a506e6ba42cfde6fff30205c",
+        "previous_packaged_sha256": "388e64b8cf89d84125e94ab5d85887548ca42e0448d22208a5979903a845e32e",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/SearchSuggestions.module.css",
@@ -3552,9 +3800,15 @@
     },
     {
       "path": "web/components/zebra/Sources.tsx",
-      "bytes": 14531,
-      "sha256": "71d43c1f9d185fd38016688c9286cd1393162ebe39ce633405631ade5a430297",
-      "source_sha256": "71d43c1f9d185fd38016688c9286cd1393162ebe39ce633405631ade5a430297"
+      "bytes": 14426,
+      "sha256": "cf534adcf491d337ab751346a6240ffa278e4f5028d3e4aa0395bf1a7a3732fa",
+      "source_sha256": "71d43c1f9d185fd38016688c9286cd1393162ebe39ce633405631ade5a430297",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "4798e6413dd0fe6738bca16344a69f17e3ac2901",
+        "previous_packaged_sha256": "71d43c1f9d185fd38016688c9286cd1393162ebe39ce633405631ade5a430297",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/TBoxDiagram.module.css",
@@ -3570,15 +3824,27 @@
     },
     {
       "path": "web/components/zebra/Utility.tsx",
-      "bytes": 9389,
-      "sha256": "3d0730598610f370862c5625e02a1ca28d6e1aaf4146c89fd748d089e9198ec0",
-      "source_sha256": "3d0730598610f370862c5625e02a1ca28d6e1aaf4146c89fd748d089e9198ec0"
+      "bytes": 9409,
+      "sha256": "d15ee8bd89e80983926a23ff0042207abf496ddd7cb8dabd425ba6f3ca11ef9f",
+      "source_sha256": "3d0730598610f370862c5625e02a1ca28d6e1aaf4146c89fd748d089e9198ec0",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "f09df5c5d270733fbfd9bcdf109a43ed06c50093",
+        "previous_packaged_sha256": "3d0730598610f370862c5625e02a1ca28d6e1aaf4146c89fd748d089e9198ec0",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/Workspace.tsx",
-      "bytes": 48588,
-      "sha256": "d6d99299dfde6ab805c7d432ce997897f3526f4bfc7dc6bd43426a4469bbb567",
-      "source_sha256": "d6d99299dfde6ab805c7d432ce997897f3526f4bfc7dc6bd43426a4469bbb567"
+      "bytes": 48960,
+      "sha256": "631e3686c827387e94dd3d3839536a7d4e7701167acd78e28a0951dad8f0e031",
+      "source_sha256": "d6d99299dfde6ab805c7d432ce997897f3526f4bfc7dc6bd43426a4469bbb567",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "27ce3e829171494962c4ba3c46329df71a9759f7",
+        "previous_packaged_sha256": "d6d99299dfde6ab805c7d432ce997897f3526f4bfc7dc6bd43426a4469bbb567",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/ZebraLoader.module.css",
@@ -3594,9 +3860,15 @@
     },
     {
       "path": "web/components/zebra/brief-email.ts",
-      "bytes": 5936,
-      "sha256": "87f73d63ccd5c230355814e9cf6c851eb5211c13feabe1c3e63894a1ed994bf1",
-      "source_sha256": "87f73d63ccd5c230355814e9cf6c851eb5211c13feabe1c3e63894a1ed994bf1"
+      "bytes": 3867,
+      "sha256": "aeab5d30b94c23a58bb08d44cbc8afd559b2ef5ccaa93049908570b517867540",
+      "source_sha256": "87f73d63ccd5c230355814e9cf6c851eb5211c13feabe1c3e63894a1ed994bf1",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "d3d5267a42a5356c2ae966ba36a011e1949cbf0d",
+        "previous_packaged_sha256": "87f73d63ccd5c230355814e9cf6c851eb5211c13feabe1c3e63894a1ed994bf1",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/briefTasks.ts",
@@ -3618,9 +3890,15 @@
     },
     {
       "path": "web/components/zebra/findings-note.ts",
-      "bytes": 7863,
-      "sha256": "38257f860c176ca1d2139c484ea64c8dac03b68fcdb9cd45abc95360245bdc27",
-      "source_sha256": "38257f860c176ca1d2139c484ea64c8dac03b68fcdb9cd45abc95360245bdc27"
+      "bytes": 5707,
+      "sha256": "bf5b64ec9f1620471eb0573db31115edd1966d4cb2a96cc05ea869da38786a2d",
+      "source_sha256": "38257f860c176ca1d2139c484ea64c8dac03b68fcdb9cd45abc95360245bdc27",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "0b73337c5ad0ddb9f7035dc15064435623d25c2f",
+        "previous_packaged_sha256": "38257f860c176ca1d2139c484ea64c8dac03b68fcdb9cd45abc95360245bdc27",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/graph-labels.ts",
@@ -3666,9 +3944,15 @@
     },
     {
       "path": "web/components/zebra/queryWorkspaceCopy.ts",
-      "bytes": 5386,
-      "sha256": "9fe7674eefe18c0e3e1c8ddbfeb57d8e18e0b1f951578a00768f2da98bd88cff",
-      "source_sha256": "9fe7674eefe18c0e3e1c8ddbfeb57d8e18e0b1f951578a00768f2da98bd88cff"
+      "bytes": 5641,
+      "sha256": "b42381cc880d2d304d8782918e38a78cb5f74f1700917ac5cc5b1c0245bd8aab",
+      "source_sha256": "9fe7674eefe18c0e3e1c8ddbfeb57d8e18e0b1f951578a00768f2da98bd88cff",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "d3234feb3a95fd9c84a40e854d5998e56b379684",
+        "previous_packaged_sha256": "9fe7674eefe18c0e3e1c8ddbfeb57d8e18e0b1f951578a00768f2da98bd88cff",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/result-cache.ts",
@@ -3690,9 +3974,15 @@
     },
     {
       "path": "web/components/zebra/resultCopy.ts",
-      "bytes": 3589,
-      "sha256": "a754e7b1041e8e44abfdadb6920d52741e4c22e325e67130799b83adeace6aff",
-      "source_sha256": "a754e7b1041e8e44abfdadb6920d52741e4c22e325e67130799b83adeace6aff"
+      "bytes": 283,
+      "sha256": "02a6e22d81149b5f465df3b513346fb21050ce12231e8f902dc58156ef30d69b",
+      "source_sha256": "a754e7b1041e8e44abfdadb6920d52741e4c22e325e67130799b83adeace6aff",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "4cbab08dfbe987de0e2f12c8b6c2181ba1624cee",
+        "previous_packaged_sha256": "a754e7b1041e8e44abfdadb6920d52741e4c22e325e67130799b83adeace6aff",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/source-provenance.ts",
@@ -3702,9 +3992,15 @@
     },
     {
       "path": "web/components/zebra/sourceDetailCopy.ts",
-      "bytes": 1363,
-      "sha256": "ebcf9ba28051f910d272d2b33b33de934108d943eda7703b1c0e745f2ac8dc3a",
-      "source_sha256": "ebcf9ba28051f910d272d2b33b33de934108d943eda7703b1c0e745f2ac8dc3a"
+      "bytes": 301,
+      "sha256": "c6760c1f0fc13d1777a7ebe58e948e4c0241db898601b42a5cd7ea2f1773b347",
+      "source_sha256": "ebcf9ba28051f910d272d2b33b33de934108d943eda7703b1c0e745f2ac8dc3a",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "f97603d088426cecc054a4346c3a865a7ef31be0",
+        "previous_packaged_sha256": "ebcf9ba28051f910d272d2b33b33de934108d943eda7703b1c0e745f2ac8dc3a",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/components/zebra/tbox-viewport.ts",
@@ -3738,9 +4034,15 @@
     },
     {
       "path": "web/lib/i18n/config.ts",
-      "bytes": 2681,
-      "sha256": "1dad4d87b08ce89813040c0e2ed038c41dd70e67c7312d815b61d4c7224857d6",
-      "source_sha256": "1dad4d87b08ce89813040c0e2ed038c41dd70e67c7312d815b61d4c7224857d6"
+      "bytes": 2588,
+      "sha256": "62a2c728f31706cd7a6f1414b5ed367e9079e52e72b641ccc2e348dd477693d0",
+      "source_sha256": "1dad4d87b08ce89813040c0e2ed038c41dd70e67c7312d815b61d4c7224857d6",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "7a7380db2ed1be2649fa5184d2111a21f8c524fc",
+        "previous_packaged_sha256": "1dad4d87b08ce89813040c0e2ed038c41dd70e67c7312d815b61d4c7224857d6",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/lib/i18n/format.ts",
@@ -3798,9 +4100,15 @@
     },
     {
       "path": "web/lib/zebra/client.ts",
-      "bytes": 10025,
-      "sha256": "85a9be2a59a5963b07e17a639e4c56eb5893881a6bd65395c3179a418e8ae690",
-      "source_sha256": "85a9be2a59a5963b07e17a639e4c56eb5893881a6bd65395c3179a418e8ae690"
+      "bytes": 10558,
+      "sha256": "2c6c2c562c86ca7f60efb072887afb094605daeecf9c5b4ab1480cdf020bf072",
+      "source_sha256": "85a9be2a59a5963b07e17a639e4c56eb5893881a6bd65395c3179a418e8ae690",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "4fcf8b15d76a89bfffe0b91f88388e2d2be90a69",
+        "previous_packaged_sha256": "85a9be2a59a5963b07e17a639e4c56eb5893881a6bd65395c3179a418e8ae690",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/lib/zebra/contribution-form.ts",
@@ -3834,9 +4142,15 @@
     },
     {
       "path": "web/lib/zebra/locale.ts",
-      "bytes": 3462,
-      "sha256": "d9082786332a3fdcdd8b82d126c70f7c1777d55834f164c0ca70eeca6b84dee9",
-      "source_sha256": "d9082786332a3fdcdd8b82d126c70f7c1777d55834f164c0ca70eeca6b84dee9"
+      "bytes": 3628,
+      "sha256": "7c88a33be31631a8f42735f70146edb4ae028973ea7337b40625e1b9d7ea1b39",
+      "source_sha256": "d9082786332a3fdcdd8b82d126c70f7c1777d55834f164c0ca70eeca6b84dee9",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "4019b62bafdb5eef42d101f38c19fab6fd686dba",
+        "previous_packaged_sha256": "d9082786332a3fdcdd8b82d126c70f7c1777d55834f164c0ca70eeca6b84dee9",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/lib/zebra/menu-dismissal.ts",
@@ -3906,9 +4220,15 @@
     },
     {
       "path": "web/lib/zebra/server.ts",
-      "bytes": 9916,
-      "sha256": "b685c191d2bf405bd30da943c781aae342f2f9eb28e110fb18e250410e5c95fa",
-      "source_sha256": "b685c191d2bf405bd30da943c781aae342f2f9eb28e110fb18e250410e5c95fa"
+      "bytes": 9893,
+      "sha256": "2bc4da2eb6ad278e33d4fdaa15efdd6af2476815a53e82f230570ac0a2502b98",
+      "source_sha256": "b685c191d2bf405bd30da943c781aae342f2f9eb28e110fb18e250410e5c95fa",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "ba35e84eb9aee18c41090edc6bdbdef28aadcc61",
+        "previous_packaged_sha256": "b685c191d2bf405bd30da943c781aae342f2f9eb28e110fb18e250410e5c95fa",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/lib/zebra/tbox-pin.json",
@@ -3930,15 +4250,27 @@
     },
     {
       "path": "web/messages/account/ar.json",
-      "bytes": 9223,
-      "sha256": "72ea52bdc0efd5af0a0c3ce6fbf0751fba7121f00429950c602d0ee8fc3e9614",
-      "source_sha256": "72ea52bdc0efd5af0a0c3ce6fbf0751fba7121f00429950c602d0ee8fc3e9614"
+      "bytes": 9221,
+      "sha256": "cdb61685f04b76c71585ba22283b324191d894f05076df0a2db924fb2746c21f",
+      "source_sha256": "72ea52bdc0efd5af0a0c3ce6fbf0751fba7121f00429950c602d0ee8fc3e9614",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "e98e69300bcab8e1be6d3baa7c80bf56381692dd",
+        "previous_packaged_sha256": "72ea52bdc0efd5af0a0c3ce6fbf0751fba7121f00429950c602d0ee8fc3e9614",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/account/de.json",
-      "bytes": 7803,
-      "sha256": "5d8bf71e88029203ecd7250fb47dec74a76b04429c7628f3822db77b615c76b4",
-      "source_sha256": "5d8bf71e88029203ecd7250fb47dec74a76b04429c7628f3822db77b615c76b4"
+      "bytes": 7802,
+      "sha256": "10da26194d725fb76a3590235b47ffb681e931352ec67f9a47aa3d98c3c063d7",
+      "source_sha256": "5d8bf71e88029203ecd7250fb47dec74a76b04429c7628f3822db77b615c76b4",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "de960caf39d6705951d7cc4b73fe8f626aa58d9f",
+        "previous_packaged_sha256": "5d8bf71e88029203ecd7250fb47dec74a76b04429c7628f3822db77b615c76b4",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/account/en.json",
@@ -3948,33 +4280,63 @@
     },
     {
       "path": "web/messages/account/es.json",
-      "bytes": 7710,
-      "sha256": "8740df469004bb5153ef59de76c83aef4c164b0c9c5424e548b6a66e2a4043c0",
-      "source_sha256": "8740df469004bb5153ef59de76c83aef4c164b0c9c5424e548b6a66e2a4043c0"
+      "bytes": 7711,
+      "sha256": "a8e558fd3023e757d1ec7130cf98a904880342da10810237c8754f650b9aae42",
+      "source_sha256": "8740df469004bb5153ef59de76c83aef4c164b0c9c5424e548b6a66e2a4043c0",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "4a5510fc4e28032f8c1dd914e7c9a04fffe28810",
+        "previous_packaged_sha256": "8740df469004bb5153ef59de76c83aef4c164b0c9c5424e548b6a66e2a4043c0",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/account/fr.json",
-      "bytes": 8168,
-      "sha256": "ecf746228a30fc4af0d775bd333de56e513a7f1515c8ccfc04b13def8ce0a719",
-      "source_sha256": "ecf746228a30fc4af0d775bd333de56e513a7f1515c8ccfc04b13def8ce0a719"
+      "bytes": 8171,
+      "sha256": "f566c728cf686700deabe472fe79f44b9dfe9aaf4b79827a10566da6d4cfcbb6",
+      "source_sha256": "ecf746228a30fc4af0d775bd333de56e513a7f1515c8ccfc04b13def8ce0a719",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "90b403fc31269d07ec0ba86442181162782d50d9",
+        "previous_packaged_sha256": "ecf746228a30fc4af0d775bd333de56e513a7f1515c8ccfc04b13def8ce0a719",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/account/hi.json",
-      "bytes": 12042,
-      "sha256": "3ccba02396d77b61fdf9272a322a5330c861d87bfcfd803be9c73ce688184c78",
-      "source_sha256": "3ccba02396d77b61fdf9272a322a5330c861d87bfcfd803be9c73ce688184c78"
+      "bytes": 12028,
+      "sha256": "da354cbd6006f2eaf5f6a3a0a6301380578372bda5953e7940c6d756bef45448",
+      "source_sha256": "3ccba02396d77b61fdf9272a322a5330c861d87bfcfd803be9c73ce688184c78",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "b8f515a52f6987b33abd28b5ea31d59a758c8e08",
+        "previous_packaged_sha256": "3ccba02396d77b61fdf9272a322a5330c861d87bfcfd803be9c73ce688184c78",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/account/it.json",
-      "bytes": 7532,
-      "sha256": "5b301d481c4e496a18f6d8d0fab030f137f313be7e3e23acef675d98ecf9e920",
-      "source_sha256": "5b301d481c4e496a18f6d8d0fab030f137f313be7e3e23acef675d98ecf9e920"
+      "bytes": 7528,
+      "sha256": "eeb7648ac614aacc4697bbc9a847b0e071726a369604faaf1023874d845914ef",
+      "source_sha256": "5b301d481c4e496a18f6d8d0fab030f137f313be7e3e23acef675d98ecf9e920",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "9f6bf020afb1f3fb36206dd9150952a0781bd545",
+        "previous_packaged_sha256": "5b301d481c4e496a18f6d8d0fab030f137f313be7e3e23acef675d98ecf9e920",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/account/ja.json",
-      "bytes": 8472,
-      "sha256": "4f4f4048c4397d2ae2a6206dbb35c69b4e7ba7256461028d5acd8d30d181d99f",
-      "source_sha256": "4f4f4048c4397d2ae2a6206dbb35c69b4e7ba7256461028d5acd8d30d181d99f"
+      "bytes": 8478,
+      "sha256": "d23a2d8ed80cac50a1918fcf0dc6ca9d8a9eb8f6583980afb2be514e056abbb3",
+      "source_sha256": "4f4f4048c4397d2ae2a6206dbb35c69b4e7ba7256461028d5acd8d30d181d99f",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "32ad2566ec5b0cf356b407e1d2835cd2efc7698f",
+        "previous_packaged_sha256": "4f4f4048c4397d2ae2a6206dbb35c69b4e7ba7256461028d5acd8d30d181d99f",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/account/pt.json",
@@ -3984,33 +4346,63 @@
     },
     {
       "path": "web/messages/account/ru.json",
-      "bytes": 10401,
-      "sha256": "e07a6ef1432b6691ac78bdea9352781b2742a0f8216a9b5a0d3adb8d1c8c670a",
-      "source_sha256": "e07a6ef1432b6691ac78bdea9352781b2742a0f8216a9b5a0d3adb8d1c8c670a"
+      "bytes": 10409,
+      "sha256": "4fa413ed5a908bd178e55f6d5abae9ed1427cafc9e1c164726ae1e17a63ca8ab",
+      "source_sha256": "e07a6ef1432b6691ac78bdea9352781b2742a0f8216a9b5a0d3adb8d1c8c670a",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "473647981004982cc22426dc06afae123d89591b",
+        "previous_packaged_sha256": "e07a6ef1432b6691ac78bdea9352781b2742a0f8216a9b5a0d3adb8d1c8c670a",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/account/tr.json",
-      "bytes": 7481,
-      "sha256": "dd4509682efba0b2a6c59d93aa38d056f4da098754fdb8d383d7b71243bf5861",
-      "source_sha256": "dd4509682efba0b2a6c59d93aa38d056f4da098754fdb8d383d7b71243bf5861"
+      "bytes": 7465,
+      "sha256": "124426e76f61f67c459e426469c8ce85ad649f673bdb43147abdb7a7af5901d8",
+      "source_sha256": "dd4509682efba0b2a6c59d93aa38d056f4da098754fdb8d383d7b71243bf5861",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "2dea00f094644a79386d9d2f4338ba86a5a6539f",
+        "previous_packaged_sha256": "dd4509682efba0b2a6c59d93aa38d056f4da098754fdb8d383d7b71243bf5861",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/account/zh-Hans.json",
-      "bytes": 6630,
-      "sha256": "4145158996a67bc9489490969906db9b62937aec188870c8e43a588b6186ce52",
-      "source_sha256": "4145158996a67bc9489490969906db9b62937aec188870c8e43a588b6186ce52"
+      "bytes": 6618,
+      "sha256": "ee56717a673bc982acb1f857c450663744e84ab368f2fb6d9248fe7de45baf8f",
+      "source_sha256": "4145158996a67bc9489490969906db9b62937aec188870c8e43a588b6186ce52",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "3b4d4acebab6b6ee27cdb714c629aca1bd66e7de",
+        "previous_packaged_sha256": "4145158996a67bc9489490969906db9b62937aec188870c8e43a588b6186ce52",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ar.json",
-      "bytes": 126877,
-      "sha256": "717e4c7edb0e7182e34e06e084206d904512ba71ceb61a0021bd64f70bd6ed5a",
-      "source_sha256": "717e4c7edb0e7182e34e06e084206d904512ba71ceb61a0021bd64f70bd6ed5a"
+      "bytes": 126299,
+      "sha256": "ca19a4b111a7795e282ee8b3b231a1dc9df0899572a52be452f2a646cc446f63",
+      "source_sha256": "717e4c7edb0e7182e34e06e084206d904512ba71ceb61a0021bd64f70bd6ed5a",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "5c8afe444ef01d23a6815970a9e6f7ae74a37c33",
+        "previous_packaged_sha256": "717e4c7edb0e7182e34e06e084206d904512ba71ceb61a0021bd64f70bd6ed5a",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ask/ar.json",
-      "bytes": 3797,
-      "sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
-      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d"
+      "bytes": 5771,
+      "sha256": "f9054c006728f823746abfd7d24be2de7975ec2ff33ead8b24a46d497c70b1a6",
+      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "0aa3b00a3276a30a07a284ddd515f10c92633af0",
+        "previous_packaged_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ask/de.json",
@@ -4026,63 +4418,123 @@
     },
     {
       "path": "web/messages/ask/es.json",
-      "bytes": 3797,
-      "sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
-      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d"
+      "bytes": 4201,
+      "sha256": "3cfac1d16762542935d0b901c92842b7d0114faf8836e06c5849d1a732e6ae55",
+      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "5b4647fcdc2b1bccc35c44fc3198a72a1e99c636",
+        "previous_packaged_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ask/fr.json",
-      "bytes": 3797,
-      "sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
-      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d"
+      "bytes": 4422,
+      "sha256": "ca8ea7ffebb5bd4f5384475203fb7a55b65132bbb59e78966ad9613a09a98402",
+      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "7e09f4b1de8663098b4f3e06208464e9bdd5d6e4",
+        "previous_packaged_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ask/hi.json",
-      "bytes": 3797,
-      "sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
-      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d"
+      "bytes": 7477,
+      "sha256": "b65f90e4bca17ab46dde83af364f3d45d1464599d2c44a2f0266da4ea32399dd",
+      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "e9bf6fe2a3666f905bccedcc76d0445c76b86aa1",
+        "previous_packaged_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ask/it.json",
-      "bytes": 3797,
-      "sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
-      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d"
+      "bytes": 4256,
+      "sha256": "b51c84a712c0b8c4fc20d06692494d88bab7248b88a11e31920b294a286f5c8c",
+      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "2fda6b45095ee4938f2a04f208b1d98594cf657b",
+        "previous_packaged_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ask/ja.json",
-      "bytes": 3797,
-      "sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
-      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d"
+      "bytes": 5024,
+      "sha256": "95245de8f8f4decaba16c7e9fe31871e6cd387a39b6e36bccbb6c3b9cb3ba3c3",
+      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "7ae9ba42abca307b1e18012bbcf4c9013a1189e3",
+        "previous_packaged_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ask/pt.json",
-      "bytes": 3797,
-      "sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
-      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d"
+      "bytes": 4162,
+      "sha256": "cd22e8b835456d8d28f4fc84b1e85ccf49ad4bd9fa80aa747b66f78e31382c38",
+      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "163b5eb75fdb499e2b6d6d51b169a0331a062ef7",
+        "previous_packaged_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ask/ru.json",
-      "bytes": 3797,
-      "sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
-      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d"
+      "bytes": 6552,
+      "sha256": "af666db9b1ffe4536ccafc127253e62485ab521ca64c6730ce63df083bd8cac2",
+      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "92848503e9e9ce5187bc6945af76cfe1d477a628",
+        "previous_packaged_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ask/tr.json",
-      "bytes": 3797,
-      "sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
-      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d"
+      "bytes": 4670,
+      "sha256": "26cc924d704b5168814ac067eeec29270ab885d5ab6c7d7bcbbaa6a228ff064b",
+      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "12e2d44b7855013668df6427c8980523728bd5a4",
+        "previous_packaged_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ask/zh-Hans.json",
-      "bytes": 3797,
-      "sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
-      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d"
+      "bytes": 4099,
+      "sha256": "c216f85b10ce109454227fffaed0603d48e281b998db28c327d7790c650075c8",
+      "source_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "fd76760dcb60afa296692fe4aa83010b0098952e",
+        "previous_packaged_sha256": "cdfc4410b153690e830684bb6980e5f479b36e7d56cd6a4b132d4494883c283d",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/contribute/ar.json",
-      "bytes": 5414,
-      "sha256": "c7cc2d42050ce8ab6dcf5e7df9829020ea9069489e4826c8e85a101c452a29fd",
-      "source_sha256": "c7cc2d42050ce8ab6dcf5e7df9829020ea9069489e4826c8e85a101c452a29fd"
+      "bytes": 5834,
+      "sha256": "d9e475826fce819502d28dfeef0675d40a82342edb1b93c0f8cb29c53d8f59e2",
+      "source_sha256": "c7cc2d42050ce8ab6dcf5e7df9829020ea9069489e4826c8e85a101c452a29fd",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "3d2d9de77f71cf172c3bd0483f8b83e7a7cdc5f9",
+        "previous_packaged_sha256": "c7cc2d42050ce8ab6dcf5e7df9829020ea9069489e4826c8e85a101c452a29fd",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/contribute/de.json",
@@ -4098,57 +4550,111 @@
     },
     {
       "path": "web/messages/contribute/es.json",
-      "bytes": 4860,
-      "sha256": "2c79858a5f69c375a458ff1cf629cd47f14f89436c7c7def26885dafa74a3cae",
-      "source_sha256": "2c79858a5f69c375a458ff1cf629cd47f14f89436c7c7def26885dafa74a3cae"
+      "bytes": 5037,
+      "sha256": "f0a3deb640f703cba5c2224d84d11acc6024884e112bf114f72f60fc7c63f831",
+      "source_sha256": "2c79858a5f69c375a458ff1cf629cd47f14f89436c7c7def26885dafa74a3cae",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "ff52d1b8ecaba948a25b5e9d66c80eaf532407ab",
+        "previous_packaged_sha256": "2c79858a5f69c375a458ff1cf629cd47f14f89436c7c7def26885dafa74a3cae",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/contribute/fr.json",
-      "bytes": 4974,
-      "sha256": "6a416f36bcf0fc80ed6608b3ab2d87dc463f1f08d0d66fa8579928779c0e0f72",
-      "source_sha256": "6a416f36bcf0fc80ed6608b3ab2d87dc463f1f08d0d66fa8579928779c0e0f72"
+      "bytes": 5198,
+      "sha256": "8b70049de95b9c8af29a478270ac6963f128427e2e8b5dc0c67ecbec721e31a9",
+      "source_sha256": "6a416f36bcf0fc80ed6608b3ab2d87dc463f1f08d0d66fa8579928779c0e0f72",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "2ad66a5213416974f575f516fdd7fba5ba068df4",
+        "previous_packaged_sha256": "6a416f36bcf0fc80ed6608b3ab2d87dc463f1f08d0d66fa8579928779c0e0f72",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/contribute/hi.json",
-      "bytes": 7651,
-      "sha256": "4eaab073de0d030573736bf5c8da7105a1f6505c9fcd192e87f146a815d2c2d5",
-      "source_sha256": "4eaab073de0d030573736bf5c8da7105a1f6505c9fcd192e87f146a815d2c2d5"
+      "bytes": 8661,
+      "sha256": "8e1a141ca0d132f2c6f30b832258f5fd154ef6e62bd828012713217aad827a56",
+      "source_sha256": "4eaab073de0d030573736bf5c8da7105a1f6505c9fcd192e87f146a815d2c2d5",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "e53a64b8ed928f69e383cd6c395045de8c718bf8",
+        "previous_packaged_sha256": "4eaab073de0d030573736bf5c8da7105a1f6505c9fcd192e87f146a815d2c2d5",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/contribute/it.json",
-      "bytes": 4780,
-      "sha256": "2a356183ec8a38889d5b8c5fb90f022c76f2a6f0e0a947b82d5b1cb8e46dc58c",
-      "source_sha256": "2a356183ec8a38889d5b8c5fb90f022c76f2a6f0e0a947b82d5b1cb8e46dc58c"
+      "bytes": 4952,
+      "sha256": "d752b60240fc5359aabb18325720b4870c7259f352763df2368ee73d5e07312c",
+      "source_sha256": "2a356183ec8a38889d5b8c5fb90f022c76f2a6f0e0a947b82d5b1cb8e46dc58c",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "acea41ee3c278f3b00cc62f6af4668823ee44f27",
+        "previous_packaged_sha256": "2a356183ec8a38889d5b8c5fb90f022c76f2a6f0e0a947b82d5b1cb8e46dc58c",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/contribute/ja.json",
-      "bytes": 5197,
-      "sha256": "5096994d4841a66e66468259a42afefe62bfad48036e0a9f1a2edeb98733fec8",
-      "source_sha256": "5096994d4841a66e66468259a42afefe62bfad48036e0a9f1a2edeb98733fec8"
+      "bytes": 5489,
+      "sha256": "09588455d37ca64e66f753d1554fb8308880d2f52d3cdf55dc75af7d81af4b03",
+      "source_sha256": "5096994d4841a66e66468259a42afefe62bfad48036e0a9f1a2edeb98733fec8",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "6186e436491e0abafa9d71d135d8add8a28bf11a",
+        "previous_packaged_sha256": "5096994d4841a66e66468259a42afefe62bfad48036e0a9f1a2edeb98733fec8",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/contribute/pt.json",
-      "bytes": 4707,
-      "sha256": "568d978399267d3683f39d58f353e563b5dc38ae4fcbef6aa657dcfcb5d04189",
-      "source_sha256": "568d978399267d3683f39d58f353e563b5dc38ae4fcbef6aa657dcfcb5d04189"
+      "bytes": 4902,
+      "sha256": "749a1832554477c9003ec081cccf531d516881c921cd2c4a98a77b8df08bb6c8",
+      "source_sha256": "568d978399267d3683f39d58f353e563b5dc38ae4fcbef6aa657dcfcb5d04189",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "b75d0bcec203905b5fc953cbc01128cc2c5966ed",
+        "previous_packaged_sha256": "568d978399267d3683f39d58f353e563b5dc38ae4fcbef6aa657dcfcb5d04189",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/contribute/ru.json",
-      "bytes": 6729,
-      "sha256": "0b889ec4736a5e4c8b3758a7bb75e7dd9fb49d6c7aa499f47f780c66f874b417",
-      "source_sha256": "0b889ec4736a5e4c8b3758a7bb75e7dd9fb49d6c7aa499f47f780c66f874b417"
+      "bytes": 7431,
+      "sha256": "5ac6b45a6dfbde6269aa98a1c23ebe815725b11cda7ef88779cb37f713600da3",
+      "source_sha256": "0b889ec4736a5e4c8b3758a7bb75e7dd9fb49d6c7aa499f47f780c66f874b417",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "94b5efa980ee3cbb30399bf55ef0e61343747b15",
+        "previous_packaged_sha256": "0b889ec4736a5e4c8b3758a7bb75e7dd9fb49d6c7aa499f47f780c66f874b417",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/contribute/tr.json",
-      "bytes": 4826,
-      "sha256": "129a0dc2ecbb7bc21ea0c48f972a452eeb3b27ab31509d3ff5ca33103e32c5de",
-      "source_sha256": "129a0dc2ecbb7bc21ea0c48f972a452eeb3b27ab31509d3ff5ca33103e32c5de"
+      "bytes": 5010,
+      "sha256": "ba678b4cd3c3838775f7a05d5be8343865bd19b6c5a1bfefdebe3fc3225df9ea",
+      "source_sha256": "129a0dc2ecbb7bc21ea0c48f972a452eeb3b27ab31509d3ff5ca33103e32c5de",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "c83aa53519d437fc9609223a080012fdb870bacf",
+        "previous_packaged_sha256": "129a0dc2ecbb7bc21ea0c48f972a452eeb3b27ab31509d3ff5ca33103e32c5de",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/contribute/zh-Hans.json",
-      "bytes": 4413,
-      "sha256": "50447a58c9c04e00f31cca6e9e465cae413f9282b5a7fe510a68450c6788e343",
-      "source_sha256": "50447a58c9c04e00f31cca6e9e465cae413f9282b5a7fe510a68450c6788e343"
+      "bytes": 4488,
+      "sha256": "6f5fab9f90b5a334a36c42c384dd05260323e9c80c8c1f600f6c4e04d01d9b8b",
+      "source_sha256": "50447a58c9c04e00f31cca6e9e465cae413f9282b5a7fe510a68450c6788e343",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "aa51049653c09f85ca4fd57320f7ba987349c6f3",
+        "previous_packaged_sha256": "50447a58c9c04e00f31cca6e9e465cae413f9282b5a7fe510a68450c6788e343",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/d30/en.json",
@@ -4158,129 +4664,255 @@
     },
     {
       "path": "web/messages/de.json",
-      "bytes": 126155,
-      "sha256": "fac87c72600d4a12b4e6a45a98f0822fc566bf1f28dd9f65063ce3ec3046b350",
-      "source_sha256": "fac87c72600d4a12b4e6a45a98f0822fc566bf1f28dd9f65063ce3ec3046b350"
+      "bytes": 105669,
+      "sha256": "ff17e865b86b1e8858187f7012eda0217b20bf0a2d5e45aaece41a2ac59babf5",
+      "source_sha256": "fac87c72600d4a12b4e6a45a98f0822fc566bf1f28dd9f65063ce3ec3046b350",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "546fc63579604ee1de0e0865500e342078968168",
+        "previous_packaged_sha256": "fac87c72600d4a12b4e6a45a98f0822fc566bf1f28dd9f65063ce3ec3046b350",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/en.json",
-      "bytes": 93935,
-      "sha256": "ddbf480c1429b55f056c60975063b59dd08ba99d74bbd5afd32cec3b49a0a1f0",
-      "source_sha256": "ddbf480c1429b55f056c60975063b59dd08ba99d74bbd5afd32cec3b49a0a1f0"
+      "bytes": 93246,
+      "sha256": "b6d5def705992572d8683244c38e012e39305fdb4bdc3904852390a16f170dce",
+      "source_sha256": "ddbf480c1429b55f056c60975063b59dd08ba99d74bbd5afd32cec3b49a0a1f0",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "09f0f904da025bbf8deaf695f72f5b3483e63cca",
+        "previous_packaged_sha256": "ddbf480c1429b55f056c60975063b59dd08ba99d74bbd5afd32cec3b49a0a1f0",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/es.json",
-      "bytes": 125734,
-      "sha256": "54e53085e0b43f8c011682047d5763ccc5ca2f81603938f169d04c7e4ea1ca6e",
-      "source_sha256": "54e53085e0b43f8c011682047d5763ccc5ca2f81603938f169d04c7e4ea1ca6e"
+      "bytes": 102759,
+      "sha256": "80439bb386e87f971e0cdb226aa1a96c99e5c846160870e5dd452078bb2ae523",
+      "source_sha256": "54e53085e0b43f8c011682047d5763ccc5ca2f81603938f169d04c7e4ea1ca6e",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "7bde96b16880a557ddb8b6ce36362a8a9eda8133",
+        "previous_packaged_sha256": "54e53085e0b43f8c011682047d5763ccc5ca2f81603938f169d04c7e4ea1ca6e",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/fr.json",
-      "bytes": 126986,
-      "sha256": "245bfcf83255254c953b51a6bb642604fd6a9354b855b13df601f25c09b92bf3",
-      "source_sha256": "245bfcf83255254c953b51a6bb642604fd6a9354b855b13df601f25c09b92bf3"
+      "bytes": 107606,
+      "sha256": "278b258a8a4db40ff6303e5872e48f9f6ed42525947081c49546d88341184f52",
+      "source_sha256": "245bfcf83255254c953b51a6bb642604fd6a9354b855b13df601f25c09b92bf3",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "a273f5dc7ce971d49d84fc492eb0b6e858c4df17",
+        "previous_packaged_sha256": "245bfcf83255254c953b51a6bb642604fd6a9354b855b13df601f25c09b92bf3",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/hi.json",
-      "bytes": 174150,
-      "sha256": "3ddd355937463afb9786ebaaed989d96f1a3386e97b822df77b16639d3e2e23c",
-      "source_sha256": "3ddd355937463afb9786ebaaed989d96f1a3386e97b822df77b16639d3e2e23c"
+      "bytes": 174049,
+      "sha256": "6f8430a8cfa382f3f93eb3ae9a0df3594f6b1d7015064ebb8112610d052b74ba",
+      "source_sha256": "3ddd355937463afb9786ebaaed989d96f1a3386e97b822df77b16639d3e2e23c",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "1b0fd5950afd71e125a78f8c71a5ff93deb4858e",
+        "previous_packaged_sha256": "3ddd355937463afb9786ebaaed989d96f1a3386e97b822df77b16639d3e2e23c",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/it.json",
-      "bytes": 125444,
-      "sha256": "ac69517e76ca8bf41f8637409c41ba4be8ceeb31c12b93fc1061cfb19b8148e2",
-      "source_sha256": "ac69517e76ca8bf41f8637409c41ba4be8ceeb31c12b93fc1061cfb19b8148e2"
+      "bytes": 101373,
+      "sha256": "ca6494ed5d20e7bced717e150f0aa0d92274904173c1ee7bcb0b502f32be9f38",
+      "source_sha256": "ac69517e76ca8bf41f8637409c41ba4be8ceeb31c12b93fc1061cfb19b8148e2",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "7aad1ce2ee36404cf3e559169dc54badc5f95881",
+        "previous_packaged_sha256": "ac69517e76ca8bf41f8637409c41ba4be8ceeb31c12b93fc1061cfb19b8148e2",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ja.json",
-      "bytes": 110342,
-      "sha256": "e2db5494f5caecc482d4e6d936207788342cfeded425874ef1c17761c6b51510",
-      "source_sha256": "e2db5494f5caecc482d4e6d936207788342cfeded425874ef1c17761c6b51510"
+      "bytes": 109998,
+      "sha256": "1508056302ecaf1349cef1e3f00f085aa5018f47e14eef2d7286386d4c633fcf",
+      "source_sha256": "e2db5494f5caecc482d4e6d936207788342cfeded425874ef1c17761c6b51510",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "56b684cb8422103df1b2f04b3c26001fd33df5e5",
+        "previous_packaged_sha256": "e2db5494f5caecc482d4e6d936207788342cfeded425874ef1c17761c6b51510",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/pt.json",
-      "bytes": 125234,
-      "sha256": "059874e298424999b017e382369f5c0ebc933cd5e4c91059feb5399e547feedb",
-      "source_sha256": "059874e298424999b017e382369f5c0ebc933cd5e4c91059feb5399e547feedb"
+      "bytes": 102319,
+      "sha256": "ff63aac33af30866d9b19f4426de1fa7c125b9491ad8cb378bb9a9c5bc40c913",
+      "source_sha256": "059874e298424999b017e382369f5c0ebc933cd5e4c91059feb5399e547feedb",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "27291f3bb4bcada9695357c4180fa8c1d2e48301",
+        "previous_packaged_sha256": "059874e298424999b017e382369f5c0ebc933cd5e4c91059feb5399e547feedb",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/query-graph/ar.json",
-      "bytes": 3491,
-      "sha256": "5dfa13a0f2eaf87abd7aa3fc183a2e01094e392c628f89b55affd02a83ecab91",
-      "source_sha256": "5dfa13a0f2eaf87abd7aa3fc183a2e01094e392c628f89b55affd02a83ecab91"
+      "bytes": 3552,
+      "sha256": "da52e520b5713e2461f4553074e3bf577808aeaec4850c78d8fe4f1e8f96594e",
+      "source_sha256": "5dfa13a0f2eaf87abd7aa3fc183a2e01094e392c628f89b55affd02a83ecab91",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "786b873309d4c2a6bae5108888d5b051fd5c9ebf",
+        "previous_packaged_sha256": "5dfa13a0f2eaf87abd7aa3fc183a2e01094e392c628f89b55affd02a83ecab91",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/query-graph/de.json",
-      "bytes": 3055,
-      "sha256": "eece958991c23db7f03a915dba959bf76805a613bc7f6ffd7aeba7e8ebeced72",
-      "source_sha256": "eece958991c23db7f03a915dba959bf76805a613bc7f6ffd7aeba7e8ebeced72"
+      "bytes": 3100,
+      "sha256": "734a7c6d171815fbf1a7b55edafcc23aa3ea8710625b60ce996ea3de6819126c",
+      "source_sha256": "eece958991c23db7f03a915dba959bf76805a613bc7f6ffd7aeba7e8ebeced72",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "88d7d63fde18bfab547f819d7154f5c61385b34d",
+        "previous_packaged_sha256": "eece958991c23db7f03a915dba959bf76805a613bc7f6ffd7aeba7e8ebeced72",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/query-graph/en.json",
-      "bytes": 2779,
-      "sha256": "e1a4e47b08b12ae9d04418f0afa7c81a3c7618406ff64b853636e98c54c5430e",
-      "source_sha256": "e1a4e47b08b12ae9d04418f0afa7c81a3c7618406ff64b853636e98c54c5430e"
+      "bytes": 2823,
+      "sha256": "6c98c7d8de3a9e235ec1a1488858ba7685975ccd6cd738b6b51eed13f09387a6",
+      "source_sha256": "e1a4e47b08b12ae9d04418f0afa7c81a3c7618406ff64b853636e98c54c5430e",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "6a545dd001bce532b7eb4b0fa8922c99714224c3",
+        "previous_packaged_sha256": "e1a4e47b08b12ae9d04418f0afa7c81a3c7618406ff64b853636e98c54c5430e",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/query-graph/es.json",
-      "bytes": 3064,
-      "sha256": "f9d1d2736e9127e112776eaa6471b6daed37eb23dc831035d5eac12b2984ac90",
-      "source_sha256": "f9d1d2736e9127e112776eaa6471b6daed37eb23dc831035d5eac12b2984ac90"
+      "bytes": 3108,
+      "sha256": "a658ea34c09a9818530a551cc838543425d7dc948e4aed2f32ed11cddd7c7cf0",
+      "source_sha256": "f9d1d2736e9127e112776eaa6471b6daed37eb23dc831035d5eac12b2984ac90",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "62241ec5b713724de81fa219568e172a8aaf4c77",
+        "previous_packaged_sha256": "f9d1d2736e9127e112776eaa6471b6daed37eb23dc831035d5eac12b2984ac90",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/query-graph/fr.json",
-      "bytes": 3099,
-      "sha256": "a5cb7ec7043dd19a2c8dfc4d34ee71da2e466b08aa0b198bffcc2541d9dd6def",
-      "source_sha256": "a5cb7ec7043dd19a2c8dfc4d34ee71da2e466b08aa0b198bffcc2541d9dd6def"
+      "bytes": 3144,
+      "sha256": "11e52b5c99c254a196082664305ddf2d57aeccf7a0a834d8428c84e5a737409f",
+      "source_sha256": "a5cb7ec7043dd19a2c8dfc4d34ee71da2e466b08aa0b198bffcc2541d9dd6def",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "05cad4eb11907defd6a5d60b49364a21cc8f8afc",
+        "previous_packaged_sha256": "a5cb7ec7043dd19a2c8dfc4d34ee71da2e466b08aa0b198bffcc2541d9dd6def",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/query-graph/hi.json",
-      "bytes": 4506,
-      "sha256": "d375edcb8a07a354c9acfb08d16769f2e44ea581bfe9d1c526b47325c3932635",
-      "source_sha256": "d375edcb8a07a354c9acfb08d16769f2e44ea581bfe9d1c526b47325c3932635"
+      "bytes": 4574,
+      "sha256": "9506ae84d92c9540c8ab5aa6b9eba797e0d95fc0e0ddb7bacdb77aef7ccc3360",
+      "source_sha256": "d375edcb8a07a354c9acfb08d16769f2e44ea581bfe9d1c526b47325c3932635",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "0a0a5f95c16f81584de0ae8e68a3ae81b042c770",
+        "previous_packaged_sha256": "d375edcb8a07a354c9acfb08d16769f2e44ea581bfe9d1c526b47325c3932635",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/query-graph/it.json",
-      "bytes": 3033,
-      "sha256": "2a494fa225488d445eded0a6957d2cfec48c24d3615207afab7bd1783f2822dd",
-      "source_sha256": "2a494fa225488d445eded0a6957d2cfec48c24d3615207afab7bd1783f2822dd"
+      "bytes": 3077,
+      "sha256": "49af3c454a6fe8f5050febc603c0c497fd079047f7b10f82afdf7612a7c8dff1",
+      "source_sha256": "2a494fa225488d445eded0a6957d2cfec48c24d3615207afab7bd1783f2822dd",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "f3d2a9713237921191f6a5ced8f0af20424ed583",
+        "previous_packaged_sha256": "2a494fa225488d445eded0a6957d2cfec48c24d3615207afab7bd1783f2822dd",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/query-graph/ja.json",
-      "bytes": 3055,
-      "sha256": "63c3ec0dbf6528d514056dd45c81f11cd3746f87fdefb2910abacc9574b42268",
-      "source_sha256": "63c3ec0dbf6528d514056dd45c81f11cd3746f87fdefb2910abacc9574b42268"
+      "bytes": 3113,
+      "sha256": "4f4d6f9d5b09317369b97c03e10f61e7490670a83e50f8cd12ada58d7c0dfd9e",
+      "source_sha256": "63c3ec0dbf6528d514056dd45c81f11cd3746f87fdefb2910abacc9574b42268",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "3bacf68b95549a393f42c8c6c01d10757f05dd01",
+        "previous_packaged_sha256": "63c3ec0dbf6528d514056dd45c81f11cd3746f87fdefb2910abacc9574b42268",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/query-graph/pt.json",
-      "bytes": 3026,
-      "sha256": "daeb0413614290888abf76b47a9d1a9b66692aa9766c02d36393486377c9971d",
-      "source_sha256": "daeb0413614290888abf76b47a9d1a9b66692aa9766c02d36393486377c9971d"
+      "bytes": 3070,
+      "sha256": "931831ccfb2298021ac4439f5e5386b12aae663397678d632a7cf88cd0602b1b",
+      "source_sha256": "daeb0413614290888abf76b47a9d1a9b66692aa9766c02d36393486377c9971d",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "aaf521dc2a8d4e6d51d3b41e27e787edc326fbaa",
+        "previous_packaged_sha256": "daeb0413614290888abf76b47a9d1a9b66692aa9766c02d36393486377c9971d",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/query-graph/ru.json",
-      "bytes": 4821,
-      "sha256": "5c6847600b5d5ccacf926b8db4fe8a79f1ef217a797196e8766905996e0a372a",
-      "source_sha256": "5c6847600b5d5ccacf926b8db4fe8a79f1ef217a797196e8766905996e0a372a"
+      "bytes": 4888,
+      "sha256": "1c57c3434f109f2d948b7a2640cc4f8e6309fc7f7e73c3cf93d7a31b8c936da0",
+      "source_sha256": "5c6847600b5d5ccacf926b8db4fe8a79f1ef217a797196e8766905996e0a372a",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "58ca57abac5793a97341bf0da91a263c22b8a361",
+        "previous_packaged_sha256": "5c6847600b5d5ccacf926b8db4fe8a79f1ef217a797196e8766905996e0a372a",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/query-graph/tr.json",
-      "bytes": 2942,
-      "sha256": "5a6971eb234c0ed26b40a37f1b8b15b3268083d18e300b75bbf3f16043a856ff",
-      "source_sha256": "5a6971eb234c0ed26b40a37f1b8b15b3268083d18e300b75bbf3f16043a856ff"
+      "bytes": 3003,
+      "sha256": "ae99ddddae933467b50ed3feca7fb1e37fa31ec7cca9b84002b0178101f5bada",
+      "source_sha256": "5a6971eb234c0ed26b40a37f1b8b15b3268083d18e300b75bbf3f16043a856ff",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "a25fcccdbeda2683585af001a6140b4d9e9649cc",
+        "previous_packaged_sha256": "5a6971eb234c0ed26b40a37f1b8b15b3268083d18e300b75bbf3f16043a856ff",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/query-graph/zh-Hans.json",
-      "bytes": 2757,
-      "sha256": "e91a523066acfb2a3aec6c955fd20ff2529ff083526ce6f32be7061d3dc78136",
-      "source_sha256": "e91a523066acfb2a3aec6c955fd20ff2529ff083526ce6f32be7061d3dc78136"
+      "bytes": 2815,
+      "sha256": "42ad7c7860db319635bf53d5a8f8d771a491260a0a6d27a52440c6ccd0fc9855",
+      "source_sha256": "e91a523066acfb2a3aec6c955fd20ff2529ff083526ce6f32be7061d3dc78136",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "fa16269c7752a47ab5340cf3ebcd8895f4e735b8",
+        "previous_packaged_sha256": "e91a523066acfb2a3aec6c955fd20ff2529ff083526ce6f32be7061d3dc78136",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/ru.json",
-      "bytes": 147715,
-      "sha256": "e2acdac59328d78503818367475d882a46721663913b6293424d7d992c766d92",
-      "source_sha256": "e2acdac59328d78503818367475d882a46721663913b6293424d7d992c766d92"
+      "bytes": 147089,
+      "sha256": "62443927654dcd6797316356cdfac359a28938f9c4f64964c6ed0cefc0515a6a",
+      "source_sha256": "e2acdac59328d78503818367475d882a46721663913b6293424d7d992c766d92",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "c899385514d79559832bc44935dc3ddf8cca9c19",
+        "previous_packaged_sha256": "e2acdac59328d78503818367475d882a46721663913b6293424d7d992c766d92",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/search/ar.json",
@@ -4356,87 +4988,171 @@
     },
     {
       "path": "web/messages/tr.json",
-      "bytes": 102493,
-      "sha256": "84dd37b1aae28d5848dc22d5769e3cd6beb7aa210d4bc3b5975fa0c6d517d46d",
-      "source_sha256": "84dd37b1aae28d5848dc22d5769e3cd6beb7aa210d4bc3b5975fa0c6d517d46d"
+      "bytes": 101952,
+      "sha256": "fbf700f8978ea3c878bb979bfbaeacf95d118f9f24bd66c3e43cf68ebf6c410a",
+      "source_sha256": "84dd37b1aae28d5848dc22d5769e3cd6beb7aa210d4bc3b5975fa0c6d517d46d",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "ef8216a515b65d846c7d791682d95a1715b045f2",
+        "previous_packaged_sha256": "84dd37b1aae28d5848dc22d5769e3cd6beb7aa210d4bc3b5975fa0c6d517d46d",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zebra/ar.json",
-      "bytes": 198,
-      "sha256": "9b04d6e1c8754c9fec2d67ced9679b0ade55d0155543975135e58d5d8a410246",
-      "source_sha256": "9b04d6e1c8754c9fec2d67ced9679b0ade55d0155543975135e58d5d8a410246"
+      "bytes": 67989,
+      "sha256": "021f7ac80de0218e31209b72f434dec4bb8d80be07d9b18fe217f9b86168dcc7",
+      "source_sha256": "9b04d6e1c8754c9fec2d67ced9679b0ade55d0155543975135e58d5d8a410246",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "25c665b946537732c2a926c29e98a44999d5c071",
+        "previous_packaged_sha256": "9b04d6e1c8754c9fec2d67ced9679b0ade55d0155543975135e58d5d8a410246",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zebra/de.json",
-      "bytes": 42708,
-      "sha256": "bb42096b6165d46f39a82aaca0fff9dd727b062ad8e86c6772b0833222b33b19",
-      "source_sha256": "bb42096b6165d46f39a82aaca0fff9dd727b062ad8e86c6772b0833222b33b19"
+      "bytes": 58501,
+      "sha256": "96be1bf06f39e31cf6eed179db2e37c539fd7050b0ac3ef9500172e21266c8d7",
+      "source_sha256": "bb42096b6165d46f39a82aaca0fff9dd727b062ad8e86c6772b0833222b33b19",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "d107da43954930379a434ac1cf6821be8d8dc076",
+        "previous_packaged_sha256": "bb42096b6165d46f39a82aaca0fff9dd727b062ad8e86c6772b0833222b33b19",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zebra/en.json",
-      "bytes": 36917,
-      "sha256": "e7722267a433e22de9eb1da81d4db08662059d6eab181a1770f49c95e06acad6",
-      "source_sha256": "e7722267a433e22de9eb1da81d4db08662059d6eab181a1770f49c95e06acad6"
+      "bytes": 51068,
+      "sha256": "b2463abf6d9309a87244dd61e3a17d155514ee0d3a7d599bc343066063df64e1",
+      "source_sha256": "e7722267a433e22de9eb1da81d4db08662059d6eab181a1770f49c95e06acad6",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "a81203667c4415b57c97349c009d6c416e994a8f",
+        "previous_packaged_sha256": "e7722267a433e22de9eb1da81d4db08662059d6eab181a1770f49c95e06acad6",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zebra/es.json",
-      "bytes": 173,
-      "sha256": "104b99f81ed0cd99c360c23785f6201be52b0cc6024d4e0064507ac878cc0dbc",
-      "source_sha256": "104b99f81ed0cd99c360c23785f6201be52b0cc6024d4e0064507ac878cc0dbc"
+      "bytes": 57817,
+      "sha256": "df5540fa293108f75f504a1d7c3ee6c22fb1f6a838f4af065a1e7b30ba944871",
+      "source_sha256": "104b99f81ed0cd99c360c23785f6201be52b0cc6024d4e0064507ac878cc0dbc",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "4a74071d22c69d61b1ca9a7783f32072756ba0b2",
+        "previous_packaged_sha256": "104b99f81ed0cd99c360c23785f6201be52b0cc6024d4e0064507ac878cc0dbc",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zebra/fr.json",
-      "bytes": 172,
-      "sha256": "813a270f2e746f7df78b47ed23f852a6f568460192083650f1265c1bfa4b6664",
-      "source_sha256": "813a270f2e746f7df78b47ed23f852a6f568460192083650f1265c1bfa4b6664"
+      "bytes": 59698,
+      "sha256": "66b8afb2aaa3d8b0ec73baae89565450db14b4a71191d875dbfad302bf9ec85a",
+      "source_sha256": "813a270f2e746f7df78b47ed23f852a6f568460192083650f1265c1bfa4b6664",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "f4baa548156a099989224df2a9f067470166ed76",
+        "previous_packaged_sha256": "813a270f2e746f7df78b47ed23f852a6f568460192083650f1265c1bfa4b6664",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zebra/hi.json",
-      "bytes": 231,
-      "sha256": "3b7c0663ee1be7e45a8670e7dad8eb26e4d92d995b1f50e5b2d32654cfd6f370",
-      "source_sha256": "3b7c0663ee1be7e45a8670e7dad8eb26e4d92d995b1f50e5b2d32654cfd6f370"
+      "bytes": 94192,
+      "sha256": "96c6dccb2298eef776e612e31cdbdbddd76f68ade6275a695d85b33072416c43",
+      "source_sha256": "3b7c0663ee1be7e45a8670e7dad8eb26e4d92d995b1f50e5b2d32654cfd6f370",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "605f96c7d38cb33b8df49b7455e33fd3afae9b31",
+        "previous_packaged_sha256": "3b7c0663ee1be7e45a8670e7dad8eb26e4d92d995b1f50e5b2d32654cfd6f370",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zebra/it.json",
-      "bytes": 167,
-      "sha256": "ca4a3ac9ebfcf5b75966d64496f5cb41ec24db449b83779baf1d13aa23bd567e",
-      "source_sha256": "ca4a3ac9ebfcf5b75966d64496f5cb41ec24db449b83779baf1d13aa23bd567e"
+      "bytes": 56879,
+      "sha256": "e2a8b4a61f6beb341c1f7e07a4ac68f1b61cfd5fca96909157048f336873bdd3",
+      "source_sha256": "ca4a3ac9ebfcf5b75966d64496f5cb41ec24db449b83779baf1d13aa23bd567e",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "2be182f717491de22e5727df7b32112207b759bc",
+        "previous_packaged_sha256": "ca4a3ac9ebfcf5b75966d64496f5cb41ec24db449b83779baf1d13aa23bd567e",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zebra/ja.json",
-      "bytes": 184,
-      "sha256": "9784b195796fa6c42c7165154a0fe3034b85b542a716a31a69c16e620e0ea83f",
-      "source_sha256": "9784b195796fa6c42c7165154a0fe3034b85b542a716a31a69c16e620e0ea83f"
+      "bytes": 62531,
+      "sha256": "156417a5e4f473739a24a65068e966f8f36f67cf4f1fb622f450580c36f0a120",
+      "source_sha256": "9784b195796fa6c42c7165154a0fe3034b85b542a716a31a69c16e620e0ea83f",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "f6cf1955337f1fc5cc106e149786e1d360fdc361",
+        "previous_packaged_sha256": "9784b195796fa6c42c7165154a0fe3034b85b542a716a31a69c16e620e0ea83f",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zebra/pt.json",
-      "bytes": 174,
-      "sha256": "f0cc8189ee7c058f8bfcb2349dc5840f1e3edb460db2fbd379fb639541be39c6",
-      "source_sha256": "f0cc8189ee7c058f8bfcb2349dc5840f1e3edb460db2fbd379fb639541be39c6"
+      "bytes": 57521,
+      "sha256": "24ba6e6e8180623e50765dc544872b6a16b41ec3f8e69a76bb8ac91615259171",
+      "source_sha256": "f0cc8189ee7c058f8bfcb2349dc5840f1e3edb460db2fbd379fb639541be39c6",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "018048ecd20eee091250808b9ee6444460664723",
+        "previous_packaged_sha256": "f0cc8189ee7c058f8bfcb2349dc5840f1e3edb460db2fbd379fb639541be39c6",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zebra/ru.json",
-      "bytes": 222,
-      "sha256": "f1a6566f77ddce7f3eaf404bb8a0b56651afd12343689a39f7ce11ef824fb218",
-      "source_sha256": "f1a6566f77ddce7f3eaf404bb8a0b56651afd12343689a39f7ce11ef824fb218"
+      "bytes": 80225,
+      "sha256": "718ff422fd6fc90fc06306ae9e6f5d072e87f50a8253df20df26b8beb7076d1a",
+      "source_sha256": "f1a6566f77ddce7f3eaf404bb8a0b56651afd12343689a39f7ce11ef824fb218",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "cf692df120f780d8de9ad966d73d1e8af80adaf2",
+        "previous_packaged_sha256": "f1a6566f77ddce7f3eaf404bb8a0b56651afd12343689a39f7ce11ef824fb218",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zebra/tr.json",
-      "bytes": 161,
-      "sha256": "01346fcff93cecb976a9798318618122bf19cb5b7263993d906c531266b917d9",
-      "source_sha256": "01346fcff93cecb976a9798318618122bf19cb5b7263993d906c531266b917d9"
+      "bytes": 55945,
+      "sha256": "bcefb69f6653973f7dfced96afc9b81dfe21b66c1a251dffa43c189e32dcbca1",
+      "source_sha256": "01346fcff93cecb976a9798318618122bf19cb5b7263993d906c531266b917d9",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "336c59a0a7f68f68d082a79b82c1bcf5a1a2432b",
+        "previous_packaged_sha256": "01346fcff93cecb976a9798318618122bf19cb5b7263993d906c531266b917d9",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zebra/zh-Hans.json",
-      "bytes": 166,
-      "sha256": "084b09793becf6b178de2fb22d2a2342f7cbc8d52d04688a01ea9a16ee72c5b7",
-      "source_sha256": "084b09793becf6b178de2fb22d2a2342f7cbc8d52d04688a01ea9a16ee72c5b7"
+      "bytes": 49936,
+      "sha256": "38d6fd28c9f7e88d9a67d392189acd0feb622929887b6df7966405700b300711",
+      "source_sha256": "084b09793becf6b178de2fb22d2a2342f7cbc8d52d04688a01ea9a16ee72c5b7",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "8626b55c403bc6c65e50cd6efa6f59d7df898fde",
+        "previous_packaged_sha256": "084b09793becf6b178de2fb22d2a2342f7cbc8d52d04688a01ea9a16ee72c5b7",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/messages/zh-Hans.json",
-      "bytes": 87339,
-      "sha256": "549148cb18853aeba90345a064b736b3fdc85ca054b9c2fe16ca75774618a5b9",
-      "source_sha256": "549148cb18853aeba90345a064b736b3fdc85ca054b9c2fe16ca75774618a5b9"
+      "bytes": 86759,
+      "sha256": "177b156dcf851ad7af9d189b0da3b0a44fb32a02c1cf53a6109a2d134c4f08f4",
+      "source_sha256": "549148cb18853aeba90345a064b736b3fdc85ca054b9c2fe16ca75774618a5b9",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "8216e34ede8ccaac07854d80171987c46ccfaf4a",
+        "previous_packaged_sha256": "549148cb18853aeba90345a064b736b3fdc85ca054b9c2fe16ca75774618a5b9",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/next.config.ts",
@@ -4465,9 +5181,15 @@
     },
     {
       "path": "web/proxy.ts",
-      "bytes": 3307,
-      "sha256": "f86b0ae6dda10b8e1da70a4820474a65411d8f0a430670d00bd9f26a9262fb81",
-      "source_sha256": "f86b0ae6dda10b8e1da70a4820474a65411d8f0a430670d00bd9f26a9262fb81"
+      "bytes": 3326,
+      "sha256": "dd81612bc30ffb6063aed69c26a6f322e40eb02cdd86e285053374bb6ad2709a",
+      "source_sha256": "f86b0ae6dda10b8e1da70a4820474a65411d8f0a430670d00bd9f26a9262fb81",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "e6a84aa17bcb18f08f60544c7cfd08c7c6e7dc20",
+        "previous_packaged_sha256": "f86b0ae6dda10b8e1da70a4820474a65411d8f0a430670d00bd9f26a9262fb81",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/public/icon-192.png",
@@ -4754,10 +5476,16 @@
     },
     {
       "path": "web/scripts/check-zebra-account.mjs",
-      "bytes": 29066,
-      "sha256": "09565ce9430e3ab27871983dbb3899a4f17bdeb6967b09ab5404ff6809573beb",
+      "bytes": 29432,
+      "sha256": "7bc1a1b30c940a20381ab28bc7537ff55bf25ebd245be5846e4ee9fb00f3d55b",
       "source_sha256": "fa2a2315f365d1f5be1281ee2f0e4b11f5b01cc0ff37a2da22108a0f9b135df8",
-      "transformation": "Omit assertions for unshipped legacy server actions; retain Astra authentication, cookie, account-link and client assertions."
+      "transformation": "Omit assertions for unshipped legacy server actions; retain Astra authentication, cookie, account-link and client assertions.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "1c5707170d136f69dd82319d14d426d959832258",
+        "previous_packaged_sha256": "09565ce9430e3ab27871983dbb3899a4f17bdeb6967b09ab5404ff6809573beb",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/scripts/check-zebra-brand.mjs",
@@ -4803,9 +5531,15 @@
     },
     {
       "path": "web/scripts/check-zebra-i18n.ts",
-      "bytes": 3282,
-      "sha256": "047489d4f278b733554949963329ab9320c59634b961bab90b299b03476030b4",
-      "source_sha256": "047489d4f278b733554949963329ab9320c59634b961bab90b299b03476030b4"
+      "bytes": 3434,
+      "sha256": "15c3abca7f78cd9b4d91b31a3e95a2a699f77516675af082155c17ee432935b4",
+      "source_sha256": "047489d4f278b733554949963329ab9320c59634b961bab90b299b03476030b4",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "f6c2310f40821c650c95e46c4af67dde295faa83",
+        "previous_packaged_sha256": "047489d4f278b733554949963329ab9320c59634b961bab90b299b03476030b4",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/scripts/check-zebra-label-rendering.mjs",
@@ -4857,15 +5591,27 @@
     },
     {
       "path": "web/scripts/check-zebra-privacy-workflow.test.mjs",
-      "bytes": 8168,
-      "sha256": "960f77da8d9cf8f345357afc851fa75e80404dc020cae1e5ff9e5a265fc5996a",
-      "source_sha256": "960f77da8d9cf8f345357afc851fa75e80404dc020cae1e5ff9e5a265fc5996a"
+      "bytes": 8553,
+      "sha256": "9b5895640636f039cc5647a7f399397f33630d764ba480ecaea3259e3669b8e2",
+      "source_sha256": "960f77da8d9cf8f345357afc851fa75e80404dc020cae1e5ff9e5a265fc5996a",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "4966a53d35b057d4946c3ac9293a4d9b95da7101",
+        "previous_packaged_sha256": "960f77da8d9cf8f345357afc851fa75e80404dc020cae1e5ff9e5a265fc5996a",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/scripts/check-zebra-privacy.test.mjs",
-      "bytes": 5277,
-      "sha256": "d02050995f7f77e50b618756d3b861e58d1378400306c3b9ce0cedec62676d68",
-      "source_sha256": "d02050995f7f77e50b618756d3b861e58d1378400306c3b9ce0cedec62676d68"
+      "bytes": 5728,
+      "sha256": "5e088ea23681e7389a5275381eca64ddf90406052a99c1e021993046dd78084f",
+      "source_sha256": "d02050995f7f77e50b618756d3b861e58d1378400306c3b9ce0cedec62676d68",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "5e00f409d95ed767bf37d50182b62b60c9001e46",
+        "previous_packaged_sha256": "d02050995f7f77e50b618756d3b861e58d1378400306c3b9ce0cedec62676d68",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/scripts/check-zebra-profile.mjs",
@@ -4893,9 +5639,15 @@
     },
     {
       "path": "web/scripts/check-zebra-query-proxy.mjs",
-      "bytes": 6535,
-      "sha256": "4ab399af023a1878f3e13e8fe7b2d68ce64843666e6fdc133f2358fb5dbef6a8",
-      "source_sha256": "4ab399af023a1878f3e13e8fe7b2d68ce64843666e6fdc133f2358fb5dbef6a8"
+      "bytes": 9113,
+      "sha256": "26400343af195d3656ac00eed8e2924167366caf615cca90d803d233c912c1cd",
+      "source_sha256": "4ab399af023a1878f3e13e8fe7b2d68ce64843666e6fdc133f2358fb5dbef6a8",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "5ff878d1ab43b23c3a98f60081f37caa4557c8fe",
+        "previous_packaged_sha256": "4ab399af023a1878f3e13e8fe7b2d68ce64843666e6fdc133f2358fb5dbef6a8",
+        "policy": "Current public Git blob is byte-exact; original source_sha256 and transformation/origin provenance retained."
+      }
     },
     {
       "path": "web/scripts/check-zebra-query-workspace.mjs",
@@ -4939,6 +5691,182 @@
       "bytes": 839,
       "sha256": "13c021ac4b159ae3b8e252e0f87166bf1cbb460c95dd3cc400da9435d619a953",
       "source_sha256": "13c021ac4b159ae3b8e252e0f87166bf1cbb460c95dd3cc400da9435d619a953"
+    },
+    {
+      "path": "crates/atlas-server/src/explore_overview.rs",
+      "bytes": 23233,
+      "sha256": "7d180fa40175e5498f13f5ba0c4a5cf5ed4711939d0b63628283e147d2ce945b",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "eb3be92632b152ac99c198a3d5d182dbfca5fff1",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/components/zebra/EntityOverview.module.css",
+      "bytes": 1513,
+      "sha256": "9b684f969fdd26de4cdcf609f604c7d5e03764ff8bb2076c93fd01f4af542ed4",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "0836a07ea81f85018490ee42a54e1efcad9f223e",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/components/zebra/EntityOverview.tsx",
+      "bytes": 4876,
+      "sha256": "674e9adfa627b2f9120233579cf9cfba81074ee4056b99b44ad3df8d5333835d",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "9c0f4a6cdc01169af865ce931a6a301cc60862e7",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/lib/i18n/api-presentation.ts",
+      "bytes": 3164,
+      "sha256": "62a74758e6b0f177bc510705e2ce994301e760f7f7b6eef4c439953c8bc938fb",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "0ec506ce0ae3c381fa8ff3ac8bf13226642b6a6c",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/lib/i18n/render-message.ts",
+      "bytes": 3267,
+      "sha256": "76bcd3e837dc0f3d78083d1baeb1a7b7730b101c472f4d4b2f4aef93b5437a7d",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "1ac7fcb28157875c7ee44bc0da7f511520197c95",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/lib/zebra/error-copy.ts",
+      "bytes": 1802,
+      "sha256": "2b3c9fec7dc9d10cc815e20c0ea5108082f23b4e097c6b777c3da91f56f46014",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "e66f136cf43641fa84cb42bdb23f75fcd464a115",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/lib/zebra/overview-copy.ts",
+      "bytes": 247,
+      "sha256": "dc7a740c9180979c772d1f0b689811a15eeca9ebb26fb9c40c8fb476e093f6e2",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "c402f4a81f91638bc921fabcc6b5bdd85eae456e",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/lib/zebra/overview-identity.ts",
+      "bytes": 1011,
+      "sha256": "f3a29786e88375620693a05a3d764fd2823a737a57ad87c27e7a57897cb655fd",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "6e537f11b305e19c54f76593fe8f39343b6dc9c2",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/lib/zebra/overview-request.ts",
+      "bytes": 720,
+      "sha256": "bf77c74e1da55120fce5a836827f26fc491fb493ebbde96660ae0be9b9c381d4",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "bf4584a19f588507a98d66c2bfad61cd550b56f0",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/lib/zebra/overview.ts",
+      "bytes": 8639,
+      "sha256": "21143ed86c0f57fdb58bc2b4f8a7d13b4f435a1a87369dff694fd2886d30ecb9",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "98d545176aab701aaab714b832c44edb8a22f9f1",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/messages/ask/.gitattributes",
+      "bytes": 105,
+      "sha256": "2cca4b3e9d599cc079fc2deeb2d5768928922c62b7e8c1bd39ae7631cc7367c8",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "47fa796bc8a6e0c72dc16f16dc432946d7295ddf",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/scripts/check-zebra-overview-identity.mjs",
+      "bytes": 1282,
+      "sha256": "b89e026b95969b83ea7e40a96ae8424b1f08494971fdacb4b77a21056a556fb6",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "65e18fc177597b1f31ec8fc23178893497289ead",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/scripts/check-zebra-overview-request.mjs",
+      "bytes": 1559,
+      "sha256": "3c69c8b73f96ec66f4654e3d71f3936412d60ab418d4f71b203b1d6fa392ab51",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "9d8ab5532e470f2afe4ec567421c342e52a33867",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/scripts/check-zebra-overview.ts",
+      "bytes": 9065,
+      "sha256": "92575e439fb0581deed980f62b7467754a1840dfd1cecf525de5cdbdfd0c2130",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "ca3990b4cc160e902564b9f79677522a87702fd9",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/scripts/zebra-language-fixture.mjs",
+      "bytes": 1272,
+      "sha256": "2e8616068fc98d2369d07983830fb2c927c546b4a7f8eab81539e23550c822eb",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "146031fc940e5ca14541fc5ab466a40f2b448c3a",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
+    },
+    {
+      "path": "web/scripts/zebra-twelve-locales.test.mjs",
+      "bytes": 4586,
+      "sha256": "c302cc70e66bade46001a29b815574d617fe5017c16623aa3612c966804b8c4c",
+      "origin": "Reviewed additive public UI/overview implementation, localization helper or synthetic regression fixture.",
+      "public_source_update": {
+        "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+        "git_blob": "52fcd8c60e76cbd029bec2d6cbff91df871ce788",
+        "policy": "Exact committed public Git blob; no private dataset or credentials."
+      }
     }
   ],
   "public_graph_release": {
@@ -4954,5 +5882,16 @@
     "asserted_relationships": 45556,
     "link_only_records": 789585,
     "optional_crosswalk_sets_withheld": 14
+  },
+  "public_source_review": {
+    "commit": "f1c769f3a64e80df971f725955ca70598d895dd6",
+    "status": "verified_exact_public_git_blobs",
+    "updated_existing_files": 107,
+    "added_files": 16,
+    "scope": "Public source follow-up including overview/provider guards, twelve-language UI localization, documentation and synthetic regression fixtures. The original native_source_policy describes initial packaging; public_source_update on changed entries records subsequent public revisions.",
+    "capture": "Each changed/added file compared byte-for-byte to git cat-file blob at the pinned public commit; Git blob IDs and SHA-256 captured. SOURCE-MANIFEST.json excludes itself from file entries.",
+    "contact_policy": "Ten additional locale catalogs contain exactly the single institutional operator address already approved in English and German; approvals remain exact per-file email SHA-256, not domains or broad patterns.",
+    "sample_policy": "Original public sample manifest certification and byte pins unchanged; no runtime or dataset modification.",
+    "boundary_checker_policy": "tools/audit_submission.py unchanged; no findings suppressed or allowlist rules widened."
   }
 }
