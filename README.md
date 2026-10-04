@@ -54,7 +54,7 @@ For bulk research, the [verified public graph](https://huggingface.co/datasets/K
 | Interface | Next.js 16, React 19, TypeScript |
 | Search and application API | Rust, Axum, source-backed graph indexes |
 | Accounts and contributions | SQLite |
-| RDF queries and bounded reasoning | nrese / OWL-RS, SPARQL |
+| RDF queries and bounded reasoning | [nrese / OWL-RS](https://github.com/Krarilotus/OWL-RS), SPARQL |
 | Model access | Configured provider or a user's connector account |
 | Query diagram | Query-by-Graph and Traqula parser/generator |
 
