@@ -31,6 +31,8 @@ ZEBRA_BACKEND_URL=http://127.0.0.1:8000 npm run dev
 
 Open `http://localhost:3000`. [Setup](docs/SETUP.md) covers production builds and optional model access; [data and licences](docs/DATA.md) describes the sample and hosted data boundaries.
 
+For bulk research, the [verified public graph](https://huggingface.co/datasets/Krarilotus/zebratlas-kg/tree/dd8851755ab95fea08df63b9a1a35975edc73a16) contains **292,391 nodes and 835,141 edge records**: **45,556 asserted relationships** and **789,585 link-only records**. Fourteen optional crosswalk sets remain withheld. The bundled sample provides the local app setup; the bulk projection supports RDF and JSON analysis.
+
 ## Stack
 
 | Layer | Implementation |

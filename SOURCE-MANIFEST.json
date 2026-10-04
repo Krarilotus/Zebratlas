@@ -271,8 +271,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3010,
-      "sha256": "f8c18cab9417f26a4cabed650b47294440d3c79259ccc5690d25750f0313dd1b",
+      "bytes": 3434,
+      "sha256": "53f1b68a6a92ec6c1bffa9fb0b215642b92840ad8889681f2af19511bac23a14",
       "origin": "Submission packaging and concise documentation"
     },
     {
@@ -2841,8 +2841,8 @@
     },
     {
       "path": "docs/DATA.md",
-      "bytes": 1726,
-      "sha256": "873c0a19f665da9e4f95913f9ffbd90974b567c3172afe66b7f6bab21f0e1086",
+      "bytes": 2465,
+      "sha256": "f82cbe4e681a71fa0719d2c58ed101d0b15d7bebddb4f10917df47c9d64ed715",
       "origin": "Submission packaging and concise documentation"
     },
     {
@@ -4874,5 +4874,19 @@
       "sha256": "13c021ac4b159ae3b8e252e0f87166bf1cbb460c95dd3cc400da9435d619a953",
       "source_sha256": "13c021ac4b159ae3b8e252e0f87166bf1cbb460c95dd3cc400da9435d619a953"
     }
-  ]
+  ],
+  "public_graph_release": {
+    "revision": "dd8851755ab95fea08df63b9a1a35975edc73a16",
+    "tag": "public-20261004-v1",
+    "url": "https://huggingface.co/datasets/Krarilotus/zebratlas-kg/tree/dd8851755ab95fea08df63b9a1a35975edc73a16",
+    "archive_sha256": "b822c0e6eca4bdd73d8b24d2fa13c2c408aa302f9b40371d4edbef697dac9485",
+    "archive_bytes": 441221179,
+    "verified_anonymous_download": true,
+    "verified_payload_members": 17,
+    "nodes": 292391,
+    "edge_records": 835141,
+    "asserted_relationships": 45556,
+    "link_only_records": 789585,
+    "optional_crosswalk_sets_withheld": 14
+  }
 }
