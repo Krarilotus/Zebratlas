@@ -12,7 +12,7 @@ function load(path,imports,globals={}) {
 class HttpError extends Error {constructor(status,message){super(message);this.status=status;}}
 const upstreamCalls=[];
 const route=load('../app/zebra/api/[operation]/route.ts',{
- '@/lib/adapt':{},'@/components/account/types':{SAVED_KINDS:[]},'@/lib/zebra/types':{CONDITION_SECTIONS:[],EXPLORE_INTENTS:[]},'@/lib/zebra/normalize':{sourceDates:value=>value},
+ '@/lib/zebra/error-copy':{localizedError:(request,detail,code)=>({detail,code})},'@/lib/adapt':{},'@/components/account/types':{SAVED_KINDS:[]},'@/lib/zebra/types':{CONDITION_SECTIONS:[],EXPLORE_INTENTS:[]},'@/lib/zebra/normalize':{sourceDates:value=>value},
  '@/lib/zebra/server':{HttpError,bodyObject:request=>request.json(),boundedString:(value,name,max=200,required=true)=>{if(typeof value!=='string'||value.length>max||(required&&!value.trim()))throw new HttpError(400,name);return value;},jsonResponse:(body,status=200)=>Response.json(body,{status}),upstreamJson:async(request,path,init)=>{upstreamCalls.push({path,init});return {engine:'nrese',receipt:'actual'};},enc:encodeURIComponent},
 });
 const get=(search)=>route.GET(new Request('https://zebratlas.example/zebra/api/query-suggestions?'+search),{params:Promise.resolve({operation:'query-suggestions'})});
@@ -41,7 +41,7 @@ assert.equal((await run({sparql:'SELECT * WHERE {}',limit:20,reasoning:false,lin
 assert.equal(upstreamCalls.length,before);
 const requests=[];
 const originalResponse={query:'reviewed-file.txt',execution:{engine:'nrese',queries:[{sparql:'SELECT * WHERE {}',reasoning:false,row_cap:20}]},query_execution:{semantic_focus:['MONDO:actual'],answer:{results:[{query:'SELECT * WHERE {}',data:{head:{vars:['count']},results:{bindings:[{count:{type:'literal',value:'0'}}]}}}]}},graph:{nodes:[],edges:[]},results:[]};
-const client=load('../lib/zebra/client.ts',{'./search-privacy':load('../lib/zebra/search-privacy.ts',{}),'./account-events':{accountChanged(){},getAccountRevision(){return 0;},rememberAccountIdentity(){},isAccountIdentity(){return true;}}},{fetch:async(url,init)=>{requests.push({url,init});return {ok:true,status:200,json:async()=>originalResponse};}});
+const client=load('../lib/zebra/client.ts',{'./locale':{resolveZebraLocale:()=> 'en',getZebraCatalog:()=>({apiErrors:{unavailable:'Unavailable',retry:'Retry',forbidden:'Forbidden'}})},'./search-privacy':load('../lib/zebra/search-privacy.ts',{}),'./account-events':{accountChanged(){},getAccountRevision(){return 0;},rememberAccountIdentity(){},isAccountIdentity(){return true;}}},{fetch:async(url,init)=>{requests.push({url,init});return {ok:true,status:200,json:async()=>originalResponse};}});
 const settings={limit:20,reasoning:false,focus:['HGNC:1'],semantic_focus:['MONDO:actual'],linked:[{id:'HGNC:1',label:'Actual gene'}]};
 const returned=await client.runSparqlQuery('SELECT * WHERE {}','reviewed-file.txt',undefined,settings);
 const sent=JSON.parse(requests[0].init.body);

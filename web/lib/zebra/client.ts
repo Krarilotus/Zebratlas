@@ -1,3 +1,4 @@
+import { getZebraCatalog, resolveZebraLocale } from "./locale";
 import type { MessageRequest, MessageResponse, VerifyResult, IntegrityResponse } from "@/lib/types";
 import type { Contribution } from "@/components/contribute/types";
 import type { Conversation, SavedKind } from "@/components/account/types";
@@ -12,12 +13,16 @@ export class ZebraApiError extends Error {
   constructor(message: string, public readonly status: number, public readonly code?: string) { super(message); this.name = "ZebraApiError"; }
 }
 async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
+  const locale = resolveZebraLocale(typeof document === "undefined" ? "en" : document.documentElement.lang);
+  const words = getZebraCatalog(locale).apiErrors;
+  const url = new URL(`/zebra/api/${path}`, "https://fixture.invalid");
+  url.searchParams.set("lang", locale);
   const accountRevision = getAccountRevision();
-  const response = await fetch(`/zebra/api/${path}`, { ...init, credentials: "same-origin", cache: "no-store" });
+  const response = await fetch(`${url.pathname}${url.search}`, { ...init, credentials: "same-origin", cache: "no-store" }).catch((error: unknown) => { if (init.signal?.aborted || (error instanceof Error && error.name === "AbortError")) throw error; throw new ZebraApiError(words.unavailable, 0); });
   if (!response.ok) {
     if (response.status === 401 && !init.signal?.aborted && accountRevision === getAccountRevision() && ["account", "models", "connectors", "saved", "conversations", "password", "logout", "logout-all"].includes(path.split("?")[0])) accountChanged({ state: "signed_out" });
     const error = await response.json().catch(() => null) as { detail?: string; code?: string } | null;
-    throw new ZebraApiError(error?.detail || "The request could not be completed. Try again.", response.status, error?.code);
+    throw new ZebraApiError(error?.code === "forbidden" ? words.forbidden : error?.detail || words.retry, response.status, error?.code);
   }
   return response.status === 204 ? undefined as T : response.json() as Promise<T>;
 }

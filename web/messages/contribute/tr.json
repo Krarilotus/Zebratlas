@@ -1,7 +1,9 @@
 {
   "_meta": {
     "owner": "contribute agent",
-    "note": "Machine-translated; review section in English (internal page)."
+    "note": "Machine-translated; review section in English (internal page).",
+    "native_review": "pending",
+    "completion_ref": "docs/i18n/auxiliary-completion.json"
   },
   "suggest": "Bir bağlantı öner veya bunu düzelt",
   "suggestShort": "Öner veya düzelt",
@@ -71,36 +73,36 @@
     "privacy": "E-posta adresiniz burada asla gösterilmez.",
     "submittedOn": "{date} tarihinde gönderildi",
     "check": {
-      "pass": "Tamam",
+      "pass": "Uygun",
       "warn": "Not",
       "fail": "Sorun",
       "skipped": "Kontrol edilmedi"
     }
   },
   "review": {
-    "title": "Review suggestions",
-    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
-    "token": "Reviewer key",
-    "tokenHint": "Kept only on this page, never stored.",
-    "open": "Open the queue",
-    "empty": "Nothing is waiting for review.",
-    "accept": "Accept",
-    "reject": "Reject",
-    "reason": "Reason (required, shown publicly)",
-    "recheck": "Run checks again",
-    "contact": "Contact",
-    "anonymous": "anonymous",
-    "unauthorized": "This key is not valid.",
-    "unavailable": "The review service can't be reached.",
-    "failed": "Not saved: {detail}",
-    "saved": "Saved.",
-    "statement": "Statement",
-    "evidence": "Evidence",
-    "quote": "Quote",
-    "subject": "Who",
-    "target": "Condition or gene",
-    "edge": "Connection",
-    "foundVia": "Found with",
-    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+    "title": "Önerileri incele",
+    "lead": "Her öneri, inceleyen kişi kabul edene kadar doğrulanmış haritadan ayrı tutulur. Kanıtları kontrol edip gerekçeyle kabul veya reddedin; gerekçe herkese gösterilir.",
+    "token": "İnceleme anahtarı",
+    "tokenHint": "Yalnızca bu sayfada tutulur, hiçbir zaman kaydedilmez.",
+    "open": "İnceleme kuyruğunu aç",
+    "empty": "İnceleme bekleyen öneri yok.",
+    "accept": "Kabul et",
+    "reject": "Reddet",
+    "reason": "Gerekçe (zorunlu, herkese gösterilir)",
+    "recheck": "Kontrolleri yeniden çalıştır",
+    "contact": "İletişim",
+    "anonymous": "anonim",
+    "unauthorized": "Bu anahtar geçersiz.",
+    "unavailable": "İnceleme hizmetine ulaşılamıyor.",
+    "failed": "Kaydedilmedi: {detail}",
+    "saved": "Kaydedildi.",
+    "statement": "İfade",
+    "evidence": "Kanıt",
+    "quote": "Alıntı",
+    "subject": "Kim",
+    "target": "Hastalık veya gen",
+    "edge": "Bağlantı",
+    "foundVia": "Bulmak için kullanılan",
+    "counts": "{open} bekleyen · {accepted} kabul edilen · {rejected} reddedilen"
   }
 }

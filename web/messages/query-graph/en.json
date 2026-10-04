@@ -73,5 +73,6 @@
   "preview": "SPARQL preview",
   "showGraph": "Show graph",
   "sample": "Sample",
-  "samplePrompt": "Papers connected to STXBP1"
+  "samplePrompt": "Papers connected to STXBP1",
+  "pagination": "{from}–{to} of {total}"
 }

@@ -1,22 +1,20 @@
 "use client";
 import { zebraCopyLocale } from "@/lib/zebra/locale";
 
+import { getZebraCatalog, ZEBRA_LOCALES, type ZebraLocale } from "@/lib/zebra/locale";
+
+
 import { useMemo } from "react";
 import type { ExploreResponse, SearchGraph } from "@/lib/zebra/types";
 import { answerNodeId, answerUriLabel, isGraphOnlyTable, normalizeQueryAnswer, safeAnswerHref, type AnswerCell, type AnswerData } from "@/lib/zebra/query-answer";
 import { useZebraLocale } from "./Locale";
 import styles from "./QueryAnswer.module.css";
+import { formatMessage } from "@/lib/i18n/format";
 
 export { hasRenderableAnswer } from "@/lib/zebra/query-answer";
 
-const words = {
-  en: { queryNumber: "Query", hash: "SHA-256", answer: "Query answer", yes: "Yes", no: "No", unbound: "Not bound", rows: "rows returned", columns: "columns", showing: "Showing", limited: "Limited result — the full answer may contain more rows.", empty: "No rows returned for this query.", details: "Sources and execution", graphRows: "Connected records", inspect: "Inspect rows", unsupported: "This question could not be executed.", invalid: "Some query data could not be displayed. Inspect the original response below.", backend: "Backend", source: "Source", retrieved: "Retrieved", version: "Version", query: "Executed query", original: "Download original answer", notes: "Limitations", provenance: "Record provenance", preview: "Provenance preview", truncated: "Preview limited; download retains the original response.", datatype: "Datatype", language: "Language" },
-  de: { queryNumber: "Abfrage", hash: "SHA-256", answer: "Abfrageergebnis", yes: "Ja", no: "Nein", unbound: "Nicht gebunden", rows: "zurückgegebene Zeilen", columns: "Spalten", showing: "Angezeigt", limited: "Begrenztes Ergebnis — die vollständige Antwort kann weitere Zeilen enthalten.", empty: "Diese Abfrage hat keine Zeilen zurückgegeben.", details: "Quellen und Ausführung", graphRows: "Verknüpfte Einträge", inspect: "Zeilen ansehen", unsupported: "Diese Frage konnte nicht ausgeführt werden.", invalid: "Einige Abfragedaten konnten nicht angezeigt werden. Die Originalantwort ist unten verfügbar.", backend: "Backend", source: "Quelle", retrieved: "Abgerufen", version: "Version", query: "Ausgeführte Abfrage", original: "Originalantwort herunterladen", notes: "Einschränkungen", provenance: "Herkunft der Einträge", preview: "Herkunftsvorschau", truncated: "Vorschau begrenzt; der Download enthält die Originalantwort.", datatype: "Datentyp", language: "Sprache" },
-} as const;
-const executionWords = {
-  en: { status: "Search status", notExecuted: "No query was executed. This question has no answer yet.", partial: "Partial results. The question is not fully answered.", trace: "Execution trace" },
-  de: { status: "Suchstatus", notExecuted: "Keine Abfrage wurde ausgeführt. Diese Frage ist noch nicht beantwortet.", partial: "Teilergebnisse. Die Frage ist noch nicht vollständig beantwortet.", trace: "Ausführungsschritte" },
-};
+const words = Object.fromEntries(ZEBRA_LOCALES.map(locale => [locale, getZebraCatalog(locale).answerWords])) as Record<ZebraLocale, ReturnType<typeof getZebraCatalog>["answerWords"]>;
+const executionWords = Object.fromEntries(ZEBRA_LOCALES.map(locale => [locale, getZebraCatalog(locale).executionWords])) as Record<ZebraLocale, ReturnType<typeof getZebraCatalog>["executionWords"]>;
 
 function download(value: unknown) {
   const blob = new Blob([JSON.stringify(value, null, 2)], { type: "application/json;charset=utf-8" });
@@ -54,7 +52,7 @@ export default function QueryAnswer({ execution, graph, onSelectNode }: {
     if (result.kind === "boolean") return <p className={styles.boolean}>{result.value ? text.yes : text.no}</p>;
     if (!result.rows.length) return <p className={styles.muted}>{result.totalRows === 0 ? text.empty : text.invalid}</p>;
     return <div className={styles.scroll} tabIndex={0} role="region" aria-label={`${text.answer} ${index + 1}`}>
-      <table><caption>{text.showing} {result.rows.length}/{result.totalRows} {text.rows}{result.totalColumns > result.columns.length ? ` · ${result.columns.length}/${result.totalColumns} ${text.columns}` : ""}</caption>
+      <table><caption>{formatMessage(text.rowCount, { shown: result.rows.length, total: result.totalRows }, locale)}{result.totalColumns > result.columns.length ? ` · ${formatMessage(text.columnCount, { shown: result.columns.length, total: result.totalColumns }, locale)}` : ""}</caption>
         <thead><tr>{result.columns.map((column) => <th key={column} scope="col">{column.replaceAll("_", " ")}</th>)}</tr></thead>
         <tbody>{result.rows.map((row, rowIndex) => <tr key={rowIndex}>{row.map((cell, columnIndex) => <td key={result.columns[columnIndex]}>{value(cell)}</td>)}</tr>)}</tbody>
       </table>
@@ -70,7 +68,7 @@ export default function QueryAnswer({ execution, graph, onSelectNode }: {
     {view.truncated && <p className={styles.muted}>{text.truncated}</p>}
     {view.results.map((result, index) => <div key={index} className={styles.result}>
       {view.results.length > 1 && <h3>{text.queryNumber} {index + 1}</h3>}
-      {result.kind === "table" && isGraphOnlyTable(result, labels) ? <details className={styles.graphRows}><summary>{result.totalRows} {text.graphRows.toLowerCase()} · {text.inspect}</summary>{rows(result, index)}</details> : rows(result, index)}
+      {result.kind === "table" && isGraphOnlyTable(result, labels) ? <details className={styles.graphRows}><summary>{formatMessage(text.connectedCount, { count: result.totalRows }, locale)} · {text.inspect}</summary>{rows(result, index)}</details> : rows(result, index)}
       {result.kind === "table" && result.truncated && <p className={styles.muted}>{text.limited}</p>}
     </div>)}
     <details className={styles.details}><summary>{text.details}</summary>

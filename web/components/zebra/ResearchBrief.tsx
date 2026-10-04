@@ -7,6 +7,7 @@ import Link from "next/link";
 import type { Connection, MessageResponse, Sentence, SourceRecord } from "@/lib/types";
 import type { ConditionDetail, ConditionSection, ExploreResult, GraphEvidence } from "@/lib/zebra/types";
 import { account, draftMessage, saveItem, ZebraApiError } from "@/lib/zebra/client";
+import { LOCALES, LOCALE_META } from "@/lib/i18n/config";
 import { zebraHref } from "@/lib/zebra/locale";
 import { useZebraCatalog, useZebraLocale } from "./Locale";
 import { Icon } from "./Icon";
@@ -23,7 +24,7 @@ const taskSections: Record<BriefTaskId, ConditionSection[]> = {
   F01: ["jobs"], F02: ["jobs"], F03: ["connections"], F04: ["connections"], F05: ["jobs"], F06: [],
   F07: ["related"], F08: ["jobs"], F09: ["jobs"], F10: ["related"], F11: ["related", "questions"], F12: ["gaps", "connections"],
 };
-const languages = [{ id: "en", label: "English" }, { id: "de", label: "Deutsch" }, { id: "es", label: "Español" }, { id: "fr", label: "Français" }, { id: "pt", label: "Português" }, { id: "it", label: "Italiano" }, { id: "zh-Hans", label: "中文" }, { id: "ja", label: "日本語" }, { id: "hi", label: "हिन्दी" }, { id: "ar", label: "العربية" }, { id: "ru", label: "Русский" }, { id: "tr", label: "Türkçe" }];
+const languages = LOCALES.map(id => ({ id, label: LOCALE_META[id].name }));
 const isConnection = (selected: ResearchBriefProps["selected"]): selected is Connection => !!selected && "name" in selected;
 const labelOf = (selected: ResearchBriefProps["selected"]) => selected ? isConnection(selected) ? selected.name : selected.label : "";
 const initialTask = (selected: ResearchBriefProps["selected"]): BriefTaskId => {

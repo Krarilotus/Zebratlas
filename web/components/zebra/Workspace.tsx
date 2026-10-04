@@ -1,5 +1,5 @@
 "use client";
-import { zebraCopyLocale } from "@/lib/zebra/locale";
+import { getZebraCatalog, zebraCopyLocale } from "@/lib/zebra/locale";
 
 
 import dynamic from "next/dynamic";
@@ -66,7 +66,7 @@ export function Workspace({ initialQuery = "", initialView = "home", initialNode
   const copy = useZebraCopy();
   const locale = useZebraLocale();
   const kindLabel = useZebraKindLabel();
-  const views = viewWords[zebraCopyLocale(locale)];
+  const views = { ...viewWords[zebraCopyLocale(locale)], ...getZebraCatalog(locale).viewWords };
   const href = (path: string) => zebraHref(path, locale);
   const graphLabels = { region: copy.graphRegion, zoomIn: copy.zoomIn, zoomOut: copy.zoomOut, fit: copy.fit, selectNode: copy.selectNode, nodeList: copy.nodeList, preview: copy.graphPreview, previewScope: copy.graphPreviewScope, connections: copy.connections, moreNodes: copy.moreNodes, back: copy.graphBack, reset: copy.graphReset, previousNeighbors: copy.graphPrevious, nextNeighbors: copy.graphNext, moreNeighbors: copy.graphMoreNeighbors, noNeighbors: copy.graphNoNeighbors, loading: copy.loading, kinds: copy.kinds, edgeProperties: copy.graphRelations, property: copy.graphProperty, noEdgeEvidence: copy.graphNoEdgeEvidence, close: copy.close, evidence: copy.evidence, inferred: copy.graphInferred, hypothesis: copy.graphHypothesis };
   const [query, setQuery] = useState(initialQuery);

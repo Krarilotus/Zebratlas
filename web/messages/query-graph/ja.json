@@ -73,5 +73,6 @@
   "preview": "SPARQLプレビュー",
   "showGraph": "グラフを表示",
   "sample": "サンプル",
-  "samplePrompt": "STXBP1に関連する論文"
+  "samplePrompt": "STXBP1に関連する論文",
+  "pagination": "{total}件中{from}～{to}件を表示"
 }

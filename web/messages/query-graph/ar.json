@@ -73,5 +73,6 @@
   "preview": "معاينة SPARQL",
   "showGraph": "عرض الرسم",
   "sample": "مثال",
-  "samplePrompt": "أوراق بحثية مرتبطة بـ STXBP1"
+  "samplePrompt": "أوراق بحثية مرتبطة بـ STXBP1",
+  "pagination": "النتائج {from}–{to} من {total}"
 }

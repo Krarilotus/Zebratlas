@@ -15,7 +15,7 @@ export function ZebraMark({ className, variant = "ink", optical = "compact" }: {
 }
 /** The symbol is the initial Z. Keep the complete name as a single accessible text node. */
 export function Brand({ name = NAME, decorative = false, className, optical = "compact" }: { name?: string; decorative?: boolean; className?: string; optical?: "compact" | "regular" }) {
-  return <span className={`${styles.brand}${className ? ` ${className}` : ""}`} aria-hidden={decorative || undefined}>
+  return <span dir="ltr" className={`${styles.brand}${className ? ` ${className}` : ""}`} aria-hidden={decorative || undefined}>
     <ZebraMark optical={optical} /><span aria-hidden="true">{name.slice(1)}</span>{!decorative && <span className={styles.accessible}>{name}</span>}
   </span>;
 }

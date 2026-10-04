@@ -1,7 +1,9 @@
 {
   "_meta": {
     "owner": "contribute agent",
-    "note": "Machine-translated; review section in English (internal page)."
+    "note": "Machine-translated; review section in English (internal page).",
+    "native_review": "pending",
+    "completion_ref": "docs/i18n/auxiliary-completion.json"
   },
   "suggest": "Sugerir uma ligação ou corrigir",
   "suggestShort": "Sugerir ou corrigir",
@@ -71,36 +73,36 @@
     "privacy": "O seu e-mail nunca é mostrado aqui.",
     "submittedOn": "Enviada em {date}",
     "check": {
-      "pass": "OK",
+      "pass": "Correto",
       "warn": "Nota",
       "fail": "Problema",
       "skipped": "Não verificado"
     }
   },
   "review": {
-    "title": "Review suggestions",
-    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
-    "token": "Reviewer key",
-    "tokenHint": "Kept only on this page, never stored.",
-    "open": "Open the queue",
-    "empty": "Nothing is waiting for review.",
-    "accept": "Accept",
-    "reject": "Reject",
-    "reason": "Reason (required, shown publicly)",
-    "recheck": "Run checks again",
-    "contact": "Contact",
-    "anonymous": "anonymous",
-    "unauthorized": "This key is not valid.",
-    "unavailable": "The review service can't be reached.",
-    "failed": "Not saved: {detail}",
-    "saved": "Saved.",
-    "statement": "Statement",
-    "evidence": "Evidence",
-    "quote": "Quote",
-    "subject": "Who",
-    "target": "Condition or gene",
-    "edge": "Connection",
-    "foundVia": "Found with",
-    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+    "title": "Rever sugestões",
+    "lead": "Cada sugestão permanece separada do mapa com curadoria até ser aceite por uma pessoa responsável pela revisão. Verifique a evidência e aceite ou rejeite com um motivo que será público.",
+    "token": "Chave de revisão",
+    "tokenHint": "Mantida apenas nesta página; nunca é armazenada.",
+    "open": "Abrir a fila",
+    "empty": "Não existem sugestões a aguardar revisão.",
+    "accept": "Aceitar",
+    "reject": "Rejeitar",
+    "reason": "Motivo (obrigatório e público)",
+    "recheck": "Repetir verificações",
+    "contact": "Contacto",
+    "anonymous": "anónimo",
+    "unauthorized": "Esta chave não é válida.",
+    "unavailable": "O serviço de revisão não está acessível.",
+    "failed": "Não foi guardado: {detail}",
+    "saved": "Guardado.",
+    "statement": "Afirmação",
+    "evidence": "Evidência",
+    "quote": "Citação",
+    "subject": "Quem",
+    "target": "Doença ou gene",
+    "edge": "Ligação",
+    "foundVia": "Encontrado com",
+    "counts": "{open} pendentes · {accepted} aceites · {rejected} rejeitadas"
   }
 }

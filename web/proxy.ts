@@ -12,7 +12,7 @@ export function proxy(request: NextRequest) {
     let allowed = false;
     try { allowed = !!origin && new URL(origin).host === host; } catch { /* deny */ }
     if (!allowed || ["cross-site", "same-site"].includes(request.headers.get("sec-fetch-site") ?? "")) {
-      return NextResponse.json({ detail: "not allowed" }, { status: 403 });
+      return NextResponse.json({ code: "forbidden", detail: "not allowed" }, { status: 403 });
     }
   }
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");

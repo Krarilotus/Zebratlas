@@ -73,5 +73,6 @@
   "preview": "SPARQL 预览",
   "showGraph": "显示图谱",
   "sample": "示例",
-  "samplePrompt": "与 STXBP1 相关的论文"
+  "samplePrompt": "与 STXBP1 相关的论文",
+  "pagination": "共{total}项，显示{from}–{to}项"
 }

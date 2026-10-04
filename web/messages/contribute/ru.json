@@ -1,7 +1,9 @@
 {
   "_meta": {
     "owner": "contribute agent",
-    "note": "Machine-translated; review section in English (internal page)."
+    "note": "Machine-translated; review section in English (internal page).",
+    "native_review": "pending",
+    "completion_ref": "docs/i18n/auxiliary-completion.json"
   },
   "suggest": "Предложить связь или исправить",
   "suggestShort": "Предложить или исправить",
@@ -71,36 +73,36 @@
     "privacy": "Ваш e-mail здесь никогда не показывается.",
     "submittedOn": "Отправлено {date}",
     "check": {
-      "pass": "ОК",
+      "pass": "В порядке",
       "warn": "Замечание",
       "fail": "Проблема",
       "skipped": "Не проверено"
     }
   },
   "review": {
-    "title": "Review suggestions",
-    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
-    "token": "Reviewer key",
-    "tokenHint": "Kept only on this page, never stored.",
-    "open": "Open the queue",
-    "empty": "Nothing is waiting for review.",
-    "accept": "Accept",
-    "reject": "Reject",
-    "reason": "Reason (required, shown publicly)",
-    "recheck": "Run checks again",
-    "contact": "Contact",
-    "anonymous": "anonymous",
-    "unauthorized": "This key is not valid.",
-    "unavailable": "The review service can't be reached.",
-    "failed": "Not saved: {detail}",
-    "saved": "Saved.",
-    "statement": "Statement",
-    "evidence": "Evidence",
-    "quote": "Quote",
-    "subject": "Who",
-    "target": "Condition or gene",
-    "edge": "Connection",
-    "foundVia": "Found with",
-    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+    "title": "Проверить предложения",
+    "lead": "Каждое предложение остаётся отдельно от проверенной карты до одобрения проверяющим. Проверьте доказательства, затем примите или отклоните с указанием причины; причина будет опубликована.",
+    "token": "Ключ проверяющего",
+    "tokenHint": "Хранится только на этой странице, нигде не сохраняется.",
+    "open": "Открыть очередь",
+    "empty": "Нет предложений, ожидающих проверки.",
+    "accept": "Принять",
+    "reject": "Отклонить",
+    "reason": "Причина (обязательно, публикуется)",
+    "recheck": "Повторить проверки",
+    "contact": "Контакт",
+    "anonymous": "анонимно",
+    "unauthorized": "Этот ключ недействителен.",
+    "unavailable": "Сервис проверки недоступен.",
+    "failed": "Не сохранено: {detail}",
+    "saved": "Сохранено.",
+    "statement": "Утверждение",
+    "evidence": "Доказательства",
+    "quote": "Цитата",
+    "subject": "Кто",
+    "target": "Заболевание или ген",
+    "edge": "Связь",
+    "foundVia": "Найдено с помощью",
+    "counts": "{open} ожидают · {accepted} приняты · {rejected} отклонены"
   }
 }

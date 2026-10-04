@@ -73,5 +73,6 @@
   "preview": "Предпросмотр SPARQL",
   "showGraph": "Показать граф",
   "sample": "Пример",
-  "samplePrompt": "Публикации, связанные со STXBP1"
+  "samplePrompt": "Публикации, связанные со STXBP1",
+  "pagination": "Совпадения {from}–{to} из {total}"
 }

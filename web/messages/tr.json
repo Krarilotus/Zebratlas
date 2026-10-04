@@ -4,34 +4,14 @@
     "source": "en",
     "machine_translated": false,
     "reviewed": [],
-    "note": "İngilizceden makine çevirisi; gözden geçirilenler: en, de.",
     "native_review": "pending",
-    "unit_errors": {
-      "author": "GPT-6.1-Sol",
-      "backcheck": "Entry selection and inclusive 1 to 500 limit retained.",
-      "native_reviewed": false
-    },
-    "bench_fixes": {
-      "keys": [
-        "coverage.outside_verified_neighbourhood",
-        "connections.why.project"
-      ],
-      "agent_authored": true,
-      "semantic_backcheck": true,
-      "native_speaker_reviewed": false
-    },
     "agent_authored": true,
     "author": "GPT-6.1-Sol (translate-world)",
     "method": "Agent-written from intent; separate agent back-check; no translation provider.",
-    "source_sha256": "4df11cc7d75b7ea629f95600783cae894d63154423b5c9a8d3f80249ddd83893",
-    "source_fingerprint": "9e486cc693b33d0167ca991bab8c1bf9d0e8c0c42eefd70e6f8f405f909a4084",
+    "source_sha256": "8935d8646014aeaf9a867223947b1d36de4f41246208b50956e3ff2d946f64cb",
+    "source_fingerprint": "1d5bf0623393bb45816fc7d2341095d5b1099009ab5fd96a63222710b11dac2f",
     "review_ref": "world-review-tr.json",
-    "reviewed_at": "2026-10-04T06:11:23.947585+00:00",
-    "bench_frontend": {
-      "agent_authored": true,
-      "semantic_backcheck": true,
-      "native_speaker_reviewed": false
-    }
+    "reviewed_at": "2026-10-04T10:32:27.406882+00:00"
   },
   "app": {
     "name": "Zebratlas",
@@ -57,7 +37,7 @@
     "curatedHint": "Bu bağlantı {date} tarihinde “Bilginin dayanağı” bölümündeki kaynaklarla elle karşılaştırıldı. Zebratlas sunucusu bunu henüz hesaplamıyor."
   },
   "nav": {
-    "about": "Hakkında",
+    "about": "Nasıl çalışır",
     "pricing": "Kuruluşlar için",
     "signIn": "Giriş yap",
     "saved": "Kaydedilenler",
@@ -95,7 +75,7 @@
     "title": "Nadir hastalıklar için hasta destek grupları ve araştırmalar",
     "lead": "Bildiğiniz bilgiyi yazın: tanı, gen veya doktorun mektubundan bir cümle. Herhangi bir dili kullanabilirsiniz.",
     "examples": "Örnekler",
-    "exampleSentence": "Kızımda STXBP1 geninde bir mutasyon var",
+    "exampleSentence": "Kızımın STXBP1 geninde bir değişiklik var",
     "rareExample": "Henüz grubu bulunamayan nadir bir hastalık örneği",
     "door": {
       "research": "Araştırma veya sektör için: kanıtlar",
@@ -124,12 +104,12 @@
     "emptyTitle": "Zebratlas'ta ara"
   },
   "condition": {
-    "more": "Bu hastalık hakkında daha fazla bilgi",
+    "more": "Tıbbi bilgiler ve kaynaklar",
     "medicalNames": "Tıbbi adlar",
     "gene": "Gen",
     "glossary": "Doktorların kullandığı terimler",
     "doctorQuestion": "Çocuğumuzun katılabileceği bir {name} araştırması veya hasta kayıt sistemi var mı? Yakınımızdaki uzman kim?",
-    "forGroupsLink": "Vücuttaki aynı süreçle ilgili hastalıkların grupları",
+    "forGroupsLink": "İlgili toplulukları inceleyin",
     "plainGene": "Bu, {gene} adlı gendeki değişiklikten kaynaklanan nadir bir hastalıktır.",
     "plainNoGene": "Bu nadir bir hastalıktır.",
     "plainMore": "Bu hastalıkta uzman bir doktor, çocuğunuz için ne anlama geldiğini açıklayabilir.",
@@ -921,7 +901,7 @@
     "hashScope": "Özet değerinin kapsamı"
   },
   "facts": {
-    "person_same": "{name} ve {other} aynı kişidir."
+    "person_same": "{name} ile {other} aynı kişidir."
   },
   "verify": {
     "record": {
@@ -936,9 +916,9 @@
     "s1Text": "Başlıca hastalık kataloglarını (MONDO, Orphanet, OMIM, HPO) her hastalık için tek kayıtta birleştirir ve tüm kaynak kimliklerini koruruz.",
     "s2Title": "Kaynaklı bağlantılar",
     "s2Text": "Hasta grupları, çalışmalar, kayıt sistemleri, araştırmacılar, makaleler ve hibeler hastalıklarla ilişkilendirilir. Her bağlantıda kaynak kaydı, tarih ve dijital parmak izi korunur.",
-    "s3Title": "Sade ve denetlenmiş anlatım",
+    "s3Title": "Kaynaklara dayanan anlaşılır açıklamalar",
     "s3Text": "Dil modelleri sade açıklamaları ve mesaj taslaklarını yalnızca bağlantılı kayıtlardan yazar. Doğrulayıcı, her cümlenin bir kayda atıf yaptığını denetler.",
-    "s4Title": "Yalnızca adlar değil, ortak mekanizmalar",
+    "s4Title": "Ortak mekanizmalarla bağlantılar",
     "s4Text": "Hastalıklar gene, vücuttaki sürece ve ardından ayırt edici belirtilere göre gruplandırılır. Benzer görünüp farklı nedeni olanlar açıkça belirtilir.",
     "s5Title": "Dünya çapında ve birçok dilde",
     "s5Text": "Her dildeki kaynaklar bulunur, çevrilir ve aynı hastalıkla eşleştirilir. Özgün metin her zaman korunur.",
@@ -987,7 +967,7 @@
         "record-has-licence": "Her kaydın kaynak dosyasında lisans ve sınıfı belirtilir: open / share_alike / non_commercial / unknown",
         "asset-has-access-route": "Her kaynak, kimde bulunduğunu veya ona nasıl erişileceğini URL ya da sahibiyle belirtir",
         "candidate-not-merged": "candidate_same_as çifti tek düğümde birleşmez; adaylar bağlantıdır, birleştirme değildir (D30)",
-        "source-header-checksums-match": "Yüklenen her kaynak önbellek başlığı sağlama toplamı denetimlerini geçer."
+        "source-header-checksums-match": "Yüklenen tüm kaynakların önbellek başlığı sağlama toplamı kontrolleri başarılı."
       },
       "problem": {
         "identity_activity": "Kimlik birleştirme işlemi eksik",
@@ -1009,7 +989,7 @@
         "no_checksum": "sha256 yok",
         "no_access": "Erişim yolu yok",
         "self_link": "Düğümün kendisine bağlantısı",
-        "header_checksums": "{n} önbellek başlığı sağlama toplamı denetimi başarısız oldu."
+        "header_checksums": "Başarısız önbellek başlığı sağlama toplamı kontrolleri: {n}."
       }
     },
     "account": {
@@ -1544,7 +1524,8 @@
         "too_large": "Belge 5 MB'den büyük.",
         "save_unavailable": "Belge kaydetme kullanılamıyor.",
         "sign_in_to_save": "Bu belgeyi kaydetmek için giriş yapın.",
-        "unsupported": "PDF, DOCX veya metin kullanın."
+        "unsupported": "PDF, DOCX veya metin kullanın.",
+        "unreadable": "Belge okunamadı."
       }
     },
     "identity": {
@@ -1666,42 +1647,42 @@
   "resources": {
     "research": "Araştırma kaynakları",
     "models": "Modeller, örnekler ve veriler",
-    "papers": "Ücretsiz tam metin makaleler",
+    "papers": "Tam metni ücretsiz makaleler",
     "funding": "Araştırma finansmanı",
-    "read": "Ücretsiz tam metni oku",
-    "request": "Erişim talep et",
+    "read": "Tam metni ücretsiz oku",
+    "request": "Erişim iste",
     "apply": "Erişim başvurusu yap",
     "download": "İndir",
-    "holderPage": "Sağlayıcının resmî sayfası",
+    "holderPage": "Kaynağı elinde tutan kurumun resmî sayfası",
     "officialPage": "Projenin veya kaynağın resmî sayfası",
     "source": "Kaynak",
     "searchElsewhere": "Diğer kaynaklarda ara",
-    "discoveryUnchecked": "Bunlar arama bağlantılarıdır; sonuçları burada kontrol edilmemiştir.",
-    "availabilityUnknown": "Kullanılabilirlik ve araştırmanıza uygunluk doğrulanmamıştır.",
-    "noRoute": "Doğrulanmış bir erişim yolu mevcut değil.",
-    "cachedOnly": "Yalnızca kaydedilmiş kanıtlar; kaynak canlı olarak kontrol edilmedi.",
-    "reuseLicence": "Tam metni yeniden kullanım lisansı",
+    "discoveryUnchecked": "Bunlar arama bağlantılarıdır; sonuçları burada kontrol edilmedi.",
+    "availabilityUnknown": "Bu kaynağın kullanılabilirliği ve araştırmanıza uygunluğu doğrulanmadı.",
+    "noRoute": "Doğrulanmış bir erişim yolu yok.",
+    "cachedOnly": "Yalnızca kayıtlı kanıtlar; kaynak canlı olarak kontrol edilmedi.",
+    "reuseLicence": "Tam metnin yeniden kullanım lisansı",
     "unknown": "Bilinmiyor",
     "recordLicence": "Kayıt lisansı",
     "fundingEvidence": "Finansman kanıtları",
-    "verifyCached": "Kaydedilmiş kanıtları kontrol et",
-    "cacheMatches": "Kaydedilmiş kanıtlar eşleşiyor",
-    "checkedCache": "Kaydedilmiş kaynak bu girdi için kontrol edildi",
-    "notChecked": "Bu girdi için kontrol edilmedi",
+    "verifyCached": "Kayıtlı kanıtları kontrol et",
+    "cacheMatches": "Kayıtlı kanıtlar eşleşiyor",
+    "checkedCache": "Kayıtlı kaynak bu sorgu için kontrol edildi",
+    "notChecked": "Bu sorgu için kontrol edilmedi",
     "none": "Kontrol edilen kaynaklarda bağlantılı bir kaynak bulunamadı. Başka kaynaklar olabilir.",
-    "apiVerified": "Kaydedilmiş NIH API yanıtları bu projeyle eşleşiyor.",
-    "apiUnverified": "Kaydedilmiş NIH API yanıtlarının tümü doğrulanamadı.",
-    "evidenceUnavailable": "Finansman kanıtları mevcut değil veya değişmiş.",
+    "apiVerified": "Kayıtlı NIH API yanıtları bu projeyle eşleşiyor.",
+    "apiUnverified": "Kayıtlı NIH API yanıtlarının tamamı doğrulanamadı.",
+    "evidenceUnavailable": "Finansman kanıtlarına ulaşılamıyor veya kanıtlar değişmiş.",
     "organisation": "Kuruluş",
-    "funder": "Fon sağlayıcı",
+    "funder": "Finansman sağlayan kurum",
     "years": "Yıllar",
     "scope": {
-      "exact": "Bu tanıyı belirtir",
-      "gene": "Nedensel bir genle bağlantılı; tanıyla tam eşleşme değil",
-      "condition": "Bu genle ilişkili bir durum üzerinden bağlantılı",
-      "ortholog": "Bir model organizmanın geni üzerinden bağlantılı",
-      "related": "İlişkili araştırma; tanıyla tam eşleşme değil"
+      "exact": "Bu tanı adıyla belirtilmiş",
+      "gene": "Neden olan bir genle bağlantılı; bu tanıyla tam olarak eşleşmiyor",
+      "condition": "Bu genle ilişkili bir hastalık üzerinden bağlantılı",
+      "ortholog": "Model organizmanın geni üzerinden bağlantılı",
+      "related": "İlgili bir araştırma; bu tanıyla tam olarak eşleşmiyor"
     },
-    "accessConditions": "Kaynağa göre erişim koşulları"
+    "accessConditions": "Kaynakta belirtilen erişim koşulları"
   }
 }

@@ -73,5 +73,6 @@
   "preview": "Anteprima SPARQL",
   "showGraph": "Mostra grafo",
   "sample": "Esempio",
-  "samplePrompt": "Pubblicazioni collegate a STXBP1"
+  "samplePrompt": "Pubblicazioni collegate a STXBP1",
+  "pagination": "{from}–{to} di {total}"
 }

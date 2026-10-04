@@ -4,34 +4,14 @@
     "source": "en",
     "machine_translated": false,
     "reviewed": [],
-    "note": "英語からの機械翻訳。確認済み：en、de。",
     "native_review": "pending",
-    "unit_errors": {
-      "author": "GPT-6.1-Sol",
-      "backcheck": "Entry selection and inclusive 1 to 500 limit retained.",
-      "native_reviewed": false
-    },
-    "bench_fixes": {
-      "keys": [
-        "coverage.outside_verified_neighbourhood",
-        "connections.why.project"
-      ],
-      "agent_authored": true,
-      "semantic_backcheck": true,
-      "native_speaker_reviewed": false
-    },
     "agent_authored": true,
     "author": "GPT-6.1-Sol (translate-world)",
     "method": "Agent-written from intent; separate agent back-check; no translation provider.",
-    "source_sha256": "4df11cc7d75b7ea629f95600783cae894d63154423b5c9a8d3f80249ddd83893",
-    "source_fingerprint": "9e486cc693b33d0167ca991bab8c1bf9d0e8c0c42eefd70e6f8f405f909a4084",
+    "source_sha256": "8935d8646014aeaf9a867223947b1d36de4f41246208b50956e3ff2d946f64cb",
+    "source_fingerprint": "1d5bf0623393bb45816fc7d2341095d5b1099009ab5fd96a63222710b11dac2f",
     "review_ref": "world-review-ja.json",
-    "reviewed_at": "2026-10-04T06:11:23.947585+00:00",
-    "bench_frontend": {
-      "agent_authored": true,
-      "semantic_backcheck": true,
-      "native_speaker_reviewed": false
-    }
+    "reviewed_at": "2026-10-04T10:32:27.406882+00:00"
   },
   "app": {
     "name": "Zebratlas",
@@ -57,7 +37,7 @@
     "curatedHint": "このつながりは{date}に「情報の根拠」の情報源と照合し、人が確認しました。Zebratlasのサーバーではまだ計算していません。"
   },
   "nav": {
-    "about": "概要",
+    "about": "仕組み",
     "pricing": "団体向け",
     "signIn": "ログイン",
     "saved": "保存済み",
@@ -124,12 +104,12 @@
     "emptyTitle": "Zebratlasを検索"
   },
   "condition": {
-    "more": "この疾患について詳しく",
+    "more": "医学的な情報と出典",
     "medicalNames": "医学的な名称",
     "gene": "遺伝子",
     "glossary": "医療用語",
     "doctorQuestion": "{name}で子どもが参加できる研究やレジストリはありますか。近くの専門医はどなたですか。",
-    "forGroupsLink": "体内の同じ働きに関わる疾患の患者会",
+    "forGroupsLink": "関連するコミュニティを見る",
     "plainGene": "これは{gene}という遺伝子の変化による希少疾患です。",
     "plainNoGene": "これは希少疾患です。",
     "plainMore": "この疾患の専門医が、お子さんへの影響を説明できます。",
@@ -925,8 +905,8 @@
   },
   "verify": {
     "record": {
-      "partial": "確認済みの記録は一致しています。一部の記録はまだ確認されていません。",
-      "unavailable": "確認できる元の記録がありません。"
+      "partial": "確認した記録は一致していますが、まだ確認していない記録があります。",
+      "unavailable": "確認できる情報源の記録がありません。"
     }
   },
   "about": {
@@ -936,9 +916,9 @@
     "s1Text": "主な疾患カタログ（MONDO、Orphanet、OMIM、HPO）を疾患ごとの記録に統合し、すべての情報源IDを保持します。",
     "s2Title": "情報源付きのつながり",
     "s2Text": "患者会、研究、レジストリ、研究者、論文、助成を疾患に結び付けます。各つながりには情報源の記録、日付、デジタル指紋を残します。",
-    "s3Title": "分かりやすい表現を確認",
+    "s3Title": "情報源に基づく分かりやすい説明",
     "s3Text": "言語モデルは、結び付けられた記録だけを使って説明文とメッセージの下書きを作成します。検証機能が各文に記録の引用があるかを確認します。",
-    "s4Title": "名前だけでなく、共通の仕組みで探す",
+    "s4Title": "共通の仕組みで疾患をつなぐ",
     "s4Text": "遺伝子と体の仕組み、さらに特徴的な症状に基づいて疾患をまとめます。似ていても原因が異なる疾患は、その違いを示します。",
     "s5Title": "世界の情報を多言語で",
     "s5Text": "あらゆる言語の情報源を探して翻訳し、同じ疾患に結び付けます。原文は常に保存します。",
@@ -987,7 +967,7 @@
         "record-has-licence": "各記録の情報源ファイルにはライセンスと区分（open / share_alike / non_commercial / unknown）が明示されています",
         "asset-has-access-route": "各資源には、保有者またはURLによるアクセス方法が示されています",
         "candidate-not-merged": "candidate_same_asの候補ペアは同じノードに統合しません。候補はリンクとして保持します（D30）",
-        "source-header-checksums-match": "読み込まれたすべてのソースがキャッシュヘッダーのチェックサム検証に合格します。"
+        "source-header-checksums-match": "読み込んだすべての情報源で、キャッシュヘッダーのチェックサム検証に合格しています。"
       },
       "problem": {
         "identity_activity": "同一性の統合処理がありません",
@@ -1544,7 +1524,8 @@
         "too_large": "文書が5 MBを超えています。",
         "save_unavailable": "文書の保存機能を利用できません。",
         "sign_in_to_save": "この文書を保存するにはログインしてください。",
-        "unsupported": "PDF、DOCX、テキストを使用してください。"
+        "unsupported": "PDF、DOCX、テキストを使用してください。",
+        "unreadable": "文書を読み取れませんでした。"
       }
     },
     "identity": {
@@ -1664,44 +1645,44 @@
     "soon": "近日公開。"
   },
   "resources": {
-    "research": "研究資源",
+    "research": "研究に使える資料・資源",
     "models": "モデル・試料・データ",
-    "papers": "無料で全文を読める論文",
-    "funding": "研究助成",
-    "read": "無料の全文を読む",
-    "request": "利用を依頼する",
-    "apply": "利用を申請する",
+    "papers": "全文を無料で読める論文",
+    "funding": "研究資金",
+    "read": "全文を無料で読む",
+    "request": "利用を申請する",
+    "apply": "利用申請に進む",
     "download": "ダウンロード",
-    "holderPage": "提供元の公式ページ",
+    "holderPage": "保有機関の公式ページ",
     "officialPage": "プロジェクト・資源の公式ページ",
     "source": "出典",
-    "searchElsewhere": "他の情報源を検索",
-    "discoveryUnchecked": "これらは検索リンクです。検索結果はここでは確認していません。",
-    "availabilityUnknown": "利用可能かどうか、および研究への適合性は確認されていません。",
+    "searchElsewhere": "他の情報源で探す",
+    "discoveryUnchecked": "検索ページへのリンクです。その検索結果はここでは確認していません。",
+    "availabilityUnknown": "利用可能かどうか、研究に適しているかどうかは確認できていません。",
     "noRoute": "確認済みの利用方法はありません。",
-    "cachedOnly": "保存済みの証拠のみです。情報源の最新状態は確認していません。",
+    "cachedOnly": "保存済みの資料のみです。現在の情報源に直接アクセスして確認したものではありません。",
     "reuseLicence": "全文の再利用ライセンス",
     "unknown": "不明",
-    "recordLicence": "レコードのライセンス",
-    "fundingEvidence": "研究助成の証拠",
-    "verifyCached": "保存済みの証拠を確認",
-    "cacheMatches": "保存済みの証拠が一致",
-    "checkedCache": "今回の入力について保存済み情報源を確認済み",
-    "notChecked": "今回の入力について未確認",
-    "none": "確認済みの情報源では関連する資源は見つかりませんでした。他の資源が存在する可能性があります。",
-    "apiVerified": "保存済みのNIH API応答はこのプロジェクトと一致します。",
-    "apiUnverified": "保存済みのNIH API応答のすべてを検証できませんでした。",
-    "evidenceUnavailable": "研究助成の証拠が利用できないか、変更されています。",
-    "organisation": "機関",
-    "funder": "助成機関",
-    "years": "年度",
+    "recordLicence": "記録のライセンス",
+    "fundingEvidence": "研究資金の根拠資料",
+    "verifyCached": "保存済みの資料を確認する",
+    "cacheMatches": "保存済みの資料は一致しています",
+    "checkedCache": "この入力について保存済みの情報源を確認済み",
+    "notChecked": "この入力については未確認",
+    "none": "確認した情報源では関連する資源が見つかりませんでした。他に存在する可能性があります。",
+    "apiVerified": "保存済みのNIH API応答は、このプロジェクトと一致しています。",
+    "apiUnverified": "保存済みのNIH API応答をすべて確認することはできませんでした。",
+    "evidenceUnavailable": "研究資金の根拠資料が利用できないか、変更されています。",
+    "organisation": "組織",
+    "funder": "資金提供機関",
+    "years": "年",
     "scope": {
-      "exact": "この診断を明記",
-      "gene": "原因遺伝子に関連。診断との完全一致ではありません",
-      "condition": "この遺伝子に関連する疾患を介したつながり",
-      "ortholog": "モデル生物の遺伝子を介したつながり",
-      "related": "関連研究。診断との完全一致ではありません"
+      "exact": "この診断名が記載されています",
+      "gene": "原因となる遺伝子に関連しますが、この診断に一致するものではありません",
+      "condition": "この遺伝子に関連する疾患を介したつながりです",
+      "ortholog": "研究用のモデル生物の遺伝子を介したつながりです",
+      "related": "関連研究ですが、この診断に一致するものではありません"
     },
-    "accessConditions": "出典に記載された利用条件"
+    "accessConditions": "情報源に記載された利用条件"
   }
 }

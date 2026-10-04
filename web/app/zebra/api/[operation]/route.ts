@@ -1,3 +1,4 @@
+import { localizedError } from "@/lib/zebra/error-copy";
 import * as adapt from "@/lib/adapt";
 import { cookies } from "next/headers";
 import { SAVED_KINDS } from "@/components/account/types";
@@ -35,7 +36,7 @@ async function handle(request: Request, context: Context): Promise<Response> {
       }
       if (operation === "jobs") {
         const kind = url.searchParams.get("kind") || "condition";
-        if (kind !== "condition" && kind !== "gene") throw new HttpError(400, "Invalid resource type.");
+        if (kind !== "condition" && kind !== "gene") throw new HttpError(400, "resourceType");
         return jsonResponse(await upstreamJson(request, `/api/${kind}/${enc(idParam(request))}/jobs?limit=12`));
       }
       if (operation === "initiatives") return jsonResponse(await upstreamJson(request, "/api/initiatives"));
@@ -55,9 +56,9 @@ async function handle(request: Request, context: Context): Promise<Response> {
       }
       if (operation === "condition") {
         const lang = url.searchParams.get("lang") || "en";
-        if (!/^[a-z]{2}(?:-[A-Za-z]{2,8})?$/.test(lang)) throw new HttpError(400, "Invalid language.");
+        if (!/^[a-z]{2}(?:-[A-Za-z]{2,8})?$/.test(lang)) throw new HttpError(400, "language");
         const sections = (url.searchParams.get("sections") || "summary,connections,gaps").split(",");
-        if (!sections.length || sections.length > CONDITION_SECTIONS.length || sections.some((section) => !CONDITION_SECTIONS.includes(section as ConditionSection))) throw new HttpError(400, "Invalid detail sections.");
+        if (!sections.length || sections.length > CONDITION_SECTIONS.length || sections.some((section) => !CONDITION_SECTIONS.includes(section as ConditionSection))) throw new HttpError(400, "sections");
         return jsonResponse(await conditionBundle(request, idParam(request), lang, [...new Set(sections)] as ConditionSection[]));
       }
       if (operation === "provenance" || operation === "verify") {
@@ -71,7 +72,7 @@ async function handle(request: Request, context: Context): Promise<Response> {
       }
       if (operation === "account") {
         const status = await upstreamJson(request, "/api/account/status", { service: "account" }) as { enabled?: boolean };
-        if (!status.enabled) throw new HttpError(503, "Accounts are currently unavailable.");
+        if (!status.enabled) throw new HttpError(503, "accountsUnavailable");
         try { return jsonResponse({ state: "signed_in", account: await upstreamJson(request, "/api/account/me", { service: "account" }) }); }
         catch (error) { if (error instanceof HttpError && error.status === 401) return jsonResponse({ state: "signed_out" }); throw error; }
       }
@@ -84,7 +85,7 @@ async function handle(request: Request, context: Context): Promise<Response> {
       if (operation === "export") {
         const account = url.searchParams.get("format") === "account";
         const res = await upstream(request, account ? "/api/account/export" : `/api/export.ttl?condition=${enc(idParam(request))}`, { service: account ? "account" : undefined });
-        if (!res.ok) throw new HttpError(res.status, "The export could not be prepared.");
+        if (!res.ok) throw new HttpError(res.status, "exportFailed");
         const text = await readBounded(res, 16 * 1024 * 1024);
         return new Response(text, { headers: { "content-type": account ? "application/json" : "text/turtle; charset=utf-8", "content-disposition": `attachment; filename="${account ? "zebratlas-account.json" : "zebratlas.ttl"}"`, "cache-control": "private, no-store" } });
       }
@@ -97,13 +98,13 @@ async function handle(request: Request, context: Context): Promise<Response> {
       }
       const body = await bodyObject(request);
       if (operation === "privacy") {
-        if (Object.keys(body).some((key) => !["email", "concerns", "type"].includes(key))) throw new HttpError(400, "Invalid privacy request.");
+        if (Object.keys(body).some((key) => !["email", "concerns", "type"].includes(key))) throw new HttpError(400, "privacyRequest");
         const email = boundedString(body.email, "email address", 254).trim();
         const concerns = boundedString(body.concerns, "request details", 2000).trim();
-        if (Buffer.byteLength(email) > 254 || Buffer.byteLength(concerns) > 2000 || /[\x00-\x1f\x7f]/.test(email) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new HttpError(400, "Invalid privacy request.");
-        if (typeof body.type !== "string" || !["remove", "correct", "object"].includes(body.type)) throw new HttpError(400, "Invalid privacy request type.");
+        if (Buffer.byteLength(email) > 254 || Buffer.byteLength(concerns) > 2000 || /[\x00-\x1f\x7f]/.test(email) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new HttpError(400, "privacyRequest");
+        if (typeof body.type !== "string" || !["remove", "correct", "object"].includes(body.type)) throw new HttpError(400, "privacyType");
         const reply = await upstreamJson(request, "/api/privacy/requests", { method: "POST", body: { email, concerns, type: body.type }, service: "contribute", auth: false }) as Record<string, unknown>;
-        if (!reply || typeof reply.reference !== "string" || !/^pr_[a-f0-9]{20}$/.test(reply.reference) || typeof reply.received_at !== "string" || typeof reply.respond_by !== "string" || !Number.isFinite(Date.parse(reply.received_at)) || !Number.isFinite(Date.parse(reply.respond_by))) throw new HttpError(502, "The request receipt could not be verified.");
+        if (!reply || typeof reply.reference !== "string" || !/^pr_[a-f0-9]{20}$/.test(reply.reference) || typeof reply.received_at !== "string" || typeof reply.respond_by !== "string" || !Number.isFinite(Date.parse(reply.received_at)) || !Number.isFinite(Date.parse(reply.respond_by))) throw new HttpError(502, "receiptFailed");
         return jsonResponse({ reference: reply.reference, received_at: reply.received_at, respond_by: reply.respond_by }, 202);
       }
       if (operation === "lookup" && "query" in body) {
@@ -115,9 +116,9 @@ async function handle(request: Request, context: Context): Promise<Response> {
         return jsonResponse(await upstreamJson(request, "/api/explore/lookup", { method: "POST", body: { query, limit }, auth: false, timeout: 10000 }));
       }
       if (operation === "lookup") {
-        if (Object.keys(body).some((key) => key !== "q")) throw new HttpError(400, "Invalid indexed lookup request.");
+        if (Object.keys(body).some((key) => key !== "q")) throw new HttpError(400, "lookupRequest");
         const query = boundedString(body.q, "search term", 128);
-        if (Buffer.byteLength(query) > 128 || /[\x00-\x1f\x7f]/.test(query)) throw new HttpError(400, "Invalid search term.");
+        if (Buffer.byteLength(query) > 128 || /[\x00-\x1f\x7f]/.test(query)) throw new HttpError(400, "searchTerm");
         return jsonResponse(await upstreamJson(request, "/api/search/lookup", { method: "POST", body: { q: query, limit: 6 }, auth: false, timeout: 2500 }));
       }
       if (operation === "lookup") {
@@ -128,28 +129,28 @@ async function handle(request: Request, context: Context): Promise<Response> {
         return jsonResponse(await upstreamJson(request, "/api/explore/lookup", { method: "POST", body: { query, limit }, auth: false, timeout: 10000 }));
       }
       if (operation === "sparql") {
-        if (Object.keys(body).some((key) => !["sparql", "query", "focus", "semantic_focus", "limit", "reasoning"].includes(key))) throw new HttpError(400, "Invalid query request.");
+        if (Object.keys(body).some((key) => !["sparql", "query", "focus", "semantic_focus", "limit", "reasoning"].includes(key))) throw new HttpError(400, "queryRequest");
         const sparql = boundedString(body.sparql, "SPARQL query", 16384);
         const query = boundedString(body.query ?? "", "query caption", 32000, false);
-        if (Buffer.byteLength(sparql) > 16384 || Buffer.byteLength(query) > 32000) throw new HttpError(400, "The query is too large.");
+        if (Buffer.byteLength(sparql) > 16384 || Buffer.byteLength(query) > 32000) throw new HttpError(400, "queryTooLarge");
         for (const field of ["focus", "semantic_focus"] as const) {
           const ids = body[field];
-          if (ids !== undefined && (!Array.isArray(ids) || ids.length > 16 || new Set(ids).size !== ids.length || ids.some((id) => typeof id !== "string" || !id.trim() || Buffer.byteLength(id) > 256))) throw new HttpError(400, "Invalid focus identifiers.");
+          if (ids !== undefined && (!Array.isArray(ids) || ids.length > 16 || new Set(ids).size !== ids.length || ids.some((id) => typeof id !== "string" || !id.trim() || Buffer.byteLength(id) > 256))) throw new HttpError(400, "focusIds");
         }
         const limit = body.limit;
-        if (typeof limit !== "number" || !Number.isInteger(limit) || limit < 1 || limit > 160) throw new HttpError(400, "Invalid result limit.");
-        if (typeof body.reasoning !== "boolean") throw new HttpError(400, "Invalid reasoning setting.");
+        if (typeof limit !== "number" || !Number.isInteger(limit) || limit < 1 || limit > 160) throw new HttpError(400, "resultLimit");
+        if (typeof body.reasoning !== "boolean") throw new HttpError(400, "reasoningSetting");
         return jsonResponse(await upstreamJson(request, "/api/explore/sparql", { method: "POST", body: { sparql, query, focus: body.focus, semantic_focus: body.semantic_focus, limit, reasoning: body.reasoning }, timeout: 30000 }));
       }
       if (["verify-email", "resend-verification", "forgot-password", "reset-password"].includes(operation)) {
         const fields = operation === "verify-email" ? ["token", "locale"] : operation === "reset-password" ? ["token", "new_password", "locale"] : ["email", "locale"];
-        if (Object.keys(body).some((key) => !fields.includes(key))) throw new HttpError(400, "Invalid account request.");
+        if (Object.keys(body).some((key) => !fields.includes(key))) throw new HttpError(400, "accountRequest");
         const payload: Record<string, string> = {};
         if (fields.includes("token")) payload.token = boundedString(body.token, "token", 2048);
         if (fields.includes("new_password")) payload.new_password = boundedString(body.new_password, "new password", 1024);
         if (fields.includes("email")) payload.email = boundedString(body.email, "email address", 254);
         if (body.locale !== undefined) {
-          if (body.locale !== "en" && body.locale !== "de") throw new HttpError(400, "Invalid language.");
+          if (body.locale !== "en" && body.locale !== "de") throw new HttpError(400, "language");
           payload.locale = body.locale;
         }
         const reply = await upstreamJson(request, `/api/account/${operation}`, { method: "POST", body: payload, service: "account", auth: false });
@@ -157,19 +158,19 @@ async function handle(request: Request, context: Context): Promise<Response> {
         return jsonResponse(reply, operation === "resend-verification" || operation === "forgot-password" ? 202 : 200);
       }
       if (operation === "password") {
-        if (Object.keys(body).some((key) => !["current_password", "new_password"].includes(key))) throw new HttpError(400, "Invalid password request.");
+        if (Object.keys(body).some((key) => !["current_password", "new_password"].includes(key))) throw new HttpError(400, "passwordRequest");
         const current_password = boundedString(body.current_password, "current password", 1024);
         const new_password = boundedString(body.new_password, "new password", 1024);
         const res = await upstream(request, "/api/account/password", { method: "POST", body: { current_password, new_password }, service: "account" });
         const raw = await readBounded(res, 65536);
         let reply: { detail?: string; error?: string; ended_other_sessions?: number };
-        try { reply = JSON.parse(raw); } catch { throw new HttpError(502, "The account server returned an unreadable response."); }
-        if (!res.ok) throw new HttpError(res.status, reply.detail || reply.error?.replaceAll("_", " ") || "The password could not be changed.");
+        try { reply = JSON.parse(raw); } catch { throw new HttpError(502, "accountUnreadable"); }
+        if (!res.ok) throw new HttpError(res.status, reply.detail || reply.error?.replaceAll("_", " ") || "passwordChange");
         await storeSession(request, res);
         return jsonResponse(reply);
       }
       if (operation === "logout-all") {
-        if (Object.keys(body).length) throw new HttpError(400, "Invalid sign-out request.");
+        if (Object.keys(body).length) throw new HttpError(400, "signoutRequest");
         const reply = await upstreamJson(request, "/api/account/logout-all", { method: "POST", body: {}, service: "account" });
         await dropSession();
         return jsonResponse(reply);
@@ -182,19 +183,19 @@ async function handle(request: Request, context: Context): Promise<Response> {
         const query = boundedString(body.query ?? "", "search", 32000, !body.plan);
         const caption = body.caption === undefined ? undefined : boundedString(body.caption, "search caption", 512, false);
         if (caption !== undefined && Buffer.byteLength(caption) > 512) throw new HttpError(400, "Please keep search captions under 512 bytes.");
-        if (Buffer.byteLength(query) > 32000) throw new HttpError(400, "Please keep searches under 32 KB.");
-        if (body.mode !== undefined && body.mode !== "knowledge" && body.mode !== "community") throw new HttpError(400, "Invalid search mode.");
+        if (Buffer.byteLength(query) > 32000) throw new HttpError(400, "searchTooLarge");
+        if (body.mode !== undefined && body.mode !== "knowledge" && body.mode !== "community") throw new HttpError(400, "searchMode");
         const limit = body.limit === undefined ? 20 : Number(body.limit);
-        if (!Number.isInteger(limit) || limit < 1 || limit > 40) throw new HttpError(400, "Invalid result limit.");
+        if (!Number.isInteger(limit) || limit < 1 || limit > 40) throw new HttpError(400, "resultLimit");
         if (body.plan !== undefined) {
-          if (!body.plan || typeof body.plan !== "object" || Array.isArray(body.plan)) throw new HttpError(400, "Invalid search plan.");
+          if (!body.plan || typeof body.plan !== "object" || Array.isArray(body.plan)) throw new HttpError(400, "searchPlan");
           const plan = body.plan as Record<string, unknown>;
-          if (!Array.isArray(plan.focus) || plan.focus.length > 8 || plan.focus.some((id) => typeof id !== "string" || id.length > 256)) throw new HttpError(400, "Invalid focus identifiers.");
-          if (!EXPLORE_INTENTS.includes(plan.intent as typeof EXPLORE_INTENTS[number])) throw new HttpError(400, "Invalid search intent.");
-          if (!plan.filters || typeof plan.filters !== "object" || Array.isArray(plan.filters)) throw new HttpError(400, "Invalid search filters.");
+          if (!Array.isArray(plan.focus) || plan.focus.length > 8 || plan.focus.some((id) => typeof id !== "string" || id.length > 256)) throw new HttpError(400, "focusIds");
+          if (!EXPLORE_INTENTS.includes(plan.intent as typeof EXPLORE_INTENTS[number])) throw new HttpError(400, "searchIntent");
+          if (!plan.filters || typeof plan.filters !== "object" || Array.isArray(plan.filters)) throw new HttpError(400, "searchFilters");
           const filters = plan.filters as Record<string, unknown>;
-          for (const key of ["country", "kind"]) if (filters[key] != null && (typeof filters[key] !== "string" || (filters[key] as string).length > 100)) throw new HttpError(400, "Invalid search filter.");
-          if (filters.recruiting != null && typeof filters.recruiting !== "boolean") throw new HttpError(400, "Invalid recruiting filter.");
+          for (const key of ["country", "kind"]) if (filters[key] != null && (typeof filters[key] !== "string" || (filters[key] as string).length > 100)) throw new HttpError(400, "searchFilter");
+          if (filters.recruiting != null && typeof filters.recruiting !== "boolean") throw new HttpError(400, "recruitingFilter");
         }
         const response = await upstreamJson(request, "/api/explore", { method: "POST", body: { query, caption, mode: body.mode || "knowledge", limit, plan: body.plan }, timeout: 95000 }) as Record<string, unknown>;
         const retrieval = response?.retrieval as Record<string, unknown> | undefined;
@@ -203,7 +204,7 @@ async function handle(request: Request, context: Context): Promise<Response> {
       }
       if (operation === "auth") {
         const mode = body.mode;
-        if (mode !== "login" && mode !== "signup") throw new HttpError(400, "Invalid authentication request.");
+        if (mode !== "login" && mode !== "signup") throw new HttpError(400, "authentication");
         const email = boundedString(body.email, "email address", 254);
         const password = boundedString(body.password, "password", 1024);
         const payload: Record<string, unknown> = { email, password };
@@ -211,8 +212,8 @@ async function handle(request: Request, context: Context): Promise<Response> {
         const res = await upstream(request, `/api/account/${mode}`, { method: "POST", body: payload, service: "account", auth: false });
         const raw = await readBounded(res, 65536);
         let account: { state?: string; code?: string; detail?: string };
-        try { account = JSON.parse(raw); } catch { throw new HttpError(502, "The account server returned an unreadable response."); }
-        if (!res.ok) throw new HttpError(res.status, account?.detail || "Sign-in failed. Please check your details.", account?.code);
+        try { account = JSON.parse(raw); } catch { throw new HttpError(502, "accountUnreadable"); }
+        if (!res.ok) throw new HttpError(res.status, account?.detail || "signInFailed", account?.code);
         if (mode === "signup" && res.status === 202 && account.state === "verification_required") return jsonResponse({ state: "verification_required", code: "verification_sent" }, 202);
         await storeSession(request, res);
         return jsonResponse({ state: "signed_in", account });
@@ -222,13 +223,13 @@ async function handle(request: Request, context: Context): Promise<Response> {
         await dropSession(); return new Response(null, { status: 204 });
       }
       if (operation === "saved") {
-        if (!SAVED_KINDS.includes(body.kind as typeof SAVED_KINDS[number])) throw new HttpError(400, "Invalid saved item type.");
+        if (!SAVED_KINDS.includes(body.kind as typeof SAVED_KINDS[number])) throw new HttpError(400, "savedType");
         boundedString(body.title, "title", 200);
-        if (!Array.isArray(body.refs) || body.refs.length > 500 || body.refs.some((v) => typeof v !== "string" || v.length > 200)) throw new HttpError(400, "Invalid saved references.");
+        if (!Array.isArray(body.refs) || body.refs.length > 500 || body.refs.some((v) => typeof v !== "string" || v.length > 200)) throw new HttpError(400, "savedRefs");
         return jsonResponse(await upstreamJson(request, "/api/account/saved", { method: "POST", body, service: "account" }), 201);
       }
       if (operation === "contribute") {
-        if (!["new_link", "correction", "missing_evidence", "outdated_contact", "data_source", "other"].includes(String(body.kind))) throw new HttpError(400, "Invalid contribution type.");
+        if (!["new_link", "correction", "missing_evidence", "outdated_contact", "data_source", "other"].includes(String(body.kind))) throw new HttpError(400, "contributionType");
         boundedString(body.statement, "statement", 2000);
         const reply = await upstreamJson(request, "/api/contribute", { method: "POST", body, service: "contribute" }) as { contribution?: unknown };
         return jsonResponse(reply.contribution ?? reply, 202);
@@ -243,17 +244,17 @@ async function handle(request: Request, context: Context): Promise<Response> {
     }
     if (method === "PATCH" && operation === "account") {
       const body = await bodyObject(request);
-      if (Object.keys(body).some((key) => !["display_name", "locale"].includes(key))) throw new HttpError(400, "Invalid profile fields.");
+      if (Object.keys(body).some((key) => !["display_name", "locale"].includes(key))) throw new HttpError(400, "profileFields");
       if (body.display_name !== undefined && body.display_name !== null) boundedString(body.display_name, "name", 80, false);
       if (body.locale !== undefined && body.locale !== null) boundedString(body.locale, "language", 35, false);
       return jsonResponse({ state: "signed_in", account: await upstreamJson(request, "/api/account/me", { method: "PATCH", body, service: "account" }) });
     }
     if (method === "PATCH" && operation === "saved") {
       const body = await bodyObject(request);
-      if (Object.keys(body).some((key) => !["title", "payload", "note"].includes(key))) throw new HttpError(400, "Invalid saved item fields.");
+      if (Object.keys(body).some((key) => !["title", "payload", "note"].includes(key))) throw new HttpError(400, "savedFields");
       if (body.title !== undefined) boundedString(body.title, "title", 200);
       if (body.note !== undefined && body.note !== null) boundedString(body.note, "note", 4000, false);
-      if (body.payload !== undefined && (!body.payload || typeof body.payload !== "object" || Array.isArray(body.payload))) throw new HttpError(400, "Invalid saved item content.");
+      if (body.payload !== undefined && (!body.payload || typeof body.payload !== "object" || Array.isArray(body.payload))) throw new HttpError(400, "savedContent");
       return jsonResponse(await upstreamJson(request, `/api/account/saved/${enc(idParam(request))}`, { method: "PATCH", body, service: "account" }));
     }
     if (method === "PUT" && operation === "models") {
@@ -293,9 +294,9 @@ async function handle(request: Request, context: Context): Promise<Response> {
       await upstreamJson(request, `/api/account/saved/${enc(idParam(request))}`, { method: "DELETE", service: "account" });
       return new Response(null, { status: 204 });
     }
-    return jsonResponse({ detail: "Unknown endpoint or method." }, 404);
+    return jsonResponse(localizedError(request, "unknownEndpoint"), 404);
   } catch (error) {
-    return jsonResponse({ detail: error instanceof HttpError ? error.message : "The request could not be completed.", ...(error instanceof HttpError && error.code ? { code: error.code } : {}) }, error instanceof HttpError ? error.status : 500);
+    return jsonResponse({ ...localizedError(request, error instanceof HttpError ? error.message : "requestFailed", error instanceof HttpError ? error.code : undefined), ...(error instanceof HttpError && error.code ? { code: error.code } : {}) }, error instanceof HttpError ? error.status : 500);
   }
 }
 export const GET = handle;

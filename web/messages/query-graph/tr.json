@@ -73,5 +73,6 @@
   "preview": "SPARQL önizlemesi",
   "showGraph": "Grafiği göster",
   "sample": "Örnek",
-  "samplePrompt": "STXBP1 ile bağlantılı yayınlar"
+  "samplePrompt": "STXBP1 ile bağlantılı yayınlar",
+  "pagination": "{total} eşleşmeden {from}–{to} arası"
 }

@@ -73,5 +73,6 @@
   "preview": "SPARQL पूर्वावलोकन",
   "showGraph": "ग्राफ़ दिखाएँ",
   "sample": "नमूना",
-  "samplePrompt": "STXBP1 से जुड़े शोधपत्र"
+  "samplePrompt": "STXBP1 से जुड़े शोधपत्र",
+  "pagination": "कुल {total} में से {from}–{to}"
 }

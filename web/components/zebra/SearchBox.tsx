@@ -1,6 +1,9 @@
 "use client";
 import { zebraCopyLocale } from "@/lib/zebra/locale";
 
+import { getZebraCatalog, ZEBRA_LOCALES, type ZebraLocale } from "@/lib/zebra/locale";
+
+
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type FormEvent, type KeyboardEvent, type PointerEvent } from "react";
 import { extractDocument, lookupEntities } from "@/lib/zebra/client";
 import type { ExtractedDocument } from "@/lib/zebra/types";
@@ -10,14 +13,8 @@ import { Icon } from "./Icon";
 import { ZebraLoader } from "./ZebraLoader";
 import styles from "./SearchSuggestions.module.css";
 
-const resizeWords = {
-  en: { label: "Resize search field", hint: "Drag the corner or use arrow keys to resize. Home restores the original size." },
-  de: { label: "Suchfeldgröße ändern", hint: "Ecke ziehen oder mit den Pfeiltasten die Größe ändern. Pos1 stellt die ursprüngliche Größe wieder her." },
-};
-const suggestionWords = {
-  en: { label: "Suggestions", AND: "Include both terms", OR: "Include either term" },
-  de: { label: "Vorschläge", AND: "Beide Begriffe einschließen", OR: "Einen der Begriffe einschließen" },
-};
+const resizeWords = Object.fromEntries(ZEBRA_LOCALES.map(locale => [locale, getZebraCatalog(locale).resizeWords])) as Record<ZebraLocale, ReturnType<typeof getZebraCatalog>["resizeWords"]>;
+const suggestionWords = Object.fromEntries(ZEBRA_LOCALES.map(locale => [locale, getZebraCatalog(locale).suggestionWords])) as Record<ZebraLocale, ReturnType<typeof getZebraCatalog>["suggestionWords"]>;
 type SearchMetrics = { paddingX: number; paddingY: number; icon: number; gap: number; control: number; controls: number; singleHeight: number; expandedHeight: number; lineHeight: number; textPadding: number };
 
 export function SearchBox({ initial = "", resetVersion = 0, compact = false, busy = false, onSearch }: { initial?: string; resetVersion?: number; compact?: boolean; busy?: boolean; onSearch: (query: string, display?: string) => void }) {

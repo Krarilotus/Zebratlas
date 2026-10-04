@@ -4,13 +4,14 @@ import path from "node:path";
 import { createRequire, stripTypeScriptTypes } from "node:module";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
+import { languagePrelude } from "./zebra-language-fixture.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const require = createRequire(process.env.ZEBRA_TEST_WEB ? path.join(process.env.ZEBRA_TEST_WEB, "package.json") : import.meta.url);
 const ts = require("typescript"), React = require("react"), { renderToStaticMarkup } = require("react-dom/server");
 async function isolatedModule(relative, prefix = "") {
   const source = fs.readFileSync(path.join(root, relative), "utf8").replace(/^import .*;\r?$/gm, "");
-  return import(`data:text/javascript;base64,${Buffer.from(prefix + stripTypeScriptTypes(source, { mode: "transform" })).toString("base64")}`);
+  return import(`data:text/javascript;base64,${Buffer.from(languagePrelude(relative.includes("route.ts")) + prefix + stripTypeScriptTypes(source, { mode: "transform" })).toString("base64")}`);
 }
 
 test("anonymous client sends private concerns only in a fixed POST body", async () => {
@@ -19,7 +20,7 @@ test("anonymous client sends private concerns only in a fixed POST body", async 
   globalThis.fetch = async (...args) => { calls.push(args); return Response.json({ reference: "pr_0123456789abcdef0123", received_at: "2026-10-04T10:00:00Z", respond_by: "2026-11-03T10:00:00Z" }); };
   try {
     await client.submitPrivacyRequest({ email: "private@example.invalid", concerns: "Jane's profile needs correction", type: "correct", details: "must not leave browser", lang: "de" });
-    assert.equal(calls[0][0], "/zebra/api/privacy");
+    assert.equal(calls[0][0], "/zebra/api/privacy?lang=en");
     assert.equal(calls[0][1].method, "POST");
     assert.equal(calls[0][1].cache, "no-store");
     assert.deepEqual(JSON.parse(calls[0][1].body), { email: "private@example.invalid", concerns: "Jane's profile needs correction", type: "correct" });

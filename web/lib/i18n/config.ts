@@ -1,6 +1,5 @@
 // Supported UI languages (D17). The URL segment is the locale code; names are endonyms and are
-// never translated. English is the source catalog. All non-English locales await native-speaker review;
-// structural parity is not evidence of translation authorship or semantic review.
+// never translated. English is the default; non-English catalogs await native-speaker review.
 
 export const LOCALES = ["en", "de", "es", "fr", "pt", "it", "zh-Hans", "ja", "hi", "ar", "ru", "tr"] as const;
 export type Locale = (typeof LOCALES)[number];

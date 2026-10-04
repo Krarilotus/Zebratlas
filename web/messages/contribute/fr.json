@@ -1,7 +1,9 @@
 {
   "_meta": {
     "owner": "contribute agent",
-    "note": "Machine-translated; review section in English (internal page)."
+    "note": "Machine-translated; review section in English (internal page).",
+    "native_review": "pending",
+    "completion_ref": "docs/i18n/auxiliary-completion.json"
   },
   "suggest": "Suggérer un lien ou corriger",
   "suggestShort": "Suggérer ou corriger",
@@ -78,29 +80,29 @@
     }
   },
   "review": {
-    "title": "Review suggestions",
-    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
-    "token": "Reviewer key",
-    "tokenHint": "Kept only on this page, never stored.",
-    "open": "Open the queue",
-    "empty": "Nothing is waiting for review.",
-    "accept": "Accept",
-    "reject": "Reject",
-    "reason": "Reason (required, shown publicly)",
-    "recheck": "Run checks again",
+    "title": "Examiner les suggestions",
+    "lead": "Chaque suggestion reste séparée de la carte vérifiée jusqu’à son acceptation par une personne chargée de la revue. Vérifiez les éléments, puis acceptez ou refusez avec un motif rendu public.",
+    "token": "Clé de révision",
+    "tokenHint": "Conservée uniquement sur cette page, jamais stockée.",
+    "open": "Ouvrir la file",
+    "empty": "Aucune suggestion en attente de revue.",
+    "accept": "Accepter",
+    "reject": "Refuser",
+    "reason": "Motif (obligatoire, rendu public)",
+    "recheck": "Relancer les contrôles",
     "contact": "Contact",
-    "anonymous": "anonymous",
-    "unauthorized": "This key is not valid.",
-    "unavailable": "The review service can't be reached.",
-    "failed": "Not saved: {detail}",
-    "saved": "Saved.",
-    "statement": "Statement",
-    "evidence": "Evidence",
-    "quote": "Quote",
-    "subject": "Who",
-    "target": "Condition or gene",
-    "edge": "Connection",
-    "foundVia": "Found with",
-    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+    "anonymous": "anonyme",
+    "unauthorized": "Cette clé n’est pas valide.",
+    "unavailable": "Le service de révision est inaccessible.",
+    "failed": "Non enregistré : {detail}",
+    "saved": "Enregistré.",
+    "statement": "Affirmation",
+    "evidence": "Éléments de preuve",
+    "quote": "Citation",
+    "subject": "Qui",
+    "target": "Maladie ou gène",
+    "edge": "Lien",
+    "foundVia": "Trouvé à l’aide de",
+    "counts": "{open} en attente · {accepted} acceptées · {rejected} refusées"
   }
 }

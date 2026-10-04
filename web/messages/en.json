@@ -2,35 +2,10 @@
   "_meta": {
     "locale": "en",
     "source": "current master plus reviewed designer additions and captured API/content copy",
-    "machine_translated": false,
-    "reviewed": [
-      "en",
-      "de"
-    ],
-    "note": "Source catalog. Plain language, short sentences, no idioms. ICU MessageFormat (plural, select).",
     "native_review": "source",
-    "unit_errors": {
-      "author": "GPT-6.1-Sol",
-      "backcheck": "Entry selection and inclusive 1 to 500 limit retained.",
-      "native_reviewed": false
-    },
-    "bench_fixes": {
-      "keys": [
-        "coverage.outside_verified_neighbourhood",
-        "connections.why.project"
-      ],
-      "agent_authored": true,
-      "semantic_backcheck": true,
-      "native_speaker_reviewed": false
-    },
     "integration": "agent-authored translations; native review pending",
-    "reviewed_at": "2026-10-04T06:11:23.947585+00:00",
-    "review_ref": "docs/i18n/world-review-approval.json",
-    "bench_frontend": {
-      "agent_authored": true,
-      "semantic_backcheck": true,
-      "native_speaker_reviewed": false
-    }
+    "reviewed_at": "2026-10-04T10:32:27.406882+00:00",
+    "review_ref": "docs/i18n/world-review-approval.json"
   },
   "app": {
     "name": "Zebratlas",
@@ -56,7 +31,7 @@
     "curatedHint": "This link was checked by hand on {date} against the sources in “How we know”. The atlas server does not compute it yet."
   },
   "nav": {
-    "about": "About",
+    "about": "How it works",
     "pricing": "For organisations",
     "signIn": "Sign in",
     "saved": "Saved",
@@ -123,12 +98,12 @@
     "emptyTitle": "Search the atlas"
   },
   "condition": {
-    "more": "More about this condition",
+    "more": "Medical details and sources",
     "medicalNames": "Medical names",
     "gene": "Gene",
     "glossary": "Words doctors use",
     "doctorQuestion": "Is there a study or registry for {name} that our child could join, and who is the expert for it near us?",
-    "forGroupsLink": "Groups with the same problem in the body",
+    "forGroupsLink": "Related communities",
     "plainGene": "This is a rare condition. It is caused by a change in one gene, called {gene}.",
     "plainNoGene": "This is a rare condition.",
     "plainMore": "Every child is different. A doctor who knows the condition can tell you what it means for your child.",
@@ -1543,7 +1518,8 @@
         "too_large": "The document is larger than 5 MB.",
         "save_unavailable": "Document saving is unavailable.",
         "sign_in_to_save": "Sign in to save this document.",
-        "unsupported": "Use PDF, DOCX or text."
+        "unsupported": "Use PDF, DOCX or text.",
+        "unreadable": "The document could not be read."
       }
     },
     "identity": {

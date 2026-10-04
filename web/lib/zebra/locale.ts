@@ -1,17 +1,17 @@
 import en from "@/messages/zebra/en.json";
 import de from "@/messages/zebra/de.json";
-
-import { LOCALES, LOCALE_META, matchTag } from "@/lib/i18n/config";
-import es from "@/messages/zebra/es.json";
 import fr from "@/messages/zebra/fr.json";
-import pt from "@/messages/zebra/pt.json";
+import es from "@/messages/zebra/es.json";
 import it from "@/messages/zebra/it.json";
-import zhHans from "@/messages/zebra/zh-Hans.json";
-import ja from "@/messages/zebra/ja.json";
-import hi from "@/messages/zebra/hi.json";
+import pt from "@/messages/zebra/pt.json";
 import ar from "@/messages/zebra/ar.json";
+import hi from "@/messages/zebra/hi.json";
+import ja from "@/messages/zebra/ja.json";
 import ru from "@/messages/zebra/ru.json";
 import tr from "@/messages/zebra/tr.json";
+
+import { LOCALES, LOCALE_META, matchTag } from "@/lib/i18n/config";
+import zhHans from "@/messages/zebra/zh-Hans.json";
 
 export const ZEBRA_LOCALES = LOCALES;
 export const ZEBRA_LOCALE_META = LOCALE_META;
@@ -22,10 +22,12 @@ export type BriefTask = { id: BriefTaskId; title: string; ask: string; questions
 export type ZebraCatalog = Omit<typeof en, "briefTasks"> & { briefTasks: BriefTask[] };
 export type ZebraCopy = typeof en.copy;
 
-type SparseCatalog = { copy: Partial<Omit<ZebraCopy, "modelSettings">> & { modelSettings?: Partial<ZebraCopy["modelSettings"]> } };
-function sparseCatalog({ copy }: SparseCatalog): ZebraCatalog {
-  return { ...en, copy: { ...en.copy, ...copy, modelSettings: { ...en.copy.modelSettings, ...copy.modelSettings } }, briefTasks: en.briefTasks as BriefTask[] };
+function completeCatalog(value: unknown, fallback: unknown = en): unknown {
+  if (!fallback || typeof fallback !== "object" || Array.isArray(fallback)) return value ?? fallback;
+  const current = value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : {};
+  return Object.fromEntries(Object.entries(fallback).map(([key, child]) => [key, completeCatalog(current[key], child)]));
 }
+function sparseCatalog(value: unknown): ZebraCatalog { return completeCatalog(value) as ZebraCatalog; }
 
 // JSON imports retain the full key shape; every UI value stays a general string.
 const catalogs: Record<ZebraLocale, ZebraCatalog> = {

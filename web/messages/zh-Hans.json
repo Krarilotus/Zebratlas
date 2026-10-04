@@ -4,34 +4,14 @@
     "source": "en",
     "machine_translated": false,
     "reviewed": [],
-    "note": "从英文机器翻译；已审校：en、de。",
     "native_review": "pending",
-    "unit_errors": {
-      "author": "GPT-6.1-Sol",
-      "backcheck": "Entry selection and inclusive 1 to 500 limit retained.",
-      "native_reviewed": false
-    },
-    "bench_fixes": {
-      "keys": [
-        "coverage.outside_verified_neighbourhood",
-        "connections.why.project"
-      ],
-      "agent_authored": true,
-      "semantic_backcheck": true,
-      "native_speaker_reviewed": false
-    },
     "agent_authored": true,
     "author": "GPT-6.1-Sol (translate-world)",
     "method": "Agent-written from intent; separate agent back-check; no translation provider.",
-    "source_sha256": "4df11cc7d75b7ea629f95600783cae894d63154423b5c9a8d3f80249ddd83893",
-    "source_fingerprint": "9e486cc693b33d0167ca991bab8c1bf9d0e8c0c42eefd70e6f8f405f909a4084",
+    "source_sha256": "8935d8646014aeaf9a867223947b1d36de4f41246208b50956e3ff2d946f64cb",
+    "source_fingerprint": "1d5bf0623393bb45816fc7d2341095d5b1099009ab5fd96a63222710b11dac2f",
     "review_ref": "world-review-zh-Hans.json",
-    "reviewed_at": "2026-10-04T06:11:23.947585+00:00",
-    "bench_frontend": {
-      "agent_authored": true,
-      "semantic_backcheck": true,
-      "native_speaker_reviewed": false
-    }
+    "reviewed_at": "2026-10-04T10:32:27.406882+00:00"
   },
   "app": {
     "name": "Zebratlas",
@@ -57,7 +37,7 @@
     "curatedHint": "此关联已于{date}人工对照“信息依据”中的来源核查。Zebratlas 服务器尚未计算此关联。"
   },
   "nav": {
-    "about": "关于",
+    "about": "工作原理",
     "pricing": "面向组织",
     "signIn": "登录",
     "saved": "已保存",
@@ -95,7 +75,7 @@
     "title": "罕见病患者互助组织与研究",
     "lead": "输入您已知的信息：诊断、基因或医生信中的一句话。可使用任何语言。",
     "examples": "试试这些示例",
-    "exampleSentence": "我女儿有STXBP1基因突变",
+    "exampleSentence": "我女儿的STXBP1基因有变异",
     "rareExample": "尚未找到患者组织的罕见病示例",
     "door": {
       "research": "研究人员或企业：查看证据",
@@ -124,12 +104,12 @@
     "emptyTitle": "搜索 Zebratlas"
   },
   "condition": {
-    "more": "了解此疾病",
+    "more": "医学信息与来源",
     "medicalNames": "医学名称",
     "gene": "基因",
     "glossary": "医学用语",
     "doctorQuestion": "是否有我们的孩子可以参加的{name}研究或患者登记项目？附近有哪些相关专家？",
-    "forGroupsLink": "涉及相同身体过程的疾病互助组织",
+    "forGroupsLink": "查看相关社群",
     "plainGene": "这是一种由{gene}基因变化引起的罕见病。",
     "plainNoGene": "这是一种罕见病。",
     "plainMore": "相关专科医生可以解释此疾病对您孩子的影响。",
@@ -925,8 +905,8 @@
   },
   "verify": {
     "record": {
-      "partial": "已核查的记录一致；部分记录尚未核查。",
-      "unavailable": "没有可供核查的源记录。"
+      "partial": "已核查的记录一致，但部分记录尚未核查。",
+      "unavailable": "没有可供核查的来源记录。"
     }
   },
   "about": {
@@ -936,9 +916,9 @@
     "s1Text": "我们将主要疾病目录（MONDO、Orphanet、OMIM、HPO）整合为每种疾病一条记录，并保留所有来源标识。",
     "s2Title": "有来源的关系",
     "s2Text": "患者组织、研究、登记系统、研究人员、论文和资助与疾病相连。每条关系保留来源记录、日期及数字指纹。",
-    "s3Title": "通俗表述，逐条核查",
+    "s3Title": "有来源的通俗说明",
     "s3Text": "语言模型仅根据关联记录撰写通俗说明和消息草稿。验证程序检查每句话是否引用记录。",
-    "s4Title": "依据共同机制，不仅看名称",
+    "s4Title": "按共同机制连接疾病",
     "s4Text": "疾病按基因、生物学过程及特征性症状分组。表现相似但病因不同的疾病会明确标注。",
     "s5Title": "全球信息，多语言支持",
     "s5Text": "查找、翻译各语言的来源，并对应到同一种疾病。原文始终保留。",
@@ -987,7 +967,7 @@
         "record-has-licence": "每条记录的来源文件均注明许可证及类别：open / share_alike / non_commercial / unknown",
         "asset-has-access-route": "每项资源均注明持有方或获取方式，含URL或持有者",
         "candidate-not-merged": "candidate_same_as候选对不会合并为同一节点；候选是关系，不是合并（D30）",
-        "source-header-checksums-match": "所有已加载的数据源均通过缓存头校验和检查。"
+        "source-header-checksums-match": "所有已加载来源的缓存头校验和检查均已通过。"
       },
       "problem": {
         "identity_activity": "缺少身份合并活动",
@@ -1009,7 +989,7 @@
         "no_checksum": "无sha256",
         "no_access": "无获取途径",
         "self_link": "节点自连接",
-        "header_checksums": "有{n}项缓存头校验和检查失败。"
+        "header_checksums": "缓存头校验和检查失败的次数：{n}。"
       }
     },
     "account": {
@@ -1544,7 +1524,8 @@
         "too_large": "文档超过5 MB。",
         "save_unavailable": "文档保存功能不可用。",
         "sign_in_to_save": "请登录以保存此文档。",
-        "unsupported": "请使用PDF、DOCX或文本。"
+        "unsupported": "请使用PDF、DOCX或文本。",
+        "unreadable": "无法读取文档。"
       }
     },
     "identity": {
@@ -1666,42 +1647,42 @@
   "resources": {
     "research": "研究资源",
     "models": "模型、样本和数据",
-    "papers": "免费全文论文",
+    "papers": "可免费阅读全文的论文",
     "funding": "研究资助",
-    "read": "阅读免费全文",
-    "request": "申请获取",
-    "apply": "提交获取申请",
+    "read": "免费阅读全文",
+    "request": "申请访问",
+    "apply": "提交访问申请",
     "download": "下载",
-    "holderPage": "提供方官方网站",
+    "holderPage": "持有机构的官方页面",
     "officialPage": "项目或资源的官方页面",
     "source": "来源",
     "searchElsewhere": "搜索其他来源",
-    "discoveryUnchecked": "这些是搜索链接；此处尚未核查其搜索结果。",
-    "availabilityUnknown": "尚未确认是否可获取及是否适合您的研究。",
-    "noRoute": "暂无经核实的获取途径。",
-    "cachedOnly": "仅核查已保存的证据；尚未实时核查来源。",
+    "discoveryUnchecked": "这些是搜索链接，其结果尚未在这里核查。",
+    "availabilityUnknown": "尚未确认此资源是否可用，以及是否适合你的研究。",
+    "noRoute": "暂无经过核实的访问途径。",
+    "cachedOnly": "仅为已保存的证据，尚未实时核查来源。",
     "reuseLicence": "全文再利用许可",
     "unknown": "未知",
-    "recordLicence": "记录许可",
+    "recordLicence": "记录的许可",
     "fundingEvidence": "资助证据",
     "verifyCached": "核查已保存的证据",
     "cacheMatches": "已保存的证据一致",
     "checkedCache": "已针对本次输入核查保存的来源",
-    "notChecked": "未针对本次输入核查",
-    "none": "在已核查的来源中未找到关联资源。其他资源可能仍然存在。",
-    "apiVerified": "已保存的美国国立卫生研究院 API 响应与该项目一致。",
-    "apiUnverified": "未能核实所有已保存的美国国立卫生研究院 API 响应。",
+    "notChecked": "尚未针对本次输入核查",
+    "none": "已核查的来源中未找到关联资源，但可能还有其他资源。",
+    "apiVerified": "保存的NIH API响应与此项目一致。",
+    "apiUnverified": "未能核实全部已保存的NIH API响应。",
     "evidenceUnavailable": "资助证据不可用或已发生变化。",
     "organisation": "机构",
     "funder": "资助方",
     "years": "年份",
     "scope": {
-      "exact": "明确提及此诊断",
-      "gene": "与致病基因关联；并非与此诊断精确匹配",
-      "condition": "通过与此基因关联的疾病建立联系",
+      "exact": "明确列出此诊断名称",
+      "gene": "与致病基因相关，但并非与此诊断精确匹配",
+      "condition": "通过与此基因相关的疾病建立联系",
       "ortholog": "通过模式生物的基因建立联系",
-      "related": "相关研究；并非与此诊断精确匹配"
+      "related": "相关研究，但并非与此诊断精确匹配"
     },
-    "accessConditions": "来源所述的获取条件"
+    "accessConditions": "来源中列出的访问条件"
   }
 }

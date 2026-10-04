@@ -1,9 +1,8 @@
 "use client";
-import { zebraCopyLocale } from "@/lib/zebra/locale";
 import { useEffect, useId, useRef, useState } from "react";
 import { updateQueryCanvas, queryPackage, type QueryCanvas, type QueryDiagram, type QueryPhantom } from "./query-workspace";
 import { useZebraLocale } from "./Locale";
-import { queryWorkspaceCopy } from "./queryWorkspaceCopy";
+import { getQueryWorkspaceCopy } from "./queryWorkspaceCopy";
 import { ZebraLoader } from "./ZebraLoader";
 import styles from "./QueryGraphView.module.css";
 
@@ -11,7 +10,7 @@ export type QueryGraphViewProps = { graph: QueryDiagram | null; pending?: boolea
 const authorCredit = "Query-by-Graph · Daniel Motz";
 /** One mounted editor; query revisions update its graph without resetting the canvas. */
 export default function QueryGraphView(props: QueryGraphViewProps) {
-  const text = queryWorkspaceCopy[zebraCopyLocale(useZebraLocale())];
+  const text = getQueryWorkspaceCopy(useZebraLocale());
   const host = useRef<HTMLDivElement>(null), api = useRef<QueryCanvas | null>(null), callbacks = useRef(props), queue = useRef(Promise.resolve()), revision = useRef(0);
   const id = useId();
   const [ready, setReady] = useState(false), [failed, setFailed] = useState(false);

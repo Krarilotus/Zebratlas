@@ -1,18 +1,18 @@
 "use client";
 
+import { getZebraCatalog, ZEBRA_LOCALES, type ZebraLocale } from "@/lib/zebra/locale";
+
+
 import { useZebraLocale } from "./Locale";
 import { normalizeReasoningProof, proofSourceUrl, reasoningTermLabel } from "@/lib/zebra/reasoning-proof";
 import styles from "./ReasoningProof.module.css";
 
-const copy = {
-  en: { inferred: "Why this connection", asserted: "Source assertion", relation: "is a subclass of", premises: "From these assertions", sources: "Sources", locator: "Record", hash: "Record SHA-256", sourceHash: "Source SHA-256", version: "Version", retrieved: "Retrieved", source: "Source", rule: "Transitive hierarchy", more: "Additional proof steps" },
-  de: { inferred: "Warum diese Verbindung", asserted: "Quellenaussage", relation: "ist Unterklasse von", premises: "Aus diesen Aussagen", sources: "Quellen", locator: "Datensatz", hash: "Datensatz-SHA-256", sourceHash: "Quellen-SHA-256", version: "Version", retrieved: "Abgerufen", source: "Quelle", rule: "Transitive Hierarchie", more: "Weitere Beweisschritte" },
-};
+const copy = Object.fromEntries(ZEBRA_LOCALES.map(locale => [locale, getZebraCatalog(locale).proofWords])) as Record<ZebraLocale, ReturnType<typeof getZebraCatalog>["proofWords"]>;
 const engineName = "nrese";
 
 export function ReasoningProof({ proof, labels }: { proof: unknown; labels?: ReadonlyMap<string, string> }) {
   const locale = useZebraLocale();
-  const words = copy[locale === "de" ? "de" : "en"];
+  const words = copy[locale];
   const normalized = normalizeReasoningProof(proof);
   if (!normalized) return null;
   const label = (term: string) => reasoningTermLabel(term, labels);
@@ -21,7 +21,7 @@ export function ReasoningProof({ proof, labels }: { proof: unknown; labels?: Rea
   return <details className={styles.proof}>
     <summary>{normalized.origin === "inferred" ? words.inferred : words.asserted}</summary>
     <div className={styles.content}>
-      <p className={styles.conclusion}><strong>{label(head.subject)}</strong> {words.relation} <strong>{label(head.object)}</strong></p>
+      <p className={styles.conclusion}>{words.conclusion.split(/(\{subject\}|\{object\})/).map((part, index) => part === "{subject}" ? <strong key={index}>{label(head.subject)}</strong> : part === "{object}" ? <strong key={index}>{label(head.object)}</strong> : part)}</p>
       <p className={styles.engine}><span>{engineName}</span><span>{normalized.origin === "inferred" ? words.rule : words.asserted}</span></p>
       {normalized.origin === "inferred" && <div className={styles.premises}>
         <p>{words.premises}</p>

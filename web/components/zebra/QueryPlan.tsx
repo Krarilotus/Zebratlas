@@ -1,5 +1,4 @@
 "use client";
-import { zebraCopyLocale } from "@/lib/zebra/locale";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import type { ExploreResponse } from "@/lib/zebra/types";
@@ -7,7 +6,7 @@ import { useZebraLocale } from "./Locale";
 import { Icon } from "./Icon";
 import { ZebraLoader } from "./ZebraLoader";
 import { canMutateQuery, inspectQuery, queryFitsBudget, queryParser, queryReceipts, querySuggestions, type QueryLink, type QueryModel, type QueryRunSettings, type QuerySuggestion, type QuerySuggestionPage } from "./query-workspace";
-import { queryWorkspaceCopy } from "./queryWorkspaceCopy";
+import { getQueryWorkspaceCopy } from "./queryWorkspaceCopy";
 import styles from "./QueryPlan.module.css";
 const QueryGraphView = dynamic(() => import("./QueryGraphView"), { ssr: false });
 const ReasoningProof = dynamic(() => import("./ReasoningProof"));
@@ -15,7 +14,7 @@ const blank = { active: false, property: null as QuerySuggestion | null, filter:
 
 /** The host keeps ownership of the sourced results; this page edits one actual execution. */
 export default function QueryPlan({ data, query, busy, onRunSparql, onClose }: { data: ExploreResponse | null; query: string; busy: boolean; onRunSparql?: (sparql: string, settings: QueryRunSettings) => void; onClose?(): void }) {
-  const locale = useZebraLocale(), text = queryWorkspaceCopy[zebraCopyLocale(locale)];
+  const locale = useZebraLocale(), text = getQueryWorkspaceCopy(locale);
   const receipts = useMemo(() => queryReceipts(data), [data]);
   const [queryIndex, setQueryIndex] = useState(0), [edits, setEdits] = useState<Record<string, { text: string; applied: string }>>({});
   const receipt = receipts[Math.min(queryIndex, Math.max(0, receipts.length - 1))];

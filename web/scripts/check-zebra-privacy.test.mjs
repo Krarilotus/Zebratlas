@@ -2,13 +2,14 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { stripTypeScriptTypes } from "node:module";
 import test from "node:test";
+import { languagePrelude } from "./zebra-language-fixture.mjs";
 import { documentRequest, lookupRequest, publicSearchUrl } from "../lib/zebra/search-privacy.ts";
 import { suggestionContext } from "../lib/zebra/search-suggestions.ts";
 
 async function isolatedModule(path, prefix = "") {
   const source = (await readFile(new URL(path, import.meta.url), "utf8")).replace(/^import .*;\r?$/gm, "");
   const js = stripTypeScriptTypes(source, { mode: "transform" });
-  return import(`data:text/javascript;base64,${Buffer.from(prefix + js).toString("base64")}`);
+  return import(`data:text/javascript;base64,${Buffer.from(languagePrelude(path.includes("route.ts")) + prefix + js).toString("base64")}`);
 }
 
 test("private words and filenames never appear in client request URLs", async () => {
@@ -18,7 +19,7 @@ test("private words and filenames never appear in client request URLs", async ()
   const calls = [];
   globalThis.fetch = async (url, options) => {
     calls.push({ url, options });
-    return Response.json(url.endsWith("document") ? { text: "fixture", name: "document" } : { results: [] });
+    return Response.json(new URL(url, "https://zebratlas.invalid").pathname.endsWith("document") ? { text: "fixture", name: "document" } : { results: [] });
   };
   try {
     await client.lookupEntities("Jane", new AbortController().signal);
@@ -26,7 +27,7 @@ test("private words and filenames never appear in client request URLs", async ()
     const file = new File(["synthetic text"], "Jane-clinical-letter.pdf", { type: "application/pdf" });
     const result = await client.extractDocument(file);
     assert.equal(result.name, file.name);
-    assert.deepEqual(calls.map(({ url }) => url), ["/zebra/api/lookup", "/zebra/api/lookup", "/zebra/api/document"]);
+    assert.deepEqual(calls.map(({ url }) => url), ["/zebra/api/lookup?lang=en", "/zebra/api/lookup?lang=en", "/zebra/api/document?lang=en"]);
     assert.ok(calls.every(({ options }) => options.method === "POST" && options.cache === "no-store"));
     assert.deepEqual(JSON.parse(calls[0].options.body), { q: "Jane" });
     assert.equal(calls[2].options.body, file);

@@ -1,4 +1,4 @@
-// The parallel frontend owns en/de catalogs outside the legacy namespace registry.
+// The selected frontend has its own typed catalog registry; check every supported locale.
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { messageVars } from "../lib/i18n/format.ts";
@@ -31,19 +31,22 @@ function catalog(locale: string): Map<string, Entry> {
 }
 
 const source = catalog("en");
-const target = catalog("de");
+for (const locale of ["de", "fr", "es", "it", "pt", "ar", "hi", "ja", "zh-Hans", "ru", "tr"]) {
+const target = catalog(locale);
 for (const [key, entry] of source) {
   const translation = target.get(key);
-  if (!translation) { errors.push(`de ${key}: missing`); continue; }
-  if (entry.type !== translation.type) { errors.push(`de ${key}: ${translation.type} differs from en ${entry.type}`); continue; }
-  if (entry.type === "array" && entry.length !== translation.length) errors.push(`de ${key}: array length differs from en`);
+  if (!translation) { errors.push(`${locale} ${key}: missing`); continue; }
+  if (entry.type !== translation.type) { errors.push(`${locale} ${key}: ${translation.type} differs from en ${entry.type}`); continue; }
+  if (entry.type === "array" && entry.length !== translation.length) errors.push(`${locale} ${key}: array length differs from en`);
   if (entry.type === "string") {
     try {
-      if (messageVars(entry.text!).join(",") !== messageVars(translation.text!).join(",")) errors.push(`de ${key}: ICU variables differ from en`);
+      if (messageVars(entry.text!).join(",") !== messageVars(translation.text!).join(",")) errors.push(`${locale} ${key}: ICU variables differ from en`);
     } catch { /* Syntax error already recorded while loading. */ }
   }
 }
-for (const key of target.keys()) if (!source.has(key)) errors.push(`de ${key}: not in en`);
+for (const key of target.keys()) if (!source.has(key)) errors.push(`${locale} ${key}: not in en`);
+
+}
 
 // Sparse catalogs deliberately inherit English. Validate only authored overrides.
 for (const locale of ["es", "fr", "pt", "it", "zh-Hans", "ja", "hi", "ar", "ru", "tr"]) {
@@ -60,4 +63,4 @@ if (errors.length) {
   process.exit(1);
 }
 const strings = [...source.values()].filter(entry => entry.type === "string").length;
-console.log(`Zebra i18n check passed: en/de, ${strings} strings, matching structure and ICU variables`);
+console.log(`Zebra i18n check passed: twelve locales, ${strings} strings, matching structure and ICU variables`);

@@ -5,6 +5,9 @@ import { INSECURE_SESSION_COOKIE, SESSION_COOKIE, sessionFromSetCookie } from "@
 import * as adapt from "@/lib/adapt";
 import { CONDITION_SECTIONS, type ConditionDetail, type ConditionSection } from "./types";
 import { sourceDates } from "./normalize";
+import { resolveZebraLocale } from "./locale";
+import { CATALOGS } from "@/lib/i18n/messages";
+import { presentApiMessages } from "@/lib/i18n/api-presentation";
 
 export class HttpError extends Error {
   constructor(public readonly status: number, message: string, public readonly code?: string) { super(message); }
@@ -20,14 +23,14 @@ export const jsonResponse = (body: unknown, status = 200) => Response.json(body,
 
 /** All destinations are supplied by our handlers; browser input can only fill encoded identifiers. */
 export async function upstream(request: Request, path: string, init: { method?: string; body?: unknown; bytes?: Uint8Array; auth?: boolean; service?: "account" | "contribute"; timeout?: number } = {}): Promise<Response> {
-  if (!path.startsWith("/api/") || path.includes("\\") || path.includes("..")) throw new HttpError(400, "Invalid API path.");
+  if (!path.startsWith("/api/") || path.includes("\\") || path.includes("..")) throw new HttpError(400, "invalidApiPath");
   const configured = (init.service === "account" ? process.env.ACCOUNTS_API_URL : init.service === "contribute" ? process.env.CONTRIB_API_URL : undefined)
     || process.env.ZEBRA_BACKEND_URL || process.env.ATLAS_API_URL || process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
   let base: URL;
-  try { base = new URL(configured); } catch { throw new HttpError(503, "The atlas connection is not configured correctly."); }
-  if (!["http:", "https:"].includes(base.protocol) || base.username || base.password) throw new HttpError(503, "The atlas connection is not configured correctly.");
+  try { base = new URL(configured); } catch { throw new HttpError(503, "connectionConfig"); }
+  if (!["http:", "https:"].includes(base.protocol) || base.username || base.password) throw new HttpError(503, "connectionConfig");
   const headers = new Headers({ accept: "application/json" });
-  headers.set("x-atlas-lang", request.headers.get("x-zebra-locale") === "de" ? "de" : "en");
+  headers.set("x-atlas-lang", resolveZebraLocale(request.headers.get("x-zebra-locale")));
   const jar = await cookies();
   const token = jar.get(secureRequest(request) ? SESSION_COOKIE : INSECURE_SESSION_COOKIE)?.value;
   const authenticated = !!token && init.auth !== false;
@@ -49,8 +52,8 @@ export async function upstream(request: Request, path: string, init: { method?: 
     if (authenticated && init.service === "account" && response.status === 401) await dropSession();
     return response;
   } catch {
-    if (request.signal.aborted) throw new HttpError(499, "Request cancelled.");
-    throw new HttpError(503, "The atlas is unavailable. Please try again.");
+    if (request.signal.aborted) throw new HttpError(499, "cancelled");
+    throw new HttpError(503, "unavailable");
   }
 }
 
@@ -58,13 +61,14 @@ export async function upstreamJson(request: Request, path: string, init?: Parame
   const response = await upstream(request, path, init);
   const text = await readBounded(response, 8 * 1024 * 1024);
   let body: unknown;
-  try { body = text ? JSON.parse(text) : null; } catch { throw new HttpError(502, "The atlas returned an unreadable response."); }
+  try { body = text ? JSON.parse(text) : null; } catch { throw new HttpError(502, "unreadable"); }
   if (!response.ok) {
-    const detail = body && typeof body === "object" && "detail" in body ? String(body.detail) : body && typeof body === "object" && "error" in body ? String(body.error).replaceAll("_", " ") : "This feature is unavailable on the atlas server.";
+    const detail = body && typeof body === "object" && "detail" in body ? String(body.detail) : body && typeof body === "object" && "error" in body ? String(body.error).replaceAll("_", " ") : "featureUnavailable";
     const code = body && typeof body === "object" && "code" in body && typeof body.code === "string" ? body.code : undefined;
     throw new HttpError(response.status, detail.slice(0, 500), code);
   }
-  return body;
+  const locale = resolveZebraLocale(request.headers.get("x-zebra-locale"));
+  return presentApiMessages(body, CATALOGS[locale], locale);
 }
 
 export async function readBounded(response: Response | Request, max: number): Promise<string> {
@@ -72,7 +76,7 @@ export async function readBounded(response: Response | Request, max: number): Pr
 }
 export async function readBytes(response: Response | Request, max: number): Promise<Uint8Array> {
   const declared = Number(response.headers.get("content-length"));
-  if (declared > max) throw new HttpError(413, "The upload or response is too large.");
+  if (declared > max) throw new HttpError(413, "tooLarge");
   const reader = response.body?.getReader();
   if (!reader) return new Uint8Array();
   const chunks: Uint8Array[] = [];
@@ -82,7 +86,7 @@ export async function readBytes(response: Response | Request, max: number): Prom
       const part = await reader.read();
       if (part.done) break;
       size += part.value.length;
-      if (size > max) { await reader.cancel(); throw new HttpError(413, "The upload or response is too large."); }
+      if (size > max) { await reader.cancel(); throw new HttpError(413, "tooLarge"); }
       chunks.push(part.value);
     }
   } finally { reader.releaseLock(); }
@@ -95,18 +99,18 @@ export async function bodyObject(request: Request): Promise<Record<string, unkno
   let value: unknown;
   try { value = JSON.parse(await readBounded(request, 64 * 1024)); } catch (error) {
     if (error instanceof HttpError) throw error;
-    throw new HttpError(400, "Invalid JSON request.");
+    throw new HttpError(400, "invalidJson");
   }
-  if (!value || typeof value !== "object" || Array.isArray(value)) throw new HttpError(400, "Invalid request.");
+  if (!value || typeof value !== "object" || Array.isArray(value)) throw new HttpError(400, "invalidRequest");
   return value as Record<string, unknown>;
 }
 export function boundedString(value: unknown, name: string, max = 200, required = true): string {
-  if (typeof value !== "string" || value.length > max || (required && !value.trim())) throw new HttpError(400, `Please provide a valid ${name}.`);
+  if (typeof value !== "string" || value.length > max || (required && !value.trim())) throw new HttpError(400, `validField:${name}`);
   return value;
 }
 export function idParam(request: Request): string {
   const id = boundedString(new URL(request.url).searchParams.get("id"), "identifier", 512);
-  if (/[/\\\x00-\x1f]/.test(id) || id === "." || id === "..") throw new HttpError(400, "Invalid identifier.");
+  if (/[/\\\x00-\x1f]/.test(id) || id === "." || id === "..") throw new HttpError(400, "invalidId");
   return id;
 }
 export function secureRequest(request: Request): boolean {
@@ -114,7 +118,7 @@ export function secureRequest(request: Request): boolean {
 }
 export async function storeSession(request: Request, response: Response): Promise<void> {
   const session = sessionFromSetCookie(response.headers.getSetCookie());
-  if (!session) throw new HttpError(502, "The atlas did not create a session. Please try again.");
+  if (!session) throw new HttpError(502, "sessionFailed");
   const secure = secureRequest(request);
   const jar = await cookies();
   jar.delete(HOSTED_MODEL_COOKIE);

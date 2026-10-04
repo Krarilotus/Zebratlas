@@ -1,7 +1,9 @@
 {
   "_meta": {
     "owner": "contribute agent",
-    "note": "Machine-translated; review section in English (internal page)."
+    "note": "Machine-translated; review section in English (internal page).",
+    "native_review": "pending",
+    "completion_ref": "docs/i18n/auxiliary-completion.json"
   },
   "suggest": "つながりを提案する・修正する",
   "suggestShort": "提案・修正",
@@ -71,36 +73,36 @@
     "privacy": "メールアドレスがここに表示されることはありません。",
     "submittedOn": "{date} に送信",
     "check": {
-      "pass": "OK",
+      "pass": "問題なし",
       "warn": "注意",
       "fail": "問題",
       "skipped": "未チェック"
     }
   },
   "review": {
-    "title": "Review suggestions",
-    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
-    "token": "Reviewer key",
-    "tokenHint": "Kept only on this page, never stored.",
-    "open": "Open the queue",
-    "empty": "Nothing is waiting for review.",
-    "accept": "Accept",
-    "reject": "Reject",
-    "reason": "Reason (required, shown publicly)",
-    "recheck": "Run checks again",
-    "contact": "Contact",
-    "anonymous": "anonymous",
-    "unauthorized": "This key is not valid.",
-    "unavailable": "The review service can't be reached.",
-    "failed": "Not saved: {detail}",
-    "saved": "Saved.",
-    "statement": "Statement",
-    "evidence": "Evidence",
-    "quote": "Quote",
-    "subject": "Who",
-    "target": "Condition or gene",
-    "edge": "Connection",
-    "foundVia": "Found with",
-    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+    "title": "提案を審査",
+    "lead": "提案は審査担当者が承認するまで、確認済みの地図とは分けて管理されます。根拠を確認し、理由を添えて承認または却下してください。理由は公開されます。",
+    "token": "審査用キー",
+    "tokenHint": "このページ内だけで保持し、保存しません。",
+    "open": "審査待ち一覧を開く",
+    "empty": "審査待ちの提案はありません。",
+    "accept": "承認",
+    "reject": "却下",
+    "reason": "理由（必須・公開されます）",
+    "recheck": "確認を再実行",
+    "contact": "連絡先",
+    "anonymous": "匿名",
+    "unauthorized": "このキーは無効です。",
+    "unavailable": "審査サービスに接続できません。",
+    "failed": "保存できませんでした：{detail}",
+    "saved": "保存しました。",
+    "statement": "記述",
+    "evidence": "根拠",
+    "quote": "引用文",
+    "subject": "対象者",
+    "target": "疾患または遺伝子",
+    "edge": "つながり",
+    "foundVia": "発見に使用したもの",
+    "counts": "審査待ち {open} · 承認 {accepted} · 却下 {rejected}"
   }
 }

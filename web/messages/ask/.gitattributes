@@ -1,0 +1,2 @@
+# Preserve exact bytes pinned by the Ask authorship/back-check ledger.
+*.json -text whitespace=cr-at-eol

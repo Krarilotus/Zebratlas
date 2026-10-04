@@ -1,103 +1,105 @@
 {
   "_meta": {
-    "status": "untranslated copy of en; web-ux translates"
+    "status": "untranslated copy of en; web-ux translates",
+    "native_review": "pending",
+    "completion_ref": "docs/i18n/auxiliary-completion.json"
   },
-  "title": "Ask the atlas",
-  "lead": "Ask in your own words. Your assistant asks the atlas, and every fact in the answer links to its source.",
-  "question": "Your question",
-  "placeholder": "For example: Is there a patient group or a study for STXBP1?",
-  "ask": "Ask",
-  "plan": "Show the steps first",
-  "run": "Run these steps",
-  "asking": "Working…",
+  "title": "Perguntar ao atlas",
+  "lead": "Pergunte pelas suas próprias palavras. O seu assistente consulta o atlas e cada facto da resposta remete para a fonte.",
+  "question": "A sua pergunta",
+  "placeholder": "Por exemplo: existe uma associação de doentes ou um estudo para STXBP1?",
+  "ask": "Perguntar",
+  "plan": "Mostrar primeiro os passos",
+  "run": "Executar estes passos",
+  "asking": "A processar…",
   "stage": {
-    "planning": "Your assistant is reading the question…",
-    "answering": "Writing the answer from the atlas facts…"
+    "planning": "O seu assistente está a ler a pergunta…",
+    "answering": "A redigir a resposta com os factos do atlas…"
   },
   "provider": {
-    "label": "Assistant",
-    "help": "Use your own assistant: a key, OpenRouter, a local model or your subscription through the local connector.",
-    "model": "Model (optional)",
-    "key": "API key",
-    "keyHelp": "Kept only in this browser and sent with each question. We never store it.",
-    "forget": "Forget key",
-    "demo": "demo only",
-    "needsKey": "needs your key",
-    "onYourMachine": "runs on your computer",
-    "noServer": "The atlas server is not connected, so asking is not available here.",
-    "free": "free, no key needed",
-    "quota": "{n, plural, =0 {No free questions left today} one {# free question left today} other {# free questions left today}}"
+    "label": "Assistente",
+    "help": "Use o seu próprio assistente: uma chave, OpenRouter, um modelo local ou a sua subscrição através do conector local.",
+    "model": "Modelo (opcional)",
+    "key": "Chave API",
+    "keyHelp": "Guardada apenas neste navegador e enviada com cada pergunta. Nunca a armazenamos.",
+    "forget": "Esquecer a chave",
+    "demo": "apenas demonstração",
+    "needsKey": "requer a sua chave",
+    "onYourMachine": "é executado no seu computador",
+    "noServer": "O servidor do atlas não está ligado, pelo que aqui não é possível fazer perguntas.",
+    "free": "gratuito, sem chave",
+    "quota": "{n, plural, =0 {Não restam perguntas gratuitas hoje} one {Resta # pergunta gratuita hoje} other {Restam # perguntas gratuitas hoje}}"
   },
   "chips": {
-    "title": "Steps",
-    "lead": "This is how your question was understood. Change a step and run it again.",
-    "remove": "Remove step",
-    "add": "Add a step",
-    "intent": "What to look up",
-    "resolved": "Found: {label}",
-    "found": "{n, plural, =0 {no facts} one {# fact} other {# facts}}",
-    "empty": "Nothing found",
-    "invalid": "Could not run",
-    "byModel": "from your assistant",
-    "byYou": "edited by you",
-    "byRules": "from the atlas",
+    "title": "Passos",
+    "lead": "A sua pergunta foi interpretada assim. Altere um passo e execute novamente.",
+    "remove": "Remover passo",
+    "add": "Adicionar passo",
+    "intent": "O que pesquisar",
+    "resolved": "Encontrado: {label}",
+    "found": "{n, plural, =0 {nenhum facto} one {# facto} other {# factos}}",
+    "empty": "Sem resultados",
+    "invalid": "Não foi possível executar",
+    "byModel": "do seu assistente",
+    "byYou": "editado por si",
+    "byRules": "do atlas",
     "slot": {
-      "text": "Words",
-      "condition": "Condition or gene",
-      "kind": "Kind",
-      "by": "Shared",
-      "status": "Status",
-      "a": "First",
-      "b": "Second",
-      "from": "From",
-      "to": "To",
+      "text": "Palavras",
+      "condition": "Doença ou gene",
+      "kind": "Tipo",
+      "by": "Em comum",
+      "status": "Estado",
+      "a": "Primeiro",
+      "b": "Segundo",
+      "from": "De",
+      "to": "Para",
       "gene": "Gene",
-      "symptom": "Symptom",
-      "process": "Process",
-      "id": "Item"
+      "symptom": "Sintoma",
+      "process": "Processo",
+      "id": "Elemento"
     },
     "intentName": {
-      "resolve": "Find the right entry",
-      "condition_summary_facts": "Basic facts",
-      "connections": "Who can help",
-      "related": "Related conditions",
-      "assets": "Studies and projects",
-      "shared_people": "Shared researchers",
-      "path": "How two things connect",
-      "gaps": "What is missing",
-      "diseases_with": "Conditions with…",
-      "node_details": "Details"
+      "resolve": "Encontrar a entrada correta",
+      "condition_summary_facts": "Factos essenciais",
+      "connections": "Quem pode ajudar",
+      "related": "Doenças relacionadas",
+      "assets": "Estudos e projetos",
+      "shared_people": "Investigadores em comum",
+      "path": "Como se ligam dois elementos",
+      "gaps": "O que falta",
+      "diseases_with": "Doenças com…",
+      "node_details": "Detalhes"
     }
   },
   "answer": {
-    "title": "Answer",
-    "fromAtlas": "Written by the atlas from its facts (your assistant's answer did not pass the source check).",
-    "checked": "Every fact sentence was checked against its sources.",
-    "why": "Why: {reason}",
-    "notAdvice": "This is not medical advice.",
-    "caveat": "Note",
-    "question": "Question"
+    "title": "Resposta",
+    "fromAtlas": "Resposta redigida pelo atlas a partir dos seus factos: a resposta do seu assistente não passou a verificação das fontes.",
+    "checked": "Cada frase factual foi verificada com as suas fontes.",
+    "why": "Motivo: {reason}",
+    "notAdvice": "Isto não constitui aconselhamento médico.",
+    "caveat": "Nota",
+    "question": "Pergunta"
   },
   "evidence": {
-    "title": "Sources ({n})",
-    "open": "Official page",
-    "record": "Record",
-    "cite": "Source {n}"
+    "title": "Fontes ({n})",
+    "open": "Página oficial",
+    "record": "Registo",
+    "cite": "Fonte {n}"
   },
   "history": {
-    "title": "This conversation",
-    "clear": "Start over",
-    "saved": "Saved to your account."
+    "title": "Esta conversa",
+    "clear": "Recomeçar",
+    "saved": "Guardado na sua conta."
   },
   "error": {
-    "generic": "Something went wrong. Please try again.",
-    "empty": "Please type a question."
+    "generic": "Ocorreu um erro. Tente novamente.",
+    "empty": "Escreva uma pergunta."
   },
   "fallback": {
-    "quota": "The free assistant has reached its limit for today. The answer below comes straight from the atlas. For more, add your own key, use a local model, or try again tomorrow.",
-    "key": "This assistant needs a valid key. The answer below comes straight from the atlas.",
-    "unavailable": "This assistant cannot be reached right now. The answer below comes straight from the atlas.",
-    "other": "Your assistant ran into a problem. The answer below comes straight from the atlas.",
-    "choose": "Choose another assistant"
+    "quota": "O assistente gratuito atingiu o limite de hoje. A resposta abaixo vem diretamente do atlas. Para continuar, adicione a sua chave, use um modelo local ou tente amanhã.",
+    "key": "Este assistente requer uma chave válida. A resposta abaixo vem diretamente do atlas.",
+    "unavailable": "Este assistente não está acessível neste momento. A resposta abaixo vem diretamente do atlas.",
+    "other": "O seu assistente encontrou um problema. A resposta abaixo vem diretamente do atlas.",
+    "choose": "Escolher outro assistente"
   }
 }

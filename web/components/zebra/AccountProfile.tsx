@@ -8,6 +8,7 @@ import { useSetZebraLocale, useZebraCopy, useZebraLocale } from "./Locale";
 import { Icon } from "./Icon";
 import styles from "./AccountProfile.module.css";
 import { ProfileAvatar, useProfileAvatarVariation } from "./ProfileAvatar";
+import { resolveZebraLocale, ZEBRA_LOCALES } from "@/lib/zebra/locale";
 import { saveAvatarVariation } from "@/lib/zebra/avatar-preference";
 import { profileDisplayName } from "@/lib/zebra/profile-avatar";
 
@@ -44,7 +45,7 @@ export function AccountProfile({ account, disabled, onUpdated, onSignedOut, onBu
       if (value.state === "signed_in") {
         setName(value.account.user.display_name ?? "");
         setLanguage(value.account.user.locale || locale);
-        if (value.account.user.locale === "en" || value.account.user.locale === "de") setLocale(value.account.user.locale);
+        if (ZEBRA_LOCALES.some(id => id === value.account.user.locale)) setLocale(resolveZebraLocale(value.account.user.locale));
         const saved = !avatarChanged || saveAvatarVariation(account.user.id, variation);
         if (saved) { setDraftVariation(null); setMessage(profileChanged ? avatarChanged ? "profile-avatar" : "profile" : "avatar"); }
         else { setError(copy.avatarSaveError); if (profileChanged) setMessage("profile"); }

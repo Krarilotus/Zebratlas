@@ -37,7 +37,8 @@ function load(name, from = root) {
   if (Object.hasOwn(mocks, name)) return mocks[name];
   if (!name.startsWith("@/")) return require(name);
   if (loaded.has(name)) return loaded.get(name).exports;
-  const file = resolve(root, name.slice(2) + ".ts");
+  const file = resolve(root, name.slice(2) + (name.endsWith(".ts") || name.endsWith(".json") ? "" : ".ts"));
+  if (file.endsWith(".json")) return JSON.parse(readFileSync(file, "utf8"));
   const source = readFileSync(file, "utf8");
   const compiled = ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.CommonJS, esModuleInterop: true } }).outputText;
   const unit = { exports: {} };
@@ -61,7 +62,7 @@ assert.deepEqual(await post("auth", { mode: "login", email: "fixture@example.inv
 assert.equal(cookieWrites[0][2].httpOnly, true, "ordinary sign-in preserves an HTTP-only session");
 assert.equal(cookieWrites[0][2].sameSite, "lax");
 cookieWrites.length = 0; jar.clear();
-assert.deepEqual(await post("auth", { mode: "login", email: "fixture@example.invalid", password: "fixture-password" }, { status: 403, body: { code: "email_unverified", detail: "Verify email" } }), { status: 403, body: { detail: "Verify email", code: "email_unverified" } });
+assert.deepEqual(await post("auth", { mode: "login", email: "fixture@example.invalid", password: "fixture-password" }, { status: 403, body: { code: "email_unverified", detail: "Verify email" } }), { status: 403, body: { ...load("@/lib/zebra/error-copy").localizedError(new Request("https://fixture.invalid"), "Verify email", "email_unverified"), code: "email_unverified" } });
 jar.set("atlas_session", "old-fixture-session");
 assert.equal((await post("verify-email", { token: "fixture-token" }, { status: 200, body: { state: "verified", code: "email_verified" } })).body.state, "verified");
 assert.equal(new Headers(calls.at(-1).init.headers).has("authorization"), false, "token verification does not borrow a signed-in session");
@@ -73,7 +74,7 @@ for (const operation of ["resend-verification", "forgot-password"]) {
   assert.deepEqual(unknown, known, "delivery responses do not enumerate accounts");
   assert.equal(calls.at(-1).body.locale, "de");
 }
-assert.deepEqual(await post("reset-password", { token: "expired-fixture", new_password: "fixture-new-password" }, { status: 422, body: { code: "invalid_token", detail: "Invalid link" } }), { status: 422, body: { code: "invalid_token", detail: "Invalid link" } });
+assert.deepEqual(await post("reset-password", { token: "expired-fixture", new_password: "fixture-new-password" }, { status: 422, body: { code: "invalid_token", detail: "Invalid link" } }), { status: 422, body: { ...load("@/lib/zebra/error-copy").localizedError(new Request("https://fixture.invalid"), "Invalid link", "invalid_token"), code: "invalid_token" } });
 assert.equal((await post("reset-password", { token: "fixture-token", new_password: "fixture-new-password" }, { status: 200, body: { state: "password_reset", code: "password_reset_complete" } })).body.state, "password_reset");
 assert.equal(jar.has("atlas_session"), false, "successful reset removes the old browser session");
 assert.equal(cookieWrites.length, 0, "password reset never signs in automatically");
@@ -92,7 +93,7 @@ assert.equal(consumeAccountLink("https://web.fixture.invalid/zebra/account?flow=
 const client = load("@/lib/zebra/client");
 nextReply = { status: 200, body: { state: "verified", code: "email_verified" } };
 await client.verifyEmail("fixture-token", "de");
-assert.equal(calls.at(-1).url, "/zebra/api/verify-email", "client sends tokens only in the POST body");
+assert.equal(calls.at(-1).url, "/zebra/api/verify-email?lang=en", "client sends tokens only in the POST body");
 assert.deepEqual(calls.at(-1).body, { token: "fixture-token", locale: "de" });
 assert.equal(calls.at(-1).init.credentials, "same-origin");
 assert.equal(calls.at(-1).init.cache, "no-store");
@@ -117,7 +118,7 @@ const { queryReceipts } = load("@/components/zebra/query-workspace");
 const selectedQuery = "SELECT ?s WHERE { ?s ?p ?o } LIMIT 20";
 const selectedReceipt = queryReceipts({ query: "Original caption", graph: { nodes: [{ id: "HGNC:11444", label: "STXBP1", kind: "gene" }], edges: [] }, execution: { engine: "nrese" }, query_execution: { focus: ["HGNC:11444"], semantic_focus: ["MONDO:fixture"], answer: { results: [{ query: selectedQuery, backend: "nrese", activity: { "@id": "urn:atlas:query:fixture", parameters: { infer: false, row_cap: 20 } } }] } } })[0];
 const rerunAnswer = await client.runSparqlQuery(selectedReceipt.text, "Original caption", undefined, selectedReceipt.settings);
-assert.equal(calls.at(-1).url, "/zebra/api/sparql");
+assert.equal(calls.at(-1).url, "/zebra/api/sparql?lang=en");
 assert.deepEqual(calls.at(-1).body, { sparql: selectedQuery, query: "Original caption", focus: ["HGNC:11444"], semantic_focus: ["MONDO:fixture"], limit: 20, reasoning: false });
 assert.deepEqual(rerunAnswer.execution.rerun_context, selectedReceipt.settings, "Actual selected execution settings and labels survive the rerun");
 const beforeMissingSettings = calls.length;
@@ -164,7 +165,7 @@ assert.equal(calls.at(-1).url, "http://atlas.fixture.invalid/api/contribute");
 assert.deepEqual(calls.at(-1).body, JSON.parse(JSON.stringify(suggestionInput)), "the real proxy preserves the contribution payload");
 nextReply = { status: 202, body: pendingSuggestion };
 assert.equal((await client.submitContribution(suggestionInput)).state, "submitted");
-assert.equal(calls.at(-1).url, "/zebra/api/contribute");
+assert.equal(calls.at(-1).url, "/zebra/api/contribute?lang=en");
 nextReply = { status: 422, body: { detail: "Fixture invalid contribution" } };
 await assert.rejects(client.submitContribution(suggestionInput), (error) => error.status === 422);
 nextReply = { status: 202, body: { id: "fixture-suggestion", state: "accepted" } };
@@ -182,7 +183,7 @@ assert.equal((await route.GET(new Request("http://web.fixture.invalid/zebra/api/
 assert.equal(calls.length, beforeBadCheck);
 nextReply = { status: 200, body: { ...connectionCheck, connection: "connector:alice:codex" } };
 await client.checkModelConnection("connector:alice:codex");
-assert.equal(calls.at(-1).url, "/zebra/api/models?connection=connector%3Aalice%3Acodex");
+assert.equal(calls.at(-1).url, "/zebra/api/models?connection=connector%3Aalice%3Acodex&lang=en");
 assert.equal(calls.at(-1).init.credentials, "same-origin");
 assert.equal(calls.at(-1).body, null);
 nextReply = { status: 200, body: { ...connectionCheck, connection: "other-account" } };
