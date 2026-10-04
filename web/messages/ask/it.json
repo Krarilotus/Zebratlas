@@ -1,0 +1,103 @@
+{
+  "_meta": {
+    "status": "untranslated copy of en; web-ux translates"
+  },
+  "title": "Ask the atlas",
+  "lead": "Ask in your own words. Your assistant asks the atlas, and every fact in the answer links to its source.",
+  "question": "Your question",
+  "placeholder": "For example: Is there a patient group or a study for STXBP1?",
+  "ask": "Ask",
+  "plan": "Show the steps first",
+  "run": "Run these steps",
+  "asking": "Working…",
+  "stage": {
+    "planning": "Your assistant is reading the question…",
+    "answering": "Writing the answer from the atlas facts…"
+  },
+  "provider": {
+    "label": "Assistant",
+    "help": "Use your own assistant: a key, OpenRouter, a local model or your subscription through the local connector.",
+    "model": "Model (optional)",
+    "key": "API key",
+    "keyHelp": "Kept only in this browser and sent with each question. We never store it.",
+    "forget": "Forget key",
+    "demo": "demo only",
+    "needsKey": "needs your key",
+    "onYourMachine": "runs on your computer",
+    "noServer": "The atlas server is not connected, so asking is not available here.",
+    "free": "free, no key needed",
+    "quota": "{n, plural, =0 {No free questions left today} one {# free question left today} other {# free questions left today}}"
+  },
+  "chips": {
+    "title": "Steps",
+    "lead": "This is how your question was understood. Change a step and run it again.",
+    "remove": "Remove step",
+    "add": "Add a step",
+    "intent": "What to look up",
+    "resolved": "Found: {label}",
+    "found": "{n, plural, =0 {no facts} one {# fact} other {# facts}}",
+    "empty": "Nothing found",
+    "invalid": "Could not run",
+    "byModel": "from your assistant",
+    "byYou": "edited by you",
+    "byRules": "from the atlas",
+    "slot": {
+      "text": "Words",
+      "condition": "Condition or gene",
+      "kind": "Kind",
+      "by": "Shared",
+      "status": "Status",
+      "a": "First",
+      "b": "Second",
+      "from": "From",
+      "to": "To",
+      "gene": "Gene",
+      "symptom": "Symptom",
+      "process": "Process",
+      "id": "Item"
+    },
+    "intentName": {
+      "resolve": "Find the right entry",
+      "condition_summary_facts": "Basic facts",
+      "connections": "Who can help",
+      "related": "Related conditions",
+      "assets": "Studies and projects",
+      "shared_people": "Shared researchers",
+      "path": "How two things connect",
+      "gaps": "What is missing",
+      "diseases_with": "Conditions with…",
+      "node_details": "Details"
+    }
+  },
+  "answer": {
+    "title": "Answer",
+    "fromAtlas": "Written by the atlas from its facts (your assistant's answer did not pass the source check).",
+    "checked": "Every fact sentence was checked against its sources.",
+    "why": "Why: {reason}",
+    "notAdvice": "This is not medical advice.",
+    "caveat": "Note",
+    "question": "Question"
+  },
+  "evidence": {
+    "title": "Sources ({n})",
+    "open": "Official page",
+    "record": "Record",
+    "cite": "Source {n}"
+  },
+  "history": {
+    "title": "This conversation",
+    "clear": "Start over",
+    "saved": "Saved to your account."
+  },
+  "error": {
+    "generic": "Something went wrong. Please try again.",
+    "empty": "Please type a question."
+  },
+  "fallback": {
+    "quota": "The free assistant has reached its limit for today. The answer below comes straight from the atlas. For more, add your own key, use a local model, or try again tomorrow.",
+    "key": "This assistant needs a valid key. The answer below comes straight from the atlas.",
+    "unavailable": "This assistant cannot be reached right now. The answer below comes straight from the atlas.",
+    "other": "Your assistant ran into a problem. The answer below comes straight from the atlas.",
+    "choose": "Choose another assistant"
+  }
+}

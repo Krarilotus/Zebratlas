@@ -1,0 +1,1197 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix ra: <https://w3id.org/rare-disease-atlas/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/rare-disease-atlas/ontology/tbox> a owl:Ontology ;
+    dcterms:license <https://opensource.org/license/mit> ;
+    rdfs:comment "Atlas authored application profile, under the repository MIT option. External imports retain their own terms. Resolve imports only through manifest-pinned local artifacts." ;
+    owl:versionIRI <https://w3id.org/rare-disease-atlas/ontology/1.0.0/tbox> ;
+    owl:versionInfo "1.0.0" .
+
+ra:AddressableSourceRecord a owl:Class ;
+    rdfs:label "Addressable Source Record" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:InformationEntity [ a owl:Restriction ;
+                        owl:onProperty ra:recordOf ;
+                        owl:someValuesFrom ra:SourceArtifact ] ) ] ;
+    skos:definition "Information entity with at least one explicit recordOf link to SourceArtifact." .
+
+ra:AlignmentActivity a owl:Class ;
+    rdfs:label "Alignment Activity" ;
+    rdfs:subClassOf prov:Activity,
+        ra:Process ;
+    skos:definition "An actual mapping assessment execution; its products need not establish identity." .
+
+ra:AssetRecord a owl:Class ;
+    rdfs:label "Asset Record" ;
+    rdfs:subClassOf ra:Node ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:Node [ a owl:Restriction ;
+                        owl:hasValue "asset" ;
+                        owl:onProperty ra:nodeKind ] ) ] ;
+    skos:definition "An Atlas projection record indexed as asset; no equation to the represented real entity." .
+
+ra:BiologicalSample a owl:Class ;
+    rdfs:label "Biological Sample" ;
+    rdfs:subClassOf ra:MaterialEntity ;
+    skos:definition "An actual biological specimen; catalog entries are information entities." .
+
+ra:ChemicalSubstance a owl:Class ;
+    rdfs:label "Chemical Substance" ;
+    rdfs:subClassOf ra:MaterialEntity ;
+    skos:definition "A concrete chemical material; drug designation and chemical class records are separate." .
+
+ra:CommunityUnit a owl:Class ;
+    rdfs:label "Community Unit" ;
+    rdfs:subClassOf ra:SemanticUnit ;
+    skos:definition "Information grouping contacts and resources; not a material or social community." .
+
+ra:DiseaseDescription a owl:Class ;
+    rdfs:label "Disease Description" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:InformationEntity [ a owl:Restriction ;
+                        owl:onProperty ra:isAbout ;
+                        owl:someValuesFrom ra:DiseaseConcept ] ) ] ;
+    skos:definition "Information entity with at least one explicit isAbout link to DiseaseConcept." .
+
+ra:DiseaseRecord a owl:Class ;
+    rdfs:label "Disease Record" ;
+    rdfs:subClassOf ra:Node ;
+    owl:disjointWith ra:DiseaseProcess ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:Node [ a owl:Restriction ;
+                        owl:hasValue "disease" ;
+                        owl:onProperty ra:nodeKind ] ) ] ;
+    skos:definition "An Atlas projection record indexed as disease; no equation to the represented real entity." .
+
+ra:Edge a owl:Class ;
+    rdfs:label "Edge" ;
+    rdfs:subClassOf ra:Assertion ;
+    skos:definition "An Atlas evidence-bearing edge/reifier including observed, extracted, inferred, hypothesis and withheld projections." .
+
+ra:GeneDescription a owl:Class ;
+    rdfs:label "Gene Description" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:InformationEntity [ a owl:Restriction ;
+                        owl:onProperty ra:isAbout ;
+                        owl:someValuesFrom ra:GeneConcept ] ) ] ;
+    skos:definition "Information entity with at least one explicit isAbout link to GeneConcept." .
+
+ra:GeneRecord a owl:Class ;
+    rdfs:label "Gene Record" ;
+    rdfs:subClassOf ra:Node ;
+    owl:disjointWith ra:BiologicalGene ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:Node [ a owl:Restriction ;
+                        owl:hasValue "gene" ;
+                        owl:onProperty ra:nodeKind ] ) ] ;
+    skos:definition "An Atlas projection record indexed as gene; no equation to the represented real entity." .
+
+ra:GrantAgreement a owl:Class ;
+    rdfs:label "Grant Agreement" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    skos:definition "Grant award agreement content, distinct from a payment or research activity." .
+
+ra:GrantRecord a owl:Class ;
+    rdfs:label "Grant Record" ;
+    rdfs:subClassOf ra:Node ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:Node [ a owl:Restriction ;
+                        owl:hasValue "grant" ;
+                        owl:onProperty ra:nodeKind ] ) ] ;
+    skos:definition "An Atlas projection record indexed as grant; no equation to the represented real entity." .
+
+ra:InferenceActivity a owl:Class ;
+    rdfs:label "Inference Activity" ;
+    rdfs:subClassOf prov:Activity,
+        ra:Process ;
+    skos:definition "An actual rule execution with explicit premise and rule witnesses." .
+
+ra:IngestionActivity a owl:Class ;
+    rdfs:label "Ingestion Activity" ;
+    rdfs:subClassOf prov:Activity,
+        ra:Process ;
+    skos:definition "An actual data ingestion/reconstruction execution with source dependencies." .
+
+ra:ItemUnit a owl:Class ;
+    rdfs:label "Item Unit" ;
+    rdfs:subClassOf ra:SemanticUnit ;
+    skos:definition "Semantic unit collecting evidence about one indexed subject." .
+
+ra:Link a owl:Class ;
+    rdfs:label "Link" ;
+    rdfs:subClassOf ra:Assertion ;
+    skos:definition "Legacy server export connection record; semantic endpoints must be verified separately." .
+
+ra:Mapping a owl:Class ;
+    rdfs:label "Mapping" ;
+    rdfs:subClassOf ra:Assertion ;
+    skos:definition "An identifier or terminology correspondence claim with mapping evidence, not automatic individual identity." .
+
+ra:MechanismItemGroupUnit a owl:Class ;
+    rdfs:label "Mechanism Item Group Unit" ;
+    rdfs:subClassOf ra:SemanticUnit ;
+    skos:definition "A group of mechanism-related information; not proof of a shared mechanism." .
+
+ra:ModelDescription a owl:Class ;
+    rdfs:label "Model Description" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    skos:definition "A description of a strain, line, genotype or model; not its material realization." .
+
+ra:OrganisationRecord a owl:Class ;
+    rdfs:label "Organisation Record" ;
+    rdfs:subClassOf ra:Node ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:Node [ a owl:Restriction ;
+                        owl:hasValue "organisation" ;
+                        owl:onProperty ra:nodeKind ] ) ] ;
+    skos:definition "An Atlas projection record indexed as organisation; no equation to the represented real entity." .
+
+ra:OrganismModel a owl:Class ;
+    rdfs:label "Organism Model" ;
+    rdfs:subClassOf ra:MaterialEntity ;
+    skos:definition "An actual organism used as a research model, distinct from a strain designation or catalog record." .
+
+ra:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:subClassOf ra:SocialEntity ;
+    skos:definition "An institutional social agent; not automatically equal to the aggregate of all its current members." .
+
+ra:OrganizationCollective a owl:Class ;
+    rdfs:label "Organization Collective" ;
+    rdfs:subClassOf ra:MaterialEntity ;
+    skos:definition "The material aggregate of participants constituting an organization in a given context; separate from its institutional identity." .
+
+ra:PaperRecord a owl:Class ;
+    rdfs:label "Paper Record" ;
+    rdfs:subClassOf ra:Node ;
+    owl:disjointWith ra:PaperContent ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:Node [ a owl:Restriction ;
+                        owl:hasValue "paper" ;
+                        owl:onProperty ra:nodeKind ] ) ] ;
+    skos:definition "An Atlas projection record indexed as paper; no equation to the represented real entity." .
+
+ra:PathwayConcept a owl:Class ;
+    rdfs:label "Pathway Concept" ;
+    rdfs:subClassOf ra:Concept ;
+    skos:definition "A reified description of a pathway process type; not a pathway execution." .
+
+ra:PathwayRecord a owl:Class ;
+    rdfs:label "Pathway Record" ;
+    rdfs:subClassOf ra:Node ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:Node [ a owl:Restriction ;
+                        owl:hasValue "pathway" ;
+                        owl:onProperty ra:nodeKind ] ) ] ;
+    skos:definition "An Atlas projection record indexed as pathway; no equation to the represented real entity." .
+
+ra:PersonRecord a owl:Class ;
+    rdfs:label "Person Record" ;
+    rdfs:subClassOf ra:Node ;
+    owl:disjointWith ra:HumanPerson ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:Node [ a owl:Restriction ;
+                        owl:hasValue "person" ;
+                        owl:onProperty ra:nodeKind ] ) ] ;
+    skos:definition "An Atlas projection record indexed as person; no equation to the represented real entity." .
+
+ra:PhenotypeDescription a owl:Class ;
+    rdfs:label "Phenotype Description" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:InformationEntity [ a owl:Restriction ;
+                        owl:onProperty ra:isAbout ;
+                        owl:someValuesFrom ra:PhenotypeConcept ] ) ] ;
+    skos:definition "Information entity with at least one explicit isAbout link to PhenotypeConcept." .
+
+ra:PhenotypeRecord a owl:Class ;
+    rdfs:label "Phenotype Record" ;
+    rdfs:subClassOf ra:Node ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:Node [ a owl:Restriction ;
+                        owl:hasValue "phenotype" ;
+                        owl:onProperty ra:nodeKind ] ) ] ;
+    skos:definition "An Atlas projection record indexed as phenotype; no equation to the represented real entity." .
+
+ra:PhenotypicQuality a owl:Class ;
+    rdfs:label "Phenotypic Quality" ;
+    rdfs:subClassOf ra:Quality ;
+    skos:definition "An actual phenotype quality in a bearer, not an HPO class or source frequency annotation." .
+
+ra:ResearchRole a owl:Class ;
+    rdfs:label "Research Role" ;
+    rdfs:subClassOf ra:Role ;
+    skos:definition "A context dependent role borne and realized by a research participant or resource." .
+
+ra:StatementUnit a owl:Class ;
+    rdfs:label "Statement Unit" ;
+    rdfs:subClassOf ra:Assertion,
+        ra:SemanticUnit ;
+    skos:definition "Semantic unit expressing a proposition; hypothesis status does not assert that proposition." .
+
+ra:StudyProtocol a owl:Class ;
+    rdfs:label "Study Protocol" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    skos:definition "Research study plan or protocol information, distinct from its execution." .
+
+ra:StudyRecord a owl:Class ;
+    rdfs:label "Study Record" ;
+    rdfs:subClassOf ra:Node ;
+    owl:disjointWith ra:StudyExecution ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:Node [ a owl:Restriction ;
+                        owl:hasValue "study" ;
+                        owl:onProperty ra:nodeKind ] ) ] ;
+    skos:definition "An Atlas projection record indexed as study; no equation to the represented real entity." .
+
+ra:UnitLink a owl:Class ;
+    rdfs:label "Unit Link" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    skos:definition "Information linking semantic units." .
+
+ra:about_condition a owl:ObjectProperty ;
+    rdfs:label "about_condition" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas about_condition connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:about_gene a owl:ObjectProperty ;
+    rdfs:label "about_gene" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas about_gene connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:assertionStatus a owl:DatatypeProperty ;
+    rdfs:label "assertionStatus" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:author_of a owl:ObjectProperty ;
+    rdfs:label "author_of" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas author_of connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:awarded_to a owl:ObjectProperty ;
+    rdfs:label "awarded_to" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas awarded_to connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:bytes a owl:DatatypeProperty ;
+    rdfs:label "bytes" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:integer ;
+    skos:definition "Artifact encoding size in bytes." ;
+    ra:semanticScope "application" .
+
+ra:candidate_same_as a owl:ObjectProperty ;
+    rdfs:label "candidate_same_as" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas candidate_same_as connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation. Navigation/mapping-only: does not entail clinical association, treatment or entity identity." ;
+    ra:semanticScope "navigation-only" .
+
+ra:claims_about a owl:ObjectProperty ;
+    rdfs:label "claims_about" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas claims_about connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:classification a owl:ObjectProperty ;
+    rdfs:label "classification" ;
+    rdfs:domain ra:GeneDiseaseValidityAssertion ;
+    rdfs:range ra:Entity ;
+    skos:definition "Upstream GenCC controlled reference; assertion scoped by submitter/version/status, not promoted to universal clinical fact." ;
+    ra:semanticScope "application" .
+
+ra:classificationLabel a owl:DatatypeProperty ;
+    rdfs:label "classificationLabel" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:codeSha256 a owl:DatatypeProperty ;
+    rdfs:label "codeSha256" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:commit a owl:DatatypeProperty ;
+    rdfs:label "commit" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:constitutedBy a owl:ObjectProperty ;
+    rdfs:label "constitutedBy" ;
+    rdfs:domain ra:SocialEntity ;
+    rdfs:range ra:MaterialEntity ;
+    skos:definition "Explicit institutional-to-material constitution link; never owl:sameAs." ;
+    ra:semanticScope "application" .
+
+ra:contactRoute a owl:DatatypeProperty ;
+    rdfs:label "contactRoute" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:copyFields a owl:DatatypeProperty ;
+    rdfs:label "copyFields" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:boolean ;
+    skos:definition "Release source policy grants copying record fields." ;
+    ra:semanticScope "application" .
+
+ra:count a owl:DatatypeProperty ;
+    rdfs:label "count" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:countsSha256 a owl:DatatypeProperty ;
+    rdfs:label "countsSha256" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:denotes a owl:ObjectProperty ;
+    rdfs:label "denotes" ;
+    rdfs:domain ra:Identifier ;
+    rdfs:range ra:Entity ;
+    skos:definition "An identifier information item denotes an explicitly modelled referent; not an identity relation." ;
+    ra:semanticScope "application" .
+
+ra:disease a owl:ObjectProperty ;
+    rdfs:label "disease" ;
+    rdfs:domain ra:GeneDiseaseValidityAssertion ;
+    rdfs:range ra:Entity ;
+    skos:definition "Upstream GenCC controlled reference; assertion scoped by submitter/version/status, not promoted to universal clinical fact." ;
+    ra:semanticScope "application" .
+
+ra:edgeKind a owl:DatatypeProperty ;
+    rdfs:label "edgeKind" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:eligibleForPositiveInference a owl:DatatypeProperty ;
+    rdfs:label "eligibleForPositiveInference" ;
+    rdfs:domain ra:QualifiedDiseasePhenotypeAssertion ;
+    rdfs:range xsd:boolean ;
+    skos:definition "Operational source assertion guard; false prevents positive clinical inference." ;
+    ra:semanticScope "application" .
+
+ra:evidenceCode a owl:DatatypeProperty ;
+    rdfs:label "evidenceCode" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:evidenceLocator a owl:DatatypeProperty ;
+    rdfs:label "evidenceLocator" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:evidenceSha256 a owl:DatatypeProperty ;
+    rdfs:label "evidenceSha256" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:exclusionDiagnosticRole a owl:DatatypeProperty ;
+    rdfs:label "exclusionDiagnosticRole" ;
+    rdfs:domain ra:QualifiedDiseasePhenotypeAssertion ;
+    rdfs:range xsd:boolean ;
+    skos:definition "Operational source assertion guard; false prevents positive clinical inference." ;
+    ra:semanticScope "application" .
+
+ra:expectedObjectKinds a owl:AnnotationProperty .
+
+ra:expectedSubjectKinds a owl:AnnotationProperty .
+
+ra:exportStatus a owl:DatatypeProperty ;
+    rdfs:label "exportStatus" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:file a owl:DatatypeProperty ;
+    rdfs:label "file" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:funds a owl:ObjectProperty ;
+    rdfs:label "funds" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas funds connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:gateManifestSha256 a owl:DatatypeProperty ;
+    rdfs:label "gateManifestSha256" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:gene a owl:ObjectProperty ;
+    rdfs:label "gene" ;
+    rdfs:domain ra:GeneDiseaseValidityAssertion ;
+    rdfs:range ra:Entity ;
+    skos:definition "Upstream GenCC controlled reference; assertion scoped by submitter/version/status, not promoted to universal clinical fact." ;
+    ra:semanticScope "application" .
+
+ra:gene_associated_with_condition a owl:ObjectProperty ;
+    rdfs:label "gene_associated_with_condition" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas gene_associated_with_condition connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:hasAssociatedSemanticUnit a owl:ObjectProperty ;
+    rdfs:label "hasAssociatedSemanticUnit" ;
+    rdfs:domain ra:SemanticUnit ;
+    rdfs:range ra:Entity ;
+    skos:definition "Semantic unit membership/subject metadata; does not assert biomedical relations." ;
+    ra:semanticScope "application" .
+
+ra:hasIdentifier a owl:ObjectProperty ;
+    rdfs:label "hasIdentifier" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Identifier ;
+    skos:definition "An entity has an identifier information item; not inverse functional." ;
+    ra:semanticScope "application" .
+
+ra:hasMember a owl:ObjectProperty ;
+    rdfs:label "hasMember" ;
+    rdfs:domain ra:SemanticUnit ;
+    rdfs:range ra:Entity ;
+    skos:definition "Semantic unit membership/subject metadata; does not assert biomedical relations." ;
+    ra:semanticScope "application" .
+
+ra:hasRole a owl:ObjectProperty ;
+    rdfs:label "hasRole" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Role ;
+    skos:definition "A bearer has a context dependent role; differs from class membership." ;
+    ra:semanticScope "application" .
+
+ra:hasSemanticUnitSubject a owl:ObjectProperty ;
+    rdfs:label "hasSemanticUnitSubject" ;
+    rdfs:domain ra:SemanticUnit ;
+    rdfs:range ra:Entity ;
+    skos:definition "Semantic unit membership/subject metadata; does not assert biomedical relations." ;
+    ra:semanticScope "application" .
+
+ra:has_associated_gene a owl:ObjectProperty ;
+    rdfs:label "has_associated_gene" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas has_associated_gene connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:has_phenotype a owl:ObjectProperty ;
+    rdfs:label "has_phenotype" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas has_phenotype connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:hashScope a owl:DatatypeProperty ;
+    rdfs:label "hashScope" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:held_by a owl:ObjectProperty ;
+    rdfs:label "held_by" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas held_by connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:identityManifestSha256 a owl:DatatypeProperty ;
+    rdfs:label "identityManifestSha256" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:instance_of a owl:ObjectProperty ;
+    rdfs:label "instance_of" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas instance_of connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:level a owl:DatatypeProperty ;
+    rdfs:label "level" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:limitation a owl:DatatypeProperty ;
+    rdfs:label "limitation" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:locator a owl:DatatypeProperty ;
+    rdfs:label "locator" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:mappingSetId a owl:DatatypeProperty ;
+    rdfs:label "mappingSetId" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:mappingSetVersion a owl:DatatypeProperty ;
+    rdfs:label "mappingSetVersion" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:mappingStatus a owl:AnnotationProperty .
+
+ra:mappingTool a owl:DatatypeProperty ;
+    rdfs:label "mappingTool" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:modeOfInheritance a owl:ObjectProperty ;
+    rdfs:label "modeOfInheritance" ;
+    rdfs:domain ra:GeneDiseaseValidityAssertion ;
+    rdfs:range ra:Entity ;
+    skos:definition "Upstream GenCC controlled reference; assertion scoped by submitter/version/status, not promoted to universal clinical fact." ;
+    ra:semanticScope "application" .
+
+ra:model_of a owl:ObjectProperty ;
+    rdfs:label "model_of" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas model_of connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:names_gene a owl:ObjectProperty ;
+    rdfs:label "names_gene" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas names_gene connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:normalizedRecordSha256 a owl:DatatypeProperty ;
+    rdfs:label "normalizedRecordSha256" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:originalUrlSha256 a owl:DatatypeProperty ;
+    rdfs:label "originalUrlSha256" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:orthologous_to a owl:ObjectProperty ;
+    rdfs:label "orthologous_to" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas orthologous_to connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:parameter a owl:DatatypeProperty ;
+    rdfs:label "parameter" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:parametersSha256 a owl:DatatypeProperty ;
+    rdfs:label "parametersSha256" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:participates_in a owl:ObjectProperty ;
+    rdfs:label "participates_in" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas participates_in connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:phenotype a owl:ObjectProperty ;
+    rdfs:label "phenotype" ;
+    rdfs:domain ra:QualifiedDiseasePhenotypeAssertion ;
+    rdfs:range ra:Entity ;
+    skos:definition "Source OWL class reference preserved as a value; does not instantiate that class or imply diagnostic sufficiency." ;
+    ra:semanticScope "application" .
+
+ra:phenotypeTermState a owl:DatatypeProperty ;
+    rdfs:label "phenotypeTermState" ;
+    rdfs:domain ra:QualifiedDiseasePhenotypeAssertion ;
+    rdfs:range xsd:string ;
+    skos:definition "HOOM extraction state/evidence grouping metadata; duplicate axioms are not independent support." ;
+    ra:semanticScope "application" .
+
+ra:policyCheckedOn a owl:DatatypeProperty ;
+    rdfs:label "policyCheckedOn" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:policyRule a owl:DatatypeProperty ;
+    rdfs:label "policyRule" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:possible_ortholog_model_lead a owl:ObjectProperty ;
+    rdfs:label "possible_ortholog_model_lead" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas possible_ortholog_model_lead connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation. Navigation/mapping-only: does not entail clinical association, treatment or entity identity." ;
+    ra:semanticScope "navigation-only" .
+
+ra:possible_phenotype_ancestor a owl:ObjectProperty ;
+    rdfs:label "possible_phenotype_ancestor" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas possible_phenotype_ancestor connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation. Navigation/mapping-only: does not entail clinical association, treatment or entity identity." ;
+    ra:semanticScope "navigation-only" .
+
+ra:principal_investigator_of a owl:ObjectProperty ;
+    rdfs:label "principal_investigator_of" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas principal_investigator_of connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:quote a owl:DatatypeProperty ;
+    rdfs:label "quote" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:realizesRole a owl:ObjectProperty ;
+    rdfs:label "realizesRole" ;
+    rdfs:domain ra:Process ;
+    rdfs:range ra:Role ;
+    skos:definition "An actual process realizes a role; does not imply efficacy." ;
+    ra:semanticScope "application" .
+
+ra:reason a owl:DatatypeProperty ;
+    rdfs:label "reason" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:recordLocator a owl:DatatypeProperty ;
+    rdfs:label "recordLocator" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:recordUrl a owl:DatatypeProperty ;
+    rdfs:label "recordUrl" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:related_to a owl:ObjectProperty ;
+    rdfs:label "related_to" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas related_to connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation. Navigation/mapping-only: does not entail clinical association, treatment or entity identity." ;
+    ra:semanticScope "navigation-only" .
+
+ra:relation a owl:DatatypeProperty ;
+    rdfs:label "relation" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:represents a owl:ObjectProperty ;
+    rdfs:label "represents" ;
+    rdfs:domain ra:Node ;
+    rdfs:range ra:Entity ;
+    skos:definition "A projection entry represents an explicitly modelled referent; migration requires evidence and separate referent IRI." ;
+    ra:semanticScope "application" .
+
+ra:resourceRole a owl:DatatypeProperty ;
+    rdfs:label "resourceRole" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:resource_for a owl:ObjectProperty ;
+    rdfs:label "resource_for" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas resource_for connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:retrievalBasis a owl:DatatypeProperty ;
+    rdfs:label "retrievalBasis" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:retrievedAt a owl:DatatypeProperty ;
+    rdfs:label "retrievedAt" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:rule a owl:DatatypeProperty ;
+    rdfs:label "rule" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:ruleId a owl:DatatypeProperty ;
+    rdfs:label "ruleId" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:ruleVersion a owl:DatatypeProperty ;
+    rdfs:label "ruleVersion" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:same_as a owl:ObjectProperty ;
+    rdfs:label "same_as" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas same_as connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation. Navigation/mapping-only: does not entail clinical association, treatment or entity identity." ;
+    ra:semanticScope "navigation-only" .
+
+ra:scope a owl:DatatypeProperty ;
+    rdfs:label "scope" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:semanticScope a owl:AnnotationProperty .
+
+ra:serves_condition a owl:ObjectProperty ;
+    rdfs:label "serves_condition" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas serves_condition connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:serves_gene a owl:ObjectProperty ;
+    rdfs:label "serves_gene" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas serves_gene connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:sha256 a owl:DatatypeProperty ;
+    rdfs:label "sha256" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:shares_pathway_with a owl:ObjectProperty ;
+    rdfs:label "shares_pathway_with" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas shares_pathway_with connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation. Navigation/mapping-only: does not entail clinical association, treatment or entity identity." ;
+    ra:semanticScope "navigation-only" .
+
+ra:sourceAssociationClass a owl:ObjectProperty ;
+    rdfs:label "sourceAssociationClass" ;
+    rdfs:domain ra:QualifiedDiseasePhenotypeAssertion ;
+    rdfs:range ra:Entity ;
+    skos:definition "Source OWL class reference preserved as a value; does not instantiate that class or imply diagnostic sufficiency." ;
+    ra:semanticScope "application" .
+
+ra:sourceAxiomXML a owl:DatatypeProperty ;
+    rdfs:label "sourceAxiomXML" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:sourceDiagnosticRole a owl:ObjectProperty ;
+    rdfs:label "sourceDiagnosticRole" ;
+    rdfs:domain ra:QualifiedDiseasePhenotypeAssertion ;
+    rdfs:range ra:Entity ;
+    skos:definition "Source OWL class reference preserved as a value; does not instantiate that class or imply diagnostic sufficiency." ;
+    ra:semanticScope "application" .
+
+ra:sourceDisease a owl:ObjectProperty ;
+    rdfs:label "sourceDisease" ;
+    rdfs:domain ra:QualifiedDiseasePhenotypeAssertion ;
+    rdfs:range ra:Entity ;
+    skos:definition "Reference to an ORDO class used in the source; class-as-value interpretation requires OWL punning, not clinical typing." ;
+    ra:semanticScope "application" .
+
+ra:sourceFrequencyClass a owl:ObjectProperty ;
+    rdfs:label "sourceFrequencyClass" ;
+    rdfs:domain ra:QualifiedDiseasePhenotypeAssertion ;
+    rdfs:range ra:Entity ;
+    skos:definition "Source OWL class reference preserved as a value; does not instantiate that class or imply diagnostic sufficiency." ;
+    ra:semanticScope "application" .
+
+ra:sourceHashScope a owl:DatatypeProperty ;
+    rdfs:label "sourceHashScope" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:sourceInput a prov:Role ;
+    rdfs:label "source input usage role" .
+
+ra:sourceReceipt a owl:DatatypeProperty ;
+    rdfs:label "sourceReceipt" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:sourceTimeText a owl:DatatypeProperty ;
+    rdfs:label "sourceTimeText" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:sourceUrl a owl:DatatypeProperty ;
+    rdfs:label "sourceUrl" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:sourceUrlBasis a owl:DatatypeProperty ;
+    rdfs:label "sourceUrlBasis" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:sponsored_by a owl:ObjectProperty ;
+    rdfs:label "sponsored_by" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas sponsored_by connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:status a owl:DatatypeProperty ;
+    rdfs:label "status" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:studied_for a owl:ObjectProperty ;
+    rdfs:label "studied_for" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas studied_for connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:studies_condition a owl:ObjectProperty ;
+    rdfs:label "studies_condition" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas studies_condition connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:subclass_of a owl:ObjectProperty ;
+    rdfs:label "subclass_of" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas subclass_of connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation. Source hierarchy metadata; native release uses rdfs:subClassOf only after class interpretation verification." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:submissionId a owl:DatatypeProperty ;
+    rdfs:label "submissionId" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:submissionVersion a owl:DatatypeProperty ;
+    rdfs:label "submissionVersion" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:targets a owl:ObjectProperty ;
+    rdfs:label "targets" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Atlas targets connection as qualified by its edge/source records. Neither transitive nor an OWL identity relation." ;
+    ra:semanticScope "source-qualified-connection" .
+
+ra:termsPage a owl:ObjectProperty ;
+    rdfs:label "termsPage" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Source terms evidence URL." ;
+    ra:semanticScope "application" .
+
+ra:underlyingEvidenceGroup a owl:DatatypeProperty ;
+    rdfs:label "underlyingEvidenceGroup" ;
+    rdfs:domain ra:QualifiedDiseasePhenotypeAssertion ;
+    rdfs:range xsd:string ;
+    skos:definition "HOOM extraction state/evidence grouping metadata; duplicate axioms are not independent support." ;
+    ra:semanticScope "application" .
+
+ra:upstreamFieldsJSON a owl:DatatypeProperty ;
+    rdfs:label "upstreamFieldsJSON" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:version a owl:DatatypeProperty ;
+    rdfs:label "version" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Preserved Atlas metadata. Source lexical values are not automatically verified history." ;
+    ra:semanticScope "application" .
+
+ra:viaPathway a owl:ObjectProperty ;
+    rdfs:label "viaPathway" ;
+    rdfs:domain ra:SemanticUnit ;
+    rdfs:range ra:Entity ;
+    skos:definition "Semantic unit membership/subject metadata; does not assert biomedical relations." ;
+    ra:semanticScope "application" .
+
+ra:BiologicalGene a owl:Class ;
+    rdfs:label "Biological Gene" ;
+    rdfs:subClassOf ra:MaterialEntity ;
+    owl:disjointWith ra:ProteinMolecule ;
+    skos:definition "A concrete genomic sequence-bearing material entity; never an HGNC database page or gene class." .
+
+ra:DiseaseConcept a owl:Class ;
+    rdfs:label "Disease Concept" ;
+    rdfs:subClassOf ra:Concept ;
+    skos:definition "A reified disease concept used for indexing; MONDO class IRIs remain classes in their original ontologies." .
+
+ra:DiseaseProcess a owl:Class ;
+    rdfs:label "Disease Process" ;
+    rdfs:subClassOf ra:Process ;
+    skos:definition "An actual pathological process in a bearer, not a MONDO disease class, disposition, diagnostic label, or record." .
+
+ra:GeneConcept a owl:Class ;
+    rdfs:label "Gene Concept" ;
+    rdfs:subClassOf ra:Concept ;
+    skos:definition "A reified concept of a gene type; not a gene molecule." .
+
+ra:HumanPerson a owl:Class ;
+    rdfs:label "Human Person" ;
+    rdfs:subClassOf ra:MaterialEntity ;
+    skos:definition "A living human material person, not an author identity record." .
+
+ra:NavigationLead a owl:Class ;
+    rdfs:label "Navigation Lead" ;
+    rdfs:subClassOf ra:Assertion ;
+    skos:definition "A hypothesis or retrieval lead for navigation, not evidence that a clinical or molecular relationship holds." .
+
+ra:PaperContent a owl:Class ;
+    rdfs:label "Paper Content" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    skos:definition "Content of a scholarly article, distinct from its bibliographic record and physical copy." .
+
+ra:PhenotypeConcept a owl:Class ;
+    rdfs:label "Phenotype Concept" ;
+    rdfs:subClassOf ra:Concept ;
+    skos:definition "A reified phenotype concept, distinct from a quality instance." .
+
+ra:ProteinMolecule a owl:Class ;
+    rdfs:label "Protein Molecule" ;
+    rdfs:subClassOf ra:MaterialEntity ;
+    skos:definition "A concrete protein molecular entity, distinct from its coding gene and database entry." .
+
+ra:Quality a owl:Class ;
+    rdfs:label "Quality" ;
+    rdfs:subClassOf ra:Entity ;
+    owl:disjointWith ra:Process ;
+    skos:definition "An actual specifically borne characteristic, distinct from a phenotype class or annotation." .
+
+ra:StudyExecution a owl:Class ;
+    rdfs:label "Study Execution" ;
+    rdfs:subClassOf ra:Process ;
+    skos:definition "An actual execution of research, distinct from registration, protocol and planned study." .
+
+ra:hasRecord a owl:ObjectProperty ;
+    rdfs:label "hasRecord" ;
+    rdfs:domain ra:SourceArtifact ;
+    rdfs:range ra:SourceRecord ;
+    skos:definition "Inverse of recordOf." ;
+    ra:semanticScope "application" .
+
+ra:recordOf a owl:ObjectProperty ;
+    rdfs:label "recordOf" ;
+    rdfs:domain ra:SourceRecord ;
+    rdfs:range ra:SourceArtifact ;
+    owl:inverseOf ra:hasRecord ;
+    skos:definition "Source record belongs to an identified source artifact encoding/content." ;
+    ra:semanticScope "application" .
+
+ra:BiomedicalAssertion a owl:Class ;
+    rdfs:label "Biomedical Assertion" ;
+    rdfs:subClassOf ra:Assertion ;
+    owl:disjointWith ra:NavigationLead ;
+    skos:definition "A source-qualified proposition about biomedical entities or types; may be disputed or refuted." .
+
+ra:Identifier a owl:Class ;
+    rdfs:label "Identifier" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    skos:definition "An identifier information item. An identifier denotes a referent and never becomes it through lexical equality." .
+
+ra:SocialEntity a owl:Class ;
+    rdfs:label "Social Entity" ;
+    rdfs:subClassOf ra:Entity ;
+    skos:definition "A social organization or agreement viewed institutionally; BFO material collectives require an explicit separate facet." .
+
+ra:SourceRecord a owl:Class ;
+    rdfs:label "Source Record" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    skos:definition "Information content of an addressable record in a source artifact." .
+
+ra:Role a owl:Class ;
+    rdfs:label "Role" ;
+    rdfs:subClassOf ra:Entity ;
+    skos:definition "A context dependent realizable role of a bearer; not the bearer or a role vocabulary term." .
+
+ra:SourceArtifact a owl:Class ;
+    rdfs:label "Source Artifact" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    skos:definition "Information content of a versioned upstream file or dataset; checksum describes a concrete encoding." .
+
+ra:isAbout a owl:ObjectProperty ;
+    rdfs:label "isAbout" ;
+    rdfs:domain ra:InformationEntity ;
+    rdfs:range ra:Entity ;
+    skos:definition "Information content is about an explicitly identified entity or reified concept; no existential referent is fabricated." ;
+    ra:semanticScope "application" .
+
+ra:Concept a owl:Class ;
+    rdfs:label "Concept" ;
+    rdfs:subClassOf ra:Entity ;
+    skos:definition "A reified conceptual description; not the class extension or an instance of that class." .
+
+ra:GeneDiseaseValidityAssertion a owl:Class ;
+    rdfs:label "Gene Disease Validity Assertion" ;
+    rdfs:subClassOf ra:BiomedicalAssertion ;
+    skos:definition "A GenCC submitter-scoped gene disease inheritance validity classification; refutation remains explicit." .
+
+ra:Assertion a owl:Class ;
+    rdfs:label "Assertion" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    skos:definition "Information expressing a proposition and its evidential status; typing an assertion never asserts its proposition." .
+
+ra:SemanticUnit a owl:Class ;
+    rdfs:label "Semantic Unit" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    skos:definition "A versioned grouping or statement information unit with provenance." .
+
+ra:MaterialEntity a owl:Class ;
+    rdfs:label "Material Entity" ;
+    rdfs:subClassOf ra:Entity ;
+    owl:disjointWith ra:Process ;
+    skos:definition "A concrete material bearer. Gene/protein records and organism model catalog entries are not automatically instances." .
+
+ra:Process a owl:Class ;
+    rdfs:label "Process" ;
+    rdfs:subClassOf ra:Entity ;
+    skos:definition "An actual occurrence unfolding in time, distinct from a protocol, process type, or database record." .
+
+ra:QualifiedDiseasePhenotypeAssertion a owl:Class ;
+    rdfs:label "Qualified Disease Phenotype Assertion" ;
+    rdfs:subClassOf ra:BiomedicalAssertion ;
+    skos:definition "An extracted HOOM source association, preserving disease/phenotype/frequency/diagnostic-role class references; not a diagnosis." .
+
+ra:nodeKind a owl:DatatypeProperty ;
+    rdfs:label "nodeKind" ;
+    rdfs:domain ra:Entity ;
+    rdfs:range xsd:string ;
+    skos:definition "Atlas projection indexing kind; not a biological class assertion. Broad domain deliberately avoids turning external class references into projection records." ;
+    ra:semanticScope "application" .
+
+ra:InformationEntity a owl:Class ;
+    rdfs:label "Information Entity" ;
+    rdfs:subClassOf prov:Entity,
+        ra:Entity ;
+    owl:disjointWith ra:MaterialEntity,
+        ra:Process ;
+    skos:definition "Repeatable information content, distinct from its physical storage, biological referent, and identifier string." .
+
+ra:Node a owl:Class ;
+    rdfs:label "Node" ;
+    rdfs:subClassOf ra:InformationEntity ;
+    skos:definition "A local Atlas release projection entry; its nodeKind is an indexing category of represented content, not its biomedical ontological type." .
+
+ra:Entity a owl:Class ;
+    rdfs:label "Entity" ;
+    skos:definition "An entity in the Atlas application universe; no automatic equation to a foundation top class." .
+

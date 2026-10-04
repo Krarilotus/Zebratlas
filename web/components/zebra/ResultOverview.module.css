@@ -1,0 +1,48 @@
+.overview { color:var(--z-ink); }
+.note { border-top:1px solid var(--z-line); margin-top:1.25rem; padding-top:.75rem; }
+.columns { display:grid; grid-template-columns:minmax(0,1fr); align-items:start; }
+.scope { margin:0 0 1.5rem; border-bottom:1px solid var(--z-line); padding-bottom:1.25rem; }
+.scopeHeading { display:flex; align-items:baseline; flex-wrap:wrap; gap:.55rem; margin:0 0 .7rem; }
+.scopeHeading span,.meta,.status,.source,.tags { color:var(--z-muted); font-size:.76rem; }
+.scopeHeading h2 { font-size:1.04rem; font-weight:600; margin:0; letter-spacing:-.015em; }
+.description { font-size:.87rem; line-height:1.5; max-width:80ch; margin:.4rem 0 .8rem; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.sectionHeading { font-size:.82rem; font-weight:600; margin:1.1rem 0 .35rem; }
+.rows { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:2rem; align-items:start; }
+.row { border-bottom:1px solid var(--z-line); padding:.6rem 0 .45rem; display:grid; grid-template-columns:minmax(0,1fr); column-gap:1.25rem; }
+.row:last-child { border-bottom:0; }
+.name { border:0; padding:0; min-height:44px; text-align:left; background:none; color:var(--z-ink); font:inherit; font-size:.93rem; font-weight:600; line-height:1.4; cursor:pointer; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; overflow-wrap:anywhere; }
+.tags { display:flex; gap:.55rem; flex-wrap:wrap; margin:.25rem 0; }
+.match { color:var(--z-teal); }
+.reason { font-size:.83rem; line-height:1.5; margin:.35rem 0 .25rem; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; max-width:90ch; }
+.facts { display:flex; flex-wrap:wrap; gap:.15rem .75rem; margin:.35rem 0; font-size:.77rem; line-height:1.5; }
+.facts span { overflow-wrap:anywhere; }
+.facts strong { color:var(--z-muted); font-weight:400; margin-right:.3rem; }
+.actions { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-start; gap:.05rem; }
+.button,.action { display:inline-flex; gap:.35rem; align-items:center; justify-content:center; min-height:44px; padding:.35rem .6rem; border:0; background:none; font:inherit; font-size:.78rem; color:var(--z-teal); text-decoration:none; cursor:pointer; white-space:nowrap; }
+.action { font-weight:600; }
+.button:hover,.action:hover,.name:hover { text-decoration:underline; text-underline-offset:3px; }
+.button:focus-visible,.action:focus-visible,.name:focus-visible,.source a:focus-visible,.comparison summary:focus-visible { outline:2px solid var(--z-teal); outline-offset:4px; border-radius:2px; }
+.secondary { display:flex; flex-wrap:wrap; column-gap:.5rem; align-items:center; }
+.source { display:flex; flex-wrap:wrap; gap:.1rem .55rem; align-items:center; margin:.1rem 0 0; }
+.source a { display:inline-flex; align-items:center; min-height:44px; gap:.2rem; color:var(--z-muted); text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere; }
+.comparisons { margin-top:.65rem; }
+.comparison { border-top:1px solid var(--z-line); padding:.6rem 0; }
+.comparison summary { font-size:.87rem; font-weight:500; min-height:44px; cursor:pointer; display:flex; align-items:center; gap:.5rem; }
+.comparisonPreview { display:block; color:var(--z-muted); font-size:.78rem; font-weight:400; margin:.2rem 0; line-height:1.5; }
+.comparison p { font-size:.81rem; line-height:1.5; margin:.3rem 0; }
+.comparison h4 { font-size:.75rem; font-weight:600; margin:.6rem 0 .25rem; }
+.gaps { list-style:none; padding:0; font-size:.81rem; line-height:1.5; margin:.3rem 0; }
+.gaps li { margin:.3rem 0; }
+.status { margin:.8rem 0; line-height:1.5; }
+.heading { display:flex; justify-content:space-between; gap:.75rem; align-items:baseline; }
+.heading h2 { font-size:1rem; margin:0; font-weight:600; }
+@media(max-width:650px) {
+  .columns { grid-template-columns:1fr; }
+  .rows { grid-template-columns:minmax(0,1fr); }
+  .row { grid-template-columns:1fr; padding:.85rem 0; }
+  .actions { flex-direction:row; align-items:center; justify-content:flex-start; flex-wrap:wrap; margin-top:.35rem; }
+  .action,.button { padding:.3rem .6rem; font-size:.8rem; }
+  .actions .action { padding-left:0; }
+  .scope { margin-bottom:1rem; }
+  .source { font-size:.73rem; }
+}

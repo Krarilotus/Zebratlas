@@ -1,0 +1,4 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+# Only ontology subclass transitivity. No phenotype, gene, treatment or service propagation.
+{ ?child rdfs:subClassOf ?parent . ?parent rdfs:subClassOf ?ancestor . }
+=> { ?child rdfs:subClassOf ?ancestor . } .

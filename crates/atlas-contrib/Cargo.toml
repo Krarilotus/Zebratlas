@@ -1,0 +1,32 @@
+[package]
+name = "atlas-contrib"
+description = "Contributions to the rare-disease atlas: user-asserted links and evidence, auto-checks, a review queue with PROV-O, and the accepted overlay (axum router + SQLite)."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[features]
+default = []
+# Adapter that answers identity and duplicate lookups from atlas-core (Atlas search + connected graph).
+core = ["dep:atlas-core"]
+
+[dependencies]
+async-trait = "0.1"
+atlas-core = { workspace = true, optional = true }
+axum.workspace = true
+getrandom = "0.4"
+humantime.workspace = true
+regex.workspace = true
+reqwest = { version = "0.13", default-features = false, features = ["rustls", "charset", "http2"] }
+rusqlite = { version = "0.40", features = ["bundled"] }
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+thiserror.workspace = true
+tokio = { workspace = true, features = ["time", "sync"] }
+url = "2"
+
+[dev-dependencies]
+tower = { version = "0.5", features = ["util"] }
+wiremock = "0.6"

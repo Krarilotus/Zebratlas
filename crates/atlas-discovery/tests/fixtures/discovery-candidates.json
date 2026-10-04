@@ -1,0 +1,117 @@
+{
+ "@context": {
+  "prov": "http://www.w3.org/ns/prov#",
+  "xsd": "http://www.w3.org/2001/XMLSchema#"
+ },
+ "schema": "atlas.discovery.candidates",
+ "version": 1,
+ "generated_at": "2026-10-04T00:00:00Z",
+ "sha256": "4b1f2d2d585f1c2a8b3294a11ab4181427c2da9f5821a356a0ff50e7c6391b30",
+ "sha256_of": "compact JSON candidates array",
+ "candidates": [
+  {
+   "@id": "urn:atlas:discovery-candidate:placeholder-0001:v3:export-test",
+   "@type": "prov:Entity",
+   "id": "contrib:placeholder-0001",
+   "url": "https://example.invalid/data.json",
+   "resource_kind": "dataset",
+   "licence": "Submitter claims CC-BY-4.0; not yet verified",
+   "spdx_id": "CC-BY-4.0",
+   "identifier_systems": [
+    "MONDO",
+    "HGNC"
+   ],
+   "description": "Placeholder dataset used only for tests.",
+   "consent": true,
+   "status": "accepted_for_discovery",
+   "graph_import_allowed": false,
+   "proposed_by": {
+    "agent": {
+     "id": "agent:example",
+     "type": "prov:Person"
+    },
+    "organisation": "Example laboratory"
+   },
+   "accepted_by": {
+    "id": "agent:reviewer/example",
+    "name": "Example reviewer"
+   },
+   "accepted_at": "2026-10-04T00:00:00Z",
+   "review_reason": "Test-only reviewer decision.",
+   "checks": {
+    "checked_at": "2026-10-04T00:00:00Z",
+    "agent": "atlas-contrib@0.1.0",
+    "checks": [
+     {
+      "name": "licence",
+      "status": "pass",
+      "code": "licence_found",
+      "message": "placeholder"
+     },
+     {
+      "name": "identifiers",
+      "status": "warn",
+      "code": "identifiers_partial",
+      "message": "placeholder"
+     }
+    ]
+   },
+   "source": {
+    "url": "/api/contribute/placeholder-0001",
+    "retrieved_at": "2026-10-04T00:00:00Z",
+    "version": "3",
+    "sha256": "0cf2818d9bcd7756239629b3d4f2c13e46d601f8623f5f377d3334cd8dc298e1",
+    "record_locator": "contrib:placeholder-0001/v3"
+   },
+   "submission": {
+    "id": "placeholder-0001",
+    "kind": "data_source",
+    "state": "accepted",
+    "version": 3,
+    "contributor": {
+     "name": "Example researcher",
+     "organisation": "Example laboratory"
+    },
+    "data_source": {
+     "resource_kind": "dataset",
+     "url": "https://example.invalid/data.json",
+     "licence": "Submitter claims CC-BY-4.0; not yet verified",
+     "spdx_id": "CC-BY-4.0",
+     "identifier_systems": [
+      "MONDO",
+      "HGNC"
+     ],
+     "description": "Placeholder dataset used only for tests.",
+     "consent": true
+    }
+   },
+   "prov:wasDerivedFrom": {
+    "@id": "urn:atlas:contribution:placeholder-0001:v3"
+   },
+   "prov:wasGeneratedBy": {
+    "@id": "urn:atlas:export:test"
+   },
+   "prov:generatedAtTime": {
+    "@value": "2026-10-04T00:00:00Z",
+    "@type": "xsd:dateTime"
+   }
+  }
+ ],
+ "provenance": [
+  {
+   "@context": {
+    "prov": "http://www.w3.org/ns/prov#"
+   },
+   "@graph": [
+    {
+     "@id": "urn:atlas:export:test",
+     "@type": "prov:Activity"
+    },
+    {
+     "@id": "urn:atlas:contribution:placeholder-0001:v3",
+     "@type": "prov:Entity"
+    }
+   ]
+  }
+ ]
+}

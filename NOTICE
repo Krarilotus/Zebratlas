@@ -1,0 +1,23 @@
+Query-by-Graph by Daniel Motz
+Website: https://www.daniel-motz.de
+Source: https://github.com/HerrMotz/Query-by-Graph
+Pinned revision: e18ba8f690cfa0876cb30f62dd71f5e1c2e5d2e1
+
+On 2026-10-04 Daniel Motz gave the founder permission to include Query-by-Graph
+in Zebratlas and redistribute its built package, including WebAssembly, within
+the Zebratlas repository and website. This permission is recorded in project
+decision D58; it does not change the upstream All Rights Reserved licence or
+grant a general open-source licence. Credit is retained here, in README, and
+in the query inspector with a link to Daniel Motz's website.
+
+The original integration pins upstream source without local source changes.
+This submission ships the permitted built artifacts and adapters, without upstream Git history.
+Zebratlas presentation/model adapters compile against the actual upstream
+Vue/Rete editor and Rust WebAssembly converter. Bundled transitive dependency
+notices and source links are in web/public/query-by-graph/THIRD-PARTY-LICENSES.txt.
+The build manifest records versions and artifact SHA-256 hashes. Those
+dependencies retain their own licences; this notice does not supersede them.
+
+Supported SPARQL editing uses Traqula parser/generator 1.4.0 (MIT),
+https://github.com/comunica/traqula. Its dependency licence texts and pinned
+versions are retained in web/public/query-by-graph/SPARQL-LICENSES.txt.

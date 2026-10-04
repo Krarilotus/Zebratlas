@@ -1,0 +1,28 @@
+// Pure settings fixtures. No network, credentials, native UI or model calls.
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import ts from "typescript";
+const compiled = ts.transpileModule(readFileSync(new URL("../lib/zebra/model-settings.ts", import.meta.url), "utf8"), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
+const exports = {}; new Function("exports", compiled)(exports);
+const { connectionLabel, currentModel, connectedModels, canUseModel } = exports;
+const kisski = { name: "kisski", label: "KISSKI Chat AI (demo only)", kind: "openai-compatible", runs_on: "server", default_model: "openai-gpt-oss-120b", models: ["openai-gpt-oss-120b"], needs_key: true, key_from_env_available: true };
+const local = { name: "connector:alice:codex", label: "Your machine", kind: "connector", runs_on: "user-machine", default_model: "configured-model", models: ["configured-model", "allowed-alternative"], needs_key: false, key_from_env_available: false };
+const listing = { default: "kisski", selected: null, connections: [kisski, local] };
+assert.equal(connectionLabel(kisski), "KISSKI Chat AI (demo only) · openai-gpt-oss-120b");
+assert.equal(currentModel(listing).model, "openai-gpt-oss-120b", "instance default resolves the configured exact ID");
+assert.equal(currentModel({ ...listing, selected: { connection: local.name, model: null } }).model, "configured-model");
+assert.equal(currentModel({ ...listing, selected: { connection: local.name, model: "allowed-alternative" } }).model, "allowed-alternative");
+assert.equal(currentModel({ default: "missing", connections: [] }).model, undefined, "a model is never guessed");
+assert.deepEqual(connectedModels(kisski, null), [], "configuration and key presence do not unlock any models");
+assert.deepEqual(connectedModels(kisski, { connection: "kisski", connected: false, models: kisski.models }), []);
+assert.deepEqual(connectedModels(kisski, { connection: "other-account", connected: true, models: kisski.models }), [], "checks are scoped to the chosen connection");
+const checked = { connection: local.name, connected: true, models: ["configured-model", "allowed-alternative", "not-advertised", "configured-model"] };
+assert.deepEqual(connectedModels(local, checked), ["configured-model", "allowed-alternative"]);
+assert.equal(canUseModel(local, checked, ""), true, "empty selection resolves the verified default");
+assert.equal(canUseModel(local, checked, "allowed-alternative"), true);
+assert.equal(canUseModel(local, checked, "stale-saved-model"), false, "stale saved models cannot be offered as selectable");
+assert.equal(canUseModel(local, { ...checked, models: ["allowed-alternative"] }, ""), false, "a missing default cannot be silently selected");
+const ui = readFileSync(new URL("../components/zebra/ModelSettings.tsx", import.meta.url), "utf8");
+assert.ok(!ui.includes(".focus("));
+assert.ok(!ui.includes("setInterval"));
+console.log("PASS: exact configured/default/saved model IDs, explicit connection gating, scoped allowlists, stale models and no focus/polling (fixtures only)");

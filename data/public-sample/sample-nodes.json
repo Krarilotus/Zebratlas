@@ -1,0 +1,765 @@
+[
+  {
+    "id": "ORPHA:140927",
+    "name": "Self-limited neonatal/infantile epilepsy",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:140927"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "KCNQ2",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:140927",
+        "pmids": [
+          "PMID:23360469"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:6296",
+        "ncbi_gene": "3785",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=140927]/DisorderGeneAssociation[Gene=KCNQ2]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=140927]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:178469",
+    "name": "Autosomal dominant non-syndromic intellectual disability",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:178469"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "KCNQ2",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:178469",
+        "pmids": [
+          "PMID:33754465"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:6296",
+        "ncbi_gene": "3785",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=178469]/DisorderGeneAssociation[Gene=KCNQ2]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=178469]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:1942",
+    "name": "Epilepsy with myoclonic-atonic seizures",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:1942"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "SCN1A",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:1942",
+        "pmids": [
+          "PMID:21396429"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:10585",
+        "ncbi_gene": "6323",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=1942]/DisorderGeneAssociation[Gene=SCN1A]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=1942]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:1949",
+    "name": "Self-limited neonatal epilepsy",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:1949"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "KCNQ2",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:1949",
+        "pmids": [
+          "PMID:20437616",
+          "PMID:24375629"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:6296",
+        "ncbi_gene": "3785",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=1949]/DisorderGeneAssociation[Gene=KCNQ2]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=1949]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:2382",
+    "name": "Lennox-Gastaut syndrome",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:2382"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "SCN1A",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:2382",
+        "pmids": [
+          "PMID:17347258",
+          "PMID:20301494",
+          "PMID:19782004"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:10585",
+        "ncbi_gene": "6323",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=2382]/DisorderGeneAssociation[Gene=SCN1A]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=2382]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:293181",
+    "name": "Epilepsy of infancy with migrating focal seizures",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:293181"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "SCN1A",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:293181",
+        "pmids": [
+          "PMID:21555645",
+          "PMID:20301494"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:10585",
+        "ncbi_gene": "6323",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=293181]/DisorderGeneAssociation[Gene=SCN1A]"
+          }
+        }
+      },
+      {
+        "symbol": "KCNQ2",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:293181",
+        "pmids": [
+          "PMID:31618474"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:6296",
+        "ncbi_gene": "3785",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=293181]/DisorderGeneAssociation[Gene=KCNQ2]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=293181]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:306",
+    "name": "Self-limited infantile epilepsy",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:306"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "KCNQ2",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:306",
+        "pmids": [],
+        "assessed": true,
+        "hgnc": "HGNC:6296",
+        "ncbi_gene": "3785",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=306]/DisorderGeneAssociation[Gene=KCNQ2]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=306]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:33069",
+    "name": "Dravet syndrome",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:33069"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "SCN1A",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:33069",
+        "pmids": [
+          "PMID:20301494",
+          "PMID:23093055",
+          "PMID:21463275",
+          "PMID:22787626",
+          "PMID:11359211",
+          "PMID:12754708",
+          "PMID:16458823"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:10585",
+        "ncbi_gene": "6323",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=33069]/DisorderGeneAssociation[Gene=SCN1A]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=33069]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:36387",
+    "name": "Genetic epilepsy with febrile seizure plus",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:36387"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "SCN1A",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:36387",
+        "pmids": [
+          "PMID:20301494"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:10585",
+        "ncbi_gene": "6323",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=36387]/DisorderGeneAssociation[Gene=SCN1A]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=36387]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:439218",
+    "name": "KCNQ2-related developmental and epileptic encephalopathy",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:439218"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "KCNQ2",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:439218",
+        "pmids": [
+          "PMID:23621294",
+          "PMID:20437616"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:6296",
+        "ncbi_gene": "3785",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=439218]/DisorderGeneAssociation[Gene=KCNQ2]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=439218]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:442835",
+    "name": "Non-specific early-onset epileptic encephalopathy",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:442835"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "SCN1A",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:442835",
+        "pmids": [
+          "PMID:24776920"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:10585",
+        "ncbi_gene": "6323",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=442835]/DisorderGeneAssociation[Gene=SCN1A]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=442835]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:495818",
+    "name": "9q33.3q34.11 microdeletion syndrome",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:495818"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "STXBP1",
+        "association": "Role in the phenotype of",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:495818",
+        "pmids": [
+          "PMID:26395556"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:11444",
+        "ncbi_gene": "6812",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=495818]/DisorderGeneAssociation[Gene=STXBP1]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=495818]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:569",
+    "name": "Familial or sporadic hemiplegic migraine",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:569"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "SCN1A",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:569",
+        "pmids": [
+          "PMID:20301562"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:10585",
+        "ncbi_gene": "6323",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=569]/DisorderGeneAssociation[Gene=SCN1A]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=569]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:599373",
+    "name": "STXBP1-related developmental and epileptic encephalopathy",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:599373"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "STXBP1",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:599373",
+        "pmids": [
+          "PMID:32643187"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:11444",
+        "ncbi_gene": "6812",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=599373]/DisorderGeneAssociation[Gene=STXBP1]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=599373]"
+        }
+      }
+    ],
+    "classifications": []
+  },
+  {
+    "id": "ORPHA:716903",
+    "name": "Autosomal recessive congenital myasthenic syndrome due to defective synaptic vesicles exocytosis",
+    "definition": "",
+    "status": "active",
+    "source_ids": [
+      "ORPHA:716903"
+    ],
+    "synonyms": [],
+    "rare": false,
+    "parents": [],
+    "phenotypes": [],
+    "excluded": [],
+    "inheritance": {},
+    "clinical_course": {},
+    "onset": {},
+    "genes": [
+      {
+        "symbol": "SNAP25",
+        "association": "Disease-causing germline mutation(s) in",
+        "source": "Orphanet",
+        "source_disease": "ORPHA:716903",
+        "pmids": [
+          "PMID:25381298",
+          "PMID:25792100"
+        ],
+        "assessed": true,
+        "hgnc": "HGNC:11132",
+        "ncbi_gene": "6616",
+        "record": {
+          "entity": 1,
+          "locator": {
+            "Record": "Disorder[OrphaCode=716903]/DisorderGeneAssociation[Gene=SNAP25]"
+          }
+        }
+      }
+    ],
+    "prevalence": [],
+    "related": [],
+    "generated_by": 0,
+    "derived_from": [
+      {
+        "entity": 0,
+        "locator": {
+          "Record": "Disorder[OrphaCode=716903]"
+        }
+      }
+    ],
+    "classifications": []
+  }
+]

@@ -1,0 +1,8 @@
+# Find funding calls linked to conditions associated with STXBP1, with a source page to check before applying.
+PREFIX ra: <https://w3id.org/rare-disease-atlas/vocab#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?condition ?call ?officialPage WHERE {
+  ?condition ra:has_associated_gene <https://w3id.org/rare-disease-atlas/id/HGNC%3A11444> .
+  { ?call ra:funds ?condition } UNION { ?call ra:funds <https://w3id.org/rare-disease-atlas/id/HGNC%3A11444> }
+  ?call dcterms:source ?officialPage .
+} ORDER BY ?condition ?call ?officialPage LIMIT 100

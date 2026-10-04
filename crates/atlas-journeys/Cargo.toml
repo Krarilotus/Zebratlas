@@ -1,0 +1,10 @@
+[package]
+name = "atlas-journeys"
+description = "Journey logic shared by atlas-server and atlas-ask: condition-gene edges and the causal-gene rule, connection ranking, shared-symptom neighbours, path search. Depends on atlas-core only."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+atlas-core.workspace = true

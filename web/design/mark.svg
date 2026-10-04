@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <!-- Zebratlas mark (D33): five pixel stripes whose ends trace a Z. Source of every icon size (scripts/icons.ts). -->
+  <style>path{fill:#141413}@media (prefers-color-scheme:dark){path{fill:#f2f0ea}}</style>
+  <path d="M2 1h13v1H2zM1 2h13v1H1zM2 13h14v1H2zM1 14h14v1H1zM8 4h8v1H8zM7 5h8v1H7zM5 7h8v1H5zM4 8h8v1H4zM2 10h8v1H2zM1 11h8v1H1z"/>
+</svg>

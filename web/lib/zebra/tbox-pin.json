@@ -1,0 +1,14 @@
+{
+  "schema": "zebra.authored-tbox.v1",
+  "version": "1.0.0",
+  "url": "/zebra/tbox/1.0.0/view.json",
+  "sha256": "a5ea4d9f8a3b8ff8d673e900d5835837720a05cc59806159b4fb0422094282c2",
+  "bytes": 90847,
+  "counts": {
+    "classes": 63,
+    "bridgeClasses": 6,
+    "allNamedClasses": 69,
+    "properties": 112,
+    "equivalences": 20
+  }
+}

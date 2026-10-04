@@ -1,0 +1,31 @@
+[package]
+name = "atlas-ask"
+description = "Ask the atlas: typed query intents over the graph, a tool-calling conversation loop on the user's own LLM, cited and validated answers (D19)."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+atlas-accounts = { path = "../atlas-accounts" }
+atlas-core.workspace = true
+atlas-journeys.workspace = true
+atlas-llm = { path = "../atlas-llm" }
+atlas-intake = { path = "../atlas-intake" }
+axum.workspace = true
+futures-util = { version = "0.3", default-features = false }
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+spargebra = { version = "0.4", features = ["sparql-12"] }
+oxrdfio = { version = "0.2", features = ["rdf-12"] }
+reqwest = { version = "0.13", default-features = false, features = ["json", "rustls", "stream", "query"] }
+tokio = { workspace = true, features = ["sync", "time"] }
+tokio-stream = "0.1"
+
+[dev-dependencies]
+async-trait = "0.1"
+atlas-ingest.workspace = true
+dotenvy = "0.15"
+tower = { version = "0.5", features = ["util"] }
+http-body-util = "0.1"

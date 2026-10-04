@@ -1,0 +1,100 @@
+{
+  "title": "Den Atlas fragen",
+  "lead": "Fragen Sie in Ihren eigenen Worten. Ihr Assistent fragt den Atlas, und jede Tatsache in der Antwort führt zu ihrer Quelle.",
+  "question": "Ihre Frage",
+  "placeholder": "Zum Beispiel: Gibt es eine Selbsthilfegruppe oder eine Studie zu STXBP1?",
+  "ask": "Fragen",
+  "plan": "Zuerst die Schritte zeigen",
+  "run": "Diese Schritte ausführen",
+  "asking": "Wird bearbeitet…",
+  "stage": {
+    "planning": "Ihr Assistent liest die Frage…",
+    "answering": "Die Antwort wird aus den Fakten des Atlas geschrieben…"
+  },
+  "provider": {
+    "label": "Assistent",
+    "help": "Nutzen Sie Ihren eigenen Assistenten: einen Schlüssel, OpenRouter, ein lokales Modell oder Ihr Abo über den lokalen Connector.",
+    "model": "Modell (optional)",
+    "key": "API-Schlüssel",
+    "keyHelp": "Bleibt nur in diesem Browser und wird mit jeder Frage gesendet. Wir speichern ihn nie.",
+    "forget": "Schlüssel vergessen",
+    "demo": "nur Demo",
+    "needsKey": "braucht Ihren Schlüssel",
+    "onYourMachine": "läuft auf Ihrem Computer",
+    "noServer": "Der Atlas-Server ist nicht verbunden, daher ist Fragen hier nicht möglich.",
+    "free": "kostenlos, kein Schlüssel nötig",
+    "quota": "{n, plural, =0 {Heute keine kostenlosen Fragen mehr} one {Heute noch # kostenlose Frage} other {Heute noch # kostenlose Fragen}}"
+  },
+  "chips": {
+    "title": "Schritte",
+    "lead": "So wurde Ihre Frage verstanden. Ändern Sie einen Schritt und führen Sie ihn erneut aus.",
+    "remove": "Schritt entfernen",
+    "add": "Schritt hinzufügen",
+    "intent": "Was nachschlagen",
+    "resolved": "Gefunden: {label}",
+    "found": "{n, plural, =0 {keine Fakten} one {# Fakt} other {# Fakten}}",
+    "empty": "Nichts gefunden",
+    "invalid": "Konnte nicht ausgeführt werden",
+    "byModel": "von Ihrem Assistenten",
+    "byYou": "von Ihnen geändert",
+    "byRules": "vom Atlas",
+    "slot": {
+      "text": "Wörter",
+      "condition": "Erkrankung oder Gen",
+      "kind": "Art",
+      "by": "Gemeinsam",
+      "status": "Status",
+      "a": "Erstens",
+      "b": "Zweitens",
+      "from": "Von",
+      "to": "Nach",
+      "gene": "Gen",
+      "symptom": "Symptom",
+      "process": "Prozess",
+      "id": "Eintrag"
+    },
+    "intentName": {
+      "resolve": "Richtigen Eintrag finden",
+      "condition_summary_facts": "Grundlegende Fakten",
+      "connections": "Wer helfen kann",
+      "related": "Verwandte Erkrankungen",
+      "assets": "Studien und Projekte",
+      "shared_people": "Gemeinsame Forschende",
+      "path": "Wie zwei Dinge zusammenhängen",
+      "gaps": "Was fehlt",
+      "diseases_with": "Erkrankungen mit…",
+      "node_details": "Details"
+    }
+  },
+  "answer": {
+    "title": "Antwort",
+    "fromAtlas": "Vom Atlas aus seinen Fakten geschrieben (die Antwort Ihres Assistenten hat die Quellenprüfung nicht bestanden).",
+    "checked": "Jeder Faktensatz wurde mit seinen Quellen abgeglichen.",
+    "why": "Grund: {reason}",
+    "notAdvice": "Dies ist keine medizinische Beratung.",
+    "caveat": "Hinweis",
+    "question": "Frage"
+  },
+  "evidence": {
+    "title": "Quellen ({n})",
+    "open": "Offizielle Seite",
+    "record": "Datensatz",
+    "cite": "Quelle {n}"
+  },
+  "history": {
+    "title": "Dieses Gespräch",
+    "clear": "Neu beginnen",
+    "saved": "In Ihrem Konto gespeichert."
+  },
+  "error": {
+    "generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "empty": "Bitte geben Sie eine Frage ein."
+  },
+  "fallback": {
+    "quota": "Der kostenlose Assistent hat sein Tageslimit erreicht. Die Antwort unten kommt direkt aus dem Atlas. Für mehr: eigenen Schlüssel eintragen, ein lokales Modell nutzen oder morgen wieder versuchen.",
+    "key": "Dieser Assistent braucht einen gültigen Schlüssel. Die Antwort unten kommt direkt aus dem Atlas.",
+    "unavailable": "Dieser Assistent ist gerade nicht erreichbar. Die Antwort unten kommt direkt aus dem Atlas.",
+    "other": "Ihr Assistent hatte ein Problem. Die Antwort unten kommt direkt aus dem Atlas.",
+    "choose": "Anderen Assistenten wählen"
+  }
+}

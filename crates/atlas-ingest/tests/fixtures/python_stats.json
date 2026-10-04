@@ -1,0 +1,12 @@
+{
+  "diseases": 20162,
+  "rare_diseases": 18459,
+  "diseases_with_phenotypes": 10689,
+  "diseases_with_genes": 8696,
+  "merged_from_multiple_sources": 3428,
+  "phenotype_edges": 248384,
+  "excluded_phenotype_edges": 726,
+  "genes": 5589,
+  "hpo_terms": 20482,
+  "identity_conflicts": 362
+}

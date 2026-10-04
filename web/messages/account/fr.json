@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "locale": "fr",
+    "source": "en",
+    "machine_translated": true,
+    "reviewed": [
+      "en",
+      "de"
+    ],
+    "owner": "accounts agent (H2)",
+    "note": "Machine-translated from en; not reviewed.",
+    "connector": {
+      "author": "GPT-6.1-Sol",
+      "backcheck": "Own-device code approval, connection/model choice, revocation, unavailable selection and hosted reset retained.",
+      "native_reviewed": false
+    }
+  },
+  "title": "Votre compte",
+  "nav": {
+    "account": "Compte",
+    "saved": "Enregistré",
+    "conversations": "Conversations"
+  },
+  "free": {
+    "title": "Vous n'avez pas besoin de compte",
+    "lead": "Tout l'atlas fonctionne sans connexion. Un compte sert seulement à garder des choses : les maladies que vous suivez, les personnes et groupes trouvés, vos brouillons de messages et vos questions à l'atlas."
+  },
+  "unavailable": {
+    "title": "Les comptes ne sont pas disponibles ici",
+    "lead": "Cette copie de l'atlas fonctionne sans le service de comptes. Toutes les pages marchent ; seul l'enregistrement n'est pas possible."
+  },
+  "form": {
+    "signInTitle": "Se connecter",
+    "signUpTitle": "Créer un compte",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "passwordHint": "Au moins 10 caractères. Quelques mots faciles à retenir conviennent bien.",
+    "name": "Votre nom (facultatif)",
+    "signIn": "Se connecter",
+    "signUp": "Créer le compte",
+    "pending": "Un instant…",
+    "toSignUp": "Nouveau ici ? Créez un compte",
+    "toSignIn": "Vous avez déjà un compte ? Connectez-vous",
+    "privacy": "Nous gardons votre e-mail, une forme chiffrée (hachée) de votre mot de passe et ce que vous enregistrez. Aucun suivi, aucune adresse IP. Vous pouvez tout télécharger ou supprimer à tout moment.",
+    "deleted": "Votre compte et tout son contenu ont été supprimés."
+  },
+  "error": {
+    "bad_credentials": "Cet e-mail et ce mot de passe ne correspondent à aucun compte.",
+    "conflict": "Un compte existe déjà avec cet e-mail. Essayez de vous connecter.",
+    "invalid": "Certaines informations ne sont pas valides. Merci de les vérifier.",
+    "invalid_email": "Saisissez une adresse e-mail valide.",
+    "password_short": "Votre mot de passe doit contenir au moins 10 caractères.",
+    "rate_limited": "Trop de tentatives. Attendez quelques minutes puis réessayez.",
+    "unavailable": "Les comptes ne sont pas disponibles pour le moment. Tout le reste fonctionne.",
+    "unauthorized": "Merci de vous reconnecter.",
+    "not_found": "Cet élément n'existe plus.",
+    "forbidden": "Vous ne pouvez pas modifier cet élément.",
+    "generic": "Un problème est survenu. Merci de réessayer."
+  },
+  "home": {
+    "signedInAs": "Connecté en tant que {email}",
+    "greeting": "Bonjour, {name}",
+    "plan": "Offre : {plan}",
+    "saved": "{n, plural, =0 {Enregistré : rien pour l'instant} one {Enregistré : # élément} other {Enregistré : # éléments}}",
+    "conversations": "{n, plural, =0 {Conversations : aucune pour l'instant} other {Conversations : #}}"
+  },
+  "plan": {
+    "free": "Gratuit",
+    "organisation": "Organisation",
+    "enterprise": "Entreprise"
+  },
+  "role": {
+    "owner": "Propriétaire",
+    "admin": "Administrateur",
+    "member": "Membre"
+  },
+  "orgs": {
+    "title": "Organisations",
+    "lead": "Les associations de patients et les équipes de recherche peuvent garder fiches et brouillons ensemble, au même endroit.",
+    "none": "Vous ne faites encore partie d'aucune organisation.",
+    "name": "Nom de l'organisation",
+    "create": "Créer l'organisation",
+    "created": "Organisation créée.",
+    "planOf": "Offre {plan}"
+  },
+  "data": {
+    "title": "Vos données",
+    "lead": "Téléchargez en un seul fichier tout ce que nous gardons sur vous, ou déconnectez-vous.",
+    "export": "Télécharger toutes mes données",
+    "signOut": "Se déconnecter",
+    "signOutAll": "Se déconnecter sur tous les appareils",
+    "manage": "G?rer mes donn?es",
+    "pageLead": "G?rez les informations de votre compte.",
+    "signedOut": "Connectez-vous pour voir les informations enregistr?es dans votre compte.",
+    "created": "Compte cr??",
+    "kept": "Enregistr? dans votre compte",
+    "documents": "Documents enregistr?s",
+    "documentsUnavailable": "Les documents enregistr?s ne peuvent pas ?tre charg?s pour le moment.",
+    "documentsEmpty": "Vous ne disposez d?aucun document enregistr?.",
+    "untitledDocument": "Document sans titre",
+    "view": "Voir",
+    "download": "T?l?charger",
+    "deleteDocument": "Supprimer",
+    "contributions": "Vos contributions",
+    "contributionsUnavailable": "Vos contributions ne peuvent pas ?tre charg?es pour le moment.",
+    "contributionsEmpty": "Vous ne disposez d?aucune contribution.",
+    "contributionRemoval": "Pour supprimer une contribution particuli?re, envoyez une demande de suppression."
+  },
+  "password": {
+    "title": "Changer le mot de passe",
+    "current": "Mot de passe actuel",
+    "new": "Nouveau mot de passe",
+    "submit": "Changer le mot de passe",
+    "done": "Mot de passe changé. Vos autres appareils ont été déconnectés."
+  },
+  "delete": {
+    "title": "Supprimer le compte",
+    "lead": "Cela supprime définitivement votre compte et tout ce que vous avez enregistré. C'est irréversible.",
+    "password": "Votre mot de passe, pour confirmer",
+    "submit": "Supprimer mon compte",
+    "keepName": "Garder mon nom sur mes contributions acceptées"
+  },
+  "saved": {
+    "title": "Enregistré",
+    "lead": "Ce que vous avez gardé pour y revenir.",
+    "empty": "Rien d'enregistré pour l'instant. Utilisez le bouton Enregistrer sur une maladie, un contact ou un brouillon de message.",
+    "signedOut": "Connectez-vous pour voir ce que vous avez enregistré. C'est facultatif : rien dans l'atlas ne demande de compte.",
+    "signIn": "Se connecter ou créer un compte",
+    "count": "{n, plural, one {# élément} other {# éléments}}",
+    "savedOn": "Enregistré le {date}",
+    "open": "Ouvrir",
+    "remove": "Retirer",
+    "subject": "Objet : {subject}",
+    "kind": {
+      "condition": "Maladies que vous suivez",
+      "connection_card": "Personnes, groupes et études",
+      "connection_map": "Cartes",
+      "message_draft": "Brouillons de messages",
+      "node": "Autres éléments",
+      "search": "Recherches"
+    }
+  },
+  "save": {
+    "save": "Enregistrer",
+    "saved": "Enregistré",
+    "remove": "Retirer des enregistrements",
+    "signIn": "Se connecter pour enregistrer",
+    "draft": "Enregistrer le brouillon",
+    "draftSaved": "Brouillon enregistré",
+    "conversation": "Enregistrer la conversation",
+    "conversationSaved": "Conversation enregistrée",
+    "pending": "Enregistrement…",
+    "failed": "L'enregistrement a échoué. Merci de réessayer."
+  },
+  "conversations": {
+    "title": "Conversations",
+    "lead": "Vos questions à l'atlas et ses réponses, avec les sources qui les appuient.",
+    "empty": "Aucune conversation pour l'instant.",
+    "messages": "{n, plural, one {# message} other {# messages}}",
+    "updated": "Mis à jour le {date}",
+    "you": "Vous",
+    "atlas": "Atlas",
+    "sources": "Sources",
+    "delete": "Supprimer cette conversation",
+    "back": "Toutes les conversations",
+    "notFound": "Cette conversation n'existe pas ou a été supprimée."
+  },
+  "connector": {
+    "title": "Connecter vos propres modèles",
+    "pair": "Saisissez le code affiché par le connecteur sur votre propre ordinateur.",
+    "code": "Code d’association",
+    "approve": "Connecter",
+    "devices": "Vos ordinateurs",
+    "none": "Aucun ordinateur connecté pour le moment.",
+    "revoke": "Révoquer l’accès",
+    "connection": "Répondre avec",
+    "hosted": "Option hébergée par défaut",
+    "model": "Modèle",
+    "defaultModel": "Choix par défaut de l’appareil",
+    "save": "Enregistrer la sélection",
+    "reset": "Utiliser l’option hébergée par défaut",
+    "offline": "Hors ligne ou accès révoqué",
+    "done": "Enregistré.",
+    "refresh": "Actualiser les appareils",
+    "instructions": "Configurer le connecteur"
+  }
+}

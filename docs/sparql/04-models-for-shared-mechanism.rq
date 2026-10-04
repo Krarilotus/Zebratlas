@@ -1,0 +1,8 @@
+# Find models or cell lines for genes sharing a mechanism with STXBP1 and their official access pages; empty results are a coverage gap.
+PREFIX ra: <https://w3id.org/rare-disease-atlas/vocab#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?mechanism ?gene ?asset ?officialPage WHERE {
+  <https://w3id.org/rare-disease-atlas/id/HGNC%3A11444> ra:participates_in ?mechanism .
+  ?gene ra:participates_in ?mechanism .
+  ?asset (ra:model_of|ra:resource_for) ?gene ; dcterms:source ?officialPage .
+} ORDER BY ?mechanism ?gene ?asset ?officialPage LIMIT 100

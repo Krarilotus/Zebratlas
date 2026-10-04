@@ -1,0 +1,11 @@
+# Find studies for STXBP1 through exact identity links across registries; this requires licensed trial links and SSSOM equivalences in RDF.
+PREFIX ra: <https://w3id.org/rare-disease-atlas/vocab#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?study ?registryPage WHERE {
+  <https://w3id.org/rare-disease-atlas/id/HGNC%3A11444> (skos:exactMatch|^skos:exactMatch|owl:sameAs|^owl:sameAs)* ?gene .
+  { ?study ra:names_gene ?gene }
+  UNION { ?condition ra:has_associated_gene ?gene . ?study ra:studies_condition ?condition }
+  ?study ra:nodeKind "study" ; dcterms:source ?registryPage .
+} ORDER BY ?study ?registryPage LIMIT 100

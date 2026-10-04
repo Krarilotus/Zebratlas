@@ -1,0 +1,3 @@
+.settings summary,.settings button,.settings select,.settings input{min-height:44px}
+.settings summary{cursor:pointer;align-content:center}
+.settings p strong{overflow-wrap:anywhere}

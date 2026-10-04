@@ -1,0 +1,213 @@
+/*
+ * Zebratlas design tokens: the single source of truth (docs/design/ux/DESIGN-SYSTEM.md, D26).
+ * Warm paper and ink; one calm blue for every action; other colour only where it carries meaning
+ * (open, unknown, stop, focus).
+ * Every colour is defined once with its light and dark value via light-dark(); the theme follows
+ * the system. Components use the Tailwind classes generated from @theme below and nothing else.
+ * Text pairs are WCAG AA on both papers (checked by scripts/a11y.ts with axe).
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* Paper and ink. */
+  --paper: light-dark(#fcfbf8, #141413);
+  --paper-2: light-dark(#f3f1ec, #1d1d1b);
+  --ink: light-dark(#141413, #f2f0ea);
+  --ink-2: light-dark(#3d3c38, #cfccc4);
+  --muted: light-dark(#5f5d57, #a29f97);
+  --rule: light-dark(#e2dfd7, #2e2d2a);
+  --rule-strong: light-dark(#8d897f, #6b685f);
+
+  /* Decorative contour art. Same ink, capped at 9% before the reading-column mask;
+     muted body text stays above 4.5:1 even on an unmasked line in either theme. */
+  --art-line: color-mix(in srgb, var(--ink) 9%, transparent);
+  --art-opacity: 1;
+  --art-phone-opacity: 0.5;
+  --art-stroke: 1px;
+  --art-index-stroke: 1.7px;
+  --art-mask: radial-gradient(ellipse 34% 46% at 47% 40%, rgb(0 0 0 / 0.28), #000 100%);
+
+  /* Interaction. One calm blue carries every action (buttons, links, the contact stripe), in both
+     themes; dark mode uses a deeper blue so a filled button never glares white. */
+  --action: light-dark(#1d4f91, #2f5c96);
+  --action-hover: light-dark(#163e73, #3a6aa8);
+  --action-ink: light-dark(#fcfbf8, #f2f0ea);
+  --quiet: light-dark(#f3f1ec, #24282e); /* quiet button fill (secondary, menus) */
+  --disabled: light-dark(#e2dfd7, #2e2d2a);
+  --disabled-ink: light-dark(#6b685f, #8d897f);
+  --link: light-dark(#1d4f91, #8db4ec);
+  --focus: light-dark(#c2410c, #ff9a5c);
+  --selection: light-dark(#fde68a, #6b5a12); /* in-page find highlight */
+  --selection-current: light-dark(#f59e0b, #b7791f);
+  /* Print is always black on white paper. */
+  --print-paper: #ffffff;
+  --print-ink: #000000;
+
+  /* Meaning. Always paired with a word, never colour alone. */
+  --open: light-dark(#1e6b3a, #7fd19b); /* open for people, re-checked, checked by hand */
+  --unknown: light-dark(#8a5a00, #e3b45a); /* not recorded; a suggestion, not proven */
+  --stop: light-dark(#a3271f, #ff9d92); /* stopped, withdrawn, check failed */
+  --tint-open: light-dark(#e4f0e6, #16261b);
+  --tint-unknown: light-dark(#f6ecd6, #2c2414);
+  --tint-stop: light-dark(#f6e3e0, #2f1b1b);
+
+  /* The contact stripe (signature): a reachable contact. */
+  --stripe-width: 4px;
+  --stripe: var(--action);
+
+  /* Motion: cause and effect only. */
+  --dur-fast: 120ms;
+  --dur-mark: 1200ms;
+  --dur-loading-step: 200ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* BackgroundArt is a direct child only on home and the search's empty state.
+   Its containing main owns the stacking; the SVG clips itself without changing content layout. */
+#main:has(> .background-art) {
+  position: relative;
+  isolation: isolate;
+  max-width: none;
+}
+
+.background-art {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  fill: none;
+  stroke: var(--art-line);
+  stroke-width: var(--art-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: var(--art-opacity);
+  mask-image: var(--art-mask);
+}
+
+.background-art path {
+  vector-effect: non-scaling-stroke;
+}
+
+.background-art .background-art-index {
+  stroke-width: var(--art-index-stroke);
+}
+
+@media (width < 640px) {
+  .background-art {
+    opacity: var(--art-phone-opacity);
+  }
+  .background-art path:nth-child(even) {
+    display: none;
+  }
+}
+
+@media (forced-colors: active), (prefers-contrast: more), print {
+  .background-art {
+    display: none;
+  }
+}
+
+@theme inline {
+  /* No default palette: only the roles below exist as classes. */
+  --color-*: initial;
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-action: var(--action);
+  --color-action-ink: var(--action-ink);
+  --color-action-hover: var(--action-hover);
+  --color-quiet: var(--quiet);
+  --color-disabled: var(--disabled);
+  --color-disabled-ink: var(--disabled-ink);
+  --color-selection: var(--selection);
+  --color-selection-current: var(--selection-current);
+  --color-link: var(--link);
+  --color-focus: var(--focus);
+  --color-open: var(--open);
+  --color-unknown: var(--unknown);
+  --color-stop: var(--stop);
+  --color-tint-open: var(--tint-open);
+  --color-tint-unknown: var(--tint-unknown);
+  --color-tint-stop: var(--tint-stop);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* Older role names, still used by the account, assistant and contribute screens and the demo
+     pages, mapped onto the same roles (no new colours). */
+  --color-here: var(--ink);
+  --color-exact: var(--ink);
+  --color-related: var(--ink-2);
+  --color-unlike: var(--muted);
+  --color-absent: var(--muted);
+  --color-verified: var(--open);
+  --color-tint-verified: var(--tint-open);
+  --color-tint-here: var(--paper-2);
+  --color-page: var(--paper);
+  --color-surface: var(--paper);
+  --color-hair: var(--rule);
+  --color-line: var(--rule-strong);
+  --color-accent: var(--link);
+  --color-accent-ink: var(--action-ink);
+  --color-accent-soft: var(--paper-2);
+  --color-good: var(--open);
+  --color-good-soft: var(--tint-open);
+  --color-warn: var(--unknown);
+  --color-warn-soft: var(--tint-unknown);
+  --color-stop-soft: var(--tint-stop);
+  --color-night: var(--paper-2);
+  --color-night-2: var(--paper-2);
+  --color-night-ink: var(--ink);
+  --color-night-muted: var(--muted);
+  --color-star: var(--ink);
+  --color-star-dim: var(--rule-strong);
+
+  /* Type: one family, the system sans; tabular figures. */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+  /* Fluid type (D46): phone first, larger on wide screens. Body 17 px at 390 px wide, 19 px from ~1600 px. */
+  --text-xs: clamp(0.8125rem, 0.78rem + 0.1vw, 0.875rem);
+  --text-xs--line-height: 1.4;
+  --text-sm: clamp(0.9375rem, 0.9rem + 0.15vw, 1.0625rem);
+  --text-sm--line-height: 1.45;
+  --text-base: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --text-base--line-height: 1.6;
+  --text-lg: clamp(1.1875rem, 1.1rem + 0.35vw, 1.375rem);
+  --text-lg--line-height: 1.5;
+  --text-xl: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
+  --text-xl--line-height: 1.35;
+  --text-2xl: clamp(1.75rem, 1.45rem + 1.1vw, 2.5rem);
+  --text-2xl--line-height: 1.2;
+  --text-3xl: clamp(2rem, 1.6rem + 1.6vw, 3.125rem);
+  --text-3xl--line-height: 1.15;
+  --text-4xl: var(--text-3xl);
+  --text-4xl--line-height: 1.15;
+  --text-5xl: var(--text-3xl);
+  --text-5xl--line-height: 1.15;
+  --tracking-label: 0.06em;
+
+  /* Space: 4 px unit (rem, so it grows with the type). Reading measure 70 characters; page frame
+     80 rem (1280 px at the default size): wide screens get wider grids, not a narrow column. */
+  --spacing: 0.25rem;
+  --container-page: 80rem;
+  --container-prose: 70ch;
+
+  /* Small corners on controls only; nothing is a pill or a floating card. */
+  --radius-*: initial;
+  --radius-sm: 4px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
+  --radius-2xl: 4px;
+  --radius-3xl: 4px;
+  --radius-full: 9999px;
+  --shadow-*: initial;
+}

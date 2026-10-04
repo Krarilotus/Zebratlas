@@ -1,0 +1,26 @@
+target/
+node_modules/
+.next/
+.venv/
+__pycache__/
+*.tsbuildinfo
+web/next-env.d.ts
+*.log
+.env
+.env.*
+*.sqlite
+*.sqlite3
+*.db
+*.snapshot
+*.pem
+*.key
+data/*
+!data/cache/
+data/cache/*
+!data/cache/mappings/
+data/cache/mappings/*
+!data/cache/mappings/rules.json
+
+# Reviewed immutable public demo artifacts; no other dataset exception.
+!data/public-sample/
+!data/public-sample/**

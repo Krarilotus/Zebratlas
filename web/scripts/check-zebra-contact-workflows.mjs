@@ -1,0 +1,30 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { contactPlan, contactRole } from "../components/zebra/contact-filters.ts";
+import { programmeActions, missingProgrammes, programmeUrl, closedAction } from "../components/zebra/programme-routes.ts";
+
+const data = { interpretation: { entities: [{ id: "GENE:real", kind: "gene", label: "Original gene" }], intent: "researchers" }, graph: { nodes: [], edges: [], community: { seeds: [{ id: "GENE:one" }, { id: "GENE:two" }, { id: "GENE:three" }] } }, plan: { intent: "studies", focus: ["GENE:real"], filters: { country: "Germany", recruiting: true, kind: "interventional" } } };
+const snapshot = JSON.stringify(data);
+const plan = contactPlan(data, "groups");
+assert.deepEqual(plan.focus, ["GENE:one", "GENE:two", "GENE:three"], "A role query retains every actual community seed instead of taking the first row");
+assert.equal(plan.intent, "groups");
+assert.deepEqual(plan.filters, { country: "Germany", recruiting: null, kind: null }, "A study-specific filter cannot silently exclude patient groups");
+assert.equal(JSON.stringify(data), snapshot, "The original sourced result and query state remain untouched");
+assert.equal(contactPlan(null, "groups"), null);
+assert.equal(contactPlan({ ...data, graph: { nodes: [], edges: [] }, plan: undefined, interpretation: { entities: [], intent: "all" } }, "groups"), null, "A missing resolved scope cannot become a fabricated gene or global query");
+assert.equal(contactRole(null, true), "researchers", "The fair community default stays unchanged");
+assert.equal(contactRole({ ...data, plan: { ...data.plan, intent: "groups" } }, true), "groups");
+
+const action = { action: "Programme information", url: "https://example.org/programme", source: { sha256: "actual-hash", record_locator: "actual-record" } };
+const programme = { id: "ORG:real", initiative: "Simons Searchlight", official_action: action, official_actions: [action, { ...action, action: "Advocacy enquiry", url: "https://example.org/contact" }] };
+assert.equal(programmeActions(programme).length, 2, "Multiple official actions remain available instead of being flattened to one");
+assert.deepEqual(programmeActions(programme)[0].source, action.source, "Exact provenance is retained");
+assert(closedAction({ ...action, availability: "closed_2024_call" }));
+assert.equal(programmeUrl("javascript:alert(1)"), undefined);
+assert.equal(programmeUrl("https://user:password@example.org"), undefined);
+assert.equal(programmeUrl("mailto:role@example.org"), "mailto:role@example.org");
+assert.deepEqual(missingProgrammes({ initiatives: [programme], references: [{ id: "ORG:reported", initiative: "Every Cure" }] }), ["CZI Rare As One", "NORD / IAMRARE"], "Missing records stay missing without inventing a programme or treating an unverified reference as acquired");
+const host = readFileSync(new URL("../components/zebra/Workspace.tsx", import.meta.url), "utf8");
+assert(host.includes('runSearch(actualQuery.current, query, false, undefined, plan, false)'), "Role searches preserve the actual input and public caption without opening the query inspector");
+assert(host.includes('mode: plan && !inspectPlan ? "knowledge"'), "An explicit all-role job cannot be silently converted to researchers by community mode");
+console.log("Contact workflows: actual scope, role filter compatibility, preserved programme actions/provenance and safe routes passed.");

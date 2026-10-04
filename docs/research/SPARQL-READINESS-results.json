@@ -1,0 +1,8 @@
+{
+  "status": "withheld",
+  "reason": "Private historical benchmark receipts are not distributed. Evaluation requires operator-supplied ATLAS_QUERY_GOLD matching the selected dataset.",
+  "input": {
+    "sha256": null
+  },
+  "queries": []
+}

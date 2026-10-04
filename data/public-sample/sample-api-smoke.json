@@ -1,0 +1,136 @@
+{
+  "format": "public-sample-native-api-smoke-v1",
+  "status": "pass",
+  "server_sha256": "62797fbc835f37255b750450716f884be694203ebe63c78d7d3dadc71f9a438b",
+  "checks": [
+    {
+      "path": "/api/stats",
+      "status": "pass",
+      "top_level_fields": [
+        "diseases",
+        "diseases_with_genes",
+        "diseases_with_phenotypes",
+        "excluded_phenotype_edges",
+        "genes",
+        "hpo_terms",
+        "identity_conflicts",
+        "merged_from_multiple_sources",
+        "newly_described",
+        "phenotype_edges",
+        "rare_diseases",
+        "release",
+        "retired_diseases",
+        "sources"
+      ]
+    },
+    {
+      "path": "/api/integrity",
+      "status": "pass",
+      "top_level_fields": [
+        "checked_in_ms",
+        "contracts",
+        "coverage",
+        "edges_by_kind",
+        "edges_by_level",
+        "edges_by_relation",
+        "identity",
+        "identity_conflicts",
+        "licences",
+        "nodes",
+        "passed",
+        "violations"
+      ]
+    },
+    {
+      "path": "/api/condition/ORPHA:495818",
+      "status": "pass",
+      "top_level_fields": [
+        "already_working_on_this",
+        "candidate_same_as",
+        "candidate_sources",
+        "classifications",
+        "clinical_course",
+        "codes",
+        "completeness",
+        "confidence",
+        "definition",
+        "genes",
+        "icd_gap",
+        "inheritance",
+        "mapping_basis",
+        "newly_described",
+        "node",
+        "onset",
+        "phenotypes",
+        "prevalence",
+        "rare",
+        "related_ids",
+        "source_ids",
+        "status",
+        "synonyms"
+      ]
+    },
+    {
+      "path": "/api/gene/STXBP1",
+      "status": "pass",
+      "top_level_fields": [
+        "already_working_on_this",
+        "conditions",
+        "node"
+      ]
+    },
+    {
+      "path": "/api/search?q=STXBP1",
+      "status": "pass",
+      "top_level_fields": [
+        "applies_to",
+        "checked",
+        "facets",
+        "filters",
+        "items",
+        "method",
+        "phenotype_method",
+        "query",
+        "query_execution",
+        "results",
+        "suggestions",
+        "total",
+        "understood"
+      ]
+    },
+    {
+      "path": "/api/graph/view?focus=ORPHA%3A495818",
+      "status": "pass",
+      "top_level_fields": [
+        "applies_to",
+        "edges",
+        "facets",
+        "filters",
+        "focus",
+        "nodes",
+        "truncated"
+      ]
+    },
+    {
+      "path": "/api/verify/HGNC%3A11444%7Cgene_associated_with_condition%7CORPHA%3A495818",
+      "status": "pass",
+      "top_level_fields": [
+        "check_live",
+        "checked",
+        "id",
+        "kind",
+        "method",
+        "not_checked",
+        "records",
+        "status",
+        "summary",
+        "summary_msg",
+        "total",
+        "verified"
+      ]
+    }
+  ],
+  "association_records_reverified": 16,
+  "model_calls": 0,
+  "scope": "deterministic public sample routes; no live model calls or complete production certification"
+}

@@ -1,0 +1,257 @@
+{
+  "excluded": {
+    "outside_seed_scope": 8487
+  },
+  "format": "zebratlas-public-sample-v1",
+  "gene_associations": 16,
+  "genes": [
+    "KCNQ2",
+    "SCN1A",
+    "SNAP25",
+    "STXBP1"
+  ],
+  "identity_merges": 0,
+  "integrity": {
+    "contracts": [
+      {
+        "checked": 0,
+        "description": "Every loaded source passes its cache-header checksum checks.",
+        "description_msg": {
+          "fallback": "Every loaded source passes its cache-header checksum checks.",
+          "key": "integrity.contract.source-header-checksums-match",
+          "params": {}
+        },
+        "id": "source-header-checksums-match",
+        "passed": true,
+        "violations": 0
+      },
+      {
+        "checked": 0,
+        "description": "every SSSOM alias resolves to a merge activity and hash-bound versioned mapping rows",
+        "description_msg": {
+          "fallback": "every SSSOM alias resolves to a merge activity and hash-bound versioned mapping rows",
+          "key": "integrity.contract.identity-merge-has-rule-evidence",
+          "params": {}
+        },
+        "id": "identity-merge-has-rule-evidence",
+        "passed": true,
+        "violations": 0
+      },
+      {
+        "checked": 16,
+        "description": "every edge's from and to resolve to a node of the kind its relation allows (no dangling edges)",
+        "description_msg": {
+          "fallback": "every edge's from and to resolve to a node of the kind its relation allows (no dangling edges)",
+          "key": "integrity.contract.edge-endpoint-resolves",
+          "params": {}
+        },
+        "id": "edge-endpoint-resolves",
+        "passed": true,
+        "violations": 0
+      },
+      {
+        "checked": 16,
+        "description": "every edge has ≥1 source record (entity + locator + sha256) and a generating activity",
+        "description_msg": {
+          "fallback": "every edge has ≥1 source record (entity + locator + sha256) and a generating activity",
+          "key": "integrity.contract.edge-has-provenance",
+          "params": {}
+        },
+        "id": "edge-has-provenance",
+        "passed": true,
+        "violations": 0
+      },
+      {
+        "checked": 0,
+        "description": "every study, grant, paper, person, organisation and asset has ≥1 source record with a sha256",
+        "description_msg": {
+          "fallback": "every study, grant, paper, person, organisation and asset has ≥1 source record with a sha256",
+          "key": "integrity.contract.node-has-provenance",
+          "params": {}
+        },
+        "id": "node-has-provenance",
+        "passed": true,
+        "violations": 0
+      },
+      {
+        "checked": 16,
+        "description": "edge ids (from|relation|to) are unique; parallel evidence is merged into one edge",
+        "description_msg": {
+          "fallback": "edge ids (from|relation|to) are unique; parallel evidence is merged into one edge",
+          "key": "integrity.contract.edge-id-unique",
+          "params": {}
+        },
+        "id": "edge-id-unique",
+        "passed": true,
+        "violations": 0
+      },
+      {
+        "checked": 3,
+        "description": "every source file behind a record has a recorded sha256",
+        "description_msg": {
+          "fallback": "every source file behind a record has a recorded sha256",
+          "key": "integrity.contract.record-entity-has-checksum",
+          "params": {}
+        },
+        "id": "record-entity-has-checksum",
+        "passed": true,
+        "violations": 0
+      },
+      {
+        "checked": 20,
+        "description": "every source file behind a record states a licence with a class (open / share_alike / non_commercial / unknown)",
+        "description_msg": {
+          "fallback": "every source file behind a record states a licence with a class (open / share_alike / non_commercial / unknown)",
+          "key": "integrity.contract.record-has-licence",
+          "params": {}
+        },
+        "id": "record-has-licence",
+        "passed": true,
+        "violations": 0
+      },
+      {
+        "checked": 0,
+        "description": "every asset says who holds it or how to get it (an access route with a URL or a holder)",
+        "description_msg": {
+          "fallback": "every asset says who holds it or how to get it (an access route with a URL or a holder)",
+          "key": "integrity.contract.asset-has-access-route",
+          "params": {}
+        },
+        "id": "asset-has-access-route",
+        "passed": true,
+        "violations": 0
+      },
+      {
+        "checked": 0,
+        "description": "a candidate_same_as pair never shares one node (candidates are links, not merges; D30)",
+        "description_msg": {
+          "fallback": "a candidate_same_as pair never shares one node (candidates are links, not merges; D30)",
+          "key": "integrity.contract.candidate-not-merged",
+          "params": {}
+        },
+        "id": "candidate-not-merged",
+        "passed": true,
+        "violations": 0
+      }
+    ],
+    "coverage": [],
+    "edges_by_kind": {
+      "observed": 16
+    },
+    "edges_by_level": {
+      "curated": 16
+    },
+    "edges_by_relation": {
+      "gene_associated_with_condition": 16,
+      "has_phenotype (atlas)": 0,
+      "lacks_phenotype (atlas)": 0
+    },
+    "identity": {
+      "candidates": 0,
+      "exact_merges": 0,
+      "quarantined_records": 0
+    },
+    "identity_conflicts": {
+      "disease": [],
+      "disease_total": 0,
+      "person": [],
+      "person_total": 0
+    },
+    "licences": {
+      "non_commercial": {
+        "edges": 0,
+        "entities": 0,
+        "nodes": 0,
+        "records": 0
+      },
+      "open": {
+        "edges": 16,
+        "entities": 3,
+        "nodes": 0,
+        "records": 20
+      },
+      "share_alike": {
+        "edges": 0,
+        "entities": 0,
+        "nodes": 0,
+        "records": 0
+      },
+      "unknown": {
+        "edges": 0,
+        "entities": 0,
+        "nodes": 0,
+        "records": 0
+      }
+    },
+    "nodes": {
+      "asset": 0,
+      "disease": 15,
+      "disease_newly_described": 0,
+      "disease_retired": 0,
+      "gene": 4,
+      "grant": 0,
+      "organisation": 0,
+      "paper": 0,
+      "person": 0,
+      "phenotype": 0,
+      "study": 0
+    },
+    "passed": true,
+    "violations": []
+  },
+  "limits": [
+    "selected genes only",
+    "no phenotypes, trials, publications, people, contacts or model assets",
+    "mechanism layer contains HGNC only",
+    "not the complete hosted app dataset"
+  ],
+  "public_release": true,
+  "source_commit": "f3b5bb5d8a2b7c95fff92d751fad45782e31e4ac",
+  "sources": [
+    {
+      "bytes": 54026799,
+      "file": "en_product1.xml",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "permission_basis": "docs/release/LICENCES.md HGNC / Orphadata Science selected structured fields",
+      "retrieval_basis": "source-file mtime proxy, not authenticated acquisition",
+      "retrieved_at": "2026-10-03T16:58:51.449181+00:00",
+      "sha256": "df8d562a0c6011af36a74eb4000ce81ca7d723e8031010819fb71727c0962bbb",
+      "url": "https://www.orphadata.com/data/xml/en_product1.xml"
+    },
+    {
+      "bytes": 22612034,
+      "file": "en_product6.xml",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "permission_basis": "docs/release/LICENCES.md HGNC / Orphadata Science selected structured fields",
+      "retrieval_basis": "source-file mtime proxy, not authenticated acquisition",
+      "retrieved_at": "2026-10-03T16:58:28.183524+00:00",
+      "sha256": "f1c039f78683beea7ca5b34d1c01c4ec98f80e8ca488eee69770074db1020e39",
+      "url": "https://www.orphadata.com/data/xml/en_product6.xml"
+    },
+    {
+      "bytes": 16963116,
+      "file": "hgnc_complete_set.txt",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "permission_basis": "docs/release/LICENCES.md HGNC / Orphadata Science selected structured fields",
+      "retrieval_basis": "source-file mtime proxy, not authenticated acquisition",
+      "retrieved_at": "2026-10-03T18:58:31.130765+00:00",
+      "sha256": "2b4224ea847df2fc6982f5b2a52804c5d92fbb8810b134afb636f6029452dc03",
+      "url": "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt"
+    }
+  ],
+  "stats": {
+    "diseases": 15,
+    "diseases_with_genes": 15,
+    "diseases_with_phenotypes": 0,
+    "excluded_phenotype_edges": 0,
+    "genes": 4,
+    "hpo_terms": 0,
+    "identity_conflicts": 0,
+    "merged_from_multiple_sources": 0,
+    "newly_described": 0,
+    "phenotype_edges": 0,
+    "rare_diseases": 0,
+    "retired_diseases": 0
+  },
+  "status": "local_candidate"
+}

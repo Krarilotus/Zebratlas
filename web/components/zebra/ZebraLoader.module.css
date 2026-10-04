@@ -1,0 +1,3 @@
+.loader { display:inline-flex; width:24px; height:24px; flex:0 0 24px; align-items:center; justify-content:center; vertical-align:middle; }
+.turn { display:block; width:24px; height:24px; overflow:visible; transform-origin:50% 50%; }
+@media(prefers-reduced-motion:reduce) { .turn { transform:none !important; } }

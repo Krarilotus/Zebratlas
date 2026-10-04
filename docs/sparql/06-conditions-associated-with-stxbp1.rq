@@ -1,0 +1,7 @@
+# Find the released disease-gene associations for STXBP1 and a source page for checking their meaning.
+PREFIX ra: <https://w3id.org/rare-disease-atlas/vocab#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?condition ?identifier ?source WHERE {
+  ?condition ra:has_associated_gene <https://w3id.org/rare-disease-atlas/id/HGNC%3A11444> ;
+             dcterms:identifier ?identifier ; dcterms:source ?source .
+} ORDER BY ?condition ?identifier ?source LIMIT 100

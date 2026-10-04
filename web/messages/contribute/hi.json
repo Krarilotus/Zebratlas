@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "owner": "contribute agent",
+    "note": "Machine-translated; review section in English (internal page)."
+  },
+  "suggest": "कोई संबंध सुझाएँ या इसे सुधारें",
+  "suggestShort": "सुझाएँ या सुधारें",
+  "title": "{name} का नक्शा बेहतर बनाने में मदद करें",
+  "lead": "क्या आप किसी ऐसे रोगी समूह, रजिस्ट्री, अध्ययन या शोधकर्ता को जानते हैं जो यहाँ नहीं है? क्या यहाँ कुछ गलत या पुराना है? हमें बताएँ। हर सुझाव दिखने से पहले एक व्यक्ति उसकी जाँच करता है, और वह हमेशा समुदाय के सुझाव के रूप में चिह्नित रहता है।",
+  "back": "{name} पर वापस जाएँ",
+  "badge": "समुदाय द्वारा सुझाया गया",
+  "pending": "{n, plural, one {इस स्थिति के बारे में समुदाय के # सुझाव की समीक्षा हो रही है।} other {इस स्थिति के बारे में समुदाय के # सुझावों की समीक्षा हो रही है।}}",
+  "kind": {
+    "legend": "आप क्या करना चाहते हैं?",
+    "new_link": "एक छूटा हुआ संबंध जोड़ें",
+    "correction": "यहाँ कुछ गलत है",
+    "missing_evidence": "प्रमाण नहीं है",
+    "outdated_contact": "संपर्क पुराना है"
+  },
+  "subjectKind": {
+    "legend": "यह किस तरह का संबंध है?",
+    "patient_group": "रोगी समूह",
+    "organisation": "अन्य संगठन",
+    "registry": "रजिस्ट्री",
+    "study": "अध्ययन",
+    "person": "शोधकर्ता या चिकित्सक"
+  },
+  "field": {
+    "subject": "नाम",
+    "subjectHint": "जैसा उनकी अपनी वेबसाइट पर लिखा है।",
+    "about": "यह किस संबंध के बारे में है?",
+    "aboutCondition": "सामान्य रूप से इस स्थिति के बारे में",
+    "statement": "अपने शब्दों में",
+    "statementHint": "क्या नया, गलत या छूटा हुआ है? कुछ वाक्य काफ़ी हैं।",
+    "evidenceUrl": "प्रमाण का लिंक",
+    "evidenceUrlHint": "एक सार्वजनिक वेब पेज जो इसे दिखाता हो, जैसे समूह की अपनी वेबसाइट।",
+    "quote": "उस पेज के शब्द (वैकल्पिक)",
+    "quoteHint": "पेज से एक वाक्य कॉपी करें जो इसे दिखाता हो। हम जाँचते हैं कि वह वहाँ है।",
+    "contactUrl": "आधिकारिक संपर्क पेज (वैकल्पिक)",
+    "contactUrlNew": "वर्तमान संपर्क पेज",
+    "assistant": "क्या किसी AI सहायक ने इसे खोजने में मदद की? (वैकल्पिक)",
+    "assistantHint": "जैसे ChatGPT या Claude। हम इसे सुझाव के साथ दर्ज करते हैं।",
+    "you": "आपके बारे में (सब वैकल्पिक)",
+    "name": "आपका नाम",
+    "contact": "प्रश्नों के लिए ईमेल",
+    "contactHint": "इसे केवल समीक्षक देखता है। गुमनाम रहने के लिए खाली छोड़ें।",
+    "organisation": "जिस समूह की ओर से आप बोलते हैं"
+  },
+  "submit": "सुझाव भेजें",
+  "sending": "भेजा जा रहा है…",
+  "error": {
+    "unavailable": "अभी सुझाव नहीं भेजे जा सकते। कृपया बाद में फिर कोशिश करें।",
+    "invalid": "कृपया फ़ॉर्म जाँचें: {detail}",
+    "rate_limited": "इस कनेक्शन से बहुत अधिक सुझाव। कृपया बाद में फिर कोशिश करें।",
+    "generic": "कुछ गलत हो गया। कृपया फिर कोशिश करें।"
+  },
+  "status": {
+    "title": "आपका सुझाव",
+    "thanks": "धन्यवाद! आपका सुझाव समीक्षा कतार में है। जाँच होने तक यह नक्शे पर नहीं दिखेगा।",
+    "state": {
+      "submitted": "प्राप्त हुआ, स्वचालित जाँच चल रही है",
+      "auto_checked": "स्वचालित रूप से जाँचा गया, समीक्षक की प्रतीक्षा",
+      "accepted": "स्वीकृत: नक्शे पर समुदाय के सुझाव के रूप में दिखाया गया",
+      "rejected": "स्वीकृत नहीं"
+    },
+    "reason": "समीक्षक का कारण: {reason}",
+    "checks": "स्वचालित जाँच",
+    "noChecks": "स्वचालित जाँच अभी पूरी नहीं हुई है। एक मिनट बाद पेज फिर से लोड करें।",
+    "notFound": "यह सुझाव नहीं मिला।",
+    "prov": "पूरा इतिहास (PROV-O)",
+    "privacy": "आपका ईमेल पता यहाँ कभी नहीं दिखाया जाता।",
+    "submittedOn": "{date} को भेजा गया",
+    "check": {
+      "pass": "ठीक",
+      "warn": "ध्यान दें",
+      "fail": "समस्या",
+      "skipped": "नहीं जाँचा गया"
+    }
+  },
+  "review": {
+    "title": "Review suggestions",
+    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
+    "token": "Reviewer key",
+    "tokenHint": "Kept only on this page, never stored.",
+    "open": "Open the queue",
+    "empty": "Nothing is waiting for review.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "reason": "Reason (required, shown publicly)",
+    "recheck": "Run checks again",
+    "contact": "Contact",
+    "anonymous": "anonymous",
+    "unauthorized": "This key is not valid.",
+    "unavailable": "The review service can't be reached.",
+    "failed": "Not saved: {detail}",
+    "saved": "Saved.",
+    "statement": "Statement",
+    "evidence": "Evidence",
+    "quote": "Quote",
+    "subject": "Who",
+    "target": "Condition or gene",
+    "edge": "Connection",
+    "foundVia": "Found with",
+    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+  }
+}

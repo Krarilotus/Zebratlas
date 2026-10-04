@@ -1,0 +1,22 @@
+[package]
+name = "atlas-intake"
+description = "Document intake: text extraction (PDF, DOCX, TXT), identifier redaction and search-term extraction, in memory only (D41)."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+atlas-llm = { path = "../atlas-llm" }
+lopdf = "0.42"
+pdf-extract = "0.12"
+quick-xml.workspace = true
+regex.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+thiserror.workspace = true
+zip = { version = "2", default-features = false, features = ["deflate"] }
+
+[dev-dependencies]
+tokio = { workspace = true }

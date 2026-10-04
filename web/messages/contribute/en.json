@@ -1,0 +1,103 @@
+{
+  "_meta": { "owner": "contribute agent", "note": "Strings for the suggest/correct flow and the review page." },
+  "suggest": "Suggest a connection or correct this",
+  "suggestShort": "Suggest or correct",
+  "title": "Help improve the map for {name}",
+  "lead": "Do you know a patient group, registry, study or researcher we are missing? Is something here wrong or out of date? Tell us. A person checks every suggestion before it appears, and it is always marked as suggested by the community.",
+  "back": "Back to {name}",
+  "badge": "Suggested by the community",
+  "pending": "{n, plural, one {# community suggestion about this condition is being reviewed.} other {# community suggestions about this condition are being reviewed.}}",
+  "kind": {
+    "legend": "What would you like to do?",
+    "new_link": "Add a missing connection",
+    "correction": "Something here is wrong",
+    "missing_evidence": "Evidence is missing",
+    "outdated_contact": "A contact is out of date"
+  },
+  "subjectKind": {
+    "legend": "What kind of connection is it?",
+    "patient_group": "Patient group",
+    "organisation": "Other organisation",
+    "registry": "Registry",
+    "study": "Study",
+    "person": "Researcher or clinician"
+  },
+  "field": {
+    "subject": "Name",
+    "subjectHint": "The name as it appears on their own website.",
+    "about": "Which connection is this about?",
+    "aboutCondition": "This condition in general",
+    "statement": "In your own words",
+    "statementHint": "What is new, wrong or missing? A few sentences are enough.",
+    "evidenceUrl": "Link to the evidence",
+    "evidenceUrlHint": "A public web page that shows it, for example the group's own website.",
+    "quote": "Words from that page (optional)",
+    "quoteHint": "Copy a sentence from the page that shows it. We check that it is there.",
+    "contactUrl": "Official contact page (optional)",
+    "contactUrlNew": "The current contact page",
+    "assistant": "Did an AI assistant help you find this? (optional)",
+    "assistantHint": "For example ChatGPT or Claude. We record it with the suggestion.",
+    "you": "About you (all optional)",
+    "name": "Your name",
+    "contact": "E-mail for questions",
+    "contactHint": "Only the reviewer sees it. Leave it empty to stay anonymous.",
+    "organisation": "Group you speak for"
+  },
+  "submit": "Send suggestion",
+  "sending": "Sending…",
+  "error": {
+    "unavailable": "Suggestions can't be sent right now. Please try again later.",
+    "invalid": "Please check the form: {detail}",
+    "rate_limited": "Too many suggestions from this connection. Please try again later.",
+    "generic": "Something went wrong. Please try again."
+  },
+  "status": {
+    "title": "Your suggestion",
+    "thanks": "Thank you! Your suggestion is in the review queue. It does not appear on the map until a reviewer has checked it.",
+    "state": {
+      "submitted": "Received, automatic checks running",
+      "auto_checked": "Checked automatically, waiting for a reviewer",
+      "accepted": "Accepted: shown on the map as suggested by the community",
+      "rejected": "Not accepted"
+    },
+    "reason": "Reviewer's reason: {reason}",
+    "checks": "Automatic checks",
+    "noChecks": "The automatic checks have not finished yet. Reload this page in a minute.",
+    "notFound": "We can't find this suggestion.",
+    "prov": "Full history (PROV-O)",
+    "privacy": "Your e-mail address is never shown here.",
+    "submittedOn": "Sent on {date}",
+    "check": {
+      "pass": "OK",
+      "warn": "Note",
+      "fail": "Problem",
+      "skipped": "Not checked"
+    }
+  },
+  "review": {
+    "title": "Review suggestions",
+    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
+    "token": "Reviewer key",
+    "tokenHint": "Kept only on this page, never stored.",
+    "open": "Open the queue",
+    "empty": "Nothing is waiting for review.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "reason": "Reason (required, shown publicly)",
+    "recheck": "Run checks again",
+    "contact": "Contact",
+    "anonymous": "anonymous",
+    "unauthorized": "This key is not valid.",
+    "unavailable": "The review service can't be reached.",
+    "failed": "Not saved: {detail}",
+    "saved": "Saved.",
+    "statement": "Statement",
+    "evidence": "Evidence",
+    "quote": "Quote",
+    "subject": "Who",
+    "target": "Condition or gene",
+    "edge": "Connection",
+    "foundVia": "Found with",
+    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+  }
+}

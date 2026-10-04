@@ -1,0 +1,42 @@
+{
+  "format": "public-sample-inputs-v1",
+  "source_commit": "f3b5bb5d8a2b7c95fff92d751fad45782e31e4ac",
+  "genes": [
+    "STXBP1",
+    "SCN1A",
+    "KCNQ2",
+    "SNAP25"
+  ],
+  "sources": [
+    {
+      "file": "en_product1.xml",
+      "url": "https://www.orphadata.com/data/xml/en_product1.xml",
+      "sha256": "df8d562a0c6011af36a74eb4000ce81ca7d723e8031010819fb71727c0962bbb",
+      "bytes": 54026799,
+      "retrieved_at": "2026-10-03T16:58:51.449181+00:00",
+      "retrieval_basis": "source-file mtime proxy, not authenticated acquisition",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "permission_basis": "docs/release/LICENCES.md HGNC / Orphadata Science selected structured fields"
+    },
+    {
+      "file": "en_product6.xml",
+      "url": "https://www.orphadata.com/data/xml/en_product6.xml",
+      "sha256": "f1c039f78683beea7ca5b34d1c01c4ec98f80e8ca488eee69770074db1020e39",
+      "bytes": 22612034,
+      "retrieved_at": "2026-10-03T16:58:28.183524+00:00",
+      "retrieval_basis": "source-file mtime proxy, not authenticated acquisition",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "permission_basis": "docs/release/LICENCES.md HGNC / Orphadata Science selected structured fields"
+    },
+    {
+      "file": "hgnc_complete_set.txt",
+      "url": "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt",
+      "sha256": "2b4224ea847df2fc6982f5b2a52804c5d92fbb8810b134afb636f6029452dc03",
+      "bytes": 16963116,
+      "retrieved_at": "2026-10-03T18:58:31.130765+00:00",
+      "retrieval_basis": "source-file mtime proxy, not authenticated acquisition",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "permission_basis": "docs/release/LICENCES.md HGNC / Orphadata Science selected structured fields"
+    }
+  ]
+}

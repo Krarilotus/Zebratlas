@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "owner": "contribute agent",
+    "note": "Machine-translated; review section in English (internal page)."
+  },
+  "suggest": "Предложить связь или исправить",
+  "suggestShort": "Предложить или исправить",
+  "title": "Помогите улучшить карту для {name}",
+  "lead": "Знаете пациентскую организацию, регистр, исследование или исследователя, которых здесь нет? Что-то неверно или устарело? Сообщите нам. Каждое предложение проверяет человек до публикации, и оно всегда помечено как предложение сообщества.",
+  "back": "Назад к {name}",
+  "badge": "Предложено сообществом",
+  "pending": "{n, plural, one {# предложение сообщества об этом заболевании на проверке.} few {# предложения сообщества об этом заболевании на проверке.} many {# предложений сообщества об этом заболевании на проверке.} other {# предложения сообщества об этом заболевании на проверке.}}",
+  "kind": {
+    "legend": "Что вы хотите сделать?",
+    "new_link": "Добавить недостающую связь",
+    "correction": "Здесь ошибка",
+    "missing_evidence": "Не хватает доказательства",
+    "outdated_contact": "Контакт устарел"
+  },
+  "subjectKind": {
+    "legend": "Какая это связь?",
+    "patient_group": "Пациентская организация",
+    "organisation": "Другая организация",
+    "registry": "Регистр",
+    "study": "Исследование",
+    "person": "Исследователь или врач"
+  },
+  "field": {
+    "subject": "Название",
+    "subjectHint": "Как указано на их собственном сайте.",
+    "about": "О какой связи речь?",
+    "aboutCondition": "Об этом заболевании в целом",
+    "statement": "Своими словами",
+    "statementHint": "Что нового, неверного или недостающего? Достаточно нескольких предложений.",
+    "evidenceUrl": "Ссылка на доказательство",
+    "evidenceUrlHint": "Публичная веб-страница, которая это показывает, например сайт самой организации.",
+    "quote": "Слова с этой страницы (необязательно)",
+    "quoteHint": "Скопируйте предложение со страницы, которое это показывает. Мы проверим, что оно там есть.",
+    "contactUrl": "Официальная страница контактов (необязательно)",
+    "contactUrlNew": "Текущая страница контактов",
+    "assistant": "Помог ли вам найти это ИИ-ассистент? (необязательно)",
+    "assistantHint": "Например, ChatGPT или Claude. Мы отметим это в предложении.",
+    "you": "О вас (всё необязательно)",
+    "name": "Ваше имя",
+    "contact": "E-mail для вопросов",
+    "contactHint": "Его видит только проверяющий. Оставьте пустым, чтобы остаться анонимным.",
+    "organisation": "Организация, от имени которой вы говорите"
+  },
+  "submit": "Отправить предложение",
+  "sending": "Отправка…",
+  "error": {
+    "unavailable": "Сейчас нельзя отправить предложение. Попробуйте позже.",
+    "invalid": "Проверьте форму: {detail}",
+    "rate_limited": "Слишком много предложений с этого подключения. Попробуйте позже.",
+    "generic": "Что-то пошло не так. Попробуйте ещё раз."
+  },
+  "status": {
+    "title": "Ваше предложение",
+    "thanks": "Спасибо! Ваше предложение в очереди на проверку. Оно не появится на карте, пока его не проверят.",
+    "state": {
+      "submitted": "Получено, идут автоматические проверки",
+      "auto_checked": "Проверено автоматически, ждёт проверяющего",
+      "accepted": "Принято: показано на карте как предложение сообщества",
+      "rejected": "Не принято"
+    },
+    "reason": "Причина решения: {reason}",
+    "checks": "Автоматические проверки",
+    "noChecks": "Автоматические проверки ещё не закончены. Обновите страницу через минуту.",
+    "notFound": "Мы не можем найти это предложение.",
+    "prov": "Полная история (PROV-O)",
+    "privacy": "Ваш e-mail здесь никогда не показывается.",
+    "submittedOn": "Отправлено {date}",
+    "check": {
+      "pass": "ОК",
+      "warn": "Замечание",
+      "fail": "Проблема",
+      "skipped": "Не проверено"
+    }
+  },
+  "review": {
+    "title": "Review suggestions",
+    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
+    "token": "Reviewer key",
+    "tokenHint": "Kept only on this page, never stored.",
+    "open": "Open the queue",
+    "empty": "Nothing is waiting for review.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "reason": "Reason (required, shown publicly)",
+    "recheck": "Run checks again",
+    "contact": "Contact",
+    "anonymous": "anonymous",
+    "unauthorized": "This key is not valid.",
+    "unavailable": "The review service can't be reached.",
+    "failed": "Not saved: {detail}",
+    "saved": "Saved.",
+    "statement": "Statement",
+    "evidence": "Evidence",
+    "quote": "Quote",
+    "subject": "Who",
+    "target": "Condition or gene",
+    "edge": "Connection",
+    "foundVia": "Found with",
+    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+  }
+}

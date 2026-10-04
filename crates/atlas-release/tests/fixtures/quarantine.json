@@ -1,0 +1,8 @@
+{
+  "schema": "acquisition.quarantine",
+  "version": 1,
+  "header": {"source": "synthetic test fixture", "retrieved_at": "2026-10-04T00:00:00Z"},
+  "records": [
+    {"cache_file": "pubmed/FIXTURE.json", "record_locator": "/records/0", "reason": "block_status_unknown"}
+  ]
+}

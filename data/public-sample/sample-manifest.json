@@ -1,0 +1,78 @@
+{
+  "format": "zebratlas-public-sample-manifest-v1",
+  "status": "verified_local_sample",
+  "published": false,
+  "conditions": 15,
+  "genes": 4,
+  "nodes": 19,
+  "graph_edges": 16,
+  "identity_merges": 0,
+  "generator_sha256": "79d7694033f80ede9f14536c01c546d58cae7096ebe2f78ed4840cc6d12a1afc",
+  "audit_sha256": "3b2da6808cb16d7c06368da98c6453c456ed44633ef66101f0f1867316bf34bd",
+  "native_formats": {
+    "atlas": 2,
+    "graph": 7,
+    "mechanism": 5
+  },
+  "files": [
+    {
+      "file": "cache/atlas.snapshot",
+      "bytes": 9515,
+      "sha256": "8c00653536e3e66148836b77e5f0eef6a2d7b891d9239b18668b4b4c4f1c4ad6"
+    },
+    {
+      "file": "cache/graph.snapshot",
+      "bytes": 7798,
+      "sha256": "a0fa4413b8781da8e9635d9bf83213dd28fff8ee2fe36824d49e0542b6793673"
+    },
+    {
+      "file": "cache/mechanism.snapshot",
+      "bytes": 2986,
+      "sha256": "b4643357b8ae89dcd3c05b3856e322419e00be29d0b9f068ee5328032a4881f7"
+    },
+    {
+      "file": "cache/public-associations.json",
+      "bytes": 6459,
+      "sha256": "0aa86906fbed6542595f5cbf73e7922ad4c74b146290dff775e8dc0629e45117"
+    },
+    {
+      "file": "LICENCES.md",
+      "bytes": 1146,
+      "sha256": "adff6f69c1c525971b66f9b2a0f609ce186c974e4721140265cf52d4460bc879"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1105,
+      "sha256": "daca06940890c13d30181c72efe00a29ddefb970eedc6cb716f9a4d50220c91e"
+    },
+    {
+      "file": "sample-api-smoke.json",
+      "bytes": 3173,
+      "sha256": "27119bcc67083a87d41df68ee268761fa543e01f941655c7d21c71ca97abbde1"
+    },
+    {
+      "file": "sample-audit.json",
+      "bytes": 2378,
+      "sha256": "9d3f60a908540a0951b6593ac717a6425a385e4a41fd3958cf7cf75e93151005"
+    },
+    {
+      "file": "sample-inputs.json",
+      "bytes": 1885,
+      "sha256": "3a8b1faa7baa8155ffff63c91f1f88e41b19c89d6aa9af02d94a44bd43acb7f3"
+    },
+    {
+      "file": "sample-nodes.json",
+      "bytes": 17367,
+      "sha256": "4f17b0c471757a9259a3b81ed6179f7f642324070c6567b4702bcbaf013e3b81"
+    },
+    {
+      "file": "sample-report.json",
+      "bytes": 8621,
+      "sha256": "93d13ee8f5d9cbe0d3d399808c2a4de539b64600e4591eb52e8e4d5c34a6b04f"
+    }
+  ],
+  "payload_bytes": 62433,
+  "consumer_api_smoke": "sample-api-smoke.json",
+  "source_permission_and_field_audit": "sample-audit.json",
+  "scope": "licensed Orphadata/HGNC source projections only; no operational production artifacts"
+}

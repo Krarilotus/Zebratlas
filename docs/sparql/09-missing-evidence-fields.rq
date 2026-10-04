@@ -1,0 +1,19 @@
+# Check every exported source-record reference for missing source URL, locator, retrieval time, version or hash.
+# Identity-decision entities use their accepted-decision receipts, not the source-record schema.
+PREFIX ra: <https://w3id.org/rare-disease-atlas/vocab#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+ASK {
+  ?edge a ra:Edge .
+  FILTER EXISTS {
+    ?edge prov:wasDerivedFrom ?record .
+    FILTER (
+      STRSTARTS(STR(?record), "https://w3id.org/rare-disease-atlas/record/") && (
+      NOT EXISTS { ?record dcterms:source ?url } ||
+      NOT EXISTS { ?record ra:recordLocator ?locator } ||
+      NOT EXISTS { ?record ra:retrievedAt ?retrieved } ||
+      NOT EXISTS { ?record dcterms:hasVersion ?version } ||
+      NOT EXISTS { ?record ra:sha256 ?hash })
+    )
+  }
+}

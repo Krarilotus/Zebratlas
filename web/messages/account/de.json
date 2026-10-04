@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "locale": "de",
+    "source": "en",
+    "machine_translated": false,
+    "reviewed": [
+      "en",
+      "de"
+    ],
+    "owner": "accounts agent (H2)",
+    "note": "Konto-, Gemerkt- und Gesprächsseiten. Einfache Sprache, Sie-Form.",
+    "connector": {
+      "author": "GPT-6.1-Sol",
+      "backcheck": "Own-device code approval, connection/model choice, revocation, unavailable selection and hosted reset retained.",
+      "native_reviewed": false
+    }
+  },
+  "title": "Ihr Konto",
+  "nav": {
+    "account": "Konto",
+    "saved": "Gemerkt",
+    "conversations": "Gespräche"
+  },
+  "free": {
+    "title": "Sie brauchen kein Konto",
+    "lead": "Alles im Atlas funktioniert ohne Anmeldung. Ein Konto hilft nur beim Aufbewahren: Erkrankungen, denen Sie folgen, Menschen und Gruppen, die Sie gefunden haben, Nachrichtenentwürfe und Ihre Fragen an den Atlas."
+  },
+  "unavailable": {
+    "title": "Konten sind hier nicht verfügbar",
+    "lead": "Diese Version des Atlas läuft ohne den Kontodienst. Alle Seiten funktionieren trotzdem; nur das Merken geht nicht."
+  },
+  "form": {
+    "signInTitle": "Anmelden",
+    "signUpTitle": "Konto anlegen",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "passwordHint": "Mindestens 10 Zeichen. Ein paar Wörter, die Sie sich merken können, funktionieren gut.",
+    "name": "Ihr Name (freiwillig)",
+    "signIn": "Anmelden",
+    "signUp": "Konto anlegen",
+    "pending": "Einen Moment …",
+    "toSignUp": "Neu hier? Konto anlegen",
+    "toSignIn": "Schon ein Konto? Anmelden",
+    "privacy": "Wir speichern Ihre E-Mail-Adresse, eine verschlüsselte (gehashte) Form Ihres Passworts und was Sie sich merken. Kein Tracking, keine IP-Adressen. Sie können jederzeit alles herunterladen oder löschen.",
+    "deleted": "Ihr Konto und alle Inhalte wurden gelöscht."
+  },
+  "error": {
+    "bad_credentials": "E-Mail und Passwort passen zu keinem Konto.",
+    "conflict": "Mit dieser E-Mail gibt es schon ein Konto. Melden Sie sich an.",
+    "invalid": "Einige Angaben sind ungültig. Bitte prüfen Sie sie.",
+    "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "password_short": "Ihr Passwort braucht mindestens 10 Zeichen.",
+    "rate_limited": "Zu viele Versuche. Bitte warten Sie ein paar Minuten und versuchen Sie es dann noch einmal.",
+    "unavailable": "Konten sind gerade nicht verfügbar. Alles andere funktioniert weiter.",
+    "unauthorized": "Bitte melden Sie sich erneut an.",
+    "not_found": "Diesen Eintrag gibt es nicht mehr.",
+    "forbidden": "Sie können diesen Eintrag nicht ändern.",
+    "generic": "Etwas ist schiefgegangen. Bitte versuchen Sie es noch einmal."
+  },
+  "home": {
+    "signedInAs": "Angemeldet als {email}",
+    "greeting": "Hallo, {name}",
+    "plan": "Tarif: {plan}",
+    "saved": "{n, plural, =0 {Gemerkt: noch nichts} one {Gemerkt: # Eintrag} other {Gemerkt: # Einträge}}",
+    "conversations": "{n, plural, =0 {Gespräche: noch keine} other {Gespräche: #}}"
+  },
+  "plan": {
+    "free": "Kostenlos",
+    "organisation": "Organisation",
+    "enterprise": "Enterprise"
+  },
+  "role": {
+    "owner": "Inhaber",
+    "admin": "Admin",
+    "member": "Mitglied"
+  },
+  "orgs": {
+    "title": "Organisationen",
+    "lead": "Patientengruppen und Forschungsteams können Karten und Entwürfe gemeinsam an einem Ort aufbewahren.",
+    "none": "Sie gehören noch zu keiner Organisation.",
+    "name": "Name der Organisation",
+    "create": "Organisation anlegen",
+    "created": "Organisation angelegt.",
+    "planOf": "Tarif {plan}"
+  },
+  "data": {
+    "title": "Ihre Daten",
+    "lead": "Laden Sie alles, was wir über Sie speichern, als eine Datei herunter, oder melden Sie sich ab.",
+    "export": "Alle meine Daten herunterladen",
+    "signOut": "Abmelden",
+    "signOutAll": "Auf allen Geräten abmelden",
+    "manage": "Meine Daten verwalten",
+    "pageLead": "Verwalte die Informationen in deinem Konto.",
+    "signedOut": "Melde dich an, um die in deinem Konto gespeicherten Informationen zu sehen.",
+    "created": "Konto erstellt",
+    "kept": "In deinem Konto gespeichert",
+    "documents": "Gespeicherte Dokumente",
+    "documentsUnavailable": "Gespeicherte Dokumente k?nnen gerade nicht geladen werden.",
+    "documentsEmpty": "Du hast keine gespeicherten Dokumente.",
+    "untitledDocument": "Dokument ohne Titel",
+    "view": "Ansehen",
+    "download": "Herunterladen",
+    "deleteDocument": "L?schen",
+    "contributions": "Deine Beitr?ge",
+    "contributionsUnavailable": "Deine Beitr?ge k?nnen gerade nicht geladen werden.",
+    "contributionsEmpty": "Du hast keine Beitr?ge.",
+    "contributionRemoval": "Um einen einzelnen Beitrag entfernen zu lassen, sende eine L?schanfrage."
+  },
+  "password": {
+    "title": "Passwort ändern",
+    "current": "Aktuelles Passwort",
+    "new": "Neues Passwort",
+    "submit": "Passwort ändern",
+    "done": "Passwort geändert. Ihre anderen Geräte wurden abgemeldet."
+  },
+  "delete": {
+    "title": "Konto löschen",
+    "lead": "Damit löschen Sie Ihr Konto und alles, was Sie gemerkt haben, endgültig. Das lässt sich nicht rückgängig machen.",
+    "password": "Ihr Passwort zur Bestätigung",
+    "submit": "Mein Konto löschen",
+    "keepName": "Meinen Namen bei meinen aufgenommenen Beiträgen behalten"
+  },
+  "saved": {
+    "title": "Gemerkt",
+    "lead": "Was Sie sich für später aufgehoben haben.",
+    "empty": "Noch nichts gemerkt. Nutzen Sie „Merken“ bei einer Erkrankung, einem Kontakt oder einem Nachrichtenentwurf.",
+    "signedOut": "Melden Sie sich an, um Ihre gemerkten Einträge zu sehen. Merken ist freiwillig: Nichts im Atlas braucht ein Konto.",
+    "signIn": "Anmelden oder Konto anlegen",
+    "count": "{n, plural, one {# Eintrag} other {# Einträge}}",
+    "savedOn": "Gemerkt am {date}",
+    "open": "Öffnen",
+    "remove": "Entfernen",
+    "subject": "Betreff: {subject}",
+    "kind": {
+      "condition": "Erkrankungen, denen Sie folgen",
+      "connection_card": "Menschen, Gruppen und Studien",
+      "connection_map": "Karten",
+      "message_draft": "Nachrichtenentwürfe",
+      "node": "Weiteres",
+      "search": "Suchen"
+    }
+  },
+  "save": {
+    "save": "Merken",
+    "saved": "Gemerkt",
+    "remove": "Nicht mehr merken",
+    "signIn": "Zum Merken anmelden",
+    "draft": "Entwurf speichern",
+    "draftSaved": "Entwurf gespeichert",
+    "conversation": "Gespräch speichern",
+    "conversationSaved": "Gespräch gespeichert",
+    "pending": "Wird gespeichert …",
+    "failed": "Speichern hat nicht geklappt. Bitte noch einmal versuchen."
+  },
+  "conversations": {
+    "title": "Gespräche",
+    "lead": "Ihre Fragen an den Atlas und seine Antworten, mit den Quellen dahinter.",
+    "empty": "Noch keine Gespräche.",
+    "messages": "{n, plural, one {# Nachricht} other {# Nachrichten}}",
+    "updated": "Zuletzt geändert am {date}",
+    "you": "Sie",
+    "atlas": "Atlas",
+    "sources": "Quellen",
+    "delete": "Dieses Gespräch löschen",
+    "back": "Alle Gespräche",
+    "notFound": "Dieses Gespräch gibt es nicht oder es wurde gelöscht."
+  },
+  "connector": {
+    "title": "Eigene Modelle verbinden",
+    "pair": "Geben Sie den Code ein, den der Connector auf Ihrem eigenen Computer anzeigt.",
+    "code": "Kopplungscode",
+    "approve": "Verbinden",
+    "devices": "Ihre Computer",
+    "none": "Noch keine Computer verbunden.",
+    "revoke": "Zugriff widerrufen",
+    "connection": "Antworten mit",
+    "hosted": "Gehostete Standardeinstellung",
+    "model": "Modell",
+    "defaultModel": "Gerätestandard",
+    "save": "Auswahl speichern",
+    "reset": "Gehosteten Standard verwenden",
+    "offline": "Offline oder Zugriff widerrufen",
+    "done": "Gespeichert.",
+    "refresh": "Geräte aktualisieren",
+    "instructions": "Connector einrichten"
+  }
+}

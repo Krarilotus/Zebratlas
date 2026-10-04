@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "owner": "contribute agent",
+    "note": "Machine-translated; review section in English (internal page)."
+  },
+  "suggest": "اقترح صلة أو صحّح هذا",
+  "suggestShort": "اقترح أو صحّح",
+  "title": "ساعد في تحسين خريطة {name}",
+  "lead": "هل تعرف مجموعة مرضى أو سجلًا أو دراسة أو باحثًا غير موجود هنا؟ هل هناك شيء خاطئ أو قديم؟ أخبرنا. يراجع شخصٌ كل اقتراح قبل ظهوره، ويبقى دائمًا معلَّمًا بأنه اقتراح من المجتمع.",
+  "back": "العودة إلى {name}",
+  "badge": "اقتراح من المجتمع",
+  "pending": "{n, plural, one {يجري مراجعة اقتراح واحد من المجتمع حول هذه الحالة (#).} other {يجري مراجعة # اقتراحات من المجتمع حول هذه الحالة.}}",
+  "kind": {
+    "legend": "ماذا تريد أن تفعل؟",
+    "new_link": "إضافة صلة ناقصة",
+    "correction": "هناك خطأ هنا",
+    "missing_evidence": "دليل ناقص",
+    "outdated_contact": "جهة اتصال قديمة"
+  },
+  "subjectKind": {
+    "legend": "ما نوع هذه الصلة؟",
+    "patient_group": "مجموعة مرضى",
+    "organisation": "منظمة أخرى",
+    "registry": "سجل",
+    "study": "دراسة",
+    "person": "باحث أو طبيب"
+  },
+  "field": {
+    "subject": "الاسم",
+    "subjectHint": "الاسم كما يظهر على موقعهم الإلكتروني.",
+    "about": "بأي صلة يتعلق هذا؟",
+    "aboutCondition": "بهذه الحالة عمومًا",
+    "statement": "بكلماتك",
+    "statementHint": "ما الجديد أو الخاطئ أو الناقص؟ تكفي بضع جمل.",
+    "evidenceUrl": "رابط الدليل",
+    "evidenceUrlHint": "صفحة ويب عامة تُظهر ذلك، مثل موقع المجموعة نفسها.",
+    "quote": "كلمات من تلك الصفحة (اختياري)",
+    "quoteHint": "انسخ جملة من الصفحة تُظهر ذلك. نتحقق من وجودها هناك.",
+    "contactUrl": "صفحة الاتصال الرسمية (اختياري)",
+    "contactUrlNew": "صفحة الاتصال الحالية",
+    "assistant": "هل ساعدك مساعد ذكاء اصطناعي في العثور على هذا؟ (اختياري)",
+    "assistantHint": "مثل ChatGPT أو Claude. نسجّل ذلك مع الاقتراح.",
+    "you": "عنك (كله اختياري)",
+    "name": "اسمك",
+    "contact": "بريد إلكتروني للأسئلة",
+    "contactHint": "لا يراه إلا المراجِع. اتركه فارغًا لتبقى مجهول الهوية.",
+    "organisation": "المجموعة التي تتحدث باسمها"
+  },
+  "submit": "إرسال الاقتراح",
+  "sending": "جارٍ الإرسال…",
+  "error": {
+    "unavailable": "لا يمكن إرسال الاقتراحات الآن. حاول لاحقًا.",
+    "invalid": "يرجى مراجعة النموذج: {detail}",
+    "rate_limited": "اقتراحات كثيرة من هذا الاتصال. حاول لاحقًا.",
+    "generic": "حدث خطأ ما. حاول مرة أخرى."
+  },
+  "status": {
+    "title": "اقتراحك",
+    "thanks": "شكرًا! اقتراحك في قائمة المراجعة. لن يظهر على الخريطة حتى يراجعه شخص.",
+    "state": {
+      "submitted": "تم الاستلام، الفحوص الآلية جارية",
+      "auto_checked": "فُحص آليًا، بانتظار المراجعة",
+      "accepted": "مقبول: يظهر على الخريطة كاقتراح من المجتمع",
+      "rejected": "غير مقبول"
+    },
+    "reason": "سبب المراجِع: {reason}",
+    "checks": "الفحوص الآلية",
+    "noChecks": "لم تنتهِ الفحوص الآلية بعد. أعد تحميل الصفحة بعد دقيقة.",
+    "notFound": "لا نجد هذا الاقتراح.",
+    "prov": "السجل الكامل (PROV-O)",
+    "privacy": "لا يُعرض بريدك الإلكتروني هنا أبدًا.",
+    "submittedOn": "أُرسل في {date}",
+    "check": {
+      "pass": "سليم",
+      "warn": "ملاحظة",
+      "fail": "مشكلة",
+      "skipped": "لم يُفحص"
+    }
+  },
+  "review": {
+    "title": "Review suggestions",
+    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
+    "token": "Reviewer key",
+    "tokenHint": "Kept only on this page, never stored.",
+    "open": "Open the queue",
+    "empty": "Nothing is waiting for review.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "reason": "Reason (required, shown publicly)",
+    "recheck": "Run checks again",
+    "contact": "Contact",
+    "anonymous": "anonymous",
+    "unauthorized": "This key is not valid.",
+    "unavailable": "The review service can't be reached.",
+    "failed": "Not saved: {detail}",
+    "saved": "Saved.",
+    "statement": "Statement",
+    "evidence": "Evidence",
+    "quote": "Quote",
+    "subject": "Who",
+    "target": "Condition or gene",
+    "edge": "Connection",
+    "foundVia": "Found with",
+    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+  }
+}

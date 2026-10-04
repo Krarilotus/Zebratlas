@@ -1,0 +1,21 @@
+[package]
+name = "atlas-analytics"
+description = "Rare-disease atlas computations: phenotype ranking (port of match.py), disease similarity, related conditions, clusters."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+atlas-core.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+# Tests and examples build or load the real atlas and mechanism data (the library uses atlas-core only).
+atlas-ingest.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+# evidence_real_slice: reads raw files directly
+csv.workspace = true
+flate2 = "1"

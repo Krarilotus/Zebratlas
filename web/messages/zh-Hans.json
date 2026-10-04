@@ -1,0 +1,1707 @@
+{
+  "_meta": {
+    "locale": "zh-Hans",
+    "source": "en",
+    "machine_translated": false,
+    "reviewed": [],
+    "note": "从英文机器翻译；已审校：en、de。",
+    "native_review": "pending",
+    "unit_errors": {
+      "author": "GPT-6.1-Sol",
+      "backcheck": "Entry selection and inclusive 1 to 500 limit retained.",
+      "native_reviewed": false
+    },
+    "bench_fixes": {
+      "keys": [
+        "coverage.outside_verified_neighbourhood",
+        "connections.why.project"
+      ],
+      "agent_authored": true,
+      "semantic_backcheck": true,
+      "native_speaker_reviewed": false
+    },
+    "agent_authored": true,
+    "author": "GPT-6.1-Sol (translate-world)",
+    "method": "Agent-written from intent; separate agent back-check; no translation provider.",
+    "source_sha256": "4df11cc7d75b7ea629f95600783cae894d63154423b5c9a8d3f80249ddd83893",
+    "source_fingerprint": "9e486cc693b33d0167ca991bab8c1bf9d0e8c0c42eefd70e6f8f405f909a4084",
+    "review_ref": "world-review-zh-Hans.json",
+    "reviewed_at": "2026-10-04T06:11:23.947585+00:00",
+    "bench_frontend": {
+      "agent_authored": true,
+      "semantic_backcheck": true,
+      "native_speaker_reviewed": false
+    }
+  },
+  "app": {
+    "name": "Zebratlas",
+    "promise": "罕见病患者互助组织与研究",
+    "skip": "跳至主要内容",
+    "home": "Zebratlas 首页",
+    "mainNav": "主导航",
+    "footerNav": "更多 Zebratlas 信息",
+    "notAdvice": "Zebratlas 不提供医疗建议或诊断。",
+    "free": "家庭可免费使用，无需账户。",
+    "sampleBadge": "示例数据",
+    "sampleHint": "部分内容为测试用的示例数据，示例组织并非真实组织。",
+    "loading": "正在加载…",
+    "opensNewTab": "（在新标签页中打开）",
+    "notFoundTitle": "未找到此页面",
+    "notFoundLead": "链接可能已过期。可返回首页重新搜索。",
+    "backHome": "返回首页",
+    "errorTitle": "发生错误",
+    "errorLead": "请重试。如果问题持续，请稍后再试。",
+    "tryAgain": "重试",
+    "showMore": "{n, plural, other {再显示#项}}",
+    "curatedBadge": "已人工核查",
+    "curatedHint": "此关联已于{date}人工对照“信息依据”中的来源核查。Zebratlas 服务器尚未计算此关联。"
+  },
+  "nav": {
+    "about": "关于",
+    "pricing": "面向组织",
+    "signIn": "登录",
+    "saved": "已保存",
+    "search": "搜索",
+    "account": "账户",
+    "accountOf": "账户：{name}",
+    "signUp": "创建账户",
+    "signOut": "退出登录",
+    "sources": "数据来源与许可",
+    "contributeData": "提供数据",
+    "partners": "合作伙伴",
+    "contact": "联系",
+    "privacy": "隐私",
+    "imprint": "运营者信息",
+    "openSource": "开源",
+    "help": "帮助",
+    "menu": "菜单",
+    "underTheHood": "证据与处理详情",
+    "impact": "节省时间"
+  },
+  "language": {
+    "current": "语言：{name}",
+    "choose": "选择语言",
+    "contentNote": "此文本使用{language}。翻译需要连接 Zebratlas 服务器。",
+    "showOriginal": "显示原文（{language}）",
+    "machineNote": "此文本由 AI 助手编写，尚未经母语者审核。名称、代码和链接保持原样。",
+    "label": "语言"
+  },
+  "home": {
+    "label": "搜索 Zebratlas",
+    "placeholder": "搜索或粘贴文本",
+    "submit": "搜索",
+    "welcome": "欢迎使用 Zebratlas",
+    "explore": "查看研究社群关系图",
+    "title": "罕见病患者互助组织与研究",
+    "lead": "输入您已知的信息：诊断、基因或医生信中的一句话。可使用任何语言。",
+    "examples": "试试这些示例",
+    "exampleSentence": "我女儿有STXBP1基因突变",
+    "rareExample": "尚未找到患者组织的罕见病示例",
+    "door": {
+      "research": "研究人员或企业：查看证据",
+      "org": "组织方案"
+    },
+    "doorsLabel": "更多选项",
+    "specimen": "示例：{name}",
+    "openSpecimen": "打开{name}关系图",
+    "figPeople": "{n, plural, other {研究人员}}"
+  },
+  "find": {
+    "label": "重新搜索",
+    "chooseTitle": "选择疾病",
+    "chooseLead": "“{q}”的匹配结果",
+    "understood": "已从输入中识别并使用“{term}”。",
+    "via": {
+      "name": "名称匹配",
+      "alias": "此疾病的别名：{term}",
+      "gene": "由{term}基因变化引起",
+      "typo": "与输入相近：{term}",
+      "sentence": "文本中找到基因{term}",
+      "id": "代码{term}匹配",
+      "symptom": "症状{term}匹配"
+    },
+    "noneTitle": "尚未找到“{q}”",
+    "emptyTitle": "搜索 Zebratlas"
+  },
+  "condition": {
+    "more": "了解此疾病",
+    "medicalNames": "医学名称",
+    "gene": "基因",
+    "glossary": "医学用语",
+    "doctorQuestion": "是否有我们的孩子可以参加的{name}研究或患者登记项目？附近有哪些相关专家？",
+    "forGroupsLink": "涉及相同身体过程的疾病互助组织",
+    "plainGene": "这是一种由{gene}基因变化引起的罕见病。",
+    "plainNoGene": "这是一种罕见病。",
+    "plainMore": "相关专科医生可以解释此疾病对您孩子的影响。",
+    "definition": "医学描述",
+    "geneTitle": "{gene}相关疾病",
+    "figCases": "{n, plural, other {医学论文中记载的家庭}}",
+    "figGroups": "{n, plural, other {患者互助组织}}",
+    "code": "代码",
+    "groupsTitle": "患者与家庭互助组织",
+    "otherGroups": "{n, plural, other {{gene}的其他#个互助组织}}",
+    "studiesTitle": "可参加的研究",
+    "studiesLead": "目前接收参与者的研究和患者登记项目。登记系统收集多个家庭的健康信息，用于支持研究。",
+    "noOpenStudies": "未找到目前接收此疾病参与者的研究。",
+    "closedStudies": "{n, plural, other {显示#项已停止招募或已结束的研究}}",
+    "doctorsTitle": "此疾病的专科中心",
+    "noDoctors": "未找到专门针对该疾病的医疗中心。",
+    "askDoctor": "可向医生提出的问题：",
+    "onwardLabel": "面向患者互助组织和研究人员",
+    "forGroupsLead": "具有共同病因的其他疾病及其联系渠道。",
+    "moreStudies": "更多研究（{n}项）",
+    "otherStudies": "其他研究（{n}项）",
+    "onThisPage": "本页内容",
+    "what": "了解这种疾病",
+    "notAlone": "相关人员与研究",
+    "thisWeek": "本周可以做的事",
+    "kindExplain": {
+      "registry": "登记系统汇集许多人的健康信息，有助于更快开展研究。",
+      "natural_history": "自然病程研究长期随访参与者，了解疾病如何变化。",
+      "trial": "治疗性试验检验某种治疗是否安全、有效。",
+      "observational": "观察性研究进行观察和测量，不提供治疗。",
+      "patient_group": "患者组织由有相同诊断的家庭运营。",
+      "expert_centre": "专业中心有熟悉这种疾病的医生。",
+      "researcher": "研究人员研究这种疾病，可能了解新开展的研究。",
+      "expanded_access": "早期使用计划可能允许在试验之外接受仍处于测试阶段的治疗。",
+      "organisation": "致力于这种疾病的组织。",
+      "grant": "科研资助为研究项目提供经费。团队可能了解相关研究。"
+    },
+    "figOpen": "{n, plural, other {正在招募的研究}}",
+    "shownOf": "显示{total}项中的{shown}项",
+    "view": {
+      "label": "疾病信息视图",
+      "overview": "概览",
+      "communities": "社群",
+      "evidence": "证据",
+      "questions": "研究问题"
+    },
+    "step": {
+      "contact": "联系患者组织",
+      "join": "询问正在招募的研究，您的孩子是否可以参加",
+      "doctor": "咨询您的医生"
+    },
+    "studyKinds": "研究类型",
+    "figExact": "{n, plural, other {针对这一诊断的联系人}}",
+    "figRelated": "{n, plural, other {相关社群}}",
+    "figSearched": "{n, plural, other {已检索的信息源}}"
+  },
+  "gap": {
+    "title": "尚未找到专门针对该疾病的互助组织或研究",
+    "found": "{n, plural, =0 {未找到结果} other {找到#项}}",
+    "closest": "{n, plural, other {另有#个相近社群}}",
+    "noneRelated": "也未找到相关社群，仍可参考以下步骤。",
+    "unknownTitle": "来源中尚未记载的内容",
+    "questionsTitle": "向专科医生提出的问题",
+    "notCovered": "尚未搜索此基因",
+    "nearestGroup": "可联系的最相关互助组织",
+    "nearestFor": "该组织的家庭面对{condition}，此疾病影响相同的身体过程。",
+    "sharedRegistry": "接收相关疾病家庭的研究",
+    "sharedRegistryFor": "面向{condition}及相关疾病。请询问您的家庭是否可以参加。",
+    "pubmed": "发表过{gene}相关论文的研究人员（PubMed）",
+    "searched": "检索过的信息源",
+    "startTitle": "下一步",
+    "step": {
+      "contact_related": "联系关联最密切的组织",
+      "join_registry": "加入涵盖多种基因的登记系统",
+      "find_researchers": "联系研究人员",
+      "ask_doctor": "咨询您的专科医生"
+    },
+    "col": {
+      "source": "信息来源",
+      "result": "结果",
+      "date": "检索日期"
+    },
+    "notes": "{n, plural, other {#条检索说明}}",
+    "noTarget": "尚未找到联系人"
+  },
+  "card": {
+    "kind": {
+      "patient_group": "患者互助组织",
+      "registry": "患者登记系统",
+      "natural_history": "疾病自然史研究",
+      "trial": "治疗研究",
+      "observational": "观察性研究",
+      "expert_centre": "专科中心",
+      "researcher": "研究人员",
+      "expanded_access": "早期用药获取项目",
+      "organisation": "组织",
+      "grant": "研究资助"
+    },
+    "match": {
+      "related": "针对相关疾病",
+      "exact": "专门针对这一诊断",
+      "broad": "涵盖多种疾病"
+    },
+    "status": {
+      "recruiting": "开放招募",
+      "not_yet_recruiting": "尚未开始招募",
+      "active_not_recruiting": "进行中，不接收新参与者",
+      "enrolling_by_invitation": "仅限受邀者",
+      "completed": "已完成",
+      "terminated": "提前终止",
+      "withdrawn": "开始前撤回",
+      "suspended": "暂停",
+      "unknown": "状态未知"
+    },
+    "why": "相关原因",
+    "channel": {
+      "website": "网站",
+      "contact_form": "联系表单",
+      "email": "电子邮件",
+      "study_contact": "研究联系人",
+      "institution_page": "机构页面",
+      "registry_record": "研究联系信息",
+      "profile": "公开资料页",
+      "grant_page": "资助页面"
+    },
+    "write": "联系对方",
+    "writeProposal": "撰写提案",
+    "checkedOn": "核查日期：{date}",
+    "sample": "示例",
+    "sampleHint": "测试用示例，并非真实组织。",
+    "askStudy": "询问研究团队",
+    "where": "所在地",
+    "languages": "支持的语言",
+    "serves": "也支持这些疾病",
+    "more": "更多联系渠道"
+  },
+  "know": {
+    "tier": {
+      "high": "官方记录或已发表研究",
+      "moderate": "专家意见",
+      "low": "计算得出或尚未经核查"
+    },
+    "retrieved": "获取日期：{date}",
+    "openRecord": "打开记录",
+    "checksum": "文件指纹（SHA-256）",
+    "verify": "再次核查来源",
+    "verifying": "正在核查…",
+    "verifyResult": {
+      "unchanged": "与上次核查时相同，文件指纹一致。",
+      "changed": "记录在上次核查后已更改，请直接阅读。",
+      "unreachable": "目前无法访问该来源。"
+    },
+    "verifySample": "示例核查，未访问真实来源。",
+    "validatorOk": "此卡片中的每句话均有来源支持。",
+    "validatorFail": "部分语句未能与来源对应。",
+    "underTheHood": "完整记录",
+    "source": "信息来源",
+    "noSource": "未附来源",
+    "sourcesMore": "{first}及{n, plural, other {其他#项}}",
+    "correct": "报告错误",
+    "sourceNames": {
+      "orphanetEpidemiology": "Orphanet 流行病学数据",
+      "similarity": "Zebratlas 相似性（症状与机制）"
+    },
+    "title": "信息依据",
+    "lead": "记录",
+    "sources": "{n, plural, other {#个来源}}",
+    "record": "记录",
+    "quote": "来源原文引用",
+    "noSources": "尚未附上来源。"
+  },
+  "community": {
+    "title": "相关社群",
+    "why": "关联原因",
+    "shared": {
+      "symptoms": "共有的特征性症状",
+      "genes": "相同基因",
+      "processes": "相同身体过程"
+    },
+    "strength": {
+      "strong": "强关联",
+      "some": "一定关联",
+      "weak": "弱关联"
+    },
+    "assets": "已建立的资源",
+    "assetType": {
+      "registry": "患者登记系统",
+      "natural_history": "疾病自然史研究",
+      "trial": "治疗研究",
+      "observational": "观察性研究",
+      "model": "实验室模型",
+      "grant": "研究资助",
+      "biobank": "生物样本库"
+    },
+    "duplicate": "可能与{ids}重叠，建立新资源前请先核查。",
+    "notSameTitle": "症状相似，病因不同",
+    "looksLike": "相似原因",
+    "differs": "不同原因",
+    "peopleTitle": "已跨这些社群开展工作的人",
+    "worksIn": "研究对象",
+    "noPeople": "尚未找到跨这些社群开展工作的人。",
+    "none": "尚未找到相关社群。",
+    "shareTitle": "与理事会分享",
+    "copyLink": "复制链接",
+    "copied": "已复制",
+    "print": "打印或保存为 PDF",
+    "limits": "此关联未能说明的内容",
+    "noUnlike": "在最相近的疾病中未找到。",
+    "lead": "选择社群或生物通路，查看已记录的关联。",
+    "sameProcess": "相同身体过程",
+    "sameGene": "相同基因",
+    "checkedByHand": "于{date}人工核查",
+    "heldBy": "保管机构：{name}",
+    "coversList": "涵盖：{list}",
+    "writeTo": "联系：{name}",
+    "questionTitle": "共同面对的未解研究问题",
+    "questionOpen": "证据、关键实验及可执行者",
+    "notSameLead": "这些疾病症状相似，病因不同。",
+    "showUnlike": "{n, plural, other {显示#种症状相似的疾病}}",
+    "alsoListed": "也列于{list}。同一项工作可能服务两个社群。",
+    "mapLabel": "相关社群地图。亮点表示有共同生物学问题的疾病；空心点表示表面相似但原因不同的疾病。",
+    "assetsCount": "{n, plural, =0 {尚未建立资源} other {已建立#项资源}}",
+    "covers": "涵盖",
+    "sponsor": "由{name}运营",
+    "figUnlike": "{n, plural, other {表现相似但病因不同的疾病}}",
+    "figAssets": "{n, plural, other {可复用的研究或登记系统}}"
+  },
+  "write": {
+    "title": "联系{name}",
+    "proposalTitle": "向{name}提出建议",
+    "lead": "可修改任何内容。只有您自行发送，消息才会发出。",
+    "subject": "主题",
+    "body": "消息",
+    "copy": "复制文本",
+    "copied": "已复制",
+    "mail": "在邮件应用中打开",
+    "language": "写作语言",
+    "languageApply": "更改",
+    "keep": "名称、代码和链接在所有语言中保持原样。",
+    "basedOn": "草稿依据",
+    "section": {
+      "why_us": "关于我们",
+      "why_you": "联系贵方的原因",
+      "share": "可共享的资源",
+      "check": "专家应先核查的内容",
+      "ask": "下一步"
+    },
+    "notFound": "未找到此关联。",
+    "back": "返回{name}",
+    "template": {
+      "familySubject": "我们的孩子刚被诊断为{condition}",
+      "familyBody": "{name}您好：\n\n我们的孩子最近被诊断为{condition}。我们通过 Zebratlas 找到了贵组织。\n\n{why}\n\n我们希望联系其他家庭，并了解可以参加的研究或患者登记项目。您能帮助我们建立联系吗？\n\n谢谢！\n[您的姓名]",
+      "groupSubject": "合作：{condition}与{name}",
+      "groupBody": "{name}您好：\n\n我负责一个{condition}患者互助组织。我们认为两个社群可能面临相同身体过程的问题。\n\n{why}\n\n我们希望讨论各自已建立的资源以及可共享的内容，使两个组织的家庭受益。制定计划前，应请专家核查此关联。\n\n未来几周内，能否安排一次30分钟的会议？\n\n祝好，\n[您的姓名]",
+      "note": "这是简单模板。连接 Zebratlas 服务器后，草稿会依据关联记录生成并核查。",
+      "share": "家庭常问的问题清单，以及我们与研究团队的联系渠道。",
+      "check": "针对共同身体过程的问题开展研究，是否能服务两个组织。",
+      "ask": "两个理事会之间首次30分钟的通话。",
+      "whyUs": "我们是面对{condition}的家庭。"
+    },
+    "verified": "此草稿已人工对照以下来源核查。",
+    "send": {
+      "form": "复制消息并打开对方的联系表单",
+      "site": "复制消息并打开对方页面"
+    },
+    "sendCopied": "已复制，请粘贴到对方页面。",
+    "sendHint": "我们复制消息，供您粘贴到对方页面。我们不会以您的名义发送任何内容。",
+    "nothingSent": "邮件应用将打开此消息。只有您自行发送，消息才会发出。",
+    "generate": "生成另一份草稿",
+    "generating": "正在生成草稿…",
+    "unavailable": "目前无法生成草稿，现有草稿仍保留在此。",
+    "apply": "应用生成的草稿",
+    "to": "收件人",
+    "sendVia": "发送方式",
+    "validatorOk": "草稿中的每个理由都有来源支持。",
+    "validatorFail": "部分理由无法与来源对应，请核查。"
+  },
+  "hood": {
+    "title": "证据与处理详情",
+    "lead": "Zebratlas 中的每个关联都指向其依据的具体记录。",
+    "forCard": "卡片：{name}",
+    "chooseCard": "从任一卡片打开“证据与处理详情”，查看完整路径。",
+    "path": "图中的路径",
+    "pathLead": "每行表示两个对象之间的关联及其支持记录。",
+    "edgeKind": {
+      "observed": "来源明确记载",
+      "extracted": "模型从文本提取",
+      "inferred": "Zebratlas 计算得出",
+      "hypothesis": "待验证的假设"
+    },
+    "evidence": "{n, plural, other {#条记录}}",
+    "prov": "溯源链（PROV-O）",
+    "entities": "来源文件",
+    "activities": "处理步骤",
+    "version": "版本",
+    "retrieved": "获取日期",
+    "sha": "SHA-256",
+    "licence": "许可",
+    "agent": "软件",
+    "llm": "语言模型调用",
+    "llmNone": "未使用语言模型。",
+    "llmCached": "来自缓存",
+    "llmFresh": "新调用",
+    "validator": "语句验证",
+    "validatorChecked": "{n, plural, other {已核查#句话}}",
+    "integrity": "图完整性检查",
+    "integrityLead": "于{date}对整个图执行。",
+    "integrityNone": "服务器尚未提供检查结果。",
+    "counts": "图的规模",
+    "checkOk": "通过",
+    "checkFail": "{n, plural, other {#个问题}}",
+    "rdf": "下载此疾病的图（RDF Turtle）",
+    "rdfMissing": "下载 RDF 需要 Zebratlas 服务器。",
+    "raw": "原始记录（JSON）",
+    "sourceList": "所有来源及其版本",
+    "noProv": "未找到此项的溯源记录。",
+    "recordsTitle": "来源记录",
+    "reason": "此关联的依据",
+    "purpose": {
+      "curated": "人工核查的证据路径",
+      "why_sentence": "关系说明",
+      "message_template": "消息模板",
+      "partner_proposal": "合作提案",
+      "outreach_message": "联络消息"
+    },
+    "origin": {
+      "curated": "人工核查",
+      "llm": "助手",
+      "template": "模板",
+      "lexical": "记录名称匹配"
+    }
+  },
+  "pricing": {
+    "title": "家庭免费使用，组织可使用专门工具。",
+    "lead": "家庭使用本站始终免费，无需账户。组织可付费使用更多功能。",
+    "placeholder": "方案和价格正在制定，确定后将在此公布。",
+    "comingSoon": "即将推出",
+    "available": "现已提供",
+    "promiseTitle": "我们的承诺",
+    "featuresFor": "包含功能",
+    "hint": "{feature}：包含于组织方案",
+    "hintLink": "查看方案",
+    "hintAlerts": "新研究和互助组织通知",
+    "hintExport": "数据导出与 API 访问",
+    "hintWorkspace": "理事会共享工作区",
+    "free": "免费",
+    "perMonth": "每月{price}"
+  },
+  "impact": {
+    "title": "Zebratlas 可能节省的时间",
+    "lead": "同一个目标，比较使用与不使用 Zebratlas 的情况。这些数字基于假设，尚非实测结果。",
+    "placeholder": "时间对比正在准备，完成后将在此显示。",
+    "today": "目前",
+    "withAtlas": "使用 Zebratlas",
+    "total": "总计：{value}",
+    "factor": "基准情景下约快{factor}倍",
+    "assumptions": "假设",
+    "sources": "来源",
+    "chartLabel": "同一目标的两种所需时间：目前为{today}，使用 Zebratlas 为{atlas}。",
+    "step": "步骤",
+    "duration": "所需时间",
+    "scenarios": "其他情景",
+    "scenario": "从{today}变为{atlas}：约快{factor}倍",
+    "milestone": "阶段目标"
+  },
+  "assistant": {
+    "free": "免费助手",
+    "left": "{n, plural, =0 {今日请求次数已用完} other {今日剩余#次请求}}",
+    "own": "或使用您自己的密钥或本地模型",
+    "quota": "免费助手已达今日上限，明天可再次使用。您现在可以使用自己的密钥或本地模型。",
+    "noKey": "无需密钥。"
+  },
+  "question": {
+    "title": "共同研究问题",
+    "none": "尚未记录此疾病的共同研究问题。",
+    "status": {
+      "proposed": "已提出，尚未验证",
+      "running": "正在验证",
+      "answered": "已解答"
+    },
+    "concerns": "此问题涉及的社群",
+    "for": "支持证据",
+    "against": "反对证据",
+    "unknown": "未知",
+    "experiment": "可判定的关键实验",
+    "who": "可提供帮助的人",
+    "firstStep": "第一步",
+    "join": "参加：联系研究团队",
+    "contribute": "添加证据",
+    "open": "证据与实验",
+    "experts": "可咨询的专家候选人（通过其机构联系）",
+    "drugs": "针对这些疾病或基因开展临床研究的药物（临床阶段不代表已证实有效）",
+    "communities": "{n, plural, other {社群}}",
+    "scientificTerm": "科学术语",
+    "everyCure": {
+      "title": "Every Cure 预测",
+      "body": "连接已准备就绪，待 Every Cure 确认数据条款后显示。",
+      "link": "everycure.org"
+    },
+    "lead": "答案可能同时帮助{name}及其他社群的问题：支持与反对证据、关键实验及可执行者。"
+  },
+  "questions": {
+    "hypothesis": {
+      "shared_process": "{genes}是否在{process}中存在共同问题？"
+    },
+    "why": {
+      "shared_process": "这{communities}个社群各有一个与{process}相关的基因。如果问题相同，同一研究方向可能帮助所有社群。{more, plural, =0 {} other {此问题还涉及另外#个基因。}}"
+    },
+    "shared": {
+      "process": "共同过程：{process}"
+    },
+    "term": {
+      "pathway": "{pathway} ({id})"
+    },
+    "process": {
+      "connect": "脑细胞如何连接",
+      "release": "脑细胞如何释放信号",
+      "calming": "大脑的抑制性信号",
+      "go_signal": "大脑的主要兴奋性信号",
+      "dopamine": "大脑的多巴胺信号",
+      "heart_signal": "心脏的电信号",
+      "electric": "神经细胞的电信号",
+      "calcium": "细胞如何让钙进入",
+      "tuning": "脑细胞之间的连接如何增强或减弱",
+      "passing": "脑细胞如何传递信号",
+      "memory": "记忆如何运作",
+      "growth_signal": "脑细胞的生长信号",
+      "brain_growth": "大脑如何生长并建立连接",
+      "recycling": "细胞如何分解并回收物质",
+      "intake": "细胞如何摄取物质",
+      "energy": "细胞如何产生能量",
+      "surface_anchor": "细胞如何将蛋白质固定在表面",
+      "protein_building": "细胞如何合成蛋白质",
+      "cell_death": "细胞死亡如何被调控",
+      "unmapped": "相同身体过程"
+    },
+    "for": {
+      "statement": "{condition}: {statement}"
+    },
+    "against": {
+      "finding": "{explanation}",
+      "same_gene_different_mechanism": "相同基因，病因可能不同（{gene}）：{why}",
+      "mechanism_split": "同一疾病内部病因也可能不同（{gene}）：{why}",
+      "lookalike": "表现相似，病因可能不同（{gene}）：{why}",
+      "variant_level": "同一基因的不同变化作用不一定相同：有些使基因失去功能，有些改变其功能。基因层面的关联未必适用于每种变异。"
+    },
+    "unknown": {
+      "validate": "尚待核查：{text}",
+      "functional_coverage": "{gene}：ClinVar 记录了{variants}种基因变异中{with_functional_data}种的功能实验。"
+    },
+    "experiment": "与{conditions}相关的变异是否破坏{pathway}中同一种可测量功能？",
+    "experiment_note": "支持结果：{support} 质疑结果：{challenge}",
+    "bridge": {
+      "worked_on": "{gene}：公开记录中有{grants, plural, other {#项资助}}、{papers, plural, other {#篇论文}}和{trials, plural, other {#项临床试验}}提及",
+      "identity": {
+        "same": "同一人（依据研究者 ID 关联）",
+        "possible": "可能是同一人：依据姓名和单位关联，未依据 ID"
+      },
+      "suggestion": "可能适合咨询{genes}共同病因的专家（我们的建议）。请通过{institution}联系。"
+    },
+    "drug": {
+      "indication": "{drug}在{condition}的临床研究中已达到{stage}（Open Targets；这不证明其有效）。",
+      "indication_related": "{drug}在相关疾病{condition}的临床研究中已达到{stage}（Open Targets；这不证明其有效）。",
+      "target": "{drug}作用于{gene}（{mechanism}）；最远临床阶段：{stage}（Open Targets；这不证明其有效）。"
+    }
+  },
+  "people": {
+    "suggestion": "我们的建议"
+  },
+  "demo": {
+    "item": {
+      "pricing": {
+        "title": "面向组织",
+        "text": "服务的潜在付费方式。"
+      },
+      "ask": {
+        "title": "助手",
+        "text": "依据图回答问题，每句话注明来源。"
+      },
+      "review": {
+        "title": "审核队列",
+        "text": "提交内容在显示前接受核查的地方。"
+      },
+      "story": {
+        "title": "STXBP1 案例",
+        "text": "家庭页面：可联系的互助组织、开放的研究及各自来源。"
+      },
+      "communities": {
+        "title": "共同问题的组织：STXBP1 与 SNAP25",
+        "text": "已人工核查的 SNAP25 社群与 Simons Searchlight 关联及合作提案。"
+      },
+      "gap": {
+        "title": "尚未找到互助组织的疾病",
+        "text": "如实说明：无确切匹配、最相关的互助组织及未解问题。"
+      },
+      "hood": {
+        "title": "证据与处理详情",
+        "text": "每个关联的完整路径：来源、版本、指纹、PROV-O 和语言模型调用。"
+      },
+      "impact": {
+        "title": "节省时间",
+        "text": "10倍情景：比较目前所需时间与通过 Zebratlas 的路径，并列出假设。"
+      }
+    },
+    "title": "演示与评估",
+    "lead": "面向评委和审核者的资料，产品内未链接此页面。"
+  },
+  "suggest": {
+    "missing": "请告知我们遗漏的互助组织、研究或数据集。",
+    "add": "添加"
+  },
+  "legal": {
+    "about": {
+      "title": "关于 Zebratlas",
+      "lead": "Zebratlas 帮助面对罕见遗传病的家庭和患者互助组织找到可提供帮助的人。",
+      "howTitle": "信息依据",
+      "how": "我们关联疾病与基因数据库、研究登记系统、研究资助、论文和患者组织网站中的公开记录。每个关联都显示来源及核查日期。",
+      "limitsTitle": "服务局限",
+      "limits": "我们不提供医疗建议，也不评判治疗方案。我们可能遗漏互助组织和研究，尤其是非英语来源中的信息。未找到结果时，会明确说明并显示已搜索的来源。",
+      "helpTitle": "补充缺失信息",
+      "help": "患者组织、登记项目和研究人员可补充遗漏信息。所有提交内容均经核查后才会显示。",
+      "whoTitle": "项目发起",
+      "who": "Zebratlas 起源于第7届全球 AI 黑客松（Hack-Nation，挑战5）。代码开源。"
+    },
+    "sources": {
+      "lead": "Zebratlas 展示的信息来自这些来源。每项注明许可、所用版本及来源要求的署名。",
+      "licence": "许可",
+      "version": "版本",
+      "attribution": "署名",
+      "confirm": "条款待确认",
+      "code": "我们的代码开源。各来源的数据受其各自许可约束。",
+      "use": {
+        "orphanet": "罕见病、相关基因、发生频率和起病时间。",
+        "hpo": "体征和症状，用于比较表现相似的疾病。",
+        "mondo": "跨数据库统一的疾病名称和代码。",
+        "g2p": "哪些基因变化引起哪些疾病及其作用方式。",
+        "clingen": "基因致病证据的强度。",
+        "hgnc": "基因的官方名称及别名。",
+        "go": "每个基因在细胞中的功能，用于寻找影响相同过程的疾病。",
+        "reactome": "基因共同参与的身体过程。",
+        "clinvar": "已知会致病的具体基因变化。",
+        "ctgov": "研究和登记项目、参与者招募状态及官方联系方式。",
+        "reporter": "研究资助：谁在研究哪个基因。",
+        "pubmed": "谁发表了哪些基因相关论文。仅保存书目信息。",
+        "wikidata": "多语言疾病名称。",
+        "orgs": "患者组织的名称、国家、语言和联系渠道。"
+      }
+    },
+    "partners": {
+      "lead": "Zebratlas 尚无正式合作伙伴。",
+      "text": "我们希望与患者组织、登记项目和研究网络合作，保持条目准确并关联其数据。若您代表这些机构，请告知现有资源。"
+    },
+    "contact": {
+      "lead": "如有问题、纠错或建议，请联系我们。",
+      "mailTitle": "电子邮件",
+      "fixTitle": "纠错",
+      "fix": "使用条目信息来源下的“报告错误”，我们会将其交由相应人员核查。",
+      "medical": "我们无法回答医疗问题，请咨询您的医生。",
+      "a11yTitle": "无障碍与反馈",
+      "a11y": "我们致力于达到 WCAG 2.2 的 AA 级。如遇使用障碍或有任何反馈，请联系上方地址。",
+      "formTitle": "联系我们",
+      "message": "您的消息",
+      "send": "发送",
+      "sent": "谢谢，我们将通过电子邮件回复。",
+      "invalid": "请输入电子邮箱和消息。"
+    },
+    "privacy": {
+      "lead": "无需账户即可使用 Zebratlas，且不受跟踪。",
+      "noneTitle": "无跟踪",
+      "none": "我们不使用分析工具、广告或跟踪 Cookie，也不出售或共享数据。",
+      "accountTitle": "创建账户时",
+      "account": "我们保存您的邮箱、可选显示名、安全形式的密码和您保存的内容。一个 Cookie 用于保持登录。您可随时删除账户及其全部内容。",
+      "contributeTitle": "提交纠错或数据时",
+      "contribute": "我们保存提交内容，以及您自愿提供的姓名和联系方式，以便审核人员询问。获接纳的内容显示来源，不显示您的联系方式。",
+      "languageTitle": "文档与搜索",
+      "language": "粘贴或上传文档后，服务器会先移除明显的身份标识，再提取搜索词。搜索框旁的提示会在发送前注明可能接收文本的处理方。文档在内存中处理，随后删除，仅保留文件指纹、大小和处理时间。若登录并选择保存，文档将在账户中加密，可在“您的数据”中查看、下载或删除。我们不会代您发送消息。",
+      "logsTitle": "服务器日志",
+      "logs": "服务器短期记录 IP 地址等技术信息，以防止服务被滥用。",
+      "rightsTitle": "您的权利",
+      "rights": "根据 GDPR，您可查询我们保存的个人数据，要求更正或删除，并向数据保护机构投诉。",
+      "controllerTitle": "数据责任方"
+    },
+    "imprint": {
+      "lead": "依据德国数字服务法（DDG）第5条提供的信息。",
+      "operatorTitle": "运营者",
+      "contactTitle": "联系",
+      "operator": "Johannes Mitschunas",
+      "contactForm": "联系表单",
+      "private": "Zebratlas 是 Johannes Mitschunas 的个人项目，并非 Friedrich Schiller University Jena 提供的服务。",
+      "street": "Inselplatz 5",
+      "city": "07743 Jena",
+      "country": "德国",
+      "email": "johannes.mitschunas@uni-jena.de"
+    }
+  },
+  "data": {
+    "title": "关联您的数据",
+    "lead": "请告知我们遗漏的组织、研究或数据集。所有提交内容均经核查后才会显示。",
+    "field": {
+      "name": "登记系统、数据集或资源名称",
+      "organisation": "组织",
+      "what": "现有资源",
+      "url": "链接（网址）",
+      "licence": "许可或使用条款",
+      "licenceHint": "例如 CC BY 4.0 或“需申请”。",
+      "ids": "所用标识符",
+      "idsOther": "其他标识符",
+      "description": "描述"
+    },
+    "submit": "提交审核",
+    "kind": {
+      "registry": "患者登记系统",
+      "dataset": "数据集",
+      "knowledge_graph": "知识图谱",
+      "endpoint": "API 或 SPARQL 端点",
+      "mapping": "映射文件",
+      "other": "其他"
+    },
+    "error": {
+      "invalid": "请输入邮箱以及链接或描述。",
+      "unavailable": "目前无法提交，请稍后再试。",
+      "rate_limited": "此处提交次数过多，请过几分钟再试。",
+      "generic": "发生错误，请重试。"
+    },
+    "linkOrDescription": "链接或描述",
+    "storage": "我们保存提交内容用于审核，并可能通过邮件询问。所有内容经核查后才会显示。"
+  },
+  "help": {
+    "result": {
+      "link": "我们的数据来源",
+      "title": "阅读结果及其来源",
+      "text": "疾病页面显示患者互助组织、目前接收参与者的研究和专科中心。每个条目下的“信息来源”显示出处与上次核查日期。"
+    },
+    "contact": {
+      "title": "联系互助组织或研究团队",
+      "text": "“联系对方”打开可编辑消息。复制后通过组织自己的网站、表单或邮箱发送。我们不会代您发送。",
+      "link": "查找互助组织"
+    },
+    "contribute": {
+      "title": "纠错或补充信息",
+      "text": "若条目有误或信息缺失，请使用来源下的“报告错误”。所有内容经核查后才会显示。如需删除或更正您的个人数据，请使用“申请删除或更正”。",
+      "link": "联系我们"
+    },
+    "data": {
+      "title": "关联您的数据",
+      "text": "登记项目、研究组和组织可提供数据集、登记系统、知识图谱或端点的信息。提供链接或简短描述及邮箱即可。",
+      "link": "提供数据"
+    },
+    "account": {
+      "title": "您的账户与数据",
+      "text": "无需账户。创建账户后可保存页面、消息和文档，并随时下载或删除全部内容。",
+      "link": "登录或创建账户"
+    },
+    "search": {
+      "title": "搜索",
+      "text": "在每页顶部的搜索框输入文本。输入时会突出显示本页匹配内容；“搜索”会查询整个 Zebratlas。也可粘贴或附加医生来信，在搜索前编辑提取的词。",
+      "link": "前往搜索"
+    }
+  },
+  "checked": {
+    "title": "针对{subject}已核查的范围",
+    "matched": "{n, plural, other {#项匹配}}",
+    "none": "无匹配",
+    "find": {
+      "names": "疾病名称及别名（Mondo、Orphanet、OMIM）",
+      "genes": "基因名称与符号（HGNC）",
+      "codes": "疾病代码（MONDO、ORPHA、OMIM）",
+      "text": "输入句子中的基因或疾病名称"
+    }
+  },
+  "search": {
+    "hint": "可直接输入问题或粘贴文本。",
+    "matches": "本页找到{n}项，按 Enter 跳至下一项。",
+    "noMatches": "本页没有结果。“搜索”会搜索整个 Zebratlas。",
+    "filters": "筛选",
+    "kindLegend": "显示",
+    "kind": {
+      "condition": "疾病",
+      "gene": "基因",
+      "patient_group": "患者互助组织",
+      "study": "研究与登记项目",
+      "model": "模型与样本",
+      "therapy": "治疗项目",
+      "funding": "资助",
+      "paper": "论文"
+    },
+    "country": "国家",
+    "language": "语言",
+    "recruiting": "仅显示目前接收参与者的研究",
+    "consent": "文档将发送至{processor}提取搜索词，处理后立即删除。",
+    "rights": "您的权利",
+    "save": "保存到我的账户（加密）",
+    "extract": "提取搜索词",
+    "extracting": "正在读取文档",
+    "found": "已找到以下搜索词。搜索前可修改或删除任一词。",
+    "remove": "移除{term}",
+    "addTerm": "添加搜索词",
+    "searchTerms": "使用这些词搜索",
+    "intakeUnavailable": "目前无法读取文档，请稍后再试。",
+    "intakeError": "无法读取文档，可附加其他文件。",
+    "attach": "附加文档",
+    "fileError": "请选择不超过5 MB的 PDF、DOCX 或 TXT 文件。",
+    "localConsent": "我们的服务器从文档中提取搜索词后立即删除文档，不发送给模型。",
+    "checkingProcessor": "正在确认文档处理方…",
+    "model": "由{model}提取的搜索词。",
+    "localTerms": "搜索词由我们的服务器提取，未使用模型。",
+    "noTerms": "未找到搜索词，可自行添加。",
+    "saved": "已保存到账户。查看您的数据。"
+  },
+  "explore": {
+    "title": "研究社群关系图",
+    "lead": "{name}位于中心，周围是涉及相同身体过程的社群。越近、越粗表示关联越强。选择一个社群可将其置于中心。",
+    "show": "显示",
+    "has": {
+      "group": "有患者互助组织",
+      "assets": "有研究或登记项目"
+    },
+    "apply": "应用",
+    "graphLabel": "与{name}关联的社群关系图",
+    "legend": "实心圆：可联系的患者组织或研究团队。空心圆：尚无已知联系对象。",
+    "listTitle": "与{name}关联的社群",
+    "toCommunities": "现有资源及联系对象"
+  },
+  "form": {
+    "required": "必填",
+    "optional": "选填",
+    "email": "您的邮箱",
+    "name": "您的姓名",
+    "describeIt": "请描述"
+  },
+  "removal": {
+    "link": "申请删除或更正",
+    "title": "申请删除或更正",
+    "lead": "若希望删除或更正 Zebratlas 展示的您或您组织的信息，或反对其使用，请在此告知。无需账户。",
+    "type": "请求类型",
+    "types": {
+      "remove": "删除",
+      "correct": "更正",
+      "object": "反对使用"
+    },
+    "concerns": "涉及内容",
+    "concernsHint": "条目链接、姓名或 ORCID，或简短描述。",
+    "details": "其他需要说明的信息",
+    "handling": "我们通过邮件确认请求，可能请您证明信息与您相关，并在30天内作出决定。",
+    "submit": "提交请求",
+    "sentTitle": "已收到请求",
+    "sent": "谢谢。我们将通过邮件确认请求，并在30天内作出决定。",
+    "error": {
+      "invalid": "请输入邮箱，选择请求类型，并说明涉及内容。",
+      "unavailable": "目前无法提交，请改为联系：",
+      "rate_limited": "此处请求过多，请过几分钟再试。",
+      "generic": "发生错误，请重试。"
+    }
+  },
+  "connectionMap": {
+    "title": "关联及其证据",
+    "lead": "选择社群或生物通路，查看已记录的关联。",
+    "overview": "概览",
+    "count": "{n}组关联",
+    "partial": "已加载{total}个单元中的{n}个。概览包含所有返回的分组。",
+    "unavailable": "关联证据暂不可用，上方已显示支持服务联系方式。",
+    "pathGap": "已加载的证据中没有通向此组织的已记录路径。",
+    "inference": "涉及相同通路是研究线索，不能证明疾病机制或治疗相同。",
+    "unknown": "未记录",
+    "selected": "所选组织",
+    "bounded": "此视图展示返回结果的子集，缺失项不代表已确认不存在。",
+    "fixture": "C 评审的固定证据，非实时数据",
+    "expand": "展开关联",
+    "collapse": "收起关联",
+    "contact": "官方联系方式",
+    "close": "关闭",
+    "diagnosis": "诊断",
+    "pathway": "通路注释",
+    "other": "其他基因或疾病",
+    "community": "社群",
+    "asset": "研究或资源",
+    "contrary": "相反证据",
+    "relations": {
+      "has_associated_gene": "具有关联基因",
+      "serves_gene": "支持此基因存在变异的人",
+      "participates_in": "有此通路注释",
+      "names_gene": "在研究记录中提及基因",
+      "studies_condition": "按此疾病索引",
+      "serves_condition": "支持此疾病患者",
+      "held_by": "保管方",
+      "sponsored_by": "记录的申办方"
+    },
+    "locator": "记录位置",
+    "hashScope": "哈希范围"
+  },
+  "facts": {
+    "person_same": "{name}与{other}是同一个人。"
+  },
+  "verify": {
+    "record": {
+      "partial": "已核查的记录一致；部分记录尚未核查。",
+      "unavailable": "没有可供核查的源记录。"
+    }
+  },
+  "about": {
+    "title": "工作原理",
+    "lead": "图谱将家庭和患者组织与可能提供帮助的人员及研究联系起来，每条关系都显示来源。",
+    "s1Title": "每种疾病一个统一标识",
+    "s1Text": "我们将主要疾病目录（MONDO、Orphanet、OMIM、HPO）整合为每种疾病一条记录，并保留所有来源标识。",
+    "s2Title": "有来源的关系",
+    "s2Text": "患者组织、研究、登记系统、研究人员、论文和资助与疾病相连。每条关系保留来源记录、日期及数字指纹。",
+    "s3Title": "通俗表述，逐条核查",
+    "s3Text": "语言模型仅根据关联记录撰写通俗说明和消息草稿。验证程序检查每句话是否引用记录。",
+    "s4Title": "依据共同机制，不仅看名称",
+    "s4Text": "疾病按基因、生物学过程及特征性症状分组。表现相似但病因不同的疾病会明确标注。",
+    "s5Title": "全球信息，多语言支持",
+    "s5Text": "查找、翻译各语言的来源，并对应到同一种疾病。原文始终保留。",
+    "s6Title": "自行运行",
+    "s6Text": "代码、数据处理流程和图谱导出均开放。仓库README提供运行全部流程的单条命令。",
+    "numbersTitle": "当前图谱",
+    "privacyTitle": "您的隐私",
+    "privacyText": "您可以不注册账户进行搜索。保存对话是可选的。我们绝不出售数据。"
+  },
+  "theme": {
+    "dark": "深色模式"
+  },
+  "chart": {
+    "sector": {
+      "groups": "组织",
+      "studies": "研究",
+      "people": "研究人员",
+      "funding": "资助"
+    },
+    "label": "{name}关系图：中心是疾病，周围是组织、研究和研究人员",
+    "none": "未找到"
+  },
+  "api": {
+    "error": {
+      "focus_required": "请选择一个条目。",
+      "unit_limit": "上限须在1至500之间。"
+    }
+  },
+  "coverage": {
+    "outside_verified_neighbourhood": "我们对此疾病的已核实证据有限，可能还有其他研究。"
+  },
+  "connections": {
+    "why": {
+      "project": "{organisation}的此研究项目提及{subject}。"
+    }
+  },
+  "backend": {
+    "integrity": {
+      "contract": {
+        "identity-merge-has-rule-evidence": "每个SSSOM别名均可追溯到合并活动及通过哈希绑定的版本化映射行",
+        "edge-endpoint-resolves": "每条边的起点和终点均对应关系允许类型的节点，不存在悬空边",
+        "edge-has-provenance": "每条边至少有1条包含实体、记录位置及sha256的来源记录，并有生成活动",
+        "node-has-provenance": "每项研究、资助、论文、人员、组织和资源至少有1条带sha256的来源记录",
+        "edge-id-unique": "边标识（from|relation|to）唯一，平行证据合并到同一条边",
+        "record-entity-has-checksum": "每条记录对应的来源文件均有已记录的sha256",
+        "record-has-licence": "每条记录的来源文件均注明许可证及类别：open / share_alike / non_commercial / unknown",
+        "asset-has-access-route": "每项资源均注明持有方或获取方式，含URL或持有者",
+        "candidate-not-merged": "candidate_same_as候选对不会合并为同一节点；候选是关系，不是合并（D30）",
+        "source-header-checksums-match": "所有已加载的数据源均通过缓存头校验和检查。"
+      },
+      "problem": {
+        "identity_activity": "缺少身份合并活动",
+        "identity_derivation": "缺少成员派生或映射行",
+        "identity_rule": "规则未标版本或证据不完整",
+        "record_index": "记录{r}超出范围",
+        "record_entity": "记录{arg0}引用未知实体",
+        "record_checksum": "记录{arg0}缺少sha256",
+        "endpoint_from": "起点{arg0}未连接节点",
+        "endpoint_to": "终点{arg0}未连接节点",
+        "endpoint_kind": "{arg0}应为{from} → {to}，实际为{f} → {t}",
+        "duplicate_edge": "共{n}条边使用此标识",
+        "entity_licence": "实体{arg0}无许可证记录",
+        "person_orcids": "ORCID数量：{arg0}；标识：{arg1}",
+        "orcid_people": "ORCID对应{arg0}个人员节点：{arg1}",
+        "different_orcids": "ORCID不同：{a}与{b}",
+        "no_record": "无来源记录",
+        "unknown_activity": "未知活动",
+        "no_checksum": "无sha256",
+        "no_access": "无获取途径",
+        "self_link": "节点自连接",
+        "header_checksums": "有{n}项缓存头校验和检查失败。"
+      }
+    },
+    "account": {
+      "error": {
+        "unauthorized": "请登录后继续。",
+        "bad_credentials": "邮箱地址或密码不正确。",
+        "invalid": "请检查必填项及其内容，然后重试。",
+        "not_found": "未找到此项。",
+        "forbidden": "您无权修改此项。",
+        "conflict": "此更改与已有项目冲突。请重新加载并检查后再试。",
+        "rate_limited": "尝试次数过多，请稍后再试。",
+        "unavailable": "账户功能暂不可用。您仍可不登录进行搜索。",
+        "internal": "无法完成此账户请求，请稍后再试。"
+      },
+      "export": {
+        "credentials": "此下载不包含密码哈希或会话令牌。我们仅存储密码哈希及每个会话令牌的指纹。",
+        "public_data": "疾病记录及来源属于公开数据，与您的账户分开。收藏项包含其关联记录的标识。",
+        "network_data": "您的账户不保存IP地址或浏览器信息。"
+      },
+      "data": {
+        "contributions_unavailable": "暂时无法加载您的提交。"
+      },
+      "deleted": {
+        "account": "您的账户已删除。",
+        "sessions": "您已从所有设备退出登录。",
+        "documents": "已删除{n}份保存文档及用于读取它们的密钥。",
+        "saved": "已删除{n}项收藏和{conversations}段对话。",
+        "contributions_not_connected": "此服务器不存储提交。",
+        "contributions_none": "您没有提交记录。",
+        "contributions_credited": "按您的选择，{n}份已接受提交会保留在图谱中并署您的姓名；您的邮箱和账户关联已移除。",
+        "contributions_anonymised": "{n}份已接受提交会保留在图谱中，不含您的姓名、邮箱或账户关联。"
+      }
+    },
+    "ask": {
+      "error": {
+        "context_too_large": "对话上下文过多，请开始新对话。",
+        "empty_question": "请输入问题或选择检索任务。",
+        "question_too_long": "问题请勿超过{limit}个字符。",
+        "generic": "发生了错误，请重试。"
+      },
+      "attribute": {
+        "inheritance": "遗传方式",
+        "onset": "首次出现症状的年龄"
+      },
+      "prevalence": {
+        "figure": "报告数值：{value}"
+      },
+      "fragment": {
+        "retrieved_date": "，获取日期：{date}",
+        "checked_date": "；核查日期：{d}",
+        "countries": "；国家：{arg0}",
+        "sponsor": "；发起方：{arg0}",
+        "country": "，位于{c}",
+        "description": "：{d}",
+        "verified_date": "；官方渠道核实于{d}",
+        "affiliation": "，所属机构：{a}",
+        "funded_range": "，资助年份：{a}–{b}",
+        "funded_year": "，资助于{a}",
+        "paper_year": "（{y}）",
+        "match_reason": "［匹配依据：{reason}］"
+      },
+      "need": {
+        "groups": "患者组织或专业中心",
+        "studies": "研究",
+        "papers": "论文",
+        "grants": "NIH科研项目",
+        "patient_group": "患者互助组织",
+        "open_study": "进行中或计划中的研究或登记系统",
+        "researcher": "研究人员",
+        "project": "科研项目"
+      },
+      "frequency": {
+        "always": "所有记录病例均有",
+        "very_often": "大多数记录病例有",
+        "often": "经常",
+        "sometimes": "有时",
+        "rarely": "很少",
+        "not": "记录病例均未见"
+      },
+      "kind": {
+        "any": "关系",
+        "study": "研究",
+        "trial": "临床试验",
+        "registry": "患者登记系统",
+        "natural_history": "疾病自然史研究",
+        "observational": "观察性研究",
+        "expanded_access": "扩大使用计划",
+        "patient_group": "患者互助组织",
+        "expert_centre": "专科中心",
+        "researcher": "研究人员",
+        "grant": "科研项目",
+        "sponsor": "研究发起方",
+        "institution": "机构",
+        "organisation": "组织"
+      },
+      "status": {
+        "any": "任何已记录状态",
+        "open": "进行中或计划中",
+        "recruiting": "正在招募",
+        "closed": "已关闭或已非现行"
+      },
+      "assets": {
+        "selection": "{kind}资源，状态：{status}"
+      },
+      "relation": {
+        "studies_condition": "针对该疾病登记的研究",
+        "names_gene": "提及基因",
+        "about_gene": "涉及基因",
+        "about_condition": "涉及",
+        "author_of": "是作者，作品为",
+        "principal_investigator_of": "负责人，项目为",
+        "sponsored_by": "发起方为",
+        "awarded_to": "授予对象为",
+        "serves_condition": "支持患者，疾病为",
+        "serves_gene": "支持有基因变异的人群，基因为",
+        "same_as": "为同一人，对应",
+        "held_by": "保管方",
+        "model_of": "研究模型，对象为",
+        "studied_for": "正在开发或研究，用于",
+        "targets": "靶向基因",
+        "resource_for": "研究资源，用于",
+        "funds": "资助研究，对象为",
+        "claims_about": "含提取且已核对引文的表述，涉及",
+        "has_phenotype": "具有特征",
+        "orthologous_to": "为对应基因，对应",
+        "gene_associated_with_condition": "关联对象为",
+        "candidate_same_as": "可能相同，对应",
+        "related_to": "相关对象为"
+      },
+      "note": {
+        "corrected_spelling": "未找到直接匹配，已按修正拼写“{fixed}”检索",
+        "genes_shown": "共关联{arg0}个基因，显示6个",
+        "symptoms_shown": "共记录{arg0}项症状，显示8项",
+        "source_unloaded": "因来源不可用，无法在{source}核查{what}",
+        "exact_connection": "至少找到一项直接关联的{what}",
+        "broader_groups": "关系中列出{related}个面向更广泛疾病的患者组织",
+        "links_shown": "显示10条关系，另有更多已记录关系",
+        "conditions_shown": "{arg1}关联{arg0}种疾病，显示8种",
+        "shared_researchers": "{la}研究人员{arg0}人，{lb}研究人员{arg1}人，共同研究人员{arg2}人，显示{arg3}人",
+        "counts": "找到{arg0}项{what}（{exact}项直接关联疾病或其基因，{arg1}项通过更广泛的疾病群或多基因关系关联），按关联强度显示前{shown}项",
+        "gene_conditions": "另有{arg0}种疾病共有{arg1}，显示5种",
+        "symptom_threshold": "没有疾病达到与{arg0}共有{MIN_SHARED}项不常见症状的检索阈值",
+        "cause_comparison_unavailable": "无法比较这些结果中记录的病因。共有症状本身不能证明共有病因",
+        "gene_results": "{arg1}关联{arg0}种疾病，显示{arg2}种",
+        "process_unavailable": "Reactome及Gene Ontology过程记录不可用，无法检索“{process}”",
+        "no_path": "未找到最多{MAX_DEPTH}条关系连接{arg0}与{arg1}的记录路径",
+        "path_length": "最短记录路径：{arg0}条关系"
+      },
+      "fact": {
+        "recorded_symptom": "{arg0}（{arg1}）有症状{arg2}",
+        "symptom_conditions": "图谱中有{arg0}种疾病列出{term}或其更具体形式",
+        "gene_condition_link": "{symbol}与{arg0}关联",
+        "symptom_frequency": "{name}有{term}：报告为{arg0}（频率{raw}）",
+        "symptom_possible": "{name}可能包括{term}",
+        "matched_record": "“{text}”通过{how}“{matched}”匹配{arg0}{arg1}（{arg2}）",
+        "candidate_condition": "“{text}”的候选疾病：{arg0}（{arg1}）",
+        "definition": "{name}（{id}）：{arg0}",
+        "rare_classification": "{name}（{id}）被归类为罕见病",
+        "synonyms": "{name}的其他名称：{arg0}",
+        "attribute": "{name}的{what}：{arg0}",
+        "prevalence": "{name}（{arg1}）的{arg0}：{value}",
+        "connections_summary": "已核查来源为{name}或其基因列出{studies}项研究（{open}项进行中或计划中）及{groups}个患者组织或专业中心",
+        "prevalence_missing": "Orphanet未记录{name}（{id}）的患病率数值",
+        "causal_gene_missing": "Orphanet及OMIM均未记录{name}（{id}）的致病基因",
+        "symptoms_missing": "Human Phenotype Ontology未记录{name}（{id}）的症状",
+        "record_definition": "{arg0}（{arg1}）：{arg2}",
+        "term_definition": "{arg0}{def}",
+        "parent_condition": "在MONDO疾病层级中，{label}（{cid}）属于{anc_name}（{anc}）的一种",
+        "study": "{arg0}（{arg1}）：{arg2}。状态：{arg3}{sponsor}{countries}{checked}",
+        "organisation": "{arg0}：{arg1}{place}{about}{verified}",
+        "researcher": "{arg0}是研究人员{aff}{checked}",
+        "grant": "{arg0}（{arg1}）是在{arg2}开展的NIH资助科研项目{years}",
+        "paper": "{arg0}（{arg1}）是发表于{arg2}的论文{year}",
+        "gene_association": "{arg0}（{arg1}）是与{arg2}（{arg3}）关联的基因：{assoc}（来源：{arg4}）",
+        "recorded_relationship": "{arg0}与{arg2}的关系：{arg1}{reason}",
+        "gene_identity": "{gene}（{id}）是基因“{name}”。{aliases_count, plural, =0 {} other {其他已记录符号：{aliases}。}}",
+        "related_shared_symptoms": "{condition}（{id}）与{query}共有{count}项已记录症状：{symptoms}。{shared_gene, select, true {这两种疾病也共有一个相关基因。} other {}}"
+      },
+      "chip": {
+        "invalid": "无法执行此任务。请检查必需的搜索词和记录标识。"
+      },
+      "response": {
+        "planning_fallback": "助手无法选择检索任务，Zebratlas改用关键词匹配。",
+        "save_failed": "无法保存此对话，请在离开页面前复制。"
+      },
+      "template": {
+        "no_result": "未找到此任务有来源支持的结果。请核查搜索词或尝试其他任务。",
+        "no_facts": "Zebratlas没有此问题的有来源信息。"
+      },
+      "coverage": {
+        "source_unloaded": "无法核查{arg0}。来源状态：{arg1}",
+        "gene_subset": "在{arg0}检索了这些基因：{arg1}。{arg3}不在检索范围内，其{what}仍未核查",
+        "none_found": "在{arg2}未找到与{arg0}（{arg1}）或其基因关联的{what}（检索：{arg3}{when}）"
+      },
+      "list": {
+        "more": "{remaining, plural, =0 {{items}} other {{items}及另外#项}}"
+      },
+      "term": {
+        "label": "{name}（{id}{plain_state, select, present {；{plain}} other {}}）"
+      },
+      "validation": {
+        "no_model": "未请求使用模型。",
+        "validator": "助手回答未通过来源核查。",
+        "provider": "助手无法生成回答。",
+        "no_facts": "没有可用的有来源事实。",
+        "other": "使用了模板回答。"
+      },
+      "choice": {
+        "both": "基因及症状",
+        "gene": "基因",
+        "symptom": "症状"
+      }
+    },
+    "contribute": {
+      "check": {
+        "sample_found": "已核查样本含{kind}相关证据，需审核人员验证。",
+        "sample_not_found": "已核查样本没有{kind}相关证据，完整来源中可能存在。",
+        "known_source_matched": "此来源URL已收录，请在重复添加前审核。",
+        "known_source_unmatched": "已核查列表中未找到匹配的来源URL。",
+        "description_only": "审核人员需先根据您的描述识别来源，再进行核查。",
+        "snapshots": "为复查保留了{total}份响应快照中的{retained}份，每份响应均注明存储状态。",
+        "duplicate_source_matched": "另一份提交也引用此来源，需审核人员比较。",
+        "duplicate_source_unmatched": "待审核或已接受的提交中未找到匹配来源。",
+        "relationship_unmapped": "添加关系前，审核人员需核查您描述的关系。",
+        "no_url": "未提供链接。",
+        "url_ok": "页面可打开。",
+        "url_http_error": "页面返回错误（HTTP {arg0}）。",
+        "url_blocked": "此地址指向专用网络，未打开。",
+        "url_invalid": "此网址无法由我们打开。",
+        "url_too_large": "页面过大，无法自动核查。",
+        "url_unreachable": "当前无法访问页面。",
+        "no_quote": "未提供引文。",
+        "quote_no_url": "引文没有附链接，无法核查。",
+        "quote_found": "页面包含所引文字。",
+        "quote_not_found": "已核查文本中未找到所引文字，审核人员可直接查看页面。",
+        "quote_unchecked": "无法以文本读取页面，因此未核查引文。",
+        "identity_resolved": "已记录条目：{arg0}。",
+        "identity_kind_mismatch": "{arg0}记录类型为{arg1}，此字段要求{arg2}。",
+        "identity_unknown_id": "未找到标识{id}对应的条目。",
+        "identity_ambiguous": "“{label}”匹配多个条目，审核人员将选择一个。",
+        "identity_candidates": "“{label}”没有完全匹配的名称，相似条目需审核。",
+        "identity_new": "“{label}”无匹配记录，审核人员将判断是否添加。",
+        "identity_not_found": "已核查记录中未找到“{label}”。",
+        "edge_missing": "无法读取此关系。",
+        "edge_found": "此关系已记录。",
+        "reviewed_connection": "此关系由经审核的提交添加。",
+        "connection_not_recorded": "已核查记录中未找到此关系。",
+        "duplicate_unchecked": "找到疾病或基因后才核查重复。",
+        "duplicate_curated": "此关系已根据整理后的来源记录。",
+        "related_curated": "这些条目间已记录另一种关系。",
+        "conflict_contribution": "另一份提交指出此关系有误。",
+        "no_duplicate": "提交队列中未找到匹配报告。",
+        "duplicate_pending": "其他人也报告了同样内容。",
+        "conflict_curated": "此提交质疑整理来源中的关系，审核人员将比较双方来源。",
+        "disputed_suggestion": "此提交质疑另一份提交已添加或建议的关系。",
+        "contact_same": "此联系方式已记录。",
+        "contact_differs": "提交的联系方式与记录不同。",
+        "contact_already_reported": "其他人也报告了同一联系方式问题。",
+        "duplicate_contribution": "此关系已由经审核的提交添加。",
+        "connection_awaiting_review": "有人已建议同一关系，正在等待审核。",
+        "new_connection": "已核查记录中未找到匹配关系。"
+      },
+      "error": {
+        "invalid": "请检查必填项及内容后重新提交。",
+        "not_found": "未找到此提交。",
+        "transition": "无法对状态为{from}的提交执行{action}。",
+        "blocked": "接受此提交前，请处理阻断性核查结果。",
+        "stale": "此提交已变更，请重新加载后再试。",
+        "unauthorized": "请以审核人员身份登录后继续。",
+        "forbidden": "您无权执行此操作。",
+        "rate_limited": "提交次数过多，请在{seconds}秒后再试。",
+        "internal": "无法处理此提交，请稍后再试。"
+      },
+      "check_kind": {
+        "licence": "许可",
+        "formats": "数据格式",
+        "identifiers": "标识符"
+      }
+    },
+    "write": {
+      "template": {
+        "greeting": "您好，{recipient}：",
+        "role": {
+          "parent": "我们的孩子被诊断为{condition}。",
+          "patient": "我患有{condition}。",
+          "carer": "我在照护一位{condition}患者。",
+          "group_leader": "我负责一个{condition}患者组织。",
+          "researcher": "我是研究{condition}的科研人员。",
+          "clinician": "我是为{condition}患者提供诊疗的临床医生。"
+        },
+        "found": "我在Zebratlas上找到了您的联系方式。",
+        "check_links": "在规划合作前，需要由专家评估这些关联。",
+        "meeting": "未来几周内是否可以安排一次30分钟的通话？",
+        "ask": "能否告知我们如何参与，或应该联系谁？",
+        "closing": "此致，敬礼",
+        "closing_named": "此致，敬礼\n{sender}",
+        "subject": "咨询{condition}"
+      }
+    },
+    "api": {
+      "error": {
+        "matcher_busy": "匹配服务繁忙，请稍后重试。",
+        "phenotype_bounds": "表型标识过多或过长。",
+        "uri_too_long": "请求地址过长。",
+        "internal": "无法完成请求，请重试。",
+        "focus_required": "请选择一个条目。",
+        "unit_limit": "上限须在1至500之间。",
+        "condition_unknown": "未找到疾病{id}。",
+        "condition_retired": "条目{id}已停用，请打开替代条目。",
+        "item_unknown": "未找到记录{id}。",
+        "scorer_unknown": "评分方法{name}未知，请选择fusion、atlas或resnik。",
+        "gene_unknown": "未找到基因{id}。",
+        "job_unknown": "任务{job}未知。",
+        "question_unknown": "未找到研究问题{id}。",
+        "question_id": "问题标识须采用condition~pathway格式。",
+        "cluster_unknown": "未找到{id}对应的研究群。",
+        "card_unknown": "此联系人未关联所选疾病。",
+        "llm_unavailable": "写作助手不可用。"
+      },
+      "related": {
+        "warming_up": "正在加载相关疾病，请过几秒再试。",
+        "unavailable": "相关疾病暂不可用，请稍后再试。"
+      },
+      "questions": {
+        "warming_up": "正在加载研究问题，请过几秒再试。",
+        "unavailable": "研究问题暂不可用，请稍后再试。"
+      },
+      "clusters": {
+        "warming_up": "正在加载研究群，请过几秒再试。"
+      }
+    },
+    "questions": {
+      "clinvar_counts": "这些数值指ClinVar提交记录，不是患者或家庭人数。",
+      "drug_evidence": "Open Targets记录了此药的临床阶段，但这不能证明其对这些疾病有效。",
+      "design": {
+        "assay": "请领域专家选择{pathway}的定量检测，并确认能测量两种疾病中相关的功能。",
+        "controls": "将两种疾病中携带已验证变异的模型与匹配的校正对照比较。批次随机化，并进行盲法分析。",
+        "rescue": "加入改变所选通路的对照，并为每种疾病模型设置校正或功能挽救条件。检查细胞健康，以区分通路效应与非特异性损伤。",
+        "strata": "比较效应和功能挽救反应前，分别分析每种疾病及各变异效应组。"
+      },
+      "validate": {
+        "annotation": "通路注释不能证明共有疾病机制或治疗反应。",
+        "models": "专家须选择具体通路指标、相关细胞类型及变异的已验证模型，并核查模型是否可用。",
+        "plan": "试点估计变异程度后，预注册效应方向及决策标准。与统计学家规划独立生物学重复和样本量。",
+        "effects": "合并疾病组前，核查每个变异的效应和遗传方式。相反效应应分组分析。",
+        "findings": "解读共同检测结果前，审阅这些疾病相关的不确定性发现。"
+      },
+      "proposal": {
+        "question": "检验与{conditions}关联的变异是否破坏{pathway}中同一可测量功能。",
+        "support": "两种疾病模型均比对照呈现预定通路变化，且校正在两者中恢复相同指标。须独立重复验证。",
+        "challenge": "仅一种疾病改变指标，效应方向不兼容，或考虑细胞健康、批次影响后差异消失。"
+      },
+      "source": {
+        "clinvar": "{gene}：ClinVar记录了{variants}个基因变异。"
+      },
+      "list_note": "这些问题需要验证，按已记录证据和涉及社群排序。",
+      "rank_note": "排序反映涉及社群、记录中的支持以及已记录研究或研究人员，不表示假设成立的概率。"
+    },
+    "facts": {
+      "person_author": "{name}是{arg0}的作者。",
+      "person_lead": "{name}负责{arg0}。",
+      "study_indexed": "{arg0}（{arg1}）以{label}的MeSH术语{arg2}建立索引",
+      "study_registered": "{arg0}（{arg1}）针对{label}登记：{arg2}",
+      "organisation_condition": "{arg0}支持{label}患者",
+      "gene_condition": "{symbol}是导致{label}的基因",
+      "study_record": "{arg0}（{arg1}）：{arg2}",
+      "organisation_gene": "{arg0}支持有{symbol}变异的人群",
+      "condition_parent": "{label}属于{anc_name}的一种（{anc}，MONDO层级）",
+      "study_parent": "{arg0}（{arg1}）针对{anc_name}登记：{arg2}",
+      "organisation_parent": "{arg0}支持{anc_name}患者",
+      "work_record": "{arg0} {arg1}",
+      "work_gene": "{arg0}提及{symbol}（{arg1}）",
+      "condition_onset": "{arg0}记录的首次症状年龄：{arg1}",
+      "condition_prevalence": "{arg0} {arg1}：{arg2}（{arg3}）",
+      "condition_symptom": "{arg0}是{arg1}的已记录特征",
+      "condition_causal_gene": "{symbol}的变化被记录为{arg0}的病因",
+      "condition_definition": "{arg0}：{arg1}"
+    },
+    "cluster": {
+      "shared_records": "此群记录的过程：{processes}。记录的症状：{symptoms}。",
+      "counterexample": "本次分析将{condition}归入不同群。共用研究发现前，请核查已记录的相似性和差异。",
+      "stable": "改变起点和样本后重复分析，此分组仍保持。",
+      "unstable": "改变起点或样本后重复分析，此分组发生变化。"
+    },
+    "verify": {
+      "unreadable": "无法读取或核查来源。",
+      "record": {
+        "matched": "所有已核查来源记录均与其保存的指纹一致。",
+        "changed": "一条已核查来源记录已变更或无法读取。"
+      },
+      "file": {
+        "matched": "所有已核查来源文件均与建立此条目时记录的指纹一致。",
+        "changed": "一个来源文件已变更或无法读取。"
+      }
+    },
+    "related": {
+      "shared_gene": "两种疾病均涉及{gene}。记录的效应：此疾病为{here}，另一疾病为{there}。",
+      "effect_conflict": "{gene}的记录效应不同：此疾病为{here}，另一疾病为{there}。",
+      "shared_processes": "相关基因共有这些生物学过程：{processes}。",
+      "shared_symptoms": "记录的共有症状：{symptoms}。",
+      "cause_unknown": "已核查来源至少未记录一种疾病的致病基因，无法据此比较病因。",
+      "counter": {
+        "same_gene": "两种疾病中{gene}的记录效应不同。一种疾病的发现可能不适用于另一种。",
+        "within_condition": "Gene2Phenotype记录了此疾病中{gene}的不同效应。请核查哪个效应适用于所研究变异。",
+        "lookalike": "这些疾病有共有症状，但已记录的基因过程不同。相似症状本身不能证明共有病因。"
+      }
+    },
+    "resolve": {
+      "reconcile": {
+        "unconfigured": "助手不可用，搜索结果使用已记录的名称和编码。",
+        "certain": "在已记录名称和编码中找到匹配疾病。",
+        "no_candidates": "未找到可供助手核查的疾病记录。"
+      }
+    },
+    "models": {
+      "note": "请向模型持有者核查可用性、基因变异及与您疾病的相关性。"
+    },
+    "text": {
+      "sentences": "{sentences}"
+    },
+    "record": {
+      "statement": "{statement}"
+    },
+    "gaps": {
+      "missing": {
+        "patient_group": "列表中没有患者组织提及此疾病或其基因。请向遗传咨询师或相关患者组织询问家庭是否已建立联系。",
+        "patient_group_unloaded": "患者组织列表未加载，无法核查。请咨询遗传咨询师或相关患者组织。",
+        "open_study": "ClinicalTrials.gov中没有招募中或进行中的研究提及此疾病或其基因。请向附近专业中心咨询尚未登记的研究，并查看相关疾病研究。",
+        "registry": "没有患者登记系统或自然病程研究提及此疾病或其基因。可询问相关患者组织的登记系统是否纳入此基因，或加入更广泛疾病群的登记系统。",
+        "gene": "Orphanet及OMIM未记录此疾病的致病基因。请询问是否进行过遗传检测及发现了何种基因变化。",
+        "variant_effect": "Orphanet未记录基因变化如何致病：降低基因功能还是改变功能。请咨询专科医生。",
+        "prevalence": "Orphanet没有此疾病的患病率数值。患者登记系统及已发表病例报告可提供初步计数。",
+        "symptoms": "Human Phenotype Ontology（HPO）{n, plural, =0 {未记录此疾病的症状} other {仅记录此疾病的#项症状}}。患者登记系统或自然病程研究可记录这些症状。"
+      },
+      "question": {
+        "variant": "我们的{gene}变异是降低还是改变基因功能？这是否影响哪些治疗研究适用于我们？",
+        "centre": "是否有诊治许多此病患者的专业中心？我们能否获得转诊？",
+        "researchers": "哪些研究人员或研究正在研究{gene}？他们是否愿意听取我们的情况？",
+        "unregistered": "是否有即将开始、但尚未列入ClinicalTrials.gov的研究？"
+      },
+      "note": "这些信息未见于我们的来源。请带这些问题咨询专科医生。"
+    },
+    "coverage": {
+      "none": "在{sources}未找到{condition}记录（核查日期：{dates}）。这些来源之外可能有患者组织或研究。",
+      "partial": "在{source}仅检索了{genes}，未检索{missing}。",
+      "partial_no_gene": "在{source}仅检索了{genes}。此疾病没有已知基因，因此未纳入检索。",
+      "scope": {
+        "ctgov": "ClinicalTrials.gov登记研究，按名称、MeSH术语及基因匹配罕见病",
+        "reporter": "标题、摘要或关键词提及基因的NIH资助科研项目（NIH RePORTER）",
+        "pubmed": "标题或摘要提及基因的论文（PubMed最新5,000篇）",
+        "people": "对我们深入研究的至少两个基因有论文或资助的研究人员",
+        "hgnc": "每个基因的其他名称及旧符号（HGNC）",
+        "contacts": "与深入研究基因关联的研究联系人、负责人及地点",
+        "wikidata": "多语言疾病及基因名称（Wikidata，仅用于搜索）",
+        "orgs": "通过多语言网络及目录检索找到，并人工对照其自身页面核查的患者组织"
+      }
+    },
+    "why": {
+      "study_registered": "此{kind_label}针对{condition}登记。",
+      "study_gene": "此{kind_label}提及导致{condition}的基因{gene}。",
+      "study_broader": "此{kind_label}面向更广泛的{group}群，其中包含{condition}。",
+      "grant": "此NIH资助项目在{organisation}研究{about}。",
+      "org_condition": "{organisation}支持{condition}患者。",
+      "org_gene": "{organisation}支持有{gene}变异的人群，该基因导致{condition}。",
+      "org_broader": "{organisation}支持{group}患者，这是包含{condition}的更广泛疾病群。",
+      "researcher": "{name}撰写了{papers}篇关于{about}的论文{grants, plural, =0 {} other {，并负责#项NIH资助项目}}。"
+    },
+    "card": {
+      "subtitle": {
+        "study": "{kind_label} · {status_label}",
+        "grant": "{organisation}的{code}资助，{years}",
+        "kind": "{kind_label}"
+      },
+      "enrollment_note": "这是涵盖所有疾病和基因的整个研究的计划参与人数，不是此疾病的计数。"
+    },
+    "studykind": {
+      "trial": "临床试验在人群中检验治疗。",
+      "registry": "患者登记系统长期收集许多人的健康信息，供研究人员研究疾病。",
+      "natural_history": "自然病程研究追踪疾病随时间的发展，不提供新治疗。",
+      "observational": "观察性研究进行测量和记录，不提供新治疗。",
+      "expanded_access": "扩大使用计划在临床试验之外提供尚未批准的治疗。"
+    },
+    "channel": {
+      "ctgov_central_contact": "发起方在ClinicalTrials.gov列出的研究联系人",
+      "ctgov_contacts": "ClinicalTrials.gov中的研究联系人及地点",
+      "reporter_project": "NIH RePORTER项目页面，含首席研究人员和机构",
+      "orcid": "公开ORCID资料，含研究人员所属机构链接",
+      "pubmed_author": "其PubMed论文列表；所属机构注明可联系的单位",
+      "contact_form": "官方联系页面",
+      "website": "官方网站",
+      "none": "无已记录的公开联系方式",
+      "none_sponsor": "无已记录的公开联系方式。研究记录列有发起方。"
+    },
+    "connections": {
+      "none_found": "未找到{condition}的{kind_label}。{related, plural, =0 {} other {显示相关疾病的#项结果。}}"
+    },
+    "checked": {
+      "summary": "核查了{sources}个已加载来源，其中{matched}个有匹配。",
+      "matched": "{source}：我们的副本中有{n}个匹配项。",
+      "no_match": "我们的{source}副本中无匹配。",
+      "not_loaded": "{source}未加载。"
+    },
+    "intake": {
+      "consent": "遮盖标识信息后的文档将发送至{processor}以提取搜索词。",
+      "processor": {
+        "lexical": "在此服务器上提取术语，不调用模型。"
+      },
+      "model": {
+        "not_configured": "未配置模型，已在本地提取术语。",
+        "quota": "模型额度已用尽，已在本地提取术语。",
+        "unavailable": "模型不可用，已在本地提取术语。"
+      },
+      "redaction": {
+        "none": "未发现明显标识信息。",
+        "summary": "已移除的标识信息：{items}。",
+        "kind": {
+          "name": "移除的姓名：{n}项",
+          "date_of_birth": "移除的出生日期：{n}项",
+          "address": "移除的地址：{n}项",
+          "phone": "移除的电话号码：{n}项",
+          "email": "移除的邮箱地址：{n}项",
+          "record_number": "移除的记录编号：{n}项",
+          "insurance_number": "移除的保险号码：{n}项",
+          "iban": "移除的IBAN：{n}项"
+        }
+      },
+      "notice": {
+        "not_diagnosis": "提供研究和联系信息，不是诊断或治疗建议。"
+      },
+      "error": {
+        "invalid": "请检查文档及必填项。",
+        "too_large": "文档超过5 MB。",
+        "save_unavailable": "文档保存功能不可用。",
+        "sign_in_to_save": "请登录以保存此文档。",
+        "unsupported": "请使用PDF、DOCX或文本。"
+      }
+    },
+    "identity": {
+      "candidate_same_as": "可能与{target_label}（{target}）相同：名称匹配，但无权威映射确认。",
+      "candidate_source": "{source_id}名称相同，可能为同一疾病，但无权威映射确认。"
+    },
+    "match": {
+      "claim": {
+        "ranker_v3": "在未检出直接PMID重叠的{cases}个已发表病例中，预注册的排名融合主要遵循Resnik本体基线，并用图谱评分打破第一名并列，使精确首位命中率从{atlas_top1}（图谱）及{resnik_top1}（Resnik）提高至{fusion_top1}。按发表文献分组的增益95%区间为正，但前10名结果未改善。这是早期结果影响了设计的基准上的回顾性证据，并非临床验证。"
+      }
+    },
+    "find": {
+      "error": {
+        "query": "搜索请求无效。"
+      }
+    }
+  },
+  "content": {
+    "pricing": {
+      "s1": "家庭免费使用，组织工具正在规划。",
+      "s2": "不含税，适用税费另计",
+      "s3": "不声称已有客户、收入、付费意愿或市场规模",
+      "s4": "免费",
+      "s5": "家庭核心使用流程",
+      "s6": "有引用的证据及更新状态",
+      "s7": "官方公开联系方式",
+      "s8": "可编辑消息模板",
+      "s9": "多语言访问",
+      "s10": "可选账户及个人收藏",
+      "s11": "免费使用核心功能",
+      "s12": "组织",
+      "s13": "共享工作区及保存的地图和草稿",
+      "s14": "提醒",
+      "s15": "有额度的发现检索",
+      "s16": "官方渠道复查",
+      "s17": "有限额的支持",
+      "s18": "讨论试点——即将推出",
+      "s19": "企业与研究",
+      "s20": "团队工作区",
+      "s21": "有额度的发现检索",
+      "s22": "机会调研工作清单",
+      "s23": "须经许可的公开元数据API及批量导出",
+      "s24": "官方渠道复查",
+      "s25": "有限额的支持",
+      "s26": "讨论试点——即将推出",
+      "s27": "不出售患者数据，不提供私密临床数据",
+      "s28": "不接受付费排名，不允许赞助方控制更正",
+      "s29": "官方公开联系方式始终免费",
+      "s30": "不向机会调研人员分享家庭搜索内容或身份",
+      "s31": "公开元数据导出须逐一检查来源许可证",
+      "s32": "联系方式核实仅表示最近核查过官方公开渠道，不保证能够联系或获得回复",
+      "s33": "引荐仅在双方同意、另行限定范围后规划；尚未发送消息",
+      "s34": "保留更正的归属、审核人员、来源、时间、被替代说法及申诉途径"
+    },
+    "tenx": {
+      "s1": "更快做出合作决策：检验假设",
+      "s2": "这是未经测量的假设。未找到匹配的人工操作实测基线或图谱计时研究，并不代表治疗提速。",
+      "s3": "针对指定自然病程资源复用的、有日期的可行或不可行决定，由组织负责人及研究负责人或受委托研究者签署",
+      "s4": "寻找候选资源和人员",
+      "s5": "核对身份及适合程度",
+      "s6": "核查来源、时效和联系方式",
+      "s7": "准备经审核的简报和联络",
+      "s8": "双方共有的回应等待与人工签核",
+      "s9": "假定任务依次执行。如任务重叠，应按实际时间重新计算，不可累加并行工作时间。",
+      "s10": "假定已有持续维护的图谱。新领域须计入图谱建立、导入及志愿者和专家工作量。",
+      "s11": "当D=0时：M >= 10*A + 9*W。一般式：M >= 10*A + 9*(W+D)。"
+    },
+    "trail": {
+      "s1": "SNAP25社群",
+      "s2": "SNAP25社群",
+      "s3": "STXBP1和SNAP25影响脑细胞发送信号的机制，某些基因变化的影响方式不同。两社群均纳入Simons Searchlight；请向研究团队咨询参与或复用研究资源。",
+      "s4": "突触囊泡胞吐",
+      "s5": "脑细胞间的信号释放",
+      "s6": "这是复用研究基础设施的机会，不是治疗获益证据。",
+      "s7": "相同过程不等于相同缺陷：某些SNAP25及STXBP1变异会增加释放而非减少。采取共同方法前须分别比较变异。",
+      "s8": "目录中SNAP25疾病的名称和编码有冲突；我们关联基因社群，而非单一疾病编码。",
+      "s9": "可从美国以外参与，但当地采血须逐案审核。团队回复前，无法确定可用样本和细胞系。",
+      "s10": "伴癫痫的STXBP1脑病",
+      "s11": "Simons Searchlight研究团队",
+      "s12": "研究记录及官方项目均列研究协调员为参与和研究资源访问的联系人。",
+      "s13": "STXBP1与SNAP25社群：复用Simons Searchlight进行变异分层比较",
+      "s14": "Simons Searchlight研究团队，您好：\n\n我们正在探索STXBP1与SNAP25社群之间的研究比较，两者均列入Simons Searchlight。实验研究显示不同变异对突触释放的影响不同，因此我们会先区分变异，再考虑共同方法。\n\n请问研究者能否为此比较复用贵方的数据收集和访问流程？哪些数据和样本可用，又可以与谁讨论可行性？邀请家庭参与前，我们也希望确认国家、语言及变异方面的资格条件。\n\n谢谢！\n［您的姓名］\n［您的患者组织］",
+      "s15": "所选STXBP1与SNAP25变异是否在脑细胞信号释放上有相同缺陷？",
+      "s16": "若是，同一研究方向可能服务两个社群。",
+      "s17": "STXBP1脑病",
+      "s18": "SNAP25社群",
+      "s19": "一篇已发表病例系列中的人数",
+      "s20": "脑细胞间的信号释放",
+      "s21": "STXBP1 C180Y降低了小鼠神经元中的蛋白数量（蛋白不稳定性）。",
+      "s22": "SNAP25 I67N使释放机制不稳定，减少了神经元的自发及诱发释放。",
+      "s23": "SNAP25 V48F及D166Y增加自发释放，而非减少。",
+      "s24": "STXBP1 L446F（两个纯合病例）在神经元模型中增加了诱发传递。",
+      "s25": "在同一C180Y研究中，存在一份正常STXBP1拷贝时，测得的传递正常。",
+      "s26": "是否有功能挽救对两种基因型均有效：尚无实验。",
+      "s27": "哪些匹配细胞系和样本可用，以及由哪个实验室执行。",
+      "s28": "用匹配神经元及同一方案比较STXBP1 C180Y与分别指定的SNAP25变异（I67N与V48F/D166Y分开）：测定自发及诱发释放、即刻可释放池和同步性；使用等基因对照、独立培养及盲法分析。缺陷方向相反则不得合并。",
+      "s29": "这是拟议设计，可行性和统计功效仍待确定。",
+      "s30": "询问Simons Searchlight研究团队，其收集资源是否支持变异分层的STXBP1/SNAP25比较。",
+      "s31": "Simons Searchlight正在招募，涵盖伴癫痫的STXBP1脑病及SNAP25；研究协调员为统一联系人。",
+      "s32": "经审核后，可通过SFARI Base申请已有数据和生物样本。",
+      "s33": "Simons Searchlight研究SNAP25社群。",
+      "s34": "项目的官方联系页面。",
+      "s35": "患者的STXBP1变异（如C180Y）减少蛋白数量，实验支持蛋白不稳定性。",
+      "s36": "纯合STXBP1变异（L446F）在神经元模型中增加了诱发传递；并非所有变异都减少释放。",
+      "s37": "SNAP25参与囊泡融合；I67N减少释放，而V48F及D166Y增加自发释放。",
+      "s38": "美国以外的家庭可以参与；美国以外的采血须逐案审核。",
+      "s39": "该项目是自然病程数据库和生物样本库，不是治疗试验。",
+      "s40": "G2P将SNAP25疾病映射至MONDO:0014590，MONDO名称为先天性肌无力综合征18；这一命名冲突尚未解决。",
+      "s41": "一篇已发表病例系列描述了23名SNAP25变异携带者，混合了新病例与既往报告者，因此不能作为独立病例加到其他队列中。"
+    }
+  },
+  "maintenance": {
+    "title": "Zebratlas：找到同行的人。即将上线。",
+    "description": "Zebratlas将罕见病患者与患者组织、研究及专家联系起来。即将上线。",
+    "heading": "Zebratlas：找到同行的人。",
+    "body": "这份地图将罕见病患者与患者组织、研究、登记系统和专家联系起来，每条关系均可追溯至来源。",
+    "soon": "即将上线。"
+  },
+  "resources": {
+    "research": "研究资源",
+    "models": "模型、样本和数据",
+    "papers": "免费全文论文",
+    "funding": "研究资助",
+    "read": "阅读免费全文",
+    "request": "申请获取",
+    "apply": "提交获取申请",
+    "download": "下载",
+    "holderPage": "提供方官方网站",
+    "officialPage": "项目或资源的官方页面",
+    "source": "来源",
+    "searchElsewhere": "搜索其他来源",
+    "discoveryUnchecked": "这些是搜索链接；此处尚未核查其搜索结果。",
+    "availabilityUnknown": "尚未确认是否可获取及是否适合您的研究。",
+    "noRoute": "暂无经核实的获取途径。",
+    "cachedOnly": "仅核查已保存的证据；尚未实时核查来源。",
+    "reuseLicence": "全文再利用许可",
+    "unknown": "未知",
+    "recordLicence": "记录许可",
+    "fundingEvidence": "资助证据",
+    "verifyCached": "核查已保存的证据",
+    "cacheMatches": "已保存的证据一致",
+    "checkedCache": "已针对本次输入核查保存的来源",
+    "notChecked": "未针对本次输入核查",
+    "none": "在已核查的来源中未找到关联资源。其他资源可能仍然存在。",
+    "apiVerified": "已保存的美国国立卫生研究院 API 响应与该项目一致。",
+    "apiUnverified": "未能核实所有已保存的美国国立卫生研究院 API 响应。",
+    "evidenceUnavailable": "资助证据不可用或已发生变化。",
+    "organisation": "机构",
+    "funder": "资助方",
+    "years": "年份",
+    "scope": {
+      "exact": "明确提及此诊断",
+      "gene": "与致病基因关联；并非与此诊断精确匹配",
+      "condition": "通过与此基因关联的疾病建立联系",
+      "ortholog": "通过模式生物的基因建立联系",
+      "related": "相关研究；并非与此诊断精确匹配"
+    },
+    "accessConditions": "来源所述的获取条件"
+  }
+}

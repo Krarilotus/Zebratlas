@@ -1,0 +1,19 @@
+{
+  "source_url": "https://github.com/HerrMotz/Query-by-Graph",
+  "revision": "e18ba8f690cfa0876cb30f62dd71f5e1c2e5d2e1",
+  "permission": "D58: author permission, 2026-10-04, inclusion and redistribution in Zebratlas",
+  "author_website": "https://www.daniel-motz.de",
+  "editor_sha256": "cd4733a9254e00ccc8e5be82b2010a26b9e1f080f6edccd352574035053532b5",
+  "wasm_sha256": "92f16081bf3f81cf89a4bb0e0f546d9275dd685da30d63b77f3ac5076ad2a1e9",
+  "parser_sha256": "ba04eaaa0e53cad463a358e68d3b277793526ea6196b8224b40e869550109411",
+  "parser_adapter_source": "web/scripts/zebra-sparql-model.mjs",
+  "parser_adapter_sha256": "2be1ea66b06ad658fcab24f7719909069fbe890f3c9e0f5d0c51781640bcf1e7",
+  "parser": "@traqula/parser-sparql-1-1@1.4.0",
+  "generator": "@traqula/generator-sparql-1-1@1.4.0",
+  "limitations": "Supported SELECT AST edits preserve clauses. Advanced algebra uses bounded read-only branch projections and full constraint inspection; complete original bytes remain available.",
+  "prov:wasGeneratedBy": {
+    "operation": "vite-library-build",
+    "adapter": "web/scripts/query-graph-view-parser.mjs",
+    "adapter_sha256": "ad0299be704d6a710e4363eee75d4c0091a00aedd9daf9a7c4547b4f19ac420a"
+  }
+}

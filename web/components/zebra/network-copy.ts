@@ -1,0 +1,4 @@
+export const networkCopy = {
+  en: { title: "Rare-disease networks", close: "Close networks", support: "Patient and community support", research: "Research collaboration", data: "Data and matching", global: "Global", regional: "Regional", sources: "Source and access details", checked: "Source checked", privacy: "Use the programme’s approved consent and secure access process for patient or genetic data." },
+  de: { title: "Netzwerke für seltene Erkrankungen", close: "Netzwerke schließen", support: "Patienten- und Gemeinschaftshilfe", research: "Forschungskooperation", data: "Daten und Vernetzung", global: "Weltweit", regional: "Regional", sources: "Quelle und Zugangsdetails", checked: "Quelle geprüft", privacy: "Nutzen Sie für Patienten- oder genetische Daten das vorgesehene Einwilligungs- und sichere Zugangsverfahren des Programms." },
+} as const;

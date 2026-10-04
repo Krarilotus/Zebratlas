@@ -1,0 +1,23 @@
+[package]
+name = "atlas-ingest"
+description = "Rare-disease atlas ingest: HPO/MONDO/HPOA/Orphanet parsers, graph build, snapshot cache."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+atlas-core.workspace = true
+bincode.workspace = true
+csv.workspace = true
+flate2 = "1"
+humantime.workspace = true
+quick-xml.workspace = true
+indexmap.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+atlas-discovery = { path = "../atlas-discovery" }

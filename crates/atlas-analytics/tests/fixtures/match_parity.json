@@ -1,0 +1,426 @@
+[
+ {
+  "name": "dee",
+  "present": [
+   "HP:0001250",
+   "HP:0001263",
+   "HP:0001252"
+  ],
+  "excluded": [],
+  "canonical_present": [
+   "HP:0001250",
+   "HP:0001263",
+   "HP:0001252"
+  ],
+  "canonical_excluded": [],
+  "unknown": [],
+  "top": [
+   {
+    "disease_id": "MONDO:0012783",
+    "score": 4.364732207549899,
+    "probability": 0.003012323612920643,
+    "contributions": [
+     {
+      "query_term": "HP:0001250",
+      "kind": "exact",
+      "log_lr": 1.3946555352936778
+     },
+     {
+      "query_term": "HP:0001263",
+      "kind": "exact",
+      "log_lr": 1.4497295525211344
+     },
+     {
+      "query_term": "HP:0001252",
+      "kind": "exact",
+      "log_lr": 1.5203471197350877
+     }
+    ]
+   },
+   {
+    "disease_id": "MONDO:0014270",
+    "score": 4.364732207549899,
+    "probability": 0.003012323612920643,
+    "contributions": [
+     {
+      "query_term": "HP:0001250",
+      "kind": "exact",
+      "log_lr": 1.3946555352936778
+     },
+     {
+      "query_term": "HP:0001263",
+      "kind": "exact",
+      "log_lr": 1.4497295525211344
+     },
+     {
+      "query_term": "HP:0001252",
+      "kind": "via_descendant",
+      "log_lr": 1.5203471197350877
+     }
+    ]
+   },
+   {
+    "disease_id": "MONDO:0014271",
+    "score": 4.364732207549899,
+    "probability": 0.003012323612920643,
+    "contributions": [
+     {
+      "query_term": "HP:0001250",
+      "kind": "exact",
+      "log_lr": 1.3946555352936778
+     },
+     {
+      "query_term": "HP:0001263",
+      "kind": "exact",
+      "log_lr": 1.4497295525211344
+     },
+     {
+      "query_term": "HP:0001252",
+      "kind": "via_descendant",
+      "log_lr": 1.5203471197350877
+     }
+    ]
+   },
+   {
+    "disease_id": "MONDO:0013787",
+    "score": 4.285382260555264,
+    "probability": 0.002782533374097176,
+    "contributions": [
+     {
+      "query_term": "HP:0001250",
+      "kind": "exact",
+      "log_lr": 1.3686800488904172
+     },
+     {
+      "query_term": "HP:0001263",
+      "kind": "via_descendant",
+      "log_lr": 1.4237540661178738
+     },
+     {
+      "query_term": "HP:0001252",
+      "kind": "exact",
+      "log_lr": 1.4929481455469733
+     }
+    ]
+   },
+   {
+    "disease_id": "MONDO:0009855",
+    "score": 4.2379162262969015,
+    "probability": 0.0026535430954086926,
+    "contributions": [
+     {
+      "query_term": "HP:0001250",
+      "kind": "exact",
+      "log_lr": 1.3107740513129758
+     },
+     {
+      "query_term": "HP:0001263",
+      "kind": "exact",
+      "log_lr": 1.4418863750601085
+     },
+     {
+      "query_term": "HP:0001252",
+      "kind": "via_descendant",
+      "log_lr": 1.4852557999238178
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "marfan_like",
+  "present": [
+   "HP:0001166",
+   "HP:0001083",
+   "HP:0002616"
+  ],
+  "excluded": [
+   "HP:0001250"
+  ],
+  "canonical_present": [
+   "HP:0001166",
+   "HP:0001083",
+   "HP:0002616"
+  ],
+  "canonical_excluded": [
+   "HP:0001250"
+  ],
+  "unknown": [],
+  "top": [
+   {
+    "disease_id": "MONDO:0007947",
+    "score": 13.683195103490284,
+    "probability": 0.3059426920766595,
+    "contributions": [
+     {
+      "query_term": "HP:0001166",
+      "kind": "exact",
+      "log_lr": 4.084634528582201
+     },
+     {
+      "query_term": "HP:0001083",
+      "kind": "via_descendant",
+      "log_lr": 4.5268662435635205
+     },
+     {
+      "query_term": "HP:0002616",
+      "kind": "exact",
+      "log_lr": 5.071694331344563
+     }
+    ]
+   },
+   {
+    "disease_id": "MONDO:0017309",
+    "score": 13.683195103490284,
+    "probability": 0.3059426920766595,
+    "contributions": [
+     {
+      "query_term": "HP:0001166",
+      "kind": "exact",
+      "log_lr": 4.084634528582201
+     },
+     {
+      "query_term": "HP:0001083",
+      "kind": "exact",
+      "log_lr": 5.022904167175132
+     },
+     {
+      "query_term": "HP:0002616",
+      "kind": "exact",
+      "log_lr": 4.575656407732952
+     }
+    ]
+   },
+   {
+    "disease_id": "MONDO:0014831",
+    "score": 13.295632384899246,
+    "probability": 0.20764607855641912,
+    "contributions": [
+     {
+      "query_term": "HP:0001166",
+      "kind": "exact",
+      "log_lr": 3.790100981181318
+     },
+     {
+      "query_term": "HP:0001083",
+      "kind": "exact",
+      "log_lr": 4.728370619774249
+     },
+     {
+      "query_term": "HP:0002616",
+      "kind": "exact",
+      "log_lr": 4.77716078394368
+     }
+    ]
+   },
+   {
+    "disease_id": "MONDO:0007363",
+    "score": 11.935992126024638,
+    "probability": 0.05331377956335617,
+    "contributions": [
+     {
+      "query_term": "HP:0001166",
+      "kind": "exact",
+      "log_lr": 4.084634528582201
+     },
+     {
+      "query_term": "HP:0001083",
+      "kind": "exact",
+      "log_lr": 3.361878885950538
+     },
+     {
+      "query_term": "HP:0002616",
+      "kind": "exact",
+      "log_lr": 4.489478711491899
+     }
+    ]
+   },
+   {
+    "disease_id": "MONDO:0011431",
+    "score": 11.72009602414083,
+    "probability": 0.042961257632362686,
+    "contributions": [
+     {
+      "query_term": "HP:0001166",
+      "kind": "exact",
+      "log_lr": 4.013244532495528
+     },
+     {
+      "query_term": "HP:0001083",
+      "kind": "exact",
+      "log_lr": 3.524397815448313
+     },
+     {
+      "query_term": "HP:0002616",
+      "kind": "via_ancestor",
+      "log_lr": 4.182453676196988
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "alt_ids_and_unknown",
+  "present": [
+   "HP:0002279",
+   "HP:0000252",
+   "HP:0001249",
+   "HP:0002353",
+   "HP:9999999"
+  ],
+  "excluded": [
+   "HP:0000256",
+   "HP:0001263"
+  ],
+  "canonical_present": [
+   "HP:0001250",
+   "HP:0000252",
+   "HP:0001249",
+   "HP:0002353"
+  ],
+  "canonical_excluded": [
+   "HP:0000256",
+   "HP:0001263"
+  ],
+  "unknown": [
+   "HP:9999999"
+  ],
+  "top": [
+   {
+    "disease_id": "MONDO:0008874",
+    "score": 7.039878533372692,
+    "probability": 0.06347564917437395,
+    "contributions": [
+     {
+      "query_term": "HP:0001250",
+      "kind": "exact",
+      "log_lr": 1.2837239745863962
+     },
+     {
+      "query_term": "HP:0000252",
+      "kind": "exact",
+      "log_lr": 1.7341469767588642
+     },
+     {
+      "query_term": "HP:0001249",
+      "kind": "exact",
+      "log_lr": 1.2343948721123539
+     },
+     {
+      "query_term": "HP:0002353",
+      "kind": "exact",
+      "log_lr": 2.787612709915077
+     }
+    ]
+   },
+   {
+    "disease_id": "MONDO:0009532",
+    "score": 6.85627654667909,
+    "probability": 0.05282868755604707,
+    "contributions": [
+     {
+      "query_term": "HP:0001250",
+      "kind": "exact",
+      "log_lr": 1.2837239745863962
+     },
+     {
+      "query_term": "HP:0000252",
+      "kind": "exact",
+      "log_lr": 1.4396134293579814
+     },
+     {
+      "query_term": "HP:0001249",
+      "kind": "exact",
+      "log_lr": 1.3453264328196355
+     },
+     {
+      "query_term": "HP:0002353",
+      "kind": "exact",
+      "log_lr": 2.787612709915077
+     }
+    ]
+   },
+   {
+    "disease_id": "MONDO:0014949",
+    "score": 6.332876486394694,
+    "probability": 0.03130113340163638,
+    "contributions": [
+     {
+      "query_term": "HP:0001250",
+      "kind": "via_descendant",
+      "log_lr": 1.106973462841897
+     },
+     {
+      "query_term": "HP:0000252",
+      "kind": "via_descendant",
+      "log_lr": 1.5573964650143648
+     },
+     {
+      "query_term": "HP:0001249",
+      "kind": "via_descendant",
+      "log_lr": 1.0576443603678545
+     },
+     {
+      "query_term": "HP:0002353",
+      "kind": "via_descendant",
+      "log_lr": 2.610862198170578
+     }
+    ]
+   },
+   {
+    "disease_id": "MONDO:0009341",
+    "score": 6.332151241092373,
+    "probability": 0.03127844063158663,
+    "contributions": [
+     {
+      "query_term": "HP:0001250",
+      "kind": "exact",
+      "log_lr": 1.130503960252091
+     },
+     {
+      "query_term": "HP:0000252",
+      "kind": "exact",
+      "log_lr": 1.6073056761359767
+     },
+     {
+      "query_term": "HP:0001249",
+      "kind": "via_descendant",
+      "log_lr": 1.3027668184008396
+     },
+     {
+      "query_term": "HP:0002353",
+      "kind": "via_descendant",
+      "log_lr": 2.291574786303466
+     }
+    ]
+   },
+   {
+    "disease_id": "MONDO:0013277",
+    "score": 6.3033484984931984,
+    "probability": 0.03039038634977249,
+    "contributions": [
+     {
+      "query_term": "HP:0001250",
+      "kind": "exact",
+      "log_lr": 1.171511983979468
+     },
+     {
+      "query_term": "HP:0000252",
+      "kind": "exact",
+      "log_lr": 1.621934986151936
+     },
+     {
+      "query_term": "HP:0001249",
+      "kind": "via_descendant",
+      "log_lr": 1.1221828815054258
+     },
+     {
+      "query_term": "HP:0002353",
+      "kind": "via_descendant",
+      "log_lr": 2.3877186468563685
+     }
+    ]
+   }
+  ]
+ }
+]

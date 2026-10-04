@@ -1,0 +1,1707 @@
+{
+  "_meta": {
+    "locale": "ja",
+    "source": "en",
+    "machine_translated": false,
+    "reviewed": [],
+    "note": "英語からの機械翻訳。確認済み：en、de。",
+    "native_review": "pending",
+    "unit_errors": {
+      "author": "GPT-6.1-Sol",
+      "backcheck": "Entry selection and inclusive 1 to 500 limit retained.",
+      "native_reviewed": false
+    },
+    "bench_fixes": {
+      "keys": [
+        "coverage.outside_verified_neighbourhood",
+        "connections.why.project"
+      ],
+      "agent_authored": true,
+      "semantic_backcheck": true,
+      "native_speaker_reviewed": false
+    },
+    "agent_authored": true,
+    "author": "GPT-6.1-Sol (translate-world)",
+    "method": "Agent-written from intent; separate agent back-check; no translation provider.",
+    "source_sha256": "4df11cc7d75b7ea629f95600783cae894d63154423b5c9a8d3f80249ddd83893",
+    "source_fingerprint": "9e486cc693b33d0167ca991bab8c1bf9d0e8c0c42eefd70e6f8f405f909a4084",
+    "review_ref": "world-review-ja.json",
+    "reviewed_at": "2026-10-04T06:11:23.947585+00:00",
+    "bench_frontend": {
+      "agent_authored": true,
+      "semantic_backcheck": true,
+      "native_speaker_reviewed": false
+    }
+  },
+  "app": {
+    "name": "Zebratlas",
+    "promise": "希少疾患の患者会と研究",
+    "skip": "本文に移動",
+    "home": "Zebratlasのホーム",
+    "mainNav": "メインメニュー",
+    "footerNav": "Zebratlasについて",
+    "notAdvice": "Zebratlasは医療上の助言や診断を行いません。",
+    "free": "ご家族は無料で利用できます。アカウントは不要です。",
+    "sampleBadge": "サンプルデータ",
+    "sampleHint": "一部はテスト用のサンプルデータです。サンプルの団体は架空のものです。",
+    "loading": "読み込み中…",
+    "opensNewTab": "（新しいタブで開きます）",
+    "notFoundTitle": "ページが見つかりませんでした",
+    "notFoundLead": "リンクが古い可能性があります。ホームからもう一度検索できます。",
+    "backHome": "ホームに戻る",
+    "errorTitle": "エラーが発生しました",
+    "errorLead": "もう一度お試しください。続く場合は、時間をおいてお試しください。",
+    "tryAgain": "再試行",
+    "showMore": "{n, plural, other {あと#件を表示}}",
+    "curatedBadge": "人による確認済み",
+    "curatedHint": "このつながりは{date}に「情報の根拠」の情報源と照合し、人が確認しました。Zebratlasのサーバーではまだ計算していません。"
+  },
+  "nav": {
+    "about": "概要",
+    "pricing": "団体向け",
+    "signIn": "ログイン",
+    "saved": "保存済み",
+    "search": "検索",
+    "account": "アカウント",
+    "accountOf": "アカウント：{name}",
+    "signUp": "アカウント作成",
+    "signOut": "ログアウト",
+    "sources": "データの情報源とライセンス",
+    "contributeData": "データを提供",
+    "partners": "協力団体",
+    "contact": "お問い合わせ",
+    "privacy": "プライバシー",
+    "imprint": "運営者情報",
+    "openSource": "オープンソース",
+    "help": "ヘルプ",
+    "menu": "メニュー",
+    "underTheHood": "根拠と処理の詳細",
+    "impact": "時間短縮"
+  },
+  "language": {
+    "current": "言語：{name}",
+    "choose": "言語を選択",
+    "contentNote": "この文章の言語は{language}です。翻訳にはZebratlasのサーバーが必要です。",
+    "showOriginal": "原文を表示（{language}）",
+    "machineNote": "この文章はAIアシスタントが作成しました。母語話者による確認は未実施です。名前、コード、リンクは変更しません。",
+    "label": "言語"
+  },
+  "home": {
+    "label": "Zebratlasを検索",
+    "placeholder": "検索または文章を貼り付け",
+    "submit": "検索",
+    "welcome": "Zebratlasへようこそ",
+    "explore": "研究コミュニティのグラフを見る",
+    "title": "希少疾患の患者会と研究",
+    "lead": "診断名、遺伝子名、医師の説明の一文など、分かっていることを入力してください。どの言語でも検索できます。",
+    "examples": "検索例",
+    "exampleSentence": "娘にSTXBP1遺伝子の変異があります",
+    "rareExample": "まだ患者会が見つかっていない希少疾患の例",
+    "door": {
+      "research": "研究・企業向け：根拠を確認",
+      "org": "団体向けのプラン"
+    },
+    "doorsLabel": "その他の選択肢",
+    "specimen": "例：{name}",
+    "openSpecimen": "{name}の図を開く",
+    "figPeople": "{n, plural, other {研究者}}"
+  },
+  "find": {
+    "label": "再検索",
+    "chooseTitle": "疾患を選択",
+    "chooseLead": "「{q}」の検索結果",
+    "understood": "入力された文章から「{term}」を使いました。",
+    "via": {
+      "name": "名前が一致",
+      "alias": "この疾患の別名：{term}",
+      "gene": "遺伝子{term}の変化が原因",
+      "typo": "入力に近い候補：{term}",
+      "sentence": "文章内で遺伝子{term}を検出",
+      "id": "コード{term}が一致",
+      "symptom": "症状{term}が一致"
+    },
+    "noneTitle": "「{q}」はまだ見つかりません",
+    "emptyTitle": "Zebratlasを検索"
+  },
+  "condition": {
+    "more": "この疾患について詳しく",
+    "medicalNames": "医学的な名称",
+    "gene": "遺伝子",
+    "glossary": "医療用語",
+    "doctorQuestion": "{name}で子どもが参加できる研究やレジストリはありますか。近くの専門医はどなたですか。",
+    "forGroupsLink": "体内の同じ働きに関わる疾患の患者会",
+    "plainGene": "これは{gene}という遺伝子の変化による希少疾患です。",
+    "plainNoGene": "これは希少疾患です。",
+    "plainMore": "この疾患の専門医が、お子さんへの影響を説明できます。",
+    "definition": "医学的な説明",
+    "geneTitle": "{gene}関連疾患",
+    "figCases": "{n, plural, other {医学論文に記載された家族}}",
+    "figGroups": "{n, plural, other {患者会}}",
+    "code": "コード",
+    "groupsTitle": "患者さんとご家族の会",
+    "otherGroups": "{n, plural, other {{gene}のほかの患者会#件}}",
+    "studiesTitle": "参加できる研究",
+    "studiesLead": "現在参加者を募集している研究とレジストリです。患者レジストリは多くのご家族の健康情報を集め、研究に役立てます。",
+    "noOpenStudies": "この疾患について、現在参加者を募集している研究は見つかりませんでした。",
+    "closedStudies": "{n, plural, other {募集を締め切った研究・終了した研究#件を表示}}",
+    "doctorsTitle": "この疾患の専門医療機関",
+    "noDoctors": "この疾患の専門医療機関は見つかりませんでした。",
+    "askDoctor": "医師に尋ねる質問：",
+    "onwardLabel": "患者会・研究者向け",
+    "forGroupsLead": "共通の原因を持つほかの疾患と連絡先。",
+    "moreStudies": "さらに研究を表示（{n}件）",
+    "otherStudies": "その他の研究（{n}件）",
+    "onThisPage": "このページの内容",
+    "what": "この疾患について",
+    "notAlone": "人と研究",
+    "thisWeek": "今週できること",
+    "kindExplain": {
+      "registry": "レジストリは多くの人の健康情報を集め、研究を早く始めるために役立てます。",
+      "natural_history": "自然歴研究では、時間の経過とともに患者を追跡し、疾患の変化を調べます。",
+      "trial": "治療の臨床試験では、治療が安全で効果があるかを調べます。",
+      "observational": "観察研究では観察と測定を行い、治療は提供しません。",
+      "patient_group": "患者会は、同じ診断を受けた人の家族が運営します。",
+      "expert_centre": "専門施設には、この疾患に詳しい医師がいます。",
+      "researcher": "研究者はこの疾患を研究しており、新しい研究について知っている場合があります。",
+      "expanded_access": "早期アクセス制度では、研究への参加以外の形で、試験中の治療を受けられる場合があります。",
+      "organisation": "この疾患に取り組む団体です。",
+      "grant": "研究助成は研究プロジェクトの費用を支えます。研究チームが他の研究を知っている場合もあります。"
+    },
+    "figOpen": "{n, plural, other {参加者募集中の研究}}",
+    "shownOf": "{total}件中{shown}件を表示",
+    "view": {
+      "label": "この疾患の表示項目",
+      "overview": "全体表示",
+      "communities": "コミュニティ",
+      "evidence": "根拠",
+      "questions": "研究課題"
+    },
+    "step": {
+      "contact": "患者会に連絡する",
+      "join": "募集中の研究に、お子さんが参加できるか問い合わせる",
+      "doctor": "医師に相談する"
+    },
+    "studyKinds": "研究の種類",
+    "figExact": "{n, plural, other {この診断に対応する連絡先}}",
+    "figRelated": "{n, plural, other {関連するコミュニティ}}",
+    "figSearched": "{n, plural, other {検索した情報源}}"
+  },
+  "gap": {
+    "title": "この疾患の患者会や研究はまだ見つかりません",
+    "found": "{n, plural, =0 {見つかりませんでした} other {#件見つかりました}}",
+    "closest": "{n, plural, other {関連の近いコミュニティをあと#件}}",
+    "noneRelated": "関連するコミュニティも見つかりませんでした。以下の手順は引き続き利用できます。",
+    "unknownTitle": "情報源に記録のないこと",
+    "questionsTitle": "専門医への質問",
+    "notCovered": "この遺伝子はまだ検索していません",
+    "nearestGroup": "連絡できる、最も関連の近い患者会",
+    "nearestFor": "この患者会のご家族には、体内の同じ働きに影響する{condition}の方がいます。",
+    "sharedRegistry": "関連疾患のご家族を受け入れる研究",
+    "sharedRegistryFor": "{condition}と関連疾患を対象としています。ご家族が参加できるかご確認ください。",
+    "pubmed": "{gene}について論文を発表した研究者（PubMed）",
+    "searched": "検索した情報源",
+    "startTitle": "次のステップ",
+    "step": {
+      "contact_related": "最も近い疾患の患者会に連絡する",
+      "join_registry": "複数の遺伝子を対象とするレジストリに登録する",
+      "find_researchers": "研究者に連絡する",
+      "ask_doctor": "専門医に相談する"
+    },
+    "col": {
+      "source": "情報源",
+      "result": "結果",
+      "date": "検索日"
+    },
+    "notes": "{n, plural, other {検索内容に関する注記#件}}",
+    "noTarget": "連絡先はまだ見つかっていません"
+  },
+  "card": {
+    "kind": {
+      "patient_group": "患者会",
+      "registry": "患者レジストリ",
+      "natural_history": "自然歴研究",
+      "trial": "治療の研究",
+      "observational": "観察研究",
+      "expert_centre": "専門医療機関",
+      "researcher": "研究者",
+      "expanded_access": "早期アクセスプログラム",
+      "organisation": "団体",
+      "grant": "研究助成"
+    },
+    "match": {
+      "related": "関連疾患向け",
+      "exact": "この診断に対応",
+      "broad": "複数の疾患に対応"
+    },
+    "status": {
+      "recruiting": "参加者募集中",
+      "not_yet_recruiting": "募集開始前",
+      "active_not_recruiting": "実施中・新規募集なし",
+      "enrolling_by_invitation": "招待された方のみ",
+      "completed": "終了",
+      "terminated": "予定より早く中止",
+      "withdrawn": "開始前に取り下げ",
+      "suspended": "一時中断",
+      "unknown": "状況不明"
+    },
+    "why": "関連する理由",
+    "channel": {
+      "website": "ウェブサイト",
+      "contact_form": "問い合わせフォーム",
+      "email": "メール",
+      "study_contact": "研究の問い合わせ先",
+      "institution_page": "所属機関のページ",
+      "registry_record": "研究の連絡先",
+      "profile": "公開プロフィール",
+      "grant_page": "助成のページ"
+    },
+    "write": "連絡する",
+    "writeProposal": "提案を書く",
+    "checkedOn": "確認日：{date}",
+    "sample": "サンプル",
+    "sampleHint": "テスト用の架空の団体です。",
+    "askStudy": "研究チームに問い合わせる",
+    "where": "所在地",
+    "languages": "対応言語",
+    "serves": "対応するその他の疾患",
+    "more": "その他の連絡方法"
+  },
+  "know": {
+    "tier": {
+      "high": "公的な記録・公表された研究",
+      "moderate": "専門家の見解",
+      "low": "計算結果・未確認の情報"
+    },
+    "retrieved": "取得日：{date}",
+    "openRecord": "記録を開く",
+    "checksum": "フィンガープリント（SHA-256）",
+    "verify": "情報源を再確認",
+    "verifying": "確認中…",
+    "verifyResult": {
+      "unchanged": "前回の確認時から変わっていません。フィンガープリントが一致しています。",
+      "changed": "前回の確認後に記録が変更されています。原文をご確認ください。",
+      "unreachable": "現在、情報源にアクセスできません。"
+    },
+    "verifySample": "サンプルの確認です。実際の情報源には接続していません。",
+    "validatorOk": "このカードの各文には情報源の裏付けがあります。",
+    "validatorFail": "一部の文を情報源と照合できませんでした。",
+    "underTheHood": "記録の詳細",
+    "source": "情報源",
+    "noSource": "情報源の添付なし",
+    "sourcesMore": "{first}と{n, plural, other {ほか#件}}",
+    "correct": "誤りを報告",
+    "sourceNames": {
+      "orphanetEpidemiology": "Orphanetの疫学データ",
+      "similarity": "Zebratlasの類似度（症状と発症の仕組み）"
+    },
+    "title": "根拠を確認",
+    "lead": "記録",
+    "sources": "{n, plural, other {情報源#件}}",
+    "record": "記録",
+    "quote": "情報源からの引用",
+    "noSources": "情報源はまだ添付されていません。"
+  },
+  "community": {
+    "title": "関連するコミュニティ",
+    "why": "つながりの理由",
+    "shared": {
+      "symptoms": "共通する特徴的な症状",
+      "genes": "同じ遺伝子",
+      "processes": "体内の同じ働き"
+    },
+    "strength": {
+      "strong": "強いつながり",
+      "some": "一定のつながり",
+      "weak": "弱いつながり"
+    },
+    "assets": "整備された研究資源",
+    "assetType": {
+      "registry": "患者レジストリ",
+      "natural_history": "自然歴研究",
+      "trial": "治療の研究",
+      "observational": "観察研究",
+      "model": "実験モデル",
+      "grant": "研究助成",
+      "biobank": "バイオバンク"
+    },
+    "duplicate": "{ids}と重複する可能性があります。新たに作る前にご確認ください。",
+    "notSameTitle": "症状は似ていても原因が異なる疾患",
+    "looksLike": "似ている理由",
+    "differs": "異なる理由",
+    "peopleTitle": "これらのコミュニティにまたがって活動する人々",
+    "worksIn": "研究対象",
+    "noPeople": "これらのコミュニティにまたがって活動する人はまだ見つかりません。",
+    "none": "関連するコミュニティはまだ見つかりません。",
+    "shareTitle": "会の運営メンバーと共有",
+    "copyLink": "リンクをコピー",
+    "copied": "コピーしました",
+    "print": "印刷・PDFで保存",
+    "limits": "このつながりでは分からないこと",
+    "noUnlike": "関連の近い疾患の中では見つかりませんでした。",
+    "lead": "コミュニティや生物学的経路を選び、記録されたつながりを確認できます。",
+    "sameProcess": "体内の同じ働き",
+    "sameGene": "同じ遺伝子",
+    "checkedByHand": "{date}に人が確認",
+    "heldBy": "保管・管理：{name}",
+    "coversList": "対象：{list}",
+    "writeTo": "連絡先：{name}",
+    "questionTitle": "共通の未解決の研究課題",
+    "questionOpen": "根拠・検証に必要な実験・実施できる人",
+    "notSameLead": "これらの疾患は症状が似ていますが、原因は異なります。",
+    "showUnlike": "{n, plural, other {症状が似ている疾患#件を表示}}",
+    "alsoListed": "{list}にも掲載されています。同じ取り組みが両方のコミュニティに役立つ可能性があります。",
+    "mapLabel": "関連するコミュニティの地図。明るい点は体の仕組みに共通の問題がある疾患、白抜きの点は似ていても原因が異なる疾患を示します。",
+    "assetsCount": "{n, plural, =0 {まだ整備されたものはありません} other {整備された資源#件}}",
+    "covers": "対象",
+    "sponsor": "運営：{name}",
+    "figUnlike": "{n, plural, other {似ていても原因が異なる疾患}}",
+    "figAssets": "{n, plural, other {再利用できる研究・レジストリ}}"
+  },
+  "write": {
+    "title": "{name}に連絡",
+    "proposalTitle": "{name}への提案",
+    "lead": "自由に編集できます。ご自身で送信するまでは送られません。",
+    "subject": "件名",
+    "body": "本文",
+    "copy": "本文をコピー",
+    "copied": "コピーしました",
+    "mail": "メールアプリで開く",
+    "language": "文面の言語",
+    "languageApply": "変更",
+    "keep": "どの言語でも名前、コード、リンクは変更しません。",
+    "basedOn": "下書きの根拠",
+    "section": {
+      "why_us": "私たちについて",
+      "why_you": "連絡する理由",
+      "share": "共有できるもの",
+      "check": "専門家による事前確認が必要なこと",
+      "ask": "次の一歩"
+    },
+    "notFound": "このつながりは見つかりませんでした。",
+    "back": "{name}に戻る",
+    "template": {
+      "familySubject": "子どもが最近{condition}と診断されました",
+      "familyBody": "{name}様\n\n子どもが最近{condition}と診断されました。Zebratlasで貴会を知りました。\n\n{why}\n\nほかのご家族とお話しし、参加できる研究やレジストリについて伺いたいと思っています。つないでいただけますでしょうか。\n\nよろしくお願いいたします。\n[お名前]",
+      "groupSubject": "共同での取り組み：{condition}と{name}",
+      "groupBody": "{name}様\n\n{condition}の患者会を運営しています。私たちのコミュニティには、体内の同じ働きに関する問題があるのではないかと考えています。\n\n{why}\n\n双方のご家族に役立つよう、それぞれが整備した資源と共有できるものについて相談したいと思います。計画を立てる前に、専門家によるこのつながりの確認が必要です。\n\n今後数週間のうちに30分ほどお話しできますでしょうか。\n\nよろしくお願いいたします。\n[お名前]",
+      "note": "これは簡単なテンプレートです。Zebratlasのサーバーに接続すると、関連記録をもとに下書きを作成して確認します。",
+      "share": "ご家族からよく寄せられる質問の一覧と、研究チームの連絡先。",
+      "check": "体内の共通の問題についての研究が、双方に役立つかどうか。",
+      "ask": "双方の運営メンバーによる初回の30分の打ち合わせ。",
+      "whyUs": "私たちは{condition}とともに暮らす家族です。"
+    },
+    "verified": "この下書きは以下の情報源と照合し、人が確認しました。",
+    "send": {
+      "form": "本文をコピーして問い合わせフォームを開く",
+      "site": "本文をコピーして相手のページを開く"
+    },
+    "sendCopied": "コピーしました。相手のページに貼り付けてください。",
+    "sendHint": "相手のページに貼り付けるために本文をコピーします。代理で送信することはありません。",
+    "nothingSent": "この文面でメールアプリが開きます。ご自身で送信するまでは送られません。",
+    "generate": "別の下書きを作成",
+    "generating": "下書きを作成中…",
+    "unavailable": "現在、下書きの作成は利用できません。今の下書きは残っています。",
+    "apply": "作成した下書きを反映",
+    "to": "宛先",
+    "sendVia": "送信方法",
+    "validatorOk": "この下書きのすべての理由に情報源の裏付けがあります。",
+    "validatorFail": "一部の理由を情報源と照合できませんでした。確認してください。"
+  },
+  "hood": {
+    "title": "根拠と処理の詳細",
+    "lead": "Zebratlasの各つながりは、根拠となる記録に結び付いています。",
+    "forCard": "対象のカード：{name}",
+    "chooseCard": "各カードの「根拠と処理の詳細」から経路全体を確認できます。",
+    "path": "グラフ内の経路",
+    "pathLead": "各行は二つの対象のつながりと、それを裏付ける記録です。",
+    "edgeKind": {
+      "observed": "情報源に明記",
+      "extracted": "モデルが文章から抽出",
+      "inferred": "Zebratlasによる計算",
+      "hypothesis": "検証が必要な仮説"
+    },
+    "evidence": "{n, plural, other {#件の記録}}",
+    "prov": "由来の記録（PROV-Oチェーン）",
+    "entities": "情報源のファイル",
+    "activities": "処理手順",
+    "version": "バージョン",
+    "retrieved": "取得日",
+    "sha": "SHA-256",
+    "licence": "ライセンス",
+    "agent": "ソフトウェア",
+    "llm": "言語モデルの呼び出し",
+    "llmNone": "言語モデルは使用していません。",
+    "llmCached": "キャッシュから取得",
+    "llmFresh": "新しい呼び出し",
+    "validator": "記述の検証",
+    "validatorChecked": "{n, plural, other {#文を確認}}",
+    "integrity": "グラフの検証",
+    "integrityLead": "{date}にグラフ全体で実施しました。",
+    "integrityNone": "サーバーから検証結果がまだ届いていません。",
+    "counts": "グラフの規模",
+    "checkOk": "合格",
+    "checkFail": "{n, plural, other {#件の問題}}",
+    "rdf": "この疾患のグラフをダウンロード（RDF Turtle）",
+    "rdfMissing": "RDFのダウンロードにはZebratlasのサーバーが必要です。",
+    "raw": "未加工の記録（JSON）",
+    "sourceList": "すべての情報源とバージョン",
+    "noProv": "この項目の由来の記録は見つかりませんでした。",
+    "recordsTitle": "情報源の記録",
+    "reason": "このつながりの根拠",
+    "purpose": {
+      "curated": "手作業で確認した根拠の経路",
+      "why_sentence": "つながりの説明",
+      "message_template": "メッセージのひな形",
+      "partner_proposal": "協働の提案",
+      "outreach_message": "問い合わせメッセージ"
+    },
+    "origin": {
+      "curated": "手作業で確認",
+      "llm": "アシスタント",
+      "template": "ひな形",
+      "lexical": "記録された名称の一致"
+    }
+  },
+  "pricing": {
+    "title": "ご家族は無料。団体向けのツールも提供。",
+    "lead": "ご家族による利用は無料で、アカウントは不要です。団体は追加機能を有料で利用できます。",
+    "placeholder": "プランと料金は準備中です。決まり次第、このページに掲載します。",
+    "comingSoon": "近日公開",
+    "available": "利用可能",
+    "promiseTitle": "お約束",
+    "featuresFor": "含まれる機能",
+    "hint": "{feature}：団体向けプランに含まれます",
+    "hintLink": "プランを見る",
+    "hintAlerts": "新しい研究・患者会の通知",
+    "hintExport": "データのエクスポートとAPIアクセス",
+    "hintWorkspace": "運営メンバーの共同作業スペース",
+    "free": "無料",
+    "perMonth": "月額{price}"
+  },
+  "impact": {
+    "title": "Zebratlasで短縮できる時間の推定",
+    "lead": "同じ目標までの時間を、Zebratlasの利用あり・なしで比べます。数値は仮定であり、まだ実測値ではありません。",
+    "placeholder": "所要時間の比較は準備中です。準備でき次第、掲載します。",
+    "today": "現在",
+    "withAtlas": "Zebratlasを利用",
+    "total": "合計：{value}",
+    "factor": "基本ケースでは約{factor}倍の速さ",
+    "assumptions": "仮定",
+    "sources": "情報源",
+    "chartLabel": "同じ目標への二つの所要時間：現在は{today}、Zebratlasを使うと{atlas}。",
+    "step": "手順",
+    "duration": "所要時間",
+    "scenarios": "ほかのケース",
+    "scenario": "{today}から{atlas}へ：約{factor}倍の速さ",
+    "milestone": "到達目標"
+  },
+  "assistant": {
+    "free": "無料アシスタント",
+    "left": "{n, plural, =0 {本日の残りリクエストはありません} other {本日の残りリクエスト#件}}",
+    "own": "またはご自身のキー・ローカルモデルを利用",
+    "quota": "無料アシスタントは本日の利用上限に達しました。明日また利用できます。今はご自身のキーやローカルモデルを使えます。",
+    "noKey": "キーは不要です。"
+  },
+  "question": {
+    "title": "共通の研究課題",
+    "none": "この疾患の共通の研究課題はまだ記録されていません。",
+    "status": {
+      "proposed": "提案済み・未検証",
+      "running": "検証中",
+      "answered": "回答済み"
+    },
+    "concerns": "この課題に関わるコミュニティ",
+    "for": "支持する根拠",
+    "against": "反する根拠",
+    "unknown": "不明",
+    "experiment": "判断に必要な実験",
+    "who": "協力できる人",
+    "firstStep": "最初の一歩",
+    "join": "参加：研究チームに連絡",
+    "contribute": "根拠を追加",
+    "open": "根拠と実験",
+    "experts": "相談先の候補となる専門家（所属機関を通じて連絡）",
+    "drugs": "これらの疾患・遺伝子を対象に臨床研究中の薬（臨床段階は有効性の証明ではありません）",
+    "communities": "{n, plural, other {コミュニティ}}",
+    "scientificTerm": "専門用語",
+    "everyCure": {
+      "title": "Every Cureの予測",
+      "body": "接続の準備はできています。Every Cureがデータ利用条件を確認した後に表示します。",
+      "link": "everycure.org"
+    },
+    "lead": "{name}とほかのコミュニティに役立つ研究課題です。支持・反対の根拠、判断に必要な実験、実施できる人を示します。"
+  },
+  "questions": {
+    "hypothesis": {
+      "shared_process": "{genes}には{process}に共通の問題があるのでしょうか。"
+    },
+    "why": {
+      "shared_process": "これら{communities}のコミュニティには、それぞれ{process}に関わる遺伝子があります。問題が共通なら、一つの研究方針がすべてに役立つ可能性があります。{more, plural, =0 {} other {この課題にはさらに#個の遺伝子が含まれます。}}"
+    },
+    "shared": {
+      "process": "共通：{process}"
+    },
+    "term": {
+      "pathway": "{pathway} ({id})"
+    },
+    "process": {
+      "connect": "脳細胞のつながり方",
+      "release": "脳細胞が信号を放出する仕組み",
+      "calming": "脳の働きを抑える信号",
+      "go_signal": "脳の主要な興奮性信号",
+      "dopamine": "脳のドーパミン信号",
+      "heart_signal": "心臓の電気信号",
+      "electric": "神経細胞の電気信号",
+      "calcium": "細胞がカルシウムを取り込む仕組み",
+      "tuning": "脳細胞間のつながりが強まる・弱まる仕組み",
+      "passing": "脳細胞が信号を伝える仕組み",
+      "memory": "記憶の仕組み",
+      "growth_signal": "脳細胞の成長信号",
+      "brain_growth": "脳の成長とつながりの形成",
+      "recycling": "細胞が物質を分解・再利用する仕組み",
+      "intake": "細胞が物質を取り込む仕組み",
+      "energy": "細胞がエネルギーを作る仕組み",
+      "surface_anchor": "細胞が表面にタンパク質を固定する仕組み",
+      "protein_building": "細胞がタンパク質を作る仕組み",
+      "cell_death": "細胞死を調節する仕組み",
+      "unmapped": "体内の同じ働き"
+    },
+    "for": {
+      "statement": "{condition}: {statement}"
+    },
+    "against": {
+      "finding": "{explanation}",
+      "same_gene_different_mechanism": "同じ遺伝子でも原因が異なる可能性（{gene}）：{why}",
+      "mechanism_split": "同じ疾患でも原因が異なる可能性（{gene}）：{why}",
+      "lookalike": "症状は似ていても原因が異なる可能性（{gene}）：{why}",
+      "variant_level": "同じ遺伝子の変化でも、働きを失わせるものと働き方を変えるものがあります。遺伝子単位のつながりは、すべての変化には当てはまらない可能性があります。"
+    },
+    "unknown": {
+      "validate": "確認が必要：{text}",
+      "functional_coverage": "{gene}：ClinVarには{variants}個の遺伝子変化のうち{with_functional_data}個について、影響を調べた実験が記録されています。"
+    },
+    "experiment": "{conditions}に関連する変化は、{pathway}の同じ測定可能な機能を損なうのでしょうか。",
+    "experiment_note": "支持する結果：{support} 反証となる結果：{challenge}",
+    "bridge": {
+      "worked_on": "{gene}：公開記録で{grants, plural, other {#件の助成}}、{papers, plural, other {#件の論文}}、{trials, plural, other {#件の臨床試験}}に記載",
+      "identity": {
+        "same": "同一人物（研究者IDで照合）",
+        "possible": "同一人物の可能性：IDではなく氏名と所属先で照合"
+      },
+      "suggestion": "{genes}に共通の原因について相談できる専門家の候補です（私たちの提案）。{institution}を通じて連絡してください。"
+    },
+    "drug": {
+      "indication": "{condition}の臨床研究で{drug}は{stage}に達しています（Open Targets。有効性を示すものではありません）。",
+      "indication_related": "関連疾患{condition}の臨床研究で{drug}は{stage}に達しています（Open Targets。有効性を示すものではありません）。",
+      "target": "{drug}は{gene}に作用します（{mechanism}）。最も進んだ臨床段階：{stage}（Open Targets。有効性を示すものではありません）。"
+    }
+  },
+  "people": {
+    "suggestion": "私たちの提案"
+  },
+  "demo": {
+    "item": {
+      "pricing": {
+        "title": "団体向け",
+        "text": "サービスの資金を確保する方法。"
+      },
+      "ask": {
+        "title": "アシスタント",
+        "text": "グラフに基づく回答。各文に情報源を示します。"
+      },
+      "review": {
+        "title": "確認待ち一覧",
+        "text": "投稿を掲載前に確認する場所。"
+      },
+      "story": {
+        "title": "STXBP1の事例",
+        "text": "ご家族向けのページ：連絡できる患者会、募集中の研究、それぞれの情報源。"
+      },
+      "communities": {
+        "title": "共通の問題を持つ患者会：STXBP1とSNAP25",
+        "text": "人が確認したSNAP25コミュニティ・Simons Searchlightへのつながりと提案。"
+      },
+      "gap": {
+        "title": "患者会がまだ見つからない疾患",
+        "text": "該当する結果がないこと、関連の近い患者会、未解決の課題を示します。"
+      },
+      "hood": {
+        "title": "根拠と処理の詳細",
+        "text": "各つながりの全経路：情報源、バージョン、フィンガープリント、PROV-O、言語モデルの呼び出し。"
+      },
+      "impact": {
+        "title": "時間短縮",
+        "text": "10倍のケース：現在の所要時間とZebratlasを使う経路を、仮定とともに比較します。"
+      }
+    },
+    "title": "デモと評価",
+    "lead": "審査員・レビュー担当者向けの資料です。製品からはリンクしていません。"
+  },
+  "suggest": {
+    "missing": "未掲載の患者会、研究、データセットをお知らせください。",
+    "add": "追加"
+  },
+  "legal": {
+    "about": {
+      "title": "Zebratlasについて",
+      "lead": "Zebratlasは、希少な遺伝性疾患のご家族や患者会が、支援できる人を見つける手助けをします。",
+      "howTitle": "情報の根拠",
+      "how": "疾患・遺伝子のデータベース、研究レジストリ、研究助成、論文、患者会のサイトの公開記録をつなぎます。各つながりには情報源と確認日を表示します。",
+      "limitsTitle": "サービスの限界",
+      "limits": "医療上の助言や治療の評価は行いません。特に英語以外の情報源では、患者会や研究を見落とす可能性があります。見つからない場合は、その旨と調べた情報源を示します。",
+      "helpTitle": "不足情報の提供",
+      "help": "患者会、レジストリ、研究者は不足情報を提供できます。すべての投稿を確認してから掲載します。",
+      "whoTitle": "制作について",
+      "who": "Zebratlasは第7回グローバルAIハッカソン（Hack-Nation、課題5）で生まれました。コードはオープンソースです。"
+    },
+    "sources": {
+      "lead": "Zebratlasに表示する情報は、これらの情報源に基づきます。各項目にライセンス、使用バージョン、必要な出典表示を記載します。",
+      "licence": "ライセンス",
+      "version": "バージョン",
+      "attribution": "出典・著作者の表示",
+      "confirm": "利用条件は確認待ち",
+      "code": "独自コードはオープンソースです。取得したデータには各情報源のライセンスが適用されます。",
+      "use": {
+        "orphanet": "希少疾患、関連遺伝子、頻度、発症時期。",
+        "hpo": "共通する症状を持つ疾患を比べるための症状・徴候。",
+        "mondo": "データベース間で共通に使う疾患の名称とコード。",
+        "g2p": "疾患を引き起こす遺伝子の変化と、その作用。",
+        "clingen": "遺伝子が疾患の原因となる根拠の強さ。",
+        "hgnc": "遺伝子の正式名称と別名。",
+        "go": "細胞内の各遺伝子の働き。同じ働きに関わる疾患を探します。",
+        "reactome": "遺伝子が共同で関わる体内の過程。",
+        "clinvar": "疾患の原因になると分かっている具体的な遺伝子変化。",
+        "ctgov": "研究・レジストリ、募集状況、公式の連絡先。",
+        "reporter": "研究助成：どの遺伝子を誰が研究しているか。",
+        "pubmed": "どの遺伝子について誰が発表したか。書誌情報のみを保存します。",
+        "wikidata": "多言語の疾患名。",
+        "orgs": "患者会の名称、国、言語、連絡方法。"
+      }
+    },
+    "partners": {
+      "lead": "Zebratlasにはまだ正式な協力団体はありません。",
+      "text": "患者会、レジストリ、研究ネットワークと協力し、情報の正確さを保ち、データをつなぎたいと考えています。お持ちの資源をお知らせください。"
+    },
+    "contact": {
+      "lead": "ご質問、訂正、ご提案をお寄せください。",
+      "mailTitle": "メール",
+      "fixTitle": "訂正",
+      "fix": "項目の情報源の下にある「誤りを報告」を使ってください。担当者が確認します。",
+      "medical": "医療に関するご質問には回答できません。医師にご相談ください。",
+      "a11yTitle": "アクセシビリティとご意見",
+      "a11y": "WCAG 2.2のAAレベルへの適合を目指しています。利用できない機能やご意見がありましたら、上記の連絡先にお寄せください。",
+      "formTitle": "お問い合わせ",
+      "message": "メッセージ",
+      "send": "送信",
+      "sent": "ありがとうございます。メールで返信します。",
+      "invalid": "メールアドレスとメッセージを入力してください。"
+    },
+    "privacy": {
+      "lead": "Zebratlasはアカウントなしで利用でき、利用者を追跡しません。",
+      "noneTitle": "追跡なし",
+      "none": "アクセス解析、広告、追跡用クッキーは使いません。データを販売・共有しません。",
+      "accountTitle": "アカウントを作成した場合",
+      "account": "メールアドレス、任意の表示名、安全な形式のパスワード、保存した内容を保管します。ログイン維持に一つのクッキーを使います。アカウントとすべての内容はいつでも削除できます。",
+      "contributeTitle": "訂正やデータを送信した場合",
+      "contribute": "送信内容と、ご提供いただいた氏名・連絡先を保存し、確認担当者から問い合わせる場合があります。採用した情報には出典を表示しますが、連絡先は掲載しません。",
+      "languageTitle": "文書と検索",
+      "language": "文書を貼り付け・アップロードすると、検索語を抽出する前に、明らかな識別情報をサーバーで除きます。文章を受け取る可能性のある処理先は、送信前に検索欄の通知に表示します。文書はメモリ内で処理し、その後削除します。保存するのはフィンガープリント、サイズ、処理時刻のみです。ログインして保存を選ぶと、文書はアカウント内で暗号化されます。「自分のデータ」で閲覧・ダウンロード・削除できます。代理でメッセージを送信しません。",
+      "logsTitle": "サーバーログ",
+      "logs": "サービスの不正利用を防ぐため、IPアドレスなどの技術情報を短期間記録します。",
+      "rightsTitle": "利用者の権利",
+      "rights": "GDPRに基づき、保存されたご自身のデータの確認、訂正、削除を求め、データ保護当局に苦情を申し立てることができます。",
+      "controllerTitle": "データ管理責任者"
+    },
+    "imprint": {
+      "lead": "ドイツデジタルサービス法（DDG）第5条に基づく情報。",
+      "operatorTitle": "運営者",
+      "contactTitle": "連絡先",
+      "operator": "Johannes Mitschunas",
+      "contactForm": "問い合わせフォーム",
+      "private": "ZebratlasはJohannes Mitschunasの個人プロジェクトであり、Friedrich Schiller University Jenaが提供するサービスではありません。",
+      "street": "Inselplatz 5",
+      "city": "07743 Jena",
+      "country": "ドイツ",
+      "email": "johannes.mitschunas@uni-jena.de"
+    }
+  },
+  "data": {
+    "title": "データをつなぐ",
+    "lead": "未掲載の患者会、研究、データセットをお知らせください。すべての投稿を確認してから掲載します。",
+    "field": {
+      "name": "レジストリ・データセット・資源の名称",
+      "organisation": "団体",
+      "what": "お持ちの資源",
+      "url": "リンク（ウェブアドレス）",
+      "licence": "ライセンス・利用条件",
+      "licenceHint": "例：CC BY 4.0、または「申請が必要」。",
+      "ids": "使用する識別子",
+      "idsOther": "その他の識別子",
+      "description": "説明"
+    },
+    "submit": "確認のために送信",
+    "kind": {
+      "registry": "患者レジストリ",
+      "dataset": "データセット",
+      "knowledge_graph": "知識グラフ",
+      "endpoint": "API・SPARQLエンドポイント",
+      "mapping": "識別子の対応ファイル",
+      "other": "その他"
+    },
+    "error": {
+      "invalid": "メールアドレスと、リンクまたは説明を入力してください。",
+      "unavailable": "現在送信できません。後ほどお試しください。",
+      "rate_limited": "送信回数が多すぎます。数分後にお試しください。",
+      "generic": "エラーが発生しました。もう一度お試しください。"
+    },
+    "linkOrDescription": "リンクまたは説明",
+    "storage": "送信内容は確認のために保存し、メールで問い合わせる場合があります。すべての投稿を確認してから掲載します。"
+  },
+  "help": {
+    "result": {
+      "link": "データの情報源",
+      "title": "結果と情報源を確認",
+      "text": "疾患のページには患者会、現在募集中の研究、専門医療機関を表示します。各項目の「情報源」で、出典と最終確認日を見られます。"
+    },
+    "contact": {
+      "title": "患者会・研究への連絡",
+      "text": "「連絡する」で編集できる文面が開きます。コピーして、相手のサイト、フォーム、メールから送信してください。代理で送信することはありません。",
+      "link": "患者会を探す"
+    },
+    "contribute": {
+      "title": "訂正・情報の追加",
+      "text": "誤りや不足がある場合は、情報源の下の「誤りを報告」を使ってください。すべての投稿を確認してから掲載します。ご自身のデータの削除・訂正には「削除・訂正を依頼」を使ってください。",
+      "link": "お問い合わせ"
+    },
+    "data": {
+      "title": "データをつなぐ",
+      "text": "レジストリ、研究グループ、団体は、データセット、レジストリ、知識グラフ、エンドポイントを提供できます。リンクまたは短い説明とメールアドレスで送信できます。",
+      "link": "データを提供"
+    },
+    "account": {
+      "title": "アカウントとデータ",
+      "text": "アカウントは不要です。作成するとページ、メッセージ、文書を保存できます。すべての内容はいつでもダウンロード・削除できます。",
+      "link": "ログイン・アカウント作成"
+    },
+    "search": {
+      "title": "検索",
+      "text": "各ページ上部の検索欄に文章を入力できます。入力中はページ内の一致箇所を強調し、検索ボタンはZebratlas全体を検索します。医師の手紙を貼り付け・添付することもでき、抽出した語は検索前に編集できます。",
+      "link": "検索へ"
+    }
+  },
+  "checked": {
+    "title": "{subject}について確認した範囲",
+    "matched": "{n, plural, other {#件一致}}",
+    "none": "一致なし",
+    "find": {
+      "names": "疾患名と別名（Mondo、Orphanet、OMIM）",
+      "genes": "遺伝子名と記号（HGNC）",
+      "codes": "疾患コード（MONDO、ORPHA、OMIM）",
+      "text": "文章内の遺伝子名・疾患名"
+    }
+  },
+  "search": {
+    "hint": "ご質問や文章をそのまま入力できます。",
+    "matches": "このページに{n}件あります。Enterで次に移動します。",
+    "noMatches": "このページにはありません。検索ボタンはZebratlas全体を検索します。",
+    "filters": "絞り込み",
+    "kindLegend": "表示対象",
+    "kind": {
+      "condition": "疾患",
+      "gene": "遺伝子",
+      "patient_group": "患者会",
+      "study": "研究・レジストリ",
+      "model": "モデル・試料",
+      "therapy": "治療プログラム",
+      "funding": "資金助成",
+      "paper": "論文"
+    },
+    "country": "国",
+    "language": "言語",
+    "recruiting": "現在募集中の研究のみ",
+    "consent": "検索語を抽出するため文書を{processor}に送信し、処理後すぐに削除します。",
+    "rights": "利用者の権利",
+    "save": "アカウントに保存（暗号化）",
+    "extract": "検索語を抽出",
+    "extracting": "文書を読み取り中",
+    "found": "これらの検索語が見つかりました。検索前に変更・削除できます。",
+    "remove": "{term}を削除",
+    "addTerm": "検索語を追加",
+    "searchTerms": "これらの語で検索",
+    "intakeUnavailable": "現在、文書の読み取りは利用できません。後ほどお試しください。",
+    "intakeError": "文書を読み取れませんでした。別のファイルを添付できます。",
+    "attach": "文書を添付",
+    "fileError": "5 MB以下のPDF、DOCX、TXTファイルを選択してください。",
+    "localConsent": "サーバーで文書から検索語を抽出し、文書をすぐに削除します。モデルには送信しません。",
+    "checkingProcessor": "文書の処理先を確認中…",
+    "model": "{model}が抽出した検索語です。",
+    "localTerms": "モデルを使わず、サーバーで検索語を抽出しました。",
+    "noTerms": "検索語が見つかりませんでした。語を追加できます。",
+    "saved": "アカウントに保存しました。自分のデータを見る。"
+  },
+  "explore": {
+    "title": "研究コミュニティのグラフ",
+    "lead": "中心は{name}です。周囲には体内の同じ働きに関わるコミュニティがあります。近く太く表示されるほど、つながりが強いことを示します。選択すると中心に移動します。",
+    "show": "表示",
+    "has": {
+      "group": "患者会あり",
+      "assets": "研究・レジストリあり"
+    },
+    "apply": "適用",
+    "graphLabel": "{name}に関連するコミュニティのグラフ",
+    "legend": "塗りつぶした円：連絡できる患者会・研究チーム。白抜きの円：まだ確認できていません。",
+    "listTitle": "{name}に関連するコミュニティ",
+    "toCommunities": "研究資源と連絡先"
+  },
+  "form": {
+    "required": "必須",
+    "optional": "任意",
+    "email": "メールアドレス",
+    "name": "お名前",
+    "describeIt": "内容を説明"
+  },
+  "removal": {
+    "link": "削除・訂正を依頼",
+    "title": "削除・訂正の依頼",
+    "lead": "Zebratlas上のご自身・団体に関する情報の削除や訂正、利用への異議は、こちらからお知らせください。アカウントは不要です。",
+    "type": "依頼の種類",
+    "types": {
+      "remove": "削除",
+      "correct": "訂正",
+      "object": "利用に異議を申し立てる"
+    },
+    "concerns": "対象の情報",
+    "concernsHint": "項目のリンク、氏名・ORCID、または短い説明。",
+    "details": "その他の連絡事項",
+    "handling": "メールで受付を確認し、情報がご本人のものか確認をお願いする場合があります。30日以内に判断します。",
+    "submit": "依頼を送信",
+    "sentTitle": "依頼を受け付けました",
+    "sent": "ありがとうございます。メールで受付を確認し、30日以内に判断します。",
+    "error": {
+      "invalid": "メールアドレス、依頼の種類、対象の情報を入力してください。",
+      "unavailable": "現在送信できません。こちらにご連絡ください：",
+      "rate_limited": "リクエストが多すぎます。数分後にお試しください。",
+      "generic": "エラーが発生しました。もう一度お試しください。"
+    }
+  },
+  "connectionMap": {
+    "title": "つながりとその根拠",
+    "lead": "コミュニティや生物学的経路を選び、記録されたつながりを確認できます。",
+    "overview": "全体表示",
+    "count": "つながりのグループ{n}件",
+    "partial": "{total}件のうち{n}件の単位を読み込みました。全体表示には返されたすべてのグループを含みます。",
+    "unavailable": "つながりの根拠は現在取得できません。支援の連絡先は上に表示しています。",
+    "pathGap": "読み込んだ根拠には、このグループへの経路が記録されていません。",
+    "inference": "同じ生物学的経路に関わることは研究の手がかりです。疾患の仕組みや治療が共通であるとは証明できません。",
+    "unknown": "記録なし",
+    "selected": "選択したグループ",
+    "bounded": "この表示は返された結果の一部です。表示されない項目が存在しないとは確認できません。",
+    "fixture": "Cレビュー時の固定データです。ライブデータではありません",
+    "expand": "つながりを展開",
+    "collapse": "つながりを折りたたむ",
+    "contact": "公式の連絡先",
+    "close": "閉じる",
+    "diagnosis": "診断",
+    "pathway": "生物学的経路への注釈",
+    "other": "ほかの遺伝子・疾患",
+    "community": "コミュニティ",
+    "asset": "研究・資源",
+    "contrary": "反する根拠",
+    "relations": {
+      "has_associated_gene": "関連する遺伝子がある",
+      "serves_gene": "この遺伝子に変化のある人を支援",
+      "participates_in": "この経路への注釈がある",
+      "names_gene": "研究記録に遺伝子名を記載",
+      "studies_condition": "この疾患で索引登録",
+      "serves_condition": "この疾患の人を支援",
+      "held_by": "保管・管理者",
+      "sponsored_by": "記録されたスポンサー"
+    },
+    "locator": "レコードの場所",
+    "hashScope": "ハッシュの対象"
+  },
+  "facts": {
+    "person_same": "{name}と{other}は同一人物です。"
+  },
+  "verify": {
+    "record": {
+      "partial": "確認済みの記録は一致しています。一部の記録はまだ確認されていません。",
+      "unavailable": "確認できる元の記録がありません。"
+    }
+  },
+  "about": {
+    "title": "仕組み",
+    "lead": "このアトラスは、家族や患者会を、力になれる人や研究につなぎます。すべてのつながりで情報源を確認できます。",
+    "s1Title": "疾患ごとに一つの記録",
+    "s1Text": "主な疾患カタログ（MONDO、Orphanet、OMIM、HPO）を疾患ごとの記録に統合し、すべての情報源IDを保持します。",
+    "s2Title": "情報源付きのつながり",
+    "s2Text": "患者会、研究、レジストリ、研究者、論文、助成を疾患に結び付けます。各つながりには情報源の記録、日付、デジタル指紋を残します。",
+    "s3Title": "分かりやすい表現を確認",
+    "s3Text": "言語モデルは、結び付けられた記録だけを使って説明文とメッセージの下書きを作成します。検証機能が各文に記録の引用があるかを確認します。",
+    "s4Title": "名前だけでなく、共通の仕組みで探す",
+    "s4Text": "遺伝子と体の仕組み、さらに特徴的な症状に基づいて疾患をまとめます。似ていても原因が異なる疾患は、その違いを示します。",
+    "s5Title": "世界の情報を多言語で",
+    "s5Text": "あらゆる言語の情報源を探して翻訳し、同じ疾患に結び付けます。原文は常に保存します。",
+    "s6Title": "自分で実行する",
+    "s6Text": "コード、データ処理、グラフのエクスポートは公開されています。リポジトリのREADMEに、まとめて実行するコマンドがあります。",
+    "numbersTitle": "現在のアトラス",
+    "privacyTitle": "プライバシー",
+    "privacyText": "アカウントなしで検索できます。会話の保存は任意です。データを販売することはありません。"
+  },
+  "theme": {
+    "dark": "ダークモード"
+  },
+  "chart": {
+    "sector": {
+      "groups": "患者会",
+      "studies": "研究",
+      "people": "研究者",
+      "funding": "資金助成"
+    },
+    "label": "{name}の図：中央に疾患、その周りに患者会、研究、研究者を表示",
+    "none": "見つかりませんでした"
+  },
+  "api": {
+    "error": {
+      "focus_required": "項目を選択してください。",
+      "unit_limit": "上限は1から500の範囲にしてください。"
+    }
+  },
+  "coverage": {
+    "outside_verified_neighbourhood": "この疾患について確認済みの根拠は限られています。ほかにも研究がある可能性があります。"
+  },
+  "connections": {
+    "why": {
+      "project": "{organisation}のこの研究プロジェクトは、{subject}に言及しています。"
+    }
+  },
+  "backend": {
+    "integrity": {
+      "contract": {
+        "identity-merge-has-rule-evidence": "SSSOMの各別名は、統合処理とハッシュで結び付けられた版付き対応表の行にたどれます",
+        "edge-endpoint-resolves": "すべての辺の両端は、関係で許可された種類のノードに対応し、未接続の端点はありません",
+        "edge-has-provenance": "各辺には、実体・記録位置・sha256を含む情報源記録が1件以上と、生成した処理があります",
+        "node-has-provenance": "各研究・助成・論文・人物・団体・資源にはsha256付きの情報源記録が1件以上あります",
+        "edge-id-unique": "辺ID（from|relation|to）は一意で、同じ関係の複数の根拠は一つの辺に統合します",
+        "record-entity-has-checksum": "各記録の元となる情報源ファイルのsha256が記録されています",
+        "record-has-licence": "各記録の情報源ファイルにはライセンスと区分（open / share_alike / non_commercial / unknown）が明示されています",
+        "asset-has-access-route": "各資源には、保有者またはURLによるアクセス方法が示されています",
+        "candidate-not-merged": "candidate_same_asの候補ペアは同じノードに統合しません。候補はリンクとして保持します（D30）",
+        "source-header-checksums-match": "読み込まれたすべてのソースがキャッシュヘッダーのチェックサム検証に合格します。"
+      },
+      "problem": {
+        "identity_activity": "同一性の統合処理がありません",
+        "identity_derivation": "構成要素の由来・対応表の行がありません",
+        "identity_rule": "ルールの版がないか、根拠が不完全です",
+        "record_index": "記録{r}は範囲外です",
+        "record_entity": "記録{arg0}は不明な実体を指定しています",
+        "record_checksum": "記録{arg0}にsha256がありません",
+        "endpoint_from": "始点{arg0}に対応するノードがありません",
+        "endpoint_to": "終点{arg0}に対応するノードがありません",
+        "endpoint_kind": "{arg0}では{from} → {to}が必要ですが、{f} → {t}が見つかりました",
+        "duplicate_edge": "このIDを共有する辺の数：{n}",
+        "entity_licence": "実体{arg0}にライセンス記録がありません",
+        "person_orcids": "ORCID数：{arg0}、ID：{arg1}",
+        "orcid_people": "ORCIDが{arg0}個の人物ノードに付いています：{arg1}",
+        "different_orcids": "異なるORCID：{a}と{b}",
+        "no_record": "情報源の記録がありません",
+        "unknown_activity": "不明な処理",
+        "no_checksum": "sha256がありません",
+        "no_access": "アクセス方法がありません",
+        "self_link": "自己へのリンク",
+        "header_checksums": "キャッシュヘッダーのチェックサム検証が{n}件失敗しました。"
+      }
+    },
+    "account": {
+      "error": {
+        "unauthorized": "続けるにはログインしてください。",
+        "bad_credentials": "メールアドレスまたはパスワードが正しくありません。",
+        "invalid": "必須項目と入力内容を確認して、もう一度お試しください。",
+        "not_found": "この項目は見つかりませんでした。",
+        "forbidden": "この項目を変更する権限がありません。",
+        "conflict": "この変更は既存の項目と競合します。再読み込みして確認してから、もう一度お試しください。",
+        "rate_limited": "試行回数が多すぎます。時間をおいてお試しください。",
+        "unavailable": "アカウント機能は現在利用できません。ログインせずに検索はできます。",
+        "internal": "アカウントのリクエストを完了できませんでした。時間をおいてお試しください。"
+      },
+      "export": {
+        "credentials": "このダウンロードにはパスワードのハッシュやセッショントークンを含めません。保存するのはパスワードのハッシュと各セッショントークンの指紋だけです。",
+        "public_data": "疾患の記録と情報源は、アカウントとは別の公開データです。保存した項目には、リンク先の記録のIDが含まれます。",
+        "network_data": "アカウントにはIPアドレスやブラウザー情報を保存しません。"
+      },
+      "data": {
+        "contributions_unavailable": "現在、投稿を読み込めませんでした。"
+      },
+      "deleted": {
+        "account": "アカウントを削除しました。",
+        "sessions": "すべての端末からログアウトしました。",
+        "documents": "保存した文書{n}件と、読み取りに使う鍵を削除しました。",
+        "saved": "保存した項目{n}件と会話{conversations}件を削除しました。",
+        "contributions_not_connected": "このサーバーに投稿は保存されていません。",
+        "contributions_none": "投稿はありませんでした。",
+        "contributions_credited": "承認済みの投稿{n}件は、選択されたとおり名前を付けてアトラスに残ります。メールアドレスとアカウントへのリンクは削除しました。",
+        "contributions_anonymised": "承認済みの投稿{n}件は、名前・メールアドレス・アカウントへのリンクを除いてアトラスに残ります。"
+      }
+    },
+    "ask": {
+      "error": {
+        "context_too_large": "会話の内容が多すぎます。新しい会話を始めてください。",
+        "empty_question": "質問を入力するか、検索タスクを選んでください。",
+        "question_too_long": "質問は{limit}文字以内にしてください。",
+        "generic": "問題が発生しました。もう一度お試しください。"
+      },
+      "attribute": {
+        "inheritance": "遺伝形式",
+        "onset": "最初の症状が出た年齢"
+      },
+      "prevalence": {
+        "figure": "報告された数値：{value}"
+      },
+      "fragment": {
+        "retrieved_date": "、取得日：{date}",
+        "checked_date": "、確認日：{d}",
+        "countries": "、国：{arg0}",
+        "sponsor": "、スポンサー：{arg0}",
+        "country": "、所在地：{c}",
+        "description": "：{d}",
+        "verified_date": "、公式連絡先の確認日：{d}",
+        "affiliation": "、所属：{a}",
+        "funded_range": "、助成期間：{a}–{b}",
+        "funded_year": "、助成年：{a}",
+        "paper_year": "（{y}）",
+        "match_reason": "［一致の根拠：{reason}］"
+      },
+      "need": {
+        "groups": "患者会または専門施設",
+        "studies": "研究",
+        "papers": "論文",
+        "grants": "NIHの研究プロジェクト",
+        "patient_group": "患者会",
+        "open_study": "進行中または計画中の研究・レジストリ",
+        "researcher": "研究者",
+        "project": "研究プロジェクト"
+      },
+      "frequency": {
+        "always": "記録されたすべての症例で",
+        "very_often": "記録されたほとんどの症例で",
+        "often": "よく見られる",
+        "sometimes": "ときどき見られる",
+        "rarely": "まれに見られる",
+        "not": "記録された症例では見られない"
+      },
+      "kind": {
+        "any": "つながり",
+        "study": "研究",
+        "trial": "臨床試験",
+        "registry": "患者レジストリ",
+        "natural_history": "自然歴研究",
+        "observational": "観察研究",
+        "expanded_access": "拡大アクセス制度",
+        "patient_group": "患者会",
+        "expert_centre": "専門医療機関",
+        "researcher": "研究者",
+        "grant": "研究プロジェクト",
+        "sponsor": "研究のスポンサー",
+        "institution": "機関",
+        "organisation": "団体"
+      },
+      "status": {
+        "any": "記録されたすべての状態",
+        "open": "進行中・計画中",
+        "recruiting": "参加者募集中",
+        "closed": "終了・現在は実施していない"
+      },
+      "assets": {
+        "selection": "{kind}の資源、状態：{status}"
+      },
+      "relation": {
+        "studies_condition": "を対象として登録された研究",
+        "names_gene": "の遺伝子名を記載",
+        "about_gene": "の遺伝子についての記録",
+        "about_condition": "についての記録",
+        "author_of": "の著者",
+        "principal_investigator_of": "の研究責任者",
+        "sponsored_by": "の支援を受ける",
+        "awarded_to": "の交付先",
+        "serves_condition": "の患者を支援",
+        "serves_gene": "に変化がある人を支援",
+        "same_as": "と同一人物",
+        "held_by": "保管・管理者",
+        "model_of": "の研究モデル",
+        "studied_for": "を対象として開発・研究中",
+        "targets": "を標的とする",
+        "resource_for": "の研究資源",
+        "funds": "の研究を助成",
+        "claims_about": "について抽出し、引用を照合した記述",
+        "has_phenotype": "に見られる特徴",
+        "orthologous_to": "に対応する遺伝子",
+        "gene_associated_with_condition": "との関連",
+        "candidate_same_as": "と同一の可能性",
+        "related_to": "との関係"
+      },
+      "note": {
+        "corrected_spelling": "直接の一致は見つかりませんでした。修正した表記「{fixed}」で検索しました",
+        "genes_shown": "関連する遺伝子は計{arg0}件、6件を表示",
+        "symptoms_shown": "記録された症状は{arg0}件、8件を表示",
+        "source_unloaded": "情報源が利用できないため、{what}について{source}を確認できませんでした",
+        "exact_connection": "直接関連する{what}が1件以上見つかりました",
+        "broader_groups": "より広い疾患群の患者会{related}件を、つながりに表示しています",
+        "links_shown": "10件のリンクを表示しています。記録にはほかにもあります",
+        "conditions_shown": "{arg1}に関連する疾患は{arg0}件、8件を表示",
+        "shared_researchers": "{la}の研究者{arg0}人、{lb}の研究者{arg1}人、共通{arg2}人、表示{arg3}人",
+        "counts": "{what}が{arg0}件見つかりました（疾患・遺伝子との直接の関連{exact}件、広い疾患群・複数遺伝子を介した関連{arg1}件）。関連が強い順に{shown}件を表示",
+        "gene_conditions": "{arg1}を共有するほかの疾患は{arg0}件、5件を表示",
+        "symptom_threshold": "{arg0}と共通する珍しい症状が{MIN_SHARED}件以上という検索条件を満たす疾患はありませんでした",
+        "cause_comparison_unavailable": "結果の疾患について、記録された原因を比較できませんでした。共通の症状だけでは共通の原因を示せません",
+        "gene_results": "{arg1}に関連する疾患は{arg0}件、{arg2}件を表示",
+        "process_unavailable": "ReactomeとGene Ontologyのプロセス記録が利用できないため、「{process}」を検索できませんでした",
+        "no_path": "{arg0}と{arg1}を結ぶ、{MAX_DEPTH}辺以内の記録された経路はありません",
+        "path_length": "記録された最短経路：{arg0}辺"
+      },
+      "fact": {
+        "recorded_symptom": "{arg0}（{arg1}）に見られる症状：{arg2}",
+        "symptom_conditions": "アトラスで{term}またはその詳細な分類を記録する疾患は{arg0}件です",
+        "gene_condition_link": "{symbol}は{arg0}に関連します",
+        "symptom_frequency": "{name}の{term}：報告{arg0}（頻度{raw}）",
+        "symptom_possible": "{name}では{term}が見られることがあります",
+        "matched_record": "「{text}」は{arg0}の{arg1}（{arg2}）と一致します。一致項目：{how}「{matched}」",
+        "candidate_condition": "「{text}」の候補疾患：{arg0}（{arg1}）",
+        "definition": "{name}（{id}）：{arg0}",
+        "rare_classification": "{name}（{id}）は希少疾患に分類されています",
+        "synonyms": "{name}の別名：{arg0}",
+        "attribute": "{name}の{what}：{arg0}",
+        "prevalence": "{name}（{arg1}）の{arg0}：{value}",
+        "connections_summary": "確認した情報源には、{name}またはその遺伝子について研究{studies}件（進行中・計画中{open}件）、患者会・専門施設{groups}件が記録されています",
+        "prevalence_missing": "Orphanetには、{name}（{id}）の頻度の数値が記録されていません",
+        "causal_gene_missing": "OrphanetにもOMIMにも、{name}（{id}）の原因遺伝子は記録されていません",
+        "symptoms_missing": "Human Phenotype Ontologyには、{name}（{id}）の症状が記録されていません",
+        "record_definition": "{arg0}（{arg1}）：{arg2}",
+        "term_definition": "{arg0}{def}",
+        "parent_condition": "MONDOの疾患階層で、{label}（{cid}）は{anc_name}（{anc}）の一種です",
+        "study": "{arg0}（{arg1}）：{arg2}。状態：{arg3}{sponsor}{countries}{checked}",
+        "organisation": "{arg0}：{arg1}{place}{about}{verified}",
+        "researcher": "{arg0}は研究者です{aff}{checked}",
+        "grant": "{arg0}（{arg1}）は、{arg2}で行うNIH助成の研究プロジェクトです{years}",
+        "paper": "{arg0}（{arg1}）は{arg2}掲載の論文です{year}",
+        "gene_association": "{arg0}（{arg1}）は{arg2}（{arg3}）に関連する遺伝子です：{assoc}（情報源：{arg4}）",
+        "recorded_relationship": "{arg0}と{arg2}の関係：{arg1}{reason}",
+        "gene_identity": "{gene}（{id}）は「{name}」という遺伝子です。{aliases_count, plural, =0 {} other {ほかの登録シンボル：{aliases}。}}",
+        "related_shared_symptoms": "{condition}（{id}）と{query}に共通する記録された症状は{count}件です：{symptoms}。{shared_gene, select, true {両疾患は関連する遺伝子も共有しています。} other {}}"
+      },
+      "chip": {
+        "invalid": "このタスクを実行できませんでした。必要な検索語と記録IDを確認してください。"
+      },
+      "response": {
+        "planning_fallback": "アシスタントが検索タスクを選択できなかったため、Zebratlasはキーワード一致で検索しました。",
+        "save_failed": "この会話を保存できませんでした。ページを離れる前にコピーしてください。"
+      },
+      "template": {
+        "no_result": "このタスクの情報源付き結果は見つかりませんでした。検索語を確認するか、別のタスクをお試しください。",
+        "no_facts": "Zebratlasには、この質問について情報源付きの情報がありません。"
+      },
+      "coverage": {
+        "source_unloaded": "{arg0}を確認できませんでした。情報源の状態：{arg1}",
+        "gene_subset": "{arg0}では遺伝子{arg1}を検索しました。{arg3}は検索対象外のため、その{what}は未確認です",
+        "none_found": "{arg2}で、{arg0}（{arg1}）またはその遺伝子に関連する{what}は見つかりませんでした（検索：{arg3}{when}）"
+      },
+      "list": {
+        "more": "{remaining, plural, =0 {{items}} other {{items}、ほか#件}}"
+      },
+      "term": {
+        "label": "{name}（{id}{plain_state, select, present {；{plain}} other {}}）"
+      },
+      "validation": {
+        "no_model": "モデルの使用は指定されていませんでした。",
+        "validator": "アシスタントの回答は情報源の検証に合格しませんでした。",
+        "provider": "アシスタントが回答を作成できませんでした。",
+        "no_facts": "情報源付きの事実を利用できませんでした。",
+        "other": "ひな形による回答を使用しました。"
+      },
+      "choice": {
+        "both": "遺伝子と症状",
+        "gene": "遺伝子",
+        "symptom": "症状"
+      }
+    },
+    "contribute": {
+      "check": {
+        "sample_found": "確認したサンプルに{kind}の根拠があります。レビュアーの確認が必要です。",
+        "sample_not_found": "確認したサンプルに{kind}の根拠はありません。情報源の全文には含まれる可能性があります。",
+        "known_source_matched": "この情報源URLは登録済みです。重複して追加する前に確認してください。",
+        "known_source_unmatched": "確認した一覧に一致する情報源URLはありませんでした。",
+        "description_only": "確認する前に、レビュアーが説明から情報源を特定する必要があります。",
+        "snapshots": "再確認用に応答スナップショット{total}件中{retained}件を保存しました。各応答に保存状態を示しています。",
+        "duplicate_source_matched": "別の投稿もこの情報源を示しています。レビュアーが比較する必要があります。",
+        "duplicate_source_unmatched": "審査待ち・承認済みの投稿に、一致する情報源はありませんでした。",
+        "relationship_unmapped": "つながりを追加する前に、説明された関係をレビュアーが確認する必要があります。",
+        "no_url": "リンクが入力されていません。",
+        "url_ok": "ページを開けます。",
+        "url_http_error": "ページがエラーを返しました（HTTP {arg0}）。",
+        "url_blocked": "このアドレスはプライベートネットワークを指すため、開いていません。",
+        "url_invalid": "開けるウェブアドレスではありません。",
+        "url_too_large": "ページが大きすぎるため自動確認できません。",
+        "url_unreachable": "現在ページにアクセスできませんでした。",
+        "no_quote": "引用が入力されていません。",
+        "quote_no_url": "引用にはリンクがないため確認できません。",
+        "quote_found": "引用した語句はページにあります。",
+        "quote_not_found": "確認したテキストに引用の語句は見つかりませんでした。レビュアーがページ自体を確認できます。",
+        "quote_unchecked": "ページをテキストとして読み取れず、引用は未確認です。",
+        "identity_resolved": "登録された項目：{arg0}。",
+        "identity_kind_mismatch": "{arg0}は{arg1}として登録されています。この項目には{arg2}が必要です。",
+        "identity_unknown_id": "ID {id}の項目は見つかりませんでした。",
+        "identity_ambiguous": "「{label}」は複数の項目に一致します。レビュアーが選択します。",
+        "identity_candidates": "「{label}」に完全一致する名前はありません。似た項目の審査が必要です。",
+        "identity_new": "「{label}」に一致する記録はありません。追加すべきかレビュアーが確認します。",
+        "identity_not_found": "確認した記録に「{label}」は見つかりませんでした。",
+        "edge_missing": "つながりを読み取れませんでした。",
+        "edge_found": "このつながりは記録されています。",
+        "reviewed_connection": "審査済みの投稿により追加されたつながりです。",
+        "connection_not_recorded": "確認した記録にこのつながりはありませんでした。",
+        "duplicate_unchecked": "疾患または遺伝子を特定してから重複を確認します。",
+        "duplicate_curated": "このつながりは整理された情報源から登録済みです。",
+        "related_curated": "これらの項目には別の関係がすでに記録されています。",
+        "conflict_contribution": "別の投稿は、このつながりが誤りだと指摘しています。",
+        "no_duplicate": "投稿の審査待ち一覧に一致する報告はありませんでした。",
+        "duplicate_pending": "ほかの人も同じ内容を報告しています。",
+        "conflict_curated": "整理された情報源のつながりへの異議です。レビュアーが両方の情報源を比較します。",
+        "disputed_suggestion": "別の投稿が追加・提案したつながりへの異議です。",
+        "contact_same": "この連絡先は登録済みです。",
+        "contact_differs": "投稿された連絡先は登録されたものと異なります。",
+        "contact_already_reported": "ほかの人も同じ連絡先の問題を報告しています。",
+        "duplicate_contribution": "このつながりは審査済みの投稿により追加済みです。",
+        "connection_awaiting_review": "別の人が同じつながりを提案しており、審査待ちです。",
+        "new_connection": "確認した記録に一致するつながりはありませんでした。"
+      },
+      "error": {
+        "invalid": "必須項目と入力内容を確認して、再送信してください。",
+        "not_found": "この投稿は見つかりませんでした。",
+        "transition": "状態{from}の投稿には{action}を実行できません。",
+        "blocked": "この投稿を承認する前に、承認を妨げている確認結果を解決してください。",
+        "stale": "この投稿は変更されています。再読み込みしてお試しください。",
+        "unauthorized": "続けるにはレビュアーとしてログインしてください。",
+        "forbidden": "この操作を行う権限がありません。",
+        "rate_limited": "投稿が多すぎます。{seconds}秒後にお試しください。",
+        "internal": "この投稿を処理できませんでした。時間をおいてお試しください。"
+      },
+      "check_kind": {
+        "licence": "ライセンス",
+        "formats": "データ形式",
+        "identifiers": "識別子"
+      }
+    },
+    "write": {
+      "template": {
+        "greeting": "{recipient}様",
+        "role": {
+          "parent": "私たちの子どもは{condition}と診断されました。",
+          "patient": "私は{condition}を抱えています。",
+          "carer": "私は{condition}の方を介護しています。",
+          "group_leader": "私は{condition}の患者会を運営しています。",
+          "researcher": "私は{condition}の研究に取り組んでいます。",
+          "clinician": "私は{condition}の患者を診療する医師です。"
+        },
+        "found": "Zebratlasで連絡先を見つけました。",
+        "check_links": "共同の取り組みを計画する前に、専門家によるこれらの関連の評価が必要です。",
+        "meeting": "今後数週間のうちに、30分ほどお話しする機会を設けていただけますか。",
+        "ask": "参加方法、または問い合わせ先を教えていただけますか。",
+        "closing": "どうぞよろしくお願いいたします。",
+        "closing_named": "どうぞよろしくお願いいたします。\n{sender}",
+        "subject": "{condition}についての問い合わせ"
+      }
+    },
+    "api": {
+      "error": {
+        "matcher_busy": "照合処理が混み合っています。少し待ってお試しください。",
+        "phenotype_bounds": "表現型IDの数が多すぎるか、長すぎます。",
+        "uri_too_long": "リクエストのアドレスが長すぎます。",
+        "internal": "リクエストを完了できませんでした。もう一度お試しください。",
+        "focus_required": "項目を選択してください。",
+        "unit_limit": "上限は1から500の範囲にしてください。",
+        "condition_unknown": "疾患{id}は見つかりませんでした。",
+        "condition_retired": "項目{id}は廃止されています。置き換え先を開いてください。",
+        "item_unknown": "記録{id}は見つかりませんでした。",
+        "scorer_unknown": "評価方法{name}は不明です。fusion、atlas、resnikから選んでください。",
+        "gene_unknown": "遺伝子{id}は見つかりませんでした。",
+        "job_unknown": "タスク{job}は不明です。",
+        "question_unknown": "研究課題{id}は見つかりませんでした。",
+        "question_id": "質問IDはcondition~pathwayの形式を使ってください。",
+        "cluster_unknown": "{id}の研究グループは見つかりませんでした。",
+        "card_unknown": "この連絡先は選択した疾患に関連していません。",
+        "llm_unavailable": "文章作成アシスタントを利用できません。"
+      },
+      "related": {
+        "warming_up": "関連疾患を読み込んでいます。数秒後にお試しください。",
+        "unavailable": "関連疾患を利用できません。時間をおいてお試しください。"
+      },
+      "questions": {
+        "warming_up": "研究課題を読み込んでいます。数秒後にお試しください。",
+        "unavailable": "研究課題を利用できません。時間をおいてお試しください。"
+      },
+      "clusters": {
+        "warming_up": "研究グループを読み込んでいます。数秒後にお試しください。"
+      }
+    },
+    "questions": {
+      "clinvar_counts": "これらはClinVarへの登録件数であり、患者数や家族数ではありません。",
+      "drug_evidence": "Open Targetsにこの薬の臨床開発段階が記録されています。これらの疾患への効果を示すものではありません。",
+      "design": {
+        "assay": "専門家に{pathway}の定量測定法を選んでもらい、両疾患で関連する機能を測定できるか確認してください。",
+        "controls": "両疾患の確認済み変異を持つモデルを、対応する修正済み対照と比較します。バッチを無作為化し、解析を盲検化してください。",
+        "rescue": "選択した経路を変化させる対照と、各疾患モデルの修正・レスキュー条件を設けます。細胞の健全性を確認し、経路への作用と非特異的な損傷を区別してください。",
+        "strata": "効果やレスキュー反応を比較する前に、各疾患と変異の作用別グループを個別に解析してください。"
+      },
+      "validate": {
+        "annotation": "経路の注釈だけでは、共通の疾患機序や治療反応は示せません。",
+        "models": "専門家が具体的な経路の測定法、適切な細胞種、変異の確認済みモデルを選ぶ必要があります。モデルの利用可能性を確認してください。",
+        "plan": "予備試験でばらつきを推定した後、効果の方向と判定基準を事前登録します。独立した生物学的反復と標本数は統計専門家と計画してください。",
+        "effects": "疾患群をまとめる前に、各変異の作用と遺伝形式を確認します。逆方向の作用は別々の群で解析してください。",
+        "findings": "共通の測定結果を解釈する前に、これらの疾患に関連する不確実性の知見を確認してください。"
+      },
+      "proposal": {
+        "question": "{conditions}に関連する変異が、{pathway}の同じ測定可能な機能を損なうかを検証します。",
+        "support": "両疾患モデルが対照に比べて予定した経路の変化を示し、修正により両方で同じ測定値が回復します。独立に再現してください。",
+        "challenge": "測定値が変わるのが片方だけ、作用の方向が両立しない、または細胞の健全性・バッチの影響を考慮すると差がなくなります。"
+      },
+      "source": {
+        "clinvar": "{gene}：ClinVarに記録された遺伝子変異{variants}件。"
+      },
+      "list_note": "これらの課題は検証が必要です。記録された根拠と関係するコミュニティに基づく順序で表示しています。",
+      "rank_note": "順位は、関係するコミュニティ、記録上の裏付け、研究・研究者の記録を反映します。仮説が正しい確率を示すものではありません。"
+    },
+    "facts": {
+      "person_author": "{name}は{arg0}の著者です。",
+      "person_lead": "{name}は{arg0}を率いています。",
+      "study_indexed": "{arg0}（{arg1}）は、{label}のMeSH用語{arg2}で索引付けされています",
+      "study_registered": "{arg0}（{arg1}）は{label}を対象に登録されています：{arg2}",
+      "organisation_condition": "{arg0}は{label}の方を支援します",
+      "gene_condition": "{symbol}は{label}の原因となる遺伝子です",
+      "study_record": "{arg0}（{arg1}）：{arg2}",
+      "organisation_gene": "{arg0}は{symbol}の変異を持つ方を支援します",
+      "condition_parent": "{label}は{anc_name}の一種です（{anc}、MONDO階層）",
+      "study_parent": "{arg0}（{arg1}）は{anc_name}を対象に登録されています：{arg2}",
+      "organisation_parent": "{arg0}は{anc_name}の方を支援します",
+      "work_record": "{arg0} {arg1}",
+      "work_gene": "{arg0}は{symbol}（{arg1}）を記載しています",
+      "condition_onset": "{arg0}の最初の症状が出た記録上の年齢：{arg1}",
+      "condition_prevalence": "{arg0} {arg1}：{arg2}（{arg3}）",
+      "condition_symptom": "{arg0}は{arg1}の記録された特徴です",
+      "condition_causal_gene": "{symbol}の変化が{arg0}の原因として記録されています",
+      "condition_definition": "{arg0}：{arg1}"
+    },
+    "cluster": {
+      "shared_records": "このグループに記録されたプロセス：{processes}。症状：{symptoms}。",
+      "counterexample": "この解析では{condition}は別のグループに分類されました。研究の知見を他の疾患に適用する前に、記録された共通点と相違点を確認してください。",
+      "stable": "開始点とサンプルを変えて解析を繰り返しても、このグループ分けは維持されました。",
+      "unstable": "開始点やサンプルを変えて解析を繰り返すと、このグループ分けは変わりました。"
+    },
+    "verify": {
+      "unreadable": "情報源を読み取るか確認することができませんでした。",
+      "record": {
+        "matched": "確認した情報源記録はすべて、保存した指紋と一致しています。",
+        "changed": "確認した情報源記録が変更されたか、読み取れませんでした。"
+      },
+      "file": {
+        "matched": "確認した情報源ファイルはすべて、この項目の作成時に記録した指紋と一致しています。",
+        "changed": "情報源ファイルが変更されたか、読み取れませんでした。"
+      }
+    },
+    "related": {
+      "shared_gene": "両疾患は{gene}に関わります。記録された作用：この疾患では{here}、他方では{there}。",
+      "effect_conflict": "{gene}の記録された作用は異なります。この疾患では{here}、他方では{there}。",
+      "shared_processes": "関連する遺伝子は、体のプロセス{processes}を共有しています。",
+      "shared_symptoms": "記録された共通の症状：{symptoms}。",
+      "cause_unknown": "少なくとも一方の疾患には、確認した情報源に原因遺伝子の記録がありません。この記録から原因は比較できません。",
+      "counter": {
+        "same_gene": "両疾患で{gene}の記録された作用は異なります。一方の知見が他方に適用できるとは限りません。",
+        "within_condition": "Gene2Phenotypeは、この疾患内でも{gene}の異なる作用を記録しています。研究する変異に当てはまる作用を確認してください。",
+        "lookalike": "症状は共通していますが、記録された遺伝子のプロセスは異なります。似た症状だけでは共通の原因を示せません。"
+      }
+    },
+    "resolve": {
+      "reconcile": {
+        "unconfigured": "アシスタントを利用できません。検索結果には記録された名前とコードを使用します。",
+        "certain": "記録された名前とコードに一致する疾患が見つかりました。",
+        "no_candidates": "アシスタントが確認する候補となる疾患の記録は見つかりませんでした。"
+      }
+    },
+    "models": {
+      "note": "このモデルの保有者に、利用可能性、遺伝子変異、対象疾患との関連を確認してください。"
+    },
+    "text": {
+      "sentences": "{sentences}"
+    },
+    "record": {
+      "statement": "{statement}"
+    },
+    "gaps": {
+      "missing": {
+        "patient_group": "一覧の患者会には、この疾患・遺伝子の記載がありません。家族が既につながっているか、遺伝カウンセラーや関連疾患の患者会に相談してください。",
+        "patient_group_unloaded": "患者会一覧が読み込まれておらず、確認できませんでした。遺伝カウンセラーや関連疾患の患者会に相談してください。",
+        "open_study": "ClinicalTrials.govの募集中・進行中の研究に、この疾患・遺伝子の記載はありません。未登録の研究について近くの専門施設に問い合わせ、関連疾患の研究も確認してください。",
+        "registry": "この疾患・遺伝子を記載する患者レジストリや自然歴研究はありません。関連疾患の患者会に登録対象となるか確認するか、より広い疾患群のレジストリを検討してください。",
+        "gene": "OrphanetとOMIMに原因遺伝子の記録はありません。遺伝学的検査を実施したか、どの遺伝子変化が見つかったか確認してください。",
+        "variant_effect": "Orphanetには、遺伝子変化が機能を減らすのか変えるのか、疾患を起こす仕組みが記録されていません。専門医に相談してください。",
+        "prevalence": "Orphanetにこの疾患の頻度の数値はありません。患者レジストリや公表症例報告が、初期の集計に役立ちます。",
+        "symptoms": "Human Phenotype Ontology（HPO）には、この疾患の症状が{n, plural, =0 {記録されていません} other {#件しか記録されていません}}。患者レジストリや自然歴研究で記録できます。"
+      },
+      "question": {
+        "variant": "私たちの{gene}の変化は、遺伝子の機能を減らすのですか、変えるのですか。対象となる治療研究に影響しますか。",
+        "centre": "この疾患の患者を多く診ている専門施設はありますか。紹介してもらえますか。",
+        "researchers": "{gene}に取り組む研究者や研究はありますか。私たちから連絡してもよいでしょうか。",
+        "unregistered": "近く始まる研究で、まだClinicalTrials.govに載っていないものはありますか。"
+      },
+      "note": "これらは情報源に記録のない項目です。質問を専門医に持参してください。"
+    },
+    "coverage": {
+      "none": "{sources}で{condition}の記録は見つかりませんでした（確認日：{dates}）。この情報源以外には患者会や研究がある可能性があります。",
+      "partial": "{source}では{genes}のみを検索し、{missing}は検索していません。",
+      "partial_no_gene": "{source}では{genes}のみを検索しました。この疾患には既知の遺伝子がないため、検索対象には含まれていません。",
+      "scope": {
+        "ctgov": "ClinicalTrials.gov登録研究を、名称・MeSH用語・遺伝子で希少疾患に照合",
+        "reporter": "タイトル・概要・キーワードに遺伝子名があるNIH助成プロジェクト（NIH RePORTER）",
+        "pubmed": "タイトルか抄録に遺伝子名がある論文（PubMed、最新5,000件）",
+        "people": "詳しく調べた遺伝子のうち2つ以上について論文・助成がある研究者",
+        "hgnc": "各遺伝子の別名と過去のシンボル（HGNC）",
+        "contacts": "詳しく調べた遺伝子に関連する研究の連絡先・担当者・実施施設",
+        "wikidata": "多言語の疾患・遺伝子名（Wikidata、検索のみに使用）",
+        "orgs": "多言語のウェブ・ディレクトリ検索で見つけ、公式ページと手作業で照合した患者団体"
+      }
+    },
+    "why": {
+      "study_registered": "この{kind_label}は{condition}を対象に登録されています。",
+      "study_gene": "この{kind_label}は、{condition}の原因となる遺伝子{gene}を記載しています。",
+      "study_broader": "この{kind_label}は、{condition}を含む広い疾患群{group}を対象としています。",
+      "grant": "{organisation}で行うこのNIH助成プロジェクトは、{about}を研究しています。",
+      "org_condition": "{organisation}は{condition}の方を支援しています。",
+      "org_gene": "{organisation}は、{condition}の原因遺伝子{gene}に変化がある方を支援しています。",
+      "org_broader": "{organisation}は、{condition}を含む広い疾患群{group}の方を支援しています。",
+      "researcher": "{name}は{about}について{papers}件の論文を書いています{grants, plural, =0 {} other {。またNIH助成プロジェクト#件を率いています}}。"
+    },
+    "card": {
+      "subtitle": {
+        "study": "{kind_label}・{status_label}",
+        "grant": "{organisation}の助成{code}、{years}",
+        "kind": "{kind_label}"
+      },
+      "enrollment_note": "全疾患・全遺伝子を対象とする研究全体の予定参加者数です。この疾患だけの人数ではありません。"
+    },
+    "studykind": {
+      "trial": "臨床試験は、人を対象に治療を検証します。",
+      "registry": "患者レジストリは多くの人の健康情報を継続して集め、疾患の研究に役立てます。",
+      "natural_history": "自然歴研究は時間とともに疾患がどう進むかを追跡します。新しい治療は行いません。",
+      "observational": "観察研究は測定と記録を行います。新しい治療は行いません。",
+      "expanded_access": "早期アクセス制度は、臨床試験以外で未承認の治療を提供します。"
+    },
+    "channel": {
+      "ctgov_central_contact": "ClinicalTrials.govでスポンサーが指定した研究窓口",
+      "ctgov_contacts": "ClinicalTrials.govの研究窓口・実施施設",
+      "reporter_project": "研究責任者と機関を掲載したNIH RePORTERのプロジェクトページ",
+      "orcid": "研究者の所属機関へのリンクがある公開ORCIDプロフィール",
+      "pubmed_author": "PubMedの著者論文一覧。所属欄で連絡先の機関を確認できます",
+      "contact_form": "公式の問い合わせページ",
+      "website": "公式ウェブサイト",
+      "none": "公開連絡先の記録はありません",
+      "none_sponsor": "公開連絡先の記録はありません。研究記録にはスポンサーが記載されています。"
+    },
+    "connections": {
+      "none_found": "{condition}の{kind_label}は見つかりませんでした。{related, plural, =0 {} other {関連疾患のものを#件表示しています。}}"
+    },
+    "checked": {
+      "summary": "読み込み済み情報源{sources}件を確認し、{matched}件に一致がありました。",
+      "matched": "{source}：保存した版に一致する項目が{n}件あります。",
+      "no_match": "保存した{source}の版には一致がありません。",
+      "not_loaded": "{source}は読み込まれていません。"
+    },
+    "intake": {
+      "consent": "識別情報を伏せた文書を{processor}に送信し、検索語を抽出します。",
+      "processor": {
+        "lexical": "モデルを呼び出さず、このサーバーで検索語を抽出します。"
+      },
+      "model": {
+        "not_configured": "モデルが設定されていないため、ローカルで検索語を抽出しました。",
+        "quota": "モデルの利用枠に達したため、ローカルで検索語を抽出しました。",
+        "unavailable": "モデルが利用できないため、ローカルで検索語を抽出しました。"
+      },
+      "redaction": {
+        "none": "明らかな識別情報は見つかりませんでした。",
+        "summary": "削除した識別情報：{items}。",
+        "kind": {
+          "name": "削除した氏名：{n}件",
+          "date_of_birth": "削除した生年月日：{n}件",
+          "address": "削除した住所：{n}件",
+          "phone": "削除した電話番号：{n}件",
+          "email": "削除したメールアドレス：{n}件",
+          "record_number": "削除した記録番号：{n}件",
+          "insurance_number": "削除した保険番号：{n}件",
+          "iban": "削除したIBAN：{n}件"
+        }
+      },
+      "notice": {
+        "not_diagnosis": "研究とつながりのための情報であり、診断や治療の推奨ではありません。"
+      },
+      "error": {
+        "invalid": "文書と必須項目を確認してください。",
+        "too_large": "文書が5 MBを超えています。",
+        "save_unavailable": "文書の保存機能を利用できません。",
+        "sign_in_to_save": "この文書を保存するにはログインしてください。",
+        "unsupported": "PDF、DOCX、テキストを使用してください。"
+      }
+    },
+    "identity": {
+      "candidate_same_as": "{target_label}（{target}）と同じ可能性があります。名前は一致していますが、権威ある対応付けによる確認はありません。",
+      "candidate_source": "{source_id}は同じ名前で、同一疾患の可能性がありますが、権威ある対応付けによる確認はありません。"
+    },
+    "match": {
+      "claim": {
+        "ranker_v3": "直接のPMID重複が検出されなかった公表症例{cases}件で、事前登録した順位統合は、主にResnikのオントロジー基準に従い、首位の同順位をアトラスのスコアで決めることで、正確な首位一致率を{atlas_top1}（アトラス）、{resnik_top1}（Resnik）から{fusion_top1}へ上げました。改善の出版物別95%区間は正でしたが、上位10件は改善しませんでした。過去の結果が設計に影響したベンチマークでの後ろ向き評価であり、臨床的検証ではありません。"
+      }
+    },
+    "find": {
+      "error": {
+        "query": "検索リクエストが正しくありません。"
+      }
+    }
+  },
+  "content": {
+    "pricing": {
+      "s1": "家族向けは無料。団体向けツールは計画中です。",
+      "s2": "税別。適用される税金は別途必要です",
+      "s3": "顧客数、売上、支払意向、市場規模について実績を主張しません",
+      "s4": "無料",
+      "s5": "家族向けの基本機能",
+      "s6": "引用付きの根拠と更新状況",
+      "s7": "公開された公式連絡先",
+      "s8": "編集できるメッセージのひな形",
+      "s9": "多言語で利用",
+      "s10": "任意のアカウントと個人用の保存",
+      "s11": "基本機能を無料で利用",
+      "s12": "団体",
+      "s13": "共有ワークスペースと地図・下書きの保存",
+      "s14": "通知",
+      "s15": "範囲を定めた探索",
+      "s16": "公式連絡先の再確認",
+      "s17": "範囲を定めたサポート",
+      "s18": "試行導入の相談 — 提供予定",
+      "s19": "企業・研究機関",
+      "s20": "チームのワークスペース",
+      "s21": "範囲を定めた探索",
+      "s22": "調査担当者の作業一覧",
+      "s23": "許可制の公開メタデータAPIと一括エクスポート",
+      "s24": "公式連絡先の再確認",
+      "s25": "範囲を定めたサポート",
+      "s26": "試行導入の相談 — 提供予定",
+      "s27": "患者データの販売や非公開の臨床データの提供は行いません",
+      "s28": "掲載順位の購入や、スポンサーによる訂正の管理は認めません",
+      "s29": "公開された公式連絡先は無料のままです",
+      "s30": "家族の検索内容や身元を調査担当者と共有しません",
+      "s31": "公開メタデータのエクスポート前に、情報源ごとのライセンスを確認します",
+      "s32": "連絡先の確認は公開公式窓口を最後に確認したことを示し、連絡の成立や返信を保証しません",
+      "s33": "紹介は双方の同意と個別の範囲設定を条件に計画中です。メッセージは送信していません",
+      "s34": "訂正の作成者、レビュアー、情報源、時刻、旧主張、異議申立て方法を保持します"
+    },
+    "tenx": {
+      "s1": "協働の判断を早められるか、仮説を検証",
+      "s2": "未測定の仮定です。対応する手作業の実測値やアトラスの所要時間の研究は見つかっていません。治療の加速を示すものではありません。",
+      "s3": "特定の自然歴研究資源の再利用について、団体責任者と研究責任者または委任された研究者が署名する、日付付きの実施可否判断",
+      "s4": "候補となる資源と人を探す",
+      "s5": "同一性を照合し、適合性を整理する",
+      "s6": "情報源・更新状況・連絡先を確認する",
+      "s7": "確認済みの概要と連絡を準備する",
+      "s8": "両方法に共通する返答待ちと人による承認",
+      "s9": "作業は順次行うという仮定です。作業が重なる場合は観測時刻から再計算し、並行作業の時間を足し合わせないでください。",
+      "s10": "維持管理されている既存グラフを前提としています。新しい領域ではグラフ構築・導入の時間と、ボランティア・専門家の作業を加えてください。",
+      "s11": "D=0の場合：M >= 10*A + 9*W。一般式：M >= 10*A + 9*(W+D)。"
+    },
+    "trail": {
+      "s1": "SNAP25コミュニティ",
+      "s2": "SNAP25コミュニティ",
+      "s3": "STXBP1とSNAP25は、脳細胞が信号を送る仕組みに関わります。遺伝子の変化によって作用は異なります。両コミュニティはSimons Searchlightの対象です。参加や研究資源の再利用について、研究チームに問い合わせてください。",
+      "s4": "シナプス小胞の開口放出",
+      "s5": "脳細胞間の信号の放出",
+      "s6": "これは研究基盤を再利用する機会であり、治療効果の根拠ではありません。",
+      "s7": "同じプロセスでも障害が同じとは限りません。SNAP25とSTXBP1の一部の変異は、放出を減らすのではなく増やします。共通の方法を考える前に、変異を個別に比較する必要があります。",
+      "s8": "SNAP25の疾患名とコードはカタログ間で一致していません。単一の疾患コードではなく、遺伝子のコミュニティに結び付けています。",
+      "s9": "米国外からも参加できますが、現地での採血は個別に審査されます。利用可能な試料や細胞株は、チームからの返答があるまで分かりません。",
+      "s10": "てんかんを伴うSTXBP1脳症",
+      "s11": "Simons Searchlight研究チーム",
+      "s12": "研究記録と公式プログラムはいずれも、参加や研究資源へのアクセスの窓口として研究コーディネーターを示しています。",
+      "s13": "STXBP1とSNAP25のコミュニティ：変異別比較に向けたSimons Searchlightの再利用",
+      "s14": "Simons Searchlight研究チームの皆様\n\nSimons Searchlightの対象であるSTXBP1とSNAP25のコミュニティ間で、研究比較の可能性を検討しています。実験研究では変異によってシナプス放出への作用が異なるため、共通の方法を検討する前に変異を分ける予定です。\n\nこの比較に貴プログラムのデータ収集・アクセス手順を再利用できるか、どのデータと試料が利用可能か、実施可能性をどなたに相談できるか、教えていただけますか。家族に参加を案内する前に、国・言語・変異に関する参加条件も確認したいと考えています。\n\nどうぞよろしくお願いいたします。\n［お名前］\n［患者会名］",
+      "s15": "選択したSTXBP1とSNAP25の変異は、脳細胞の信号放出に同じ障害を起こすか。",
+      "s16": "共通する障害があれば、一つの研究方針が両コミュニティに役立つ可能性があります。",
+      "s17": "STXBP1脳症",
+      "s18": "SNAP25コミュニティ",
+      "s19": "一つの公表症例集積の人数",
+      "s20": "脳細胞間の信号の放出",
+      "s21": "STXBP1 C180Yはマウスのニューロンでタンパク質量を減らしました（タンパク質の不安定性）。",
+      "s22": "SNAP25 I67Nは放出の仕組みを不安定化し、ニューロンの自発的放出と刺激誘発放出を減らしました。",
+      "s23": "SNAP25 V48FとD166Yは、自発的放出を減らすのではなく増やします。",
+      "s24": "STXBP1 L446F（ホモ接合の2症例）は、神経細胞モデルで刺激誘発伝達を増やしました。",
+      "s25": "同じC180Y研究で、正常なSTXBP1が1コピーある場合、測定した伝達は正常でした。",
+      "s26": "両遺伝子型に有効なレスキューがあるかは、まだ実験されていません。",
+      "s27": "対応する細胞株・試料の利用可能性と、実験を行う研究室。",
+      "s28": "同じ条件のニューロンと一つの手順で、STXBP1 C180Yと個別に指定したSNAP25変異を比較します（I67NはV48F/D166Yと分ける）。自発的・刺激誘発放出、即時放出可能プール、同期性を測定し、同一遺伝的背景の対照、独立培養、盲検解析を用います。障害の方向が逆なら結果を統合しません。",
+      "s29": "提案段階の設計です。実施可能性と統計的検出力は未検討です。",
+      "s30": "Simons Searchlightの研究チームに、収集資源が変異別のSTXBP1/SNAP25比較に使えるかを問い合わせます。",
+      "s31": "Simons Searchlightは参加者を募集しており、てんかんを伴うSTXBP1脳症とSNAP25が対象です。研究コーディネーターが中央窓口です。",
+      "s32": "審査を経て、既存のデータと生体試料をSFARI Baseから申請できます。",
+      "s33": "Simons SearchlightはSNAP25のコミュニティを研究しています。",
+      "s34": "プログラムの公式問い合わせページ。",
+      "s35": "患者のSTXBP1変異、例えばC180Yはタンパク質量を減らします。実験はタンパク質の不安定性を支持しています。",
+      "s36": "ホモ接合のSTXBP1変異（L446F）は神経細胞モデルで刺激誘発伝達を増やしました。すべての変異が放出を減らすわけではありません。",
+      "s37": "SNAP25は小胞融合に関わります。I67Nは放出を減らし、V48FとD166Yは自発的放出を増やしました。",
+      "s38": "米国外の家族も参加できます。米国外での採血は個別に審査されます。",
+      "s39": "このプログラムは自然歴のデータベースと生体試料バンクであり、治療試験ではありません。",
+      "s40": "G2PはSNAP25疾患をMONDO:0014590に対応付けていますが、MONDOでの名称は先天性筋無力症候群18です。名称の不一致は未解決です。",
+      "s41": "公表症例集積はSNAP25変異を持つ23人を記載しています。新規症例と既報症例が混在するため、ほかの集団に独立した症例として加算してはいけません。"
+    }
+  },
+  "maintenance": {
+    "title": "Zebratlas：つながる人を見つける。近日公開。",
+    "description": "Zebratlasは希少疾患のある方を患者会、研究、専門家につなぎます。近日公開。",
+    "heading": "Zebratlas：つながる人を見つける。",
+    "body": "希少疾患のある方を患者会、研究、レジストリ、専門家につなぐ地図です。すべてのつながりを情報源までたどれます。",
+    "soon": "近日公開。"
+  },
+  "resources": {
+    "research": "研究資源",
+    "models": "モデル・試料・データ",
+    "papers": "無料で全文を読める論文",
+    "funding": "研究助成",
+    "read": "無料の全文を読む",
+    "request": "利用を依頼する",
+    "apply": "利用を申請する",
+    "download": "ダウンロード",
+    "holderPage": "提供元の公式ページ",
+    "officialPage": "プロジェクト・資源の公式ページ",
+    "source": "出典",
+    "searchElsewhere": "他の情報源を検索",
+    "discoveryUnchecked": "これらは検索リンクです。検索結果はここでは確認していません。",
+    "availabilityUnknown": "利用可能かどうか、および研究への適合性は確認されていません。",
+    "noRoute": "確認済みの利用方法はありません。",
+    "cachedOnly": "保存済みの証拠のみです。情報源の最新状態は確認していません。",
+    "reuseLicence": "全文の再利用ライセンス",
+    "unknown": "不明",
+    "recordLicence": "レコードのライセンス",
+    "fundingEvidence": "研究助成の証拠",
+    "verifyCached": "保存済みの証拠を確認",
+    "cacheMatches": "保存済みの証拠が一致",
+    "checkedCache": "今回の入力について保存済み情報源を確認済み",
+    "notChecked": "今回の入力について未確認",
+    "none": "確認済みの情報源では関連する資源は見つかりませんでした。他の資源が存在する可能性があります。",
+    "apiVerified": "保存済みのNIH API応答はこのプロジェクトと一致します。",
+    "apiUnverified": "保存済みのNIH API応答のすべてを検証できませんでした。",
+    "evidenceUnavailable": "研究助成の証拠が利用できないか、変更されています。",
+    "organisation": "機関",
+    "funder": "助成機関",
+    "years": "年度",
+    "scope": {
+      "exact": "この診断を明記",
+      "gene": "原因遺伝子に関連。診断との完全一致ではありません",
+      "condition": "この遺伝子に関連する疾患を介したつながり",
+      "ortholog": "モデル生物の遺伝子を介したつながり",
+      "related": "関連研究。診断との完全一致ではありません"
+    },
+    "accessConditions": "出典に記載された利用条件"
+  }
+}

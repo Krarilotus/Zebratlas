@@ -1,0 +1,330 @@
+// Contract fixtures only: every network request and cookie store is mocked.
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { dirname, relative, resolve } from "node:path";
+import { createRequire } from "node:module";
+import { fileURLToPath } from "node:url";
+import ts from "typescript";
+
+const require = createRequire(import.meta.url);
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const loaded = new Map();
+const jar = new Map();
+const cookieWrites = [];
+const calls = [];
+let nextReply = { status: 200, body: {} };
+process.env.ACCOUNTS_API_URL = "http://accounts.fixture.invalid";
+process.env.ZEBRA_BACKEND_URL = "http://atlas.fixture.invalid";
+delete process.env.ZEBRA_LLM_KEY;
+delete process.env.ZEBRA_LLM_CONNECTION;
+globalThis.fetch = async (url, init = {}) => {
+  calls.push({ url: String(url), init, body: init.body ? JSON.parse(init.body) : null });
+  return new Response(JSON.stringify(nextReply.body), { status: nextReply.status, headers: { "content-type": "application/json", ...nextReply.headers } });
+};
+const mocks = {
+  "server-only": {},
+  "next/headers": {
+    cookies: async () => ({ get: (key) => jar.has(key) ? { value: jar.get(key) } : undefined, set: (...args) => { cookieWrites.push(args); jar.set(args[0], args[1]); }, delete: (key) => jar.delete(key) }),
+    headers: async () => new Headers({ origin: "http://web.fixture.invalid" }),
+  },
+  "next/cache": { refresh() {} },
+  "next/navigation": { redirect() { throw new Error("Unexpected authentication redirect"); } },
+  "@/lib/adapt": {},
+  "@/lib/zebra/normalize": { sourceDates: (value) => value },
+};
+function load(name, from = root) {
+  if (name.startsWith(".")) name = "@/" + relative(root, resolve(from, name)).replaceAll("\\", "/");
+  if (Object.hasOwn(mocks, name)) return mocks[name];
+  if (!name.startsWith("@/")) return require(name);
+  if (loaded.has(name)) return loaded.get(name).exports;
+  const file = resolve(root, name.slice(2) + ".ts");
+  const source = readFileSync(file, "utf8");
+  const compiled = ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.CommonJS, esModuleInterop: true } }).outputText;
+  const unit = { exports: {} };
+  loaded.set(name, unit);
+  new Function("require", "module", "exports", compiled)((dependency) => load(dependency, dirname(file)), unit, unit.exports);
+  return unit.exports;
+}
+const route = load("@/app/zebra/api/[operation]/route");
+async function post(operation, payload, reply) {
+  nextReply = reply;
+  const response = await route.POST(new Request(`http://web.fixture.invalid/zebra/api/${operation}`, {
+    method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(payload),
+  }), { params: Promise.resolve({ operation }) });
+  return { status: response.status, body: await response.json() };
+}
+
+assert.deepEqual(await post("auth", { mode: "signup", email: "fixture@example.invalid", password: "fixture-password" }, { status: 202, body: { state: "verification_required", code: "verification_sent" } }), { status: 202, body: { state: "verification_required", code: "verification_sent" } });
+assert.equal(cookieWrites.length, 0, "pending signup cannot create a browser session");
+const account = { user: { id: "fixture-user", email: "fixture@example.invalid", display_name: null, locale: "en", created_at: "2026-10-04" }, plan: "free", organisations: [] };
+assert.deepEqual(await post("auth", { mode: "login", email: "fixture@example.invalid", password: "fixture-password" }, { status: 200, body: account, headers: { "set-cookie": "atlas_session=fixture-session; HttpOnly; Max-Age=3600" } }), { status: 200, body: { state: "signed_in", account } });
+assert.equal(cookieWrites[0][2].httpOnly, true, "ordinary sign-in preserves an HTTP-only session");
+assert.equal(cookieWrites[0][2].sameSite, "lax");
+cookieWrites.length = 0; jar.clear();
+assert.deepEqual(await post("auth", { mode: "login", email: "fixture@example.invalid", password: "fixture-password" }, { status: 403, body: { code: "email_unverified", detail: "Verify email" } }), { status: 403, body: { detail: "Verify email", code: "email_unverified" } });
+jar.set("atlas_session", "old-fixture-session");
+assert.equal((await post("verify-email", { token: "fixture-token" }, { status: 200, body: { state: "verified", code: "email_verified" } })).body.state, "verified");
+assert.equal(new Headers(calls.at(-1).init.headers).has("authorization"), false, "token verification does not borrow a signed-in session");
+assert.equal(cookieWrites.length, 0, "verification does not automatically sign in");
+for (const operation of ["resend-verification", "forgot-password"]) {
+  const code = operation === "forgot-password" ? "password_reset_sent" : "verification_sent";
+  const unknown = await post(operation, { email: "unknown@example.invalid", locale: "de" }, { status: 202, body: { state: "accepted", code } });
+  const known = await post(operation, { email: "fixture@example.invalid", locale: "de" }, { status: 202, body: { state: "accepted", code } });
+  assert.deepEqual(unknown, known, "delivery responses do not enumerate accounts");
+  assert.equal(calls.at(-1).body.locale, "de");
+}
+assert.deepEqual(await post("reset-password", { token: "expired-fixture", new_password: "fixture-new-password" }, { status: 422, body: { code: "invalid_token", detail: "Invalid link" } }), { status: 422, body: { code: "invalid_token", detail: "Invalid link" } });
+assert.equal((await post("reset-password", { token: "fixture-token", new_password: "fixture-new-password" }, { status: 200, body: { state: "password_reset", code: "password_reset_complete" } })).body.state, "password_reset");
+assert.equal(jar.has("atlas_session"), false, "successful reset removes the old browser session");
+assert.equal(cookieWrites.length, 0, "password reset never signs in automatically");
+const before = calls.length;
+assert.equal((await post("forgot-password", { email: "fixture@example.invalid", locale: "de", api_key: "forbidden" }, { status: 202, body: {} })).status, 400);
+assert.equal(calls.length, before, "unexpected fields never reach the account server");
+
+// The legacy UI is omitted from this package; Astra route and account-link checks follow.
+const { consumeAccountLink } = load("@/lib/zebra/account-link");
+let cleaned;
+assert.deepEqual(consumeAccountLink("https://web.fixture.invalid/zebra/account?flow=reset-password&lang=de#token=fixture%2Btoken", (path) => { cleaned = path; }), { flow: "reset-password", token: "fixture+token" });
+assert.equal(cleaned, "/zebra/account?flow=reset-password&lang=de");
+assert.equal(consumeAccountLink("https://web.fixture.invalid/zebra/account?flow=verify-email&token=unsafe-query-token", () => {} ).token, "", "query-string tokens are not consumed");
+assert.equal(consumeAccountLink("https://web.fixture.invalid/zebra/account?flow=other#token=fixture", () => {}), null);
+assert.equal(consumeAccountLink("https://web.fixture.invalid/zebra/account?flow=verify-email#token=" + "x".repeat(2049), () => {}).token, "", "oversized tokens are rejected");
+const client = load("@/lib/zebra/client");
+nextReply = { status: 200, body: { state: "verified", code: "email_verified" } };
+await client.verifyEmail("fixture-token", "de");
+assert.equal(calls.at(-1).url, "/zebra/api/verify-email", "client sends tokens only in the POST body");
+assert.deepEqual(calls.at(-1).body, { token: "fixture-token", locale: "de" });
+assert.equal(calls.at(-1).init.credentials, "same-origin");
+assert.equal(calls.at(-1).init.cache, "no-store");
+nextReply = { status: 422, body: { code: "invalid_token", detail: "Fixture expired token" } };
+await assert.rejects(client.resetPassword("fixture-token", "fixture-new-password", "de"), (error) => error.code === "invalid_token" && error.status === 422);
+nextReply = { status: 200, body: { results: [{ node: { id: "HGNC:11444", label: "STXBP1", kind: "gene" } }] } };
+const lookupResponse = await route.GET(new Request("http://web.fixture.invalid/zebra/api/lookup?q=STX"), { params: Promise.resolve({ operation: "lookup" }) });
+assert.equal(lookupResponse.status, 405);
+assert.equal((await post("lookup", { q: "STX" }, nextReply)).status, 200);
+assert.equal(calls.at(-1).url, "http://atlas.fixture.invalid/api/search/lookup");
+assert.deepEqual(calls.at(-1).body, { q: "STX", limit: 6 });
+assert.equal(calls.at(-1).init.method, "POST", "autocomplete uses the deterministic index without putting private text in URLs");
+const directAnswer = { interpretation: { mode: "sparql" }, results: [], graph: { nodes: [], edges: [] } };
+assert.equal((await post("sparql", { sparql: "SELECT ?s WHERE { ?s ?p ?o } LIMIT 10", query: "Original caption", limit: 100, reasoning: true }, { status: 200, body: directAnswer })).body.interpretation.mode, "sparql");
+assert.equal(calls.at(-1).url, "http://atlas.fixture.invalid/api/explore/sparql");
+const beforeTooLarge = calls.length;
+assert.equal((await post("sparql", { sparql: "é".repeat(9000) }, { status: 200, body: directAnswer })).status, 400, "UTF-8 byte limit is enforced, not just string length");
+assert.equal((await post("sparql", { sparql: "SELECT ?s WHERE { ?s ?p ?o }", reasoning: "true" }, { status: 200, body: directAnswer })).status, 400);
+assert.equal(calls.length, beforeTooLarge);
+nextReply = { status: 200, body: directAnswer };
+const { queryReceipts } = load("@/components/zebra/query-workspace");
+const selectedQuery = "SELECT ?s WHERE { ?s ?p ?o } LIMIT 20";
+const selectedReceipt = queryReceipts({ query: "Original caption", graph: { nodes: [{ id: "HGNC:11444", label: "STXBP1", kind: "gene" }], edges: [] }, execution: { engine: "nrese" }, query_execution: { focus: ["HGNC:11444"], semantic_focus: ["MONDO:fixture"], answer: { results: [{ query: selectedQuery, backend: "nrese", activity: { "@id": "urn:atlas:query:fixture", parameters: { infer: false, row_cap: 20 } } }] } } })[0];
+const rerunAnswer = await client.runSparqlQuery(selectedReceipt.text, "Original caption", undefined, selectedReceipt.settings);
+assert.equal(calls.at(-1).url, "/zebra/api/sparql");
+assert.deepEqual(calls.at(-1).body, { sparql: selectedQuery, query: "Original caption", focus: ["HGNC:11444"], semantic_focus: ["MONDO:fixture"], limit: 20, reasoning: false });
+assert.deepEqual(rerunAnswer.execution.rerun_context, selectedReceipt.settings, "Actual selected execution settings and labels survive the rerun");
+const beforeMissingSettings = calls.length;
+await assert.rejects(client.runSparqlQuery(selectedQuery, "Original caption"), error => error.code === "invalid_rerun_settings");
+assert.equal(calls.length, beforeMissingSettings, "No cap or inference default may trigger a request without an executed receipt");
+console.log("PASS: account proxy, generic delivery, reset session removal, strict fields and fragment cleanup (fixtures only; no email sent)");
+console.log("PASS: private lookup POST and direct SPARQL proxy/client contracts with UTF-8 bounds (fixtures only)");
+
+const formHelpers = load("@/lib/zebra/contribution-form");
+const suggestionContext = { subject: { id: "HGNC:11444", label: "STXBP1" }, kind: "correction" };
+const suggestionHref = formHelpers.contributionHref(suggestionContext, "de");
+assert.deepEqual(formHelpers.contributionContext(new URL(suggestionHref, "https://web.fixture.invalid").search).subject, suggestionContext.subject);
+assert.equal(new URL(suggestionHref, "https://web.fixture.invalid").searchParams.get("lang"), "de");
+const suggestionFields = new FormData();
+for (const [key, value] of Object.entries({ kind: "correction", subject: "STXBP1", statement: " Please check this label. ", contact: "reviewer@example.invalid" })) suggestionFields.set(key, value);
+const suggestionInput = formHelpers.buildContribution(suggestionFields, suggestionContext, "de");
+assert.deepEqual(suggestionInput.subject, suggestionContext.subject);
+assert.equal(suggestionInput.statement, "Please check this label.", "the note is retained as typed apart from documented trimming");
+assert.equal(suggestionInput.evidence_url, undefined, "a source is optional in the production contract");
+assert.equal(suggestionInput.subject_kind, undefined, "no invented Other classification or missing companion");
+assert.equal(suggestionInput.contributor.contact, "reviewer@example.invalid");
+suggestionFields.set("contact", "");
+assert.throws(() => formHelpers.buildContribution(suggestionFields, suggestionContext, "de"), /invalid_contribution/, "email is mandatory in the production contract");
+suggestionFields.set("contact", "reviewer@example.invalid");
+suggestionFields.set("evidence_url", "https://user:password@fixture.invalid/source");
+assert.throws(() => formHelpers.buildContribution(suggestionFields, suggestionContext, "de"), /invalid_contribution/, "credential-bearing source links are rejected");
+suggestionFields.delete("evidence_url");
+suggestionFields.set("subject", "Different item");
+assert.deepEqual(formHelpers.buildContribution(suggestionFields, { ...suggestionContext, edge: "a|relation|b" }, "de").subject, { label: "Different item" });
+assert.equal(formHelpers.buildContribution(suggestionFields, { ...suggestionContext, edge: "a|relation|b" }, "de").edge, undefined, "editing context drops the old edge and identifier");
+suggestionFields.set("kind", "new_link");
+assert.throws(() => formHelpers.buildContribution(suggestionFields, {}, "en"), /invalid_contribution/, "a new connection needs both endpoints");
+suggestionFields.set("condition", "STXBP1");
+assert.deepEqual(formHelpers.buildContribution(suggestionFields, {}, "en").target, { label: "STXBP1" });
+suggestionFields.set("kind", "other");
+assert.throws(() => formHelpers.buildContribution(suggestionFields, {}, "en"), /invalid_contribution/, "Other requires an explicit category");
+suggestionFields.set("kind_other", "Source outdated");
+assert.equal(formHelpers.buildContribution(suggestionFields, {}, "en").kind_other, "Source outdated");
+suggestionFields.set("quote", "x".repeat(1001));
+assert.throws(() => formHelpers.buildContribution(suggestionFields, {}, "en"), /invalid_contribution/, "overlong optional fields cannot be silently discarded");
+const pendingSuggestion = { id: "fixture-suggestion", state: "submitted", created_at: "2026-10-04" };
+assert.deepEqual(await post("contribute", suggestionInput, { status: 202, body: { contribution: pendingSuggestion } }), { status: 202, body: pendingSuggestion });
+assert.equal(calls.at(-1).url, "http://atlas.fixture.invalid/api/contribute");
+assert.deepEqual(calls.at(-1).body, JSON.parse(JSON.stringify(suggestionInput)), "the real proxy preserves the contribution payload");
+nextReply = { status: 202, body: pendingSuggestion };
+assert.equal((await client.submitContribution(suggestionInput)).state, "submitted");
+assert.equal(calls.at(-1).url, "/zebra/api/contribute");
+nextReply = { status: 422, body: { detail: "Fixture invalid contribution" } };
+await assert.rejects(client.submitContribution(suggestionInput), (error) => error.status === 422);
+nextReply = { status: 202, body: { id: "fixture-suggestion", state: "accepted" } };
+await assert.rejects(client.submitContribution(suggestionInput), /invalid_contribution_response/, "a review confirmation cannot claim immediate acceptance");
+nextReply = { status: 202, body: {} };
+await assert.rejects(client.submitContribution(suggestionInput), /invalid_contribution_response/, "a malformed success does not produce a false confirmation");
+console.log("PASS: contextual contribution payloads, exact kinds, required email, optional source, field limits and real proxy/client review confirmation (fixtures only; no contribution sent)");
+const connectionCheck = { connection: "kisski", connected: true, models: ["openai-gpt-oss-120b"], availability: { available: true, reason: "reachable" } };
+nextReply = { status: 200, body: connectionCheck };
+assert.equal((await route.GET(new Request("http://web.fixture.invalid/zebra/api/models?connection=kisski"), { params: Promise.resolve({ operation: "models" }) })).status, 200);
+assert.equal(calls.at(-1).url, "http://accounts.fixture.invalid/api/account/connectors/models?connection=kisski");
+assert.equal(calls.at(-1).init.method, "GET", "Connect checks metadata without generating anything");
+const beforeBadCheck = calls.length;
+assert.equal((await route.GET(new Request("http://web.fixture.invalid/zebra/api/models?connection=" + "x".repeat(201)), { params: Promise.resolve({ operation: "models" }) })).status, 400);
+assert.equal(calls.length, beforeBadCheck);
+nextReply = { status: 200, body: { ...connectionCheck, connection: "connector:alice:codex" } };
+await client.checkModelConnection("connector:alice:codex");
+assert.equal(calls.at(-1).url, "/zebra/api/models?connection=connector%3Aalice%3Acodex");
+assert.equal(calls.at(-1).init.credentials, "same-origin");
+assert.equal(calls.at(-1).body, null);
+nextReply = { status: 200, body: { ...connectionCheck, connection: "other-account" } };
+await assert.rejects(client.checkModelConnection("kisski"), /invalid_model_connection_response/, "a mismatched check cannot unlock another connection");
+console.log("PASS: explicit single-connection metadata proxy/client contract, encoded account-scoped IDs and bounds (fixtures only; no connection contacted)");
+process.env.ZEBRA_LLM_CONNECTION = "fixture-operator-fallback";
+process.env.ZEBRA_LLM_KEY = "fixture-only-operator-key";
+const server = load("@/lib/zebra/server");
+nextReply = { status: 200, body: directAnswer };
+jar.clear();
+await server.upstream(new Request("http://web.fixture.invalid/zebra/api/explore"), "/api/explore", { method: "POST", body: { query: "Fixture anonymous query" } });
+let dispatchHeaders = new Headers(calls.at(-1).init.headers);
+assert.equal(dispatchHeaders.get("x-llm-connection"), "fixture-operator-fallback", "anonymous operator/default free policy remains available");
+assert.equal(dispatchHeaders.get("x-llm-key"), "fixture-only-operator-key");
+jar.set("atlas_session", "fixture-personal-session");
+await server.upstream(new Request("http://web.fixture.invalid/zebra/api/explore"), "/api/explore", { method: "POST", body: { query: "Fixture personal query" } });
+dispatchHeaders = new Headers(calls.at(-1).init.headers);
+assert.equal(dispatchHeaders.get("authorization"), "Bearer fixture-personal-session");
+assert.equal(dispatchHeaders.has("x-llm-connection"), false, "authenticated requests allow the backend's saved personal choice to take precedence");
+assert.equal(dispatchHeaders.has("x-llm-key"), false, "an operator key cannot force the authenticated request past its personal choice");
+assert.ok(!JSON.stringify(calls.at(-1).body).includes("fixture-only-operator-key"), "the operator key is never part of a browser response or contribution body");
+delete process.env.ZEBRA_LLM_CONNECTION; delete process.env.ZEBRA_LLM_KEY; jar.clear();
+console.log("PASS: personal account dispatch beats operator defaults; anonymous defaults and server-only key handling remain intact (fixtures only)");
+globalThis.window = new EventTarget();
+const identity = load("@/lib/zebra/account-events");
+const signedIn = { state: "signed_in", account };
+nextReply = { status: 200, body: signedIn };
+await client.auth("login", { email: "fixture@example.invalid", password: "fixture-password" });
+assert.deepEqual(identity.getAccountIdentity(), signedIn, "successful sign-in immediately supplies the header identity without another request");
+nextReply = { status: 503, body: { detail: "Fixture temporarily unavailable" } };
+await assert.rejects(client.account(), (error) => error.status === 503);
+assert.deepEqual(identity.getAccountIdentity(), signedIn, "a temporary account refresh failure keeps the verified picture");
+nextReply = { status: 200, body: { state: "unavailable", detail: "Fixture backend unavailable" } };
+await assert.rejects(client.account(), /invalid_account_state_response/);
+assert.deepEqual(identity.getAccountIdentity(), signedIn, "a transient error state payload is not a sign-out");
+const fixtureFetch = globalThis.fetch;
+let finishOldRead;
+globalThis.fetch = () => new Promise((resolve) => { finishOldRead = resolve; });
+const oldRead = client.account();
+globalThis.fetch = fixtureFetch;
+nextReply = { status: 200, body: {} };
+await client.logout();
+assert.deepEqual(identity.getAccountIdentity(), { state: "signed_out" }, "logout clears the picture immediately on the real mutation response");
+finishOldRead(new Response(JSON.stringify(signedIn), { status: 200, headers: { "content-type": "application/json" } }));
+await oldRead;
+assert.deepEqual(identity.getAccountIdentity(), { state: "signed_out" }, "an in-flight read cannot resurrect a prior session");
+identity.accountChanged(signedIn);
+let finishBeforeReset;
+globalThis.fetch = () => new Promise((resolve) => { finishBeforeReset = resolve; });
+const beforeReset = client.account();
+globalThis.fetch = fixtureFetch;
+nextReply = { status: 200, body: { state: "password_reset", code: "password_reset_complete" } };
+await client.resetPassword("fixture-token", "fixture-new-password");
+assert.deepEqual(identity.getAccountIdentity(), { state: "signed_out" }, "a completed reset clears the prior identity without automatic sign-in");
+finishBeforeReset(Response.json(signedIn)); await beforeReset;
+assert.deepEqual(identity.getAccountIdentity(), { state: "signed_out" }, "a pre-reset read cannot revive the revoked session");
+identity.accountChanged(signedIn);
+let finishOldProfile;
+globalThis.fetch = () => new Promise((resolve) => { finishOldProfile = resolve; });
+const oldProfile = client.updateProfile({ display_name: "Old session edit" });
+globalThis.fetch = fixtureFetch;
+const otherIdentity = { state: "signed_in", account: { ...account, user: { ...account.user, id: "fixture-other-user", email: "other@fixture.invalid", display_name: "Other" } } };
+nextReply = { status: 200, body: otherIdentity };
+await client.auth("login", { email: "other@fixture.invalid", password: "fixture-password" });
+const newSessionRevision = identity.getAccountRevision();
+finishOldProfile(Response.json(signedIn)); await oldProfile;
+assert.deepEqual(identity.getAccountIdentity(), otherIdentity, "a late profile response cannot show another account's avatar");
+assert.equal(identity.getAccountRevision(), newSessionRevision, "a stale profile response does not schedule a gratuitous refresh");
+let finishOldFailure;
+globalThis.fetch = () => new Promise((resolve) => { finishOldFailure = resolve; });
+const oldFailure = client.connectors();
+globalThis.fetch = fixtureFetch;
+nextReply = { status: 200, body: signedIn };
+await client.auth("login", { email: "fixture@example.invalid", password: "fixture-password" });
+const oldFailureAssertion = assert.rejects(oldFailure, (error) => error.status === 401);
+finishOldFailure(Response.json({ detail: "Fixture old session expired" }, { status: 401 }));
+await oldFailureAssertion;
+assert.deepEqual(identity.getAccountIdentity(), signedIn, "a late unauthenticated reply from an old session cannot clear the new account");
+identity.accountChanged(signedIn);
+let finishBeforeExpiry;
+globalThis.fetch = () => new Promise((resolve) => { finishBeforeExpiry = resolve; });
+const beforeExpiry = client.account();
+globalThis.fetch = fixtureFetch;
+nextReply = { status: 401, body: { detail: "Fixture session expired" } };
+await assert.rejects(client.connectors(), (error) => error.status === 401);
+assert.deepEqual(identity.getAccountIdentity(), { state: "signed_out" }, "verified unauthenticated account endpoints clear stale identity");
+finishBeforeExpiry(Response.json(signedIn)); await beforeExpiry;
+assert.deepEqual(identity.getAccountIdentity(), { state: "signed_out" }, "session expiry invalidates successful reads that started earlier");
+identity.forgetAccountIdentity(); delete globalThis.window;
+console.log("PASS: persistent identity during refresh, immediate sign-in/sign-out, verified session expiry and stale-response isolation (fixtures only)");
+
+// Older backends expose hosted models without account connector endpoints.
+const geminiCheck = { connection: "gemini-free", connected: true, models: ["gemini-3.8-flash", "fixture-another-advertised-model"], availability: { available: true, reason: "reachable" } };
+globalThis.fetch = async (url, init = {}) => {
+  calls.push({ url: String(url), init });
+  return String(url).includes("/api/account/connectors")
+    ? Response.json({ detail: "Not found" }, { status: 404 })
+    : Response.json(String(url).includes("?connection=") ? geminiCheck : { default: "kisski", connections: [{ name: "gemini-free", models: geminiCheck.models, default_model: "gemini-3.8-flash" }] });
+};
+const modelRequest = (method, body) => new Request("http://web.fixture.invalid/zebra/api/models", { method, ...(body ? { headers: { "content-type": "application/json" }, body: JSON.stringify(body) } : {}) });
+const modelContext = { params: Promise.resolve({ operation: "models" }) };
+let geminiResponse = await route.PUT(modelRequest("PUT", { connection: "gemini-free", model: "gemini-3.8-flash" }), modelContext);
+assert.equal(geminiResponse.status, 200);
+assert.deepEqual((await geminiResponse.json()).selected, { connection: "gemini-free", model: "gemini-3.8-flash" }, "legacy selection reports only the configured model that dispatch will actually use");
+assert.equal(jar.get(server.HOSTED_MODEL_COOKIE), "gemini-free");
+assert.equal(cookieWrites.at(-1)[2].httpOnly, true);
+geminiResponse = await route.GET(modelRequest("GET"), modelContext);
+assert.deepEqual((await geminiResponse.json()).selected, { connection: "gemini-free", model: "gemini-3.8-flash" });
+await server.upstream(modelRequest("GET"), "/api/explore");
+assert.equal(new Headers(calls.at(-1).init.headers).get("x-llm-connection"), "gemini-free");
+assert.equal(new Headers(calls.at(-1).init.headers).has("x-llm-key"), false);
+jar.set("atlas_session", "fixture-other-account-session");
+await server.upstream(modelRequest("GET"), "/api/explore");
+assert.equal(new Headers(calls.at(-1).init.headers).has("x-llm-connection"), false, "a hosted cookie cannot override the authenticated account's saved model");
+geminiResponse = await route.GET(modelRequest("GET"), modelContext);
+assert.equal((await geminiResponse.json()).selected, null, "an anonymous preference is never presented as a personal saved choice");
+geminiResponse = await route.PUT(modelRequest("PUT", { connection: "gemini-free", model: "gemini-3.8-flash" }), modelContext);
+assert.equal(geminiResponse.status, 503, "missing personal settings cannot silently store an anonymous selection for a signed-in account");
+jar.delete("atlas_session");
+geminiResponse = await route.PUT(modelRequest("PUT", { connection: "gemini-free", model: "fixture-another-advertised-model" }), modelContext);
+assert.equal(geminiResponse.status, 400, "a selectable provider model cannot be claimed when the legacy dispatch persists only the default");
+geminiResponse = await route.PUT(modelRequest("PUT", { connection: "gemini-free", model: "unapproved-model" }), modelContext);
+assert.equal(geminiResponse.status, 400);
+geminiResponse = await route.DELETE(modelRequest("DELETE"), modelContext);
+assert.equal(geminiResponse.status, 200);
+assert.equal(jar.has(server.HOSTED_MODEL_COOKIE), false);
+const hostedFetch = globalThis.fetch;
+globalThis.fetch = fixtureFetch;
+jar.set(server.HOSTED_MODEL_COOKIE, "gemini-free");
+await post("auth", { mode: "login", email: "fixture@example.invalid", password: "fixture-password" }, { status: 200, body: account, headers: { "set-cookie": "atlas_session=fixture-session; HttpOnly; Max-Age=3600" } });
+assert.equal(jar.has(server.HOSTED_MODEL_COOKIE), false, "confirmed login clears the anonymous preference");
+for (const operation of ["logout", "logout-all", "reset-password"]) {
+  jar.set(server.HOSTED_MODEL_COOKIE, "gemini-free"); jar.set("atlas_session", "fixture-session");
+  nextReply = { status: 200, body: {} };
+  const response = await route.POST(new Request(`http://web.fixture.invalid/zebra/api/${operation}`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(operation === "reset-password" ? { token: "fixture-token", new_password: "fixture-new-password" } : {}) }), { params: Promise.resolve({ operation }) });
+  assert.ok(response.ok);
+  assert.equal(jar.has(server.HOSTED_MODEL_COOKIE), false, `${operation} cannot leave a prior user's preference behind`);
+}
+jar.set(server.HOSTED_MODEL_COOKIE, "gemini-free"); jar.set("atlas_session", "fixture-expired-session");
+nextReply = { status: 401, body: { detail: "Fixture session expired" } };
+assert.equal((await route.GET(new Request("http://web.fixture.invalid/zebra/api/account"), { params: Promise.resolve({ operation: "account" }) })).status, 401);
+assert.equal(jar.has(server.HOSTED_MODEL_COOKIE), false, "verified account session expiry clears the anonymous preference");
+assert.equal(jar.has("atlas_session"), false);
+globalThis.fetch = hostedFetch;
+console.log("PASS: explicit hosted compatibility, truthful configured model, anonymous-only dispatch, personal precedence and confirmed session-boundary cookie cleanup");

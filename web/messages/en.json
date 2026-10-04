@@ -1,0 +1,1706 @@
+{
+  "_meta": {
+    "locale": "en",
+    "source": "current master plus reviewed designer additions and captured API/content copy",
+    "machine_translated": false,
+    "reviewed": [
+      "en",
+      "de"
+    ],
+    "note": "Source catalog. Plain language, short sentences, no idioms. ICU MessageFormat (plural, select).",
+    "native_review": "source",
+    "unit_errors": {
+      "author": "GPT-6.1-Sol",
+      "backcheck": "Entry selection and inclusive 1 to 500 limit retained.",
+      "native_reviewed": false
+    },
+    "bench_fixes": {
+      "keys": [
+        "coverage.outside_verified_neighbourhood",
+        "connections.why.project"
+      ],
+      "agent_authored": true,
+      "semantic_backcheck": true,
+      "native_speaker_reviewed": false
+    },
+    "integration": "agent-authored translations; native review pending",
+    "reviewed_at": "2026-10-04T06:11:23.947585+00:00",
+    "review_ref": "docs/i18n/world-review-approval.json",
+    "bench_frontend": {
+      "agent_authored": true,
+      "semantic_backcheck": true,
+      "native_speaker_reviewed": false
+    }
+  },
+  "app": {
+    "name": "Zebratlas",
+    "promise": "Find your people",
+    "skip": "Skip to main content",
+    "home": "Zebratlas, start page",
+    "mainNav": "Main",
+    "footerNav": "More about the atlas",
+    "notAdvice": "We connect people. This is not medical advice.",
+    "free": "Free for families. No account needed.",
+    "sampleBadge": "Sample data",
+    "sampleHint": "Some content is sample data for testing. Sample organisations are placeholders, not real.",
+    "loading": "Loading…",
+    "opensNewTab": "(opens in a new tab)",
+    "notFoundTitle": "We could not find this page",
+    "notFoundLead": "The link may be old. You can search again from the start page.",
+    "backHome": "Go to the start page",
+    "errorTitle": "Something went wrong",
+    "errorLead": "Please try again. If it keeps happening, try again later.",
+    "tryAgain": "Try again",
+    "showMore": "{n, plural, one {Show # more} other {Show # more}}",
+    "curatedBadge": "Checked by hand",
+    "curatedHint": "This link was checked by hand on {date} against the sources in “How we know”. The atlas server does not compute it yet."
+  },
+  "nav": {
+    "about": "About",
+    "pricing": "For organisations",
+    "signIn": "Sign in",
+    "saved": "Saved",
+    "search": "Search for a condition",
+    "account": "Account",
+    "accountOf": "Account: {name}",
+    "signUp": "Create account",
+    "signOut": "Sign out",
+    "sources": "Data sources & licences",
+    "contributeData": "Contribute data",
+    "partners": "Partners",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "imprint": "Imprint",
+    "openSource": "Open source",
+    "help": "Help",
+    "menu": "Menu",
+    "underTheHood": "Under the hood",
+    "impact": "Time saved"
+  },
+  "language": {
+    "current": "Language: {name}",
+    "choose": "Choose your language",
+    "contentNote": "This text is in {language}. A translation needs the atlas server.",
+    "showOriginal": "Show the original ({language})",
+    "machineNote": "Translated by a computer. Names, codes and links are never translated.",
+    "label": "Language"
+  },
+  "home": {
+    "label": "Search the atlas",
+    "placeholder": "Search or paste",
+    "submit": "Search",
+    "welcome": "Welcome to Zebratlas",
+    "explore": "Explore the research community graph",
+    "title": "Find your people",
+    "lead": "Type what you know: a diagnosis, a gene, or a sentence from the doctor's letter. Any language works.",
+    "examples": "Try",
+    "exampleSentence": "Meine Tochter hat eine STXBP1-Mutation",
+    "rareExample": "A rare example with no group yet",
+    "door": {
+      "research": "Research or industry: the evidence",
+      "org": "Organisations: plans"
+    },
+    "doorsLabel": "More options",
+    "specimen": "Example: {name}",
+    "openSpecimen": "Open the {name} chart",
+    "figPeople": "{n, plural, one {researcher} other {researchers}}"
+  },
+  "find": {
+    "label": "Search again",
+    "chooseTitle": "Choose a condition",
+    "chooseLead": "Matches for “{q}”",
+    "understood": "We used “{term}” from what you typed.",
+    "via": {
+      "name": "Matches the name",
+      "alias": "Another name for this condition: {term}",
+      "gene": "Caused by a change in the gene {term}",
+      "typo": "Close to what you typed: {term}",
+      "sentence": "Found the gene {term} in your text",
+      "id": "Matches the code {term}",
+      "symptom": "Matches the sign {term}"
+    },
+    "noneTitle": "We could not find “{q}” yet",
+    "emptyTitle": "Search the atlas"
+  },
+  "condition": {
+    "more": "More about this condition",
+    "medicalNames": "Medical names",
+    "gene": "Gene",
+    "glossary": "Words doctors use",
+    "doctorQuestion": "Is there a study or registry for {name} that our child could join, and who is the expert for it near us?",
+    "forGroupsLink": "Groups with the same problem in the body",
+    "plainGene": "This is a rare condition. It is caused by a change in one gene, called {gene}.",
+    "plainNoGene": "This is a rare condition.",
+    "plainMore": "Every child is different. A doctor who knows the condition can tell you what it means for your child.",
+    "definition": "Medical description",
+    "geneTitle": "{gene}-related condition",
+    "figCases": "{n, plural, one {family described in medical papers} other {families described in medical papers}}",
+    "code": "Code",
+    "groupsTitle": "Families who live with this",
+    "otherGroups": "{n, plural, one {One more group for {gene}} other {# more groups for {gene}}}",
+    "studiesTitle": "Studies you can join",
+    "studiesLead": "Studies and registries that take people now. A registry collects health information from many families so research can start sooner.",
+    "noOpenStudies": "We found no study that takes people now for exactly this condition.",
+    "closedStudies": "{n, plural, one {Show # study that is closed or finished} other {Show # studies that are closed or finished}}",
+    "doctorsTitle": "Doctors who know this condition",
+    "noDoctors": "We found no expert centre for exactly this condition.",
+    "askDoctor": "A question to take to your doctor:",
+    "onwardLabel": "For patient groups and researchers",
+    "forGroupsLead": "Other conditions with the same cause, and who to write to.",
+    "figGroups": "{n, plural, one {patient group} other {patient groups}}",
+    "moreStudies": "More studies ({n})",
+    "otherStudies": "Other studies ({n})",
+    "onThisPage": "On this page",
+    "what": "What this is",
+    "notAlone": "People and studies",
+    "thisWeek": "What you can do this week",
+    "kindExplain": {
+      "registry": "A registry collects health information from many people, so research can start faster.",
+      "natural_history": "A natural history study follows people over time to learn how a condition changes.",
+      "trial": "A treatment study (trial) tests whether a treatment is safe and helps.",
+      "observational": "An observational study watches and measures. It gives no treatment.",
+      "patient_group": "A patient group is run by families with the same diagnosis.",
+      "expert_centre": "An expert centre has doctors who know this condition well.",
+      "researcher": "A researcher studies the condition and may know about new studies.",
+      "expanded_access": "An early access programme can give a treatment that is still being tested, outside a study.",
+      "organisation": "An organisation that works on this condition.",
+      "grant": "A research grant pays for a research project. The team may know about studies."
+    },
+    "figOpen": "{n, plural, one {study open for people} other {studies open for people}}",
+    "shownOf": "{shown} of {total} shown",
+    "view": {
+      "label": "Views of this condition",
+      "overview": "Overview",
+      "communities": "Communities",
+      "evidence": "Evidence",
+      "questions": "Research questions"
+    },
+    "step": {
+      "contact": "Write to the patient group",
+      "join": "Ask an open study whether your child can join",
+      "doctor": "Ask your doctor"
+    },
+    "studyKinds": "Kinds of study",
+    "figExact": "{n, plural, one {contact for exactly this} other {contacts for exactly this}}",
+    "figRelated": "{n, plural, one {related community} other {related communities}}",
+    "figSearched": "{n, plural, one {source searched} other {sources searched}}"
+  },
+  "gap": {
+    "title": "No group or study for exactly this condition yet",
+    "found": "{n, plural, =0 {nothing found} one {# found} other {# found}}",
+    "closest": "{n, plural, one {# more close community} other {# more close communities}}",
+    "noneRelated": "We found no related community either. The steps below still help.",
+    "unknownTitle": "What nobody knows yet",
+    "questionsTitle": "Questions for your specialist",
+    "notCovered": "not searched for this gene yet",
+    "nearestGroup": "The nearest group you can write to",
+    "nearestFor": "Their families have {condition}, which affects the same process in the body.",
+    "sharedRegistry": "A study that takes families with related conditions",
+    "sharedRegistryFor": "Runs for {condition} and related conditions. Ask whether your family can join.",
+    "pubmed": "Researchers who published on {gene} (PubMed)",
+    "searched": "Where we looked",
+    "startTitle": "Next steps",
+    "step": {
+      "contact_related": "Contact the closest group",
+      "join_registry": "Join a registry for many genes",
+      "find_researchers": "Reach the researchers",
+      "ask_doctor": "Talk to your specialist"
+    },
+    "col": {
+      "source": "Source",
+      "result": "Result",
+      "date": "Searched on"
+    },
+    "notes": "{n, plural, one {# note on what we searched} other {# notes on what we searched}}",
+    "noTarget": "No contact found yet"
+  },
+  "card": {
+    "kind": {
+      "patient_group": "Patient group",
+      "registry": "Registry",
+      "natural_history": "Natural history study",
+      "trial": "Treatment study",
+      "observational": "Observational study",
+      "expert_centre": "Expert centre",
+      "researcher": "Researcher",
+      "expanded_access": "Early access programme",
+      "organisation": "Organisation",
+      "grant": "Research grant"
+    },
+    "match": {
+      "related": "For a related condition",
+      "exact": "For exactly this diagnosis",
+      "broad": "For many conditions"
+    },
+    "status": {
+      "recruiting": "Open: looking for people",
+      "not_yet_recruiting": "Not open yet",
+      "active_not_recruiting": "Running, not taking new people",
+      "enrolling_by_invitation": "By invitation only",
+      "completed": "Finished",
+      "terminated": "Stopped early",
+      "withdrawn": "Withdrawn before it started",
+      "suspended": "Paused",
+      "unknown": "Status unknown"
+    },
+    "why": "Why them",
+    "channel": {
+      "website": "Website",
+      "contact_form": "Contact form",
+      "email": "Email",
+      "study_contact": "Study contact",
+      "institution_page": "Institute page",
+      "registry_record": "Study contacts",
+      "profile": "Public profile",
+      "grant_page": "Grant page"
+    },
+    "write": "Write to them",
+    "writeProposal": "Write a proposal",
+    "checkedOn": "Checked on {date}",
+    "sample": "Sample",
+    "sampleHint": "Placeholder for testing. Not a real organisation.",
+    "askStudy": "Ask the study team",
+    "where": "Where",
+    "languages": "Languages",
+    "serves": "Also helps",
+    "more": "More channels"
+  },
+  "know": {
+    "tier": {
+      "high": "Official record or published study",
+      "moderate": "Expert statement",
+      "low": "Computed or not yet checked"
+    },
+    "retrieved": "Retrieved {date}",
+    "openRecord": "Open the record",
+    "checksum": "Fingerprint (SHA-256)",
+    "verify": "Check the source again",
+    "verifying": "Checking…",
+    "verifyResult": {
+      "unchanged": "Same as when we checked. The fingerprint matches.",
+      "changed": "The record has changed since we checked. Please read it yourself.",
+      "unreachable": "We could not reach the source right now."
+    },
+    "verifySample": "Sample check: no real source was contacted.",
+    "validatorOk": "Every sentence on this card is backed by a source.",
+    "validatorFail": "Some sentences could not be matched to a source.",
+    "underTheHood": "Full record",
+    "source": "Source",
+    "noSource": "none attached",
+    "sourcesMore": "{first} and {n, plural, one {# more} other {# more}}",
+    "correct": "Report a mistake",
+    "sourceNames": {
+      "orphanetEpidemiology": "Orphanet epidemiology",
+      "similarity": "Atlas similarity (symptoms and mechanism)"
+    },
+    "title": "How we know",
+    "lead": "Records",
+    "sources": "{n, plural, one {# source} other {# sources}}",
+    "record": "Record",
+    "quote": "Quote from the source",
+    "noSources": "No source is attached yet."
+  },
+  "community": {
+    "title": "Related communities",
+    "why": "Why connected",
+    "shared": {
+      "symptoms": "Shared telling signs",
+      "genes": "Same gene",
+      "processes": "Same process in the body"
+    },
+    "strength": {
+      "strong": "Strong link",
+      "some": "Some link",
+      "weak": "Weak link"
+    },
+    "assets": "What they have built",
+    "assetType": {
+      "registry": "Registry",
+      "natural_history": "Natural history study",
+      "trial": "Treatment study",
+      "observational": "Observational study",
+      "model": "Lab model",
+      "grant": "Research grant",
+      "biobank": "Biobank"
+    },
+    "duplicate": "May overlap with {ids}. Check before you build something new.",
+    "notSameTitle": "Looks similar, but has a different cause",
+    "looksLike": "Why it looks similar",
+    "differs": "Why it is different",
+    "peopleTitle": "People who already work across these communities",
+    "worksIn": "Works on",
+    "noPeople": "We found nobody who works across these communities yet.",
+    "none": "We found no related communities yet.",
+    "shareTitle": "Share with your board",
+    "copyLink": "Copy link",
+    "copied": "Copied",
+    "print": "Print or save as PDF",
+    "limits": "What this link does not show",
+    "noUnlike": "None found among the nearest conditions.",
+    "lead": "Choose a community or pathway to follow its recorded connections.",
+    "sameProcess": "Same process in the body",
+    "sameGene": "Same gene",
+    "checkedByHand": "checked by hand on {date}",
+    "heldBy": "held by {name}",
+    "coversList": "covers {list}",
+    "writeTo": "Write to: {name}",
+    "questionTitle": "The open question you share",
+    "questionOpen": "The evidence, the deciding experiment and who could run it",
+    "notSameLead": "These conditions have similar signs and a different cause.",
+    "showUnlike": "{n, plural, one {Show # look-alike} other {Show # look-alikes}}",
+    "alsoListed": "Also listed for {list}. One effort may serve both communities.",
+    "mapLabel": "Map of related communities. Bright points share the problem in the body. The hollow points look similar but are different.",
+    "assetsCount": "{n, plural, =0 {Nothing built yet} one {# thing built} other {# things built}}",
+    "covers": "Covers",
+    "sponsor": "Run by {name}",
+    "figUnlike": "{n, plural, one {look-alike with another cause} other {look-alikes with another cause}}",
+    "figAssets": "{n, plural, one {study or registry to reuse} other {studies and registries to reuse}}"
+  },
+  "write": {
+    "title": "Write to {name}",
+    "proposalTitle": "Proposal to {name}",
+    "lead": "Change anything. Nothing is sent until you send it.",
+    "subject": "Subject",
+    "body": "Message",
+    "copy": "Copy the text",
+    "copied": "Copied",
+    "mail": "Open in your email app",
+    "language": "Write in",
+    "languageApply": "Change",
+    "keep": "Names, codes and links stay the same in every language.",
+    "basedOn": "What this draft is based on",
+    "section": {
+      "why_us": "Why us",
+      "why_you": "Why you",
+      "share": "What we can share",
+      "check": "What experts must check first",
+      "ask": "Our next step"
+    },
+    "notFound": "We could not find this connection.",
+    "back": "Back to {name}",
+    "template": {
+      "familySubject": "Our child was just diagnosed with {condition}",
+      "familyBody": "Hello {name},\n\nOur child was recently diagnosed with {condition}. We found you through Zebratlas.\n\n{why}\n\nWe would be grateful to hear from other families and to learn about studies or registries we could join. Could you tell us how to get in touch?\n\nThank you,\n[Your name]",
+      "groupSubject": "Working together: {condition} and {name}",
+      "groupBody": "Hello {name},\n\nI lead a patient group for {condition}. We think our communities share a problem in the body.\n\n{why}\n\nWe would like to talk about what each of us has built and what we could share, so families in both groups benefit. Experts should check this link before we make plans.\n\nCould we meet for 30 minutes in the next weeks?\n\nBest wishes,\n[Your name]",
+      "note": "This is a simple template. With the atlas server, the draft is written from the linked records and checked.",
+      "share": "Our list of the questions families ask most, and our contacts to study teams.",
+      "check": "Whether the shared problem in the body means research can serve both groups.",
+      "ask": "A first 30-minute call between the two boards.",
+      "whyUs": "We are families living with {condition}."
+    },
+    "verified": "This draft was checked by hand against the sources below.",
+    "send": {
+      "form": "Copy the message and open their contact form",
+      "site": "Copy the message and open their page"
+    },
+    "sendCopied": "Copied. Paste it on their page.",
+    "sendHint": "We copy your message for you to paste on their page. We never send anything in your name.",
+    "nothingSent": "Your e-mail app opens with this message. Nothing is sent until you send it.",
+    "generate": "Generate another draft",
+    "generating": "Generating?",
+    "unavailable": "Generation is unavailable. Your draft is still here.",
+    "apply": "Apply generated draft",
+    "to": "To",
+    "sendVia": "Send via",
+    "validatorOk": "Every reason in this draft is backed by a source.",
+    "validatorFail": "Some reasons could not be matched to a source. Please check them."
+  },
+  "hood": {
+    "title": "Under the hood",
+    "lead": "How we know what we show. Every link in the atlas points to the exact record it came from.",
+    "forCard": "For the card: {name}",
+    "chooseCard": "Open “Under the hood” from any card to see its full path.",
+    "path": "The path in the graph",
+    "pathLead": "Each line is one link between two things, with the records that support it.",
+    "edgeKind": {
+      "observed": "Stated in a source",
+      "extracted": "Taken from a text by a model",
+      "inferred": "Computed by the atlas",
+      "hypothesis": "An idea to test"
+    },
+    "evidence": "{n, plural, one {# record} other {# records}}",
+    "prov": "Where it came from (PROV-O chain)",
+    "entities": "Source files",
+    "activities": "Processing steps",
+    "version": "Version",
+    "retrieved": "Retrieved",
+    "sha": "SHA-256",
+    "licence": "Licence",
+    "agent": "Software",
+    "llm": "Language model calls",
+    "llmNone": "No language model was used.",
+    "llmCached": "from cache",
+    "llmFresh": "new call",
+    "validator": "Validator",
+    "validatorChecked": "{n, plural, one {# sentence checked} other {# sentences checked}}",
+    "integrity": "Graph checks",
+    "integrityLead": "Run over the whole graph on {date}.",
+    "integrityNone": "The server has not reported its checks yet.",
+    "counts": "Size of the graph",
+    "checkOk": "passed",
+    "checkFail": "{n, plural, one {# problem} other {# problems}}",
+    "rdf": "Download this condition's graph (RDF Turtle)",
+    "rdfMissing": "The RDF download needs the atlas server.",
+    "raw": "Raw record (JSON)",
+    "sourceList": "All sources and their versions",
+    "noProv": "No provenance record found for this item.",
+    "recordsTitle": "Source records",
+    "reason": "Why this link exists",
+    "purpose": {
+      "curated": "Manually checked trail",
+      "why_sentence": "Connection explanation",
+      "message_template": "Message template",
+      "partner_proposal": "Collaboration proposal",
+      "outreach_message": "Contact message"
+    },
+    "origin": {
+      "curated": "Manually checked",
+      "llm": "Assistant",
+      "template": "Template",
+      "lexical": "Recorded name match"
+    }
+  },
+  "pricing": {
+    "title": "Free for families. Tools for organisations.",
+    "lead": "Every journey on this site stays free and works without an account. Organisations that want more can pay for it.",
+    "placeholder": "Plans and prices are being written. This page shows them as soon as they are ready.",
+    "comingSoon": "Coming soon",
+    "available": "Available now",
+    "promiseTitle": "Our promise",
+    "featuresFor": "What is included",
+    "hint": "{feature}: part of the Organisation plan",
+    "hintLink": "See plans",
+    "hintAlerts": "Alerts for new studies and groups",
+    "hintExport": "Export and API access",
+    "hintWorkspace": "Shared workspace for your board",
+    "free": "Free",
+    "perMonth": "{price} per month"
+  },
+  "impact": {
+    "title": "How much time could this save?",
+    "lead": "One milestone, with and without the atlas. These numbers are assumptions, not measurements yet.",
+    "placeholder": "The timeline comparison is being written. It appears here as soon as it is ready.",
+    "today": "Today",
+    "withAtlas": "With the atlas",
+    "total": "Total: {value}",
+    "factor": "About {factor}× faster in the base case",
+    "assumptions": "Assumptions",
+    "sources": "Sources",
+    "chartLabel": "Two timelines for the same milestone: {today} today and {atlas} with the atlas.",
+    "step": "Step",
+    "duration": "Time",
+    "scenarios": "Other cases",
+    "scenario": "{atlas} instead of {today}: about {factor}× faster",
+    "milestone": "Milestone"
+  },
+  "assistant": {
+    "free": "Free assistant",
+    "left": "{n, plural, =0 {No requests left today} one {# request left today} other {# requests left today}}",
+    "own": "or use your own key or a local model",
+    "quota": "The free assistant has reached its limit for today. It works again tomorrow. You can use your own key or a local model now.",
+    "noKey": "No key needed."
+  },
+  "question": {
+    "title": "Research questions you share",
+    "none": "No shared question recorded for this condition yet.",
+    "status": {
+      "proposed": "Proposed, not tested",
+      "running": "Being tested",
+      "answered": "Answered"
+    },
+    "concerns": "Communities this question concerns",
+    "for": "For",
+    "against": "Against",
+    "unknown": "Unknown",
+    "experiment": "The experiment that would decide it",
+    "who": "Who could help",
+    "firstStep": "First step",
+    "join": "Join: write to the study team",
+    "contribute": "Add evidence",
+    "open": "Evidence and experiment",
+    "experts": "Possible experts to ask (contact through their institution)",
+    "drugs": "Drugs already in clinical study for these conditions or their genes (clinical stage, not proof they work)",
+    "communities": "{n, plural, one {community} other {communities}}",
+    "scientificTerm": "Scientific term",
+    "everyCure": {
+      "title": "Every Cure predictions",
+      "body": "Connector ready. Shown once Every Cure confirms the data terms.",
+      "link": "everycure.org"
+    },
+    "lead": "Questions whose answer would help {name} and other communities at once: the evidence for and against, the experiment that would decide, and who could run it."
+  },
+  "questions": {
+    "hypothesis": {
+      "shared_process": "Could {genes} share a problem in {process}?"
+    },
+    "why": {
+      "shared_process": "Each of these {communities} communities has a gene linked to {process}. If the problem is shared, one line of research could help all of them.{more, plural, =0 {} one { One more gene is part of this question.} other { # more genes are part of this question.}}"
+    },
+    "shared": {
+      "process": "Shared: {process}"
+    },
+    "term": {
+      "pathway": "{pathway} ({id})"
+    },
+    "process": {
+      "connect": "how brain cells connect",
+      "release": "how brain cells release signals",
+      "calming": "the brain's calming signal",
+      "go_signal": "the brain's main \"go\" signal",
+      "dopamine": "the brain's dopamine signal",
+      "heart_signal": "the electric signals of the heart",
+      "electric": "the electric signals of nerve cells",
+      "calcium": "how cells let calcium in",
+      "tuning": "how links between brain cells get stronger or weaker",
+      "passing": "how brain cells pass signals on",
+      "memory": "how memory works",
+      "growth_signal": "growth signals for brain cells",
+      "brain_growth": "how the brain grows and wires up",
+      "recycling": "how cells break down and recycle material",
+      "intake": "how cells take in material",
+      "energy": "how cells make energy",
+      "surface_anchor": "how cells fix proteins to their surface",
+      "protein_building": "how cells build proteins",
+      "cell_death": "how cells decide to die",
+      "unmapped": "the same process in the body"
+    },
+    "for": {
+      "statement": "{condition}: {statement}"
+    },
+    "against": {
+      "finding": "{explanation}",
+      "same_gene_different_mechanism": "Same gene, maybe a different cause ({gene}): {why}",
+      "mechanism_split": "The cause may differ within one condition ({gene}): {why}",
+      "lookalike": "Looks alike, but the cause may differ ({gene}): {why}",
+      "variant_level": "Changes in one gene do not all act the same way: some switch the gene off, others change what it does. A link at the level of the gene may not hold for every variant."
+    },
+    "unknown": {
+      "validate": "Still to check: {text}",
+      "functional_coverage": "{gene}: lab tests of the effect are on record for {with_functional_data} of {variants} variants in ClinVar. Most variants have not been tested."
+    },
+    "experiment": "Do variants linked to {conditions} disrupt the same measurable function in {pathway}?",
+    "experiment_note": "Would support: {support} Would challenge: {challenge}",
+    "bridge": {
+      "worked_on": "{gene}: named in {grants, plural, one {# grant} other {# grants}}, {papers, plural, one {# paper} other {# papers}} and {trials, plural, one {# trial} other {# trials}} in public records",
+      "identity": {
+        "same": "Same person (linked by a researcher ID)",
+        "possible": "Possibly the same person: records linked by name and workplace, not by an ID"
+      },
+      "suggestion": "Could be a good expert to ask about a shared cause across {genes} (our suggestion). Contact through {institution}."
+    },
+    "drug": {
+      "indication": "{drug} has reached {stage} in clinical studies for {condition} (Open Targets; this does not show that it works).",
+      "indication_related": "{drug} has reached {stage} in clinical studies for {condition}, a related condition (Open Targets; this does not show that it works).",
+      "target": "{drug} acts on {gene} ({mechanism}); furthest clinical stage: {stage} (Open Targets; this does not show that it works)."
+    }
+  },
+  "people": {
+    "suggestion": "Our suggestion"
+  },
+  "suggest": {
+    "missing": "Tell us about a group, study or dataset we are missing.",
+    "add": "Add it"
+  },
+  "legal": {
+    "about": {
+      "title": "About Zebratlas",
+      "lead": "Zebratlas helps families and patient groups with a rare genetic condition find the people who can help.",
+      "howTitle": "How it knows",
+      "how": "We connect public records: disease and gene databases, study registries, research grants, papers and the websites of patient organisations. Every connection shows where it comes from and when we checked it.",
+      "limitsTitle": "What it does not do",
+      "limits": "It gives no medical advice and does not judge treatments. It can miss groups and studies, especially outside English-language sources. When we find nothing, we say so and show where we looked.",
+      "helpTitle": "Help us fill the gaps",
+      "help": "Patient groups, registries and researchers can add what we are missing. We check every submission before it appears.",
+      "whoTitle": "Who makes it",
+      "who": "Zebratlas started at the 7th Global AI Hackathon (Hack-Nation, challenge 5). The code is open source."
+    },
+    "sources": {
+      "lead": "Everything Zebratlas shows comes from these sources. Each entry names its licence, the version we use and the attribution the source asks for.",
+      "licence": "Licence",
+      "version": "Version",
+      "attribution": "Attribution",
+      "confirm": "terms to be confirmed",
+      "code": "Our own code is open source. The licence of a source applies to the data taken from it.",
+      "use": {
+        "orphanet": "Rare diseases, their genes, how common they are and when they start.",
+        "hpo": "Signs and symptoms, so conditions with the same signs can be compared.",
+        "mondo": "One name and code per disease, across all the other databases.",
+        "g2p": "Which gene changes cause which conditions, and how the change acts.",
+        "clingen": "How strong the evidence is that a gene causes a condition.",
+        "hgnc": "Official gene names and their other names.",
+        "go": "What each gene does in the cell, to find conditions that break the same process.",
+        "reactome": "The processes in the body that genes work in together.",
+        "clinvar": "Which exact gene changes are known to cause disease.",
+        "ctgov": "Studies and registries, whether they take people, and their official contacts.",
+        "reporter": "Research grants: who works on which gene.",
+        "pubmed": "Who publishes on which gene. We keep only the bibliographic details.",
+        "wikidata": "Names of conditions in many languages.",
+        "orgs": "Patient groups: their name, country, language and contact route."
+      }
+    },
+    "partners": {
+      "lead": "Zebratlas has no formal partners yet.",
+      "text": "We would like to work with patient organisations, registries and research networks: to keep their entries correct and to connect the data they hold. If that is you, tell us what you have."
+    },
+    "contact": {
+      "lead": "Questions, corrections or ideas: write to us.",
+      "mailTitle": "E-mail",
+      "fixTitle": "Corrections",
+      "fix": "Use \"Report a mistake\" under the source of the entry. It goes straight to the right place and we check it.",
+      "medical": "We cannot answer medical questions. Please ask your doctor.",
+      "a11yTitle": "Accessibility and feedback",
+      "a11y": "We aim to meet WCAG 2.2 at level AA. If something does not work for you, or you have feedback of any kind, write to us at the address above.",
+      "formTitle": "Write to us",
+      "message": "Your message",
+      "send": "Send",
+      "sent": "Thank you. We will reply by e-mail.",
+      "invalid": "Please give your e-mail and a message."
+    },
+    "privacy": {
+      "lead": "You can use Zebratlas without an account and without being tracked.",
+      "noneTitle": "No tracking",
+      "none": "We use no analytics, no advertising and no tracking cookies. We do not sell or share data.",
+      "accountTitle": "If you create an account",
+      "account": "We store your e-mail address, an optional display name, a secured form of your password and what you save. One cookie keeps you signed in. You can delete your account and everything in it at any time.",
+      "contributeTitle": "If you send us a correction or data",
+      "contribute": "We store what you send and, if you give them, your name and contact address, so a reviewer can ask back. Accepted contributions are shown with their source, not with your contact details.",
+      "languageTitle": "Documents and searches",
+      "language": "When you paste or upload a document, our server removes obvious identifiers before finding search terms. The notice beside the search box names any processor that may receive the text, before you send it. Documents are processed in memory and deleted afterwards. We keep only a fingerprint, size and timing. If you sign in and choose to save a document, it is encrypted in your account; you can view, download or delete it on Your data. We never send messages for you.",
+      "logsTitle": "Server logs",
+      "logs": "Our server briefly records technical data such as IP addresses to protect the service from abuse.",
+      "rightsTitle": "Your rights",
+      "rights": "Under the GDPR you can ask what we store about you, have it corrected or deleted, and complain to a data protection authority.",
+      "controllerTitle": "Who is responsible"
+    },
+    "imprint": {
+      "lead": "Information according to § 5 DDG (German Digital Services Act).",
+      "operatorTitle": "Operator",
+      "contactTitle": "Contact",
+      "operator": "Johannes Mitschunas",
+      "contactForm": "Contact form",
+      "private": "Zebratlas is a private project by Johannes Mitschunas, not a service of Friedrich Schiller University Jena.",
+      "street": "Inselplatz 5",
+      "city": "07743 Jena",
+      "country": "Germany",
+      "email": "johannes.mitschunas@uni-jena.de"
+    }
+  },
+  "data": {
+    "title": "Connect your data",
+    "lead": "Tell us about a group, study or dataset we are missing. We check every submission before it appears.",
+    "field": {
+      "name": "Name of the registry, dataset or resource",
+      "organisation": "Organisation",
+      "what": "What you have",
+      "url": "Link (web address)",
+      "licence": "Licence or terms of use",
+      "licenceHint": "For example CC BY 4.0, or \"on request\".",
+      "ids": "Identifiers it uses",
+      "idsOther": "Other identifiers",
+      "description": "Description"
+    },
+    "submit": "Send for review",
+    "kind": {
+      "registry": "Patient registry",
+      "dataset": "Dataset",
+      "knowledge_graph": "Knowledge graph",
+      "endpoint": "API or SPARQL endpoint",
+      "mapping": "Mapping file",
+      "other": "Something else"
+    },
+    "error": {
+      "invalid": "Please give your e-mail and a link or a description.",
+      "unavailable": "Sending is not possible right now. Please try again later.",
+      "rate_limited": "Too many submissions from here. Please try again in a few minutes.",
+      "generic": "Something went wrong. Please try again."
+    },
+    "linkOrDescription": "A link or a description",
+    "storage": "We store what you send to review it and may e-mail you about it. We check every submission before it appears."
+  },
+  "demo": {
+    "title": "Demo and evaluation",
+    "lead": "Material for judges and reviewers. Not linked from the product.",
+    "item": {
+      "story": {
+        "title": "The STXBP1 story",
+        "text": "A family's page: the group to write to, open studies, the source of each."
+      },
+      "communities": {
+        "title": "Groups with the same problem: STXBP1 and SNAP25",
+        "text": "The hand-checked link to the SNAP25 community and Simons Searchlight, and the proposal."
+      },
+      "gap": {
+        "title": "A condition with no group yet",
+        "text": "The honest answer: nothing for exactly this, the nearest group, what nobody knows."
+      },
+      "hood": {
+        "title": "Under the hood",
+        "text": "The full path of every connection: sources, versions, fingerprints, PROV-O, language-model calls."
+      },
+      "impact": {
+        "title": "Time saved",
+        "text": "The 10× case: today's timeline compared with the route through the atlas, with its assumptions."
+      },
+      "pricing": {
+        "title": "For organisations",
+        "text": "How the service could be paid for."
+      },
+      "ask": {
+        "title": "The assistant",
+        "text": "Questions answered from the graph, each sentence citing its source."
+      },
+      "review": {
+        "title": "Review queue",
+        "text": "Where contributions are checked before they appear."
+      }
+    }
+  },
+  "search": {
+    "hint": "Connect with others: ask a question, paste a document or name a gene.",
+    "matches": "Found on this page: {n}. Enter goes to the next.",
+    "noMatches": "Not on this page. Search searches the whole atlas.",
+    "filters": "Filters",
+    "kindLegend": "Show",
+    "kind": {
+      "condition": "Conditions",
+      "gene": "Genes",
+      "patient_group": "Patient groups",
+      "study": "Studies and registries",
+      "model": "Models and samples",
+      "therapy": "Therapy programmes",
+      "funding": "Funding",
+      "paper": "Papers"
+    },
+    "country": "Country",
+    "language": "Language",
+    "recruiting": "Only studies that take people now",
+    "consent": "Your document is sent to {processor} to find search terms and deleted right after.",
+    "rights": "Your rights",
+    "save": "Save to my account (encrypted)",
+    "extract": "Find search terms",
+    "extracting": "Reading the document",
+    "found": "We found these search terms. Change or remove any before you search.",
+    "remove": "Remove {term}",
+    "addTerm": "Add a term",
+    "searchTerms": "Search with these terms",
+    "intakeUnavailable": "Reading documents is not available yet. Type the gene or condition from your document instead.",
+    "intakeError": "The document could not be read. Try another file or type the terms yourself.",
+    "attach": "Attach a document",
+    "fileError": "Choose a PDF, DOCX or TXT file up to 5 MB.",
+    "localConsent": "Our server finds search terms in your document and deletes it right after. No model receives it.",
+    "checkingProcessor": "Checking where your document will be processed…",
+    "model": "Search terms from {model}.",
+    "localTerms": "Search terms found on our server, without a model.",
+    "noTerms": "No terms found. You can add a gene or condition yourself.",
+    "saved": "Saved to your account. View your data."
+  },
+  "help": {
+    "search": {
+      "title": "Searching",
+      "text": "Type a condition, a gene or a question in the search field at the top of every page. While you type, matches on the current page are highlighted; Search looks through the whole atlas. You can also paste or upload a doctor's letter on the start page: we show the search terms we found, and you choose which to use.",
+      "link": "Go to the search"
+    },
+    "result": {
+      "title": "Reading a result and its source",
+      "text": "A condition page starts with two sentences on what it is, then the patient groups, the studies that take people now and the doctors who know it. Under each entry, \"Source\" shows where the information comes from and when we last checked it.",
+      "link": "Our data sources"
+    },
+    "contact": {
+      "title": "Contacting a group or study",
+      "text": "\"Write to them\" opens a message you can change. Copy it and send it through the group's own website, form or e-mail. We never send anything for you.",
+      "link": "Find a group"
+    },
+    "contribute": {
+      "title": "Correcting or adding something",
+      "text": "If an entry is wrong or something is missing, use \"Report a mistake\" under the entry's source. We check every submission before it appears. To have your own data removed or corrected, use \"Request removal or correction\".",
+      "link": "Contact us"
+    },
+    "data": {
+      "title": "Connecting your data",
+      "text": "Registries, research groups and organisations can tell us about a dataset, registry, knowledge graph or endpoint. A link or a short description and your e-mail are enough.",
+      "link": "Contribute data"
+    },
+    "account": {
+      "title": "Your account and your data",
+      "text": "You do not need an account. With one, you can save pages, messages and documents. You can download or delete everything in it at any time.",
+      "link": "Sign in or create an account"
+    }
+  },
+  "checked": {
+    "title": "What we checked for {subject}",
+    "matched": "{n, plural, one {# match} other {# matches}}",
+    "none": "no match",
+    "find": {
+      "names": "Condition names and their other names (Mondo, Orphanet, OMIM)",
+      "genes": "Gene names and symbols (HGNC)",
+      "codes": "Condition codes (MONDO, ORPHA, OMIM)",
+      "text": "Gene or condition names inside your sentence"
+    }
+  },
+  "explore": {
+    "title": "Research community graph",
+    "lead": "{name} in the centre. Around it, communities whose cause lies in the same process in the body; closer and bolder means a stronger link. Select a community to put it in the centre.",
+    "show": "Show",
+    "has": {
+      "group": "with a patient group",
+      "assets": "with a study or registry"
+    },
+    "apply": "Apply",
+    "graphLabel": "Graph of the communities linked to {name}",
+    "legend": "Filled circle: a patient group or study team you can write to. Open circle: none known yet.",
+    "listTitle": "Communities linked to {name}",
+    "toCommunities": "What they have built and who to write to"
+  },
+  "form": {
+    "required": "required",
+    "optional": "optional",
+    "email": "Your e-mail",
+    "name": "Your name",
+    "describeIt": "Describe it"
+  },
+  "removal": {
+    "link": "Request removal or correction",
+    "title": "Request removal or correction",
+    "lead": "If Zebratlas shows information about you or your organisation that you want removed or corrected, or you object to its use, tell us here. You do not need an account.",
+    "type": "Your request",
+    "types": {
+      "remove": "Remove it",
+      "correct": "Correct it",
+      "object": "I object to its use"
+    },
+    "concerns": "What it concerns",
+    "concernsHint": "A link to the entry, a name or ORCID, or a short description.",
+    "details": "Anything else we should know",
+    "handling": "We confirm your request by e-mail, may ask you to confirm it is about you, and decide within 30 days.",
+    "submit": "Send request",
+    "sentTitle": "Request received",
+    "sent": "Thank you. We will confirm your request by e-mail and decide within 30 days.",
+    "error": {
+      "invalid": "Please give your e-mail, choose what you would like, and say what it concerns.",
+      "unavailable": "Sending is not possible right now. Please write to us instead:",
+      "rate_limited": "Too many requests from here. Please try again in a few minutes.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "connectionMap": {
+    "title": "Connections and their evidence",
+    "lead": "Choose a community or pathway to follow its recorded connections.",
+    "overview": "Overview",
+    "count": "{n} groups of connections",
+    "partial": "{n} of {total} units loaded. The overview includes all returned groups.",
+    "unavailable": "Connection evidence is unavailable. Support contacts are shown above.",
+    "pathGap": "No recorded path to this group is available in the loaded evidence.",
+    "inference": "Shared pathway membership is a research lead. It does not establish a shared disease mechanism or treatment.",
+    "unknown": "Not recorded",
+    "selected": "Selected group",
+    "bounded": "This view shows the returned subset. Missing items are not confirmed absent.",
+    "fixture": "Frozen C review evidence; not live data",
+    "expand": "Expand connections",
+    "collapse": "Collapse connections",
+    "contact": "Official contact",
+    "close": "Close",
+    "diagnosis": "Diagnosis",
+    "pathway": "Pathway annotation",
+    "other": "Other gene or condition",
+    "community": "Community",
+    "asset": "Study or asset",
+    "contrary": "Contrary evidence",
+    "relations": {
+      "has_associated_gene": "has associated gene",
+      "serves_gene": "supports people with variants in",
+      "participates_in": "is annotated to",
+      "names_gene": "names gene in the study record",
+      "studies_condition": "is indexed for condition",
+      "serves_condition": "supports people with",
+      "held_by": "is held by",
+      "sponsored_by": "has recorded sponsor"
+    },
+    "locator": "Record location",
+    "hashScope": "Hash scope"
+  },
+  "facts": {
+    "person_same": "{name} is the same person as {other}."
+  },
+  "verify": {
+    "record": {
+      "partial": "Checked records match; some records have not been checked.",
+      "unavailable": "No source records are available to check."
+    }
+  },
+  "about": {
+    "title": "How it works",
+    "lead": "The atlas connects families and patient groups with the people and studies that can help them. Every connection shows where it comes from.",
+    "s1Title": "One identity for every condition",
+    "s1Text": "We merge the main disease catalogues (MONDO, Orphanet, OMIM, HPO) into one record per condition, and keep every source ID.",
+    "s2Title": "Connections with sources",
+    "s2Text": "Patient groups, studies, registries, researchers, papers and grants are linked to conditions. Each link keeps its source record, the date and a fingerprint.",
+    "s3Title": "Plain words, checked",
+    "s3Text": "Language models write the plain sentences and message drafts only from linked records. A validator checks that every sentence cites a record.",
+    "s4Title": "Shared problems, not only shared names",
+    "s4Text": "Conditions are grouped by the gene and the process in the body, then by telling signs. Look-alikes with a different cause are shown as such.",
+    "s5Title": "Worldwide and in many languages",
+    "s5Text": "Sources in any language are found, translated and matched to the same condition. The original text is always kept.",
+    "s6Title": "Run it yourself",
+    "s6Text": "The code, the data pipeline and the graph export are open. The repository README has one command to run everything.",
+    "numbersTitle": "The atlas today",
+    "privacyTitle": "Your privacy",
+    "privacyText": "You can search without an account. Saved conversations are optional. We never sell data."
+  },
+  "theme": {
+    "dark": "Dark mode"
+  },
+  "chart": {
+    "sector": {
+      "groups": "Groups",
+      "studies": "Studies",
+      "people": "Researchers",
+      "funding": "Funding"
+    },
+    "label": "Chart of {name}: the condition at the centre, groups, studies and researchers around it",
+    "none": "none found"
+  },
+  "api": {
+    "error": {
+      "focus_required": "Choose an entry.",
+      "unit_limit": "Limit must be between 1 and 500."
+    }
+  },
+  "coverage": {
+    "outside_verified_neighbourhood": "We have limited verified evidence for this condition. Other research may exist."
+  },
+  "connections": {
+    "why": {
+      "project": "This research project at {organisation} mentions {subject}."
+    }
+  },
+  "backend": {
+    "integrity": {
+      "contract": {
+        "identity-merge-has-rule-evidence": "every SSSOM alias resolves to a merge activity and hash-bound versioned mapping rows",
+        "edge-endpoint-resolves": "every edge's from and to resolve to a node of the kind its relation allows (no dangling edges)",
+        "edge-has-provenance": "every edge has ≥1 source record (entity + locator + sha256) and a generating activity",
+        "node-has-provenance": "every study, grant, paper, person, organisation and asset has ≥1 source record with a sha256",
+        "edge-id-unique": "edge ids (from|relation|to) are unique; parallel evidence is merged into one edge",
+        "record-entity-has-checksum": "every source file behind a record has a recorded sha256",
+        "record-has-licence": "every source file behind a record states a licence with a class (open / share_alike / non_commercial / unknown)",
+        "asset-has-access-route": "every asset says who holds it or how to get it (an access route with a URL or a holder)",
+        "candidate-not-merged": "a candidate_same_as pair never shares one node (candidates are links, not merges; D30)",
+        "source-header-checksums-match": "Every loaded source passes its cache-header checksum checks."
+      },
+      "problem": {
+        "identity_activity": "missing identity merge activity",
+        "identity_derivation": "missing member derivation/mapping rows",
+        "identity_rule": "unversioned rule or incomplete evidence",
+        "record_index": "record {r} out of range",
+        "record_entity": "record {arg0} names an unknown entity",
+        "record_checksum": "record {arg0} has no sha256",
+        "endpoint_from": "dangling from {arg0}",
+        "endpoint_to": "dangling to {arg0}",
+        "endpoint_kind": "{arg0} expects {from} → {to}, found {f} → {t}",
+        "duplicate_edge": "{n} edges share this id",
+        "entity_licence": "entity {arg0} has no licence entry",
+        "person_orcids": "{arg0} ORCIDs: {arg1}",
+        "orcid_people": "ORCID on {arg0} person nodes: {arg1}",
+        "different_orcids": "different ORCIDs {a} vs {b}",
+        "no_record": "no source record",
+        "unknown_activity": "unknown activity",
+        "no_checksum": "no sha256",
+        "no_access": "no access route",
+        "self_link": "self link",
+        "header_checksums": "{n} cache-header checksum checks failed."
+      }
+    },
+    "account": {
+      "error": {
+        "unauthorized": "Sign in to continue.",
+        "bad_credentials": "The e-mail address or password is incorrect.",
+        "invalid": "Check the required fields and their values, then try again.",
+        "not_found": "This item was not found.",
+        "forbidden": "You do not have permission to change this item.",
+        "conflict": "This change conflicts with an existing item. Reload and check it before trying again.",
+        "rate_limited": "Too many attempts. Try again later.",
+        "unavailable": "Accounts are unavailable. You can still search without signing in.",
+        "internal": "We could not complete this account request. Try again later."
+      },
+      "export": {
+        "credentials": "Password hashes and session tokens are excluded from this download. We store only a password hash and a fingerprint of each session token.",
+        "public_data": "Condition records and their sources are public data, separate from your account. Saved items include the IDs of the records they link to.",
+        "network_data": "Your account does not store IP addresses or browser details."
+      },
+      "data": {
+        "contributions_unavailable": "Your contributions could not be loaded right now."
+      },
+      "deleted": {
+        "account": "Your account is deleted.",
+        "sessions": "You are signed out everywhere.",
+        "documents": "{n} saved documents deleted, with the key that could read them.",
+        "saved": "{n} saved items and {conversations} conversations deleted.",
+        "contributions_not_connected": "Contributions are not stored on this server.",
+        "contributions_none": "You had no contributions.",
+        "contributions_credited": "{n} accepted contributions stay in the atlas with your name, as you chose; your e-mail and account link are removed.",
+        "contributions_anonymised": "{n} accepted contributions stay in the atlas without your name, e-mail or account link."
+      }
+    },
+    "ask": {
+      "error": {
+        "context_too_large": "Too much conversation context. Start a new conversation.",
+        "empty_question": "Enter a question or choose a search task.",
+        "question_too_long": "Keep your question to {limit} characters or fewer.",
+        "generic": "Something went wrong. Please try again."
+      },
+      "attribute": {
+        "inheritance": "Inheritance",
+        "onset": "Age at first symptoms"
+      },
+      "prevalence": {
+        "figure": "Reported figure: {value}"
+      },
+      "fragment": {
+        "retrieved_date": ", retrieved {date}",
+        "checked_date": "; checked on {d}",
+        "countries": "; countries: {arg0}",
+        "sponsor": "; sponsor: {arg0}",
+        "country": " in {c}",
+        "description": ": {d}",
+        "verified_date": "; official channel verified on {d}",
+        "affiliation": ", affiliation: {a}",
+        "funded_range": ", funded {a}–{b}",
+        "funded_year": ", funded {a}",
+        "paper_year": " ({y})",
+        "match_reason": " [matched by {reason}]"
+      },
+      "need": {
+        "groups": "patient groups or expert centres",
+        "studies": "studies",
+        "papers": "papers",
+        "grants": "NIH research projects",
+        "patient_group": "patient group",
+        "open_study": "study or registry ongoing or planned",
+        "researcher": "researcher",
+        "project": "research project"
+      },
+      "frequency": {
+        "always": "in all recorded cases",
+        "very_often": "in most recorded cases",
+        "often": "often",
+        "sometimes": "sometimes",
+        "rarely": "rarely",
+        "not": "in none of the recorded cases"
+      },
+      "kind": {
+        "any": "connections",
+        "study": "study",
+        "trial": "clinical trial",
+        "registry": "patient registry",
+        "natural_history": "natural history study",
+        "observational": "observational study",
+        "expanded_access": "expanded access programme",
+        "patient_group": "patient group",
+        "expert_centre": "expert centre",
+        "researcher": "researcher",
+        "grant": "research project",
+        "sponsor": "study sponsor",
+        "institution": "institution",
+        "organisation": "organisation"
+      },
+      "status": {
+        "any": "any recorded status",
+        "open": "ongoing or planned",
+        "recruiting": "recruiting",
+        "closed": "closed or not current"
+      },
+      "assets": {
+        "selection": "{kind} assets, status: {status}"
+      },
+      "relation": {
+        "studies_condition": "is a study registered for",
+        "names_gene": "names the gene",
+        "about_gene": "is about the gene",
+        "about_condition": "is about",
+        "author_of": "is an author of",
+        "principal_investigator_of": "leads",
+        "sponsored_by": "is sponsored by",
+        "awarded_to": "was awarded to",
+        "serves_condition": "serves people with",
+        "serves_gene": "serves people with changes in",
+        "same_as": "is the same person as",
+        "held_by": "is held by",
+        "model_of": "is a research model of",
+        "studied_for": "is being developed or studied for",
+        "targets": "targets the gene",
+        "resource_for": "is a research resource for",
+        "funds": "funds research on",
+        "claims_about": "states (extracted, quote-checked) something about",
+        "has_phenotype": "has the feature",
+        "orthologous_to": "is the matching gene of",
+        "gene_associated_with_condition": "is linked to",
+        "candidate_same_as": "is possibly the same as",
+        "related_to": "is related to"
+      },
+      "note": {
+        "corrected_spelling": "No direct match was found. Searched the corrected spelling '{fixed}'",
+        "genes_shown": "{arg0} genes linked in total; 6 shown",
+        "symptoms_shown": "{arg0} symptoms recorded; 8 shown",
+        "source_unloaded": "We could not check {source} for {what} because this source is unavailable",
+        "exact_connection": "At least one directly linked {what} was found",
+        "broader_groups": "{related} patient groups for broader conditions are listed under connections",
+        "links_shown": "10 links are shown. More are recorded",
+        "conditions_shown": "{arg0} conditions linked to {arg1}; 8 shown",
+        "shared_researchers": "{arg0} researchers for {la}, {arg1} for {lb}, {arg2} shared; {arg3} shown",
+        "counts": "{arg0} {what} found ({exact} linked to the condition or its gene directly, {arg1} through a broader group or a multi-gene link); {shown} shown, strongest first",
+        "gene_conditions": "{arg0} other conditions share {arg1}; 5 shown",
+        "symptom_threshold": "No condition met the search threshold of {MIN_SHARED} shared uncommon symptoms with {arg0}",
+        "cause_comparison_unavailable": "The recorded causes could not be compared for these results. Shared symptoms alone do not establish a shared cause",
+        "gene_results": "{arg0} conditions linked to {arg1}; {arg2} shown",
+        "process_unavailable": "We could not search for '{process}' because the Reactome and Gene Ontology process records are unavailable",
+        "no_path": "No recorded chain of at most {MAX_DEPTH} links connects {arg0} and {arg1}",
+        "path_length": "Shortest recorded chain: {arg0} links"
+      },
+      "fact": {
+        "recorded_symptom": "{arg0} ({arg1}) has {arg2}",
+        "symptom_conditions": "{arg0} conditions in the atlas list {term} or a more specific form of it",
+        "gene_condition_link": "{symbol} is linked to {arg0}",
+        "symptom_frequency": "{name} has {term}: reported {arg0} (frequency {raw})",
+        "symptom_possible": "{name} can include {term}",
+        "matched_record": "'{text}' matches the {arg0} {arg1} ({arg2}) by its {how} \"{matched}\"",
+        "candidate_condition": "Suggested condition for '{text}': {arg0} ({arg1})",
+        "definition": "{name} ({id}): {arg0}",
+        "rare_classification": "{name} ({id}) is classed as a rare disease",
+        "synonyms": "{name} is also called: {arg0}",
+        "attribute": "{what} of {name}: {arg0}",
+        "prevalence": "{arg0} of {name} ({arg1}): {value}",
+        "connections_summary": "For {name} or its gene, the sources checked list {studies} studies ({open} ongoing or planned) and {groups} patient groups or expert centres",
+        "prevalence_missing": "Orphanet records no figure for how common {name} ({id}) is",
+        "causal_gene_missing": "No causal gene for {name} ({id}) is recorded in Orphanet or OMIM",
+        "symptoms_missing": "The Human Phenotype Ontology records no symptoms for {name} ({id})",
+        "record_definition": "{arg0} ({arg1}): {arg2}",
+        "term_definition": "{arg0}{def}",
+        "parent_condition": "{label} ({cid}) is a kind of {anc_name} ({anc}) in the MONDO disease hierarchy",
+        "study": "{arg0} ({arg1}): {arg2}. Status: {arg3}{sponsor}{countries}{checked}",
+        "organisation": "{arg0}: {arg1}{place}{about}{verified}",
+        "researcher": "{arg0} is a researcher{aff}{checked}",
+        "grant": "{arg0} ({arg1}) is an NIH-funded research project at {arg2}{years}",
+        "paper": "{arg0} ({arg1}) is a paper in {arg2}{year}",
+        "gene_association": "{arg0} ({arg1}) is a gene linked to {arg2} ({arg3}): {assoc} (source: {arg4})",
+        "recorded_relationship": "{arg0} {arg1} {arg2}{reason}",
+        "gene_identity": "{gene} ({id}) is the gene '{name}'.{aliases_count, plural, =0 {} one { Other recorded symbols: {aliases}.} other { Other recorded symbols: {aliases}.}}",
+        "related_shared_symptoms": "{condition} ({id}) shares {count} recorded symptoms with {query}: {symptoms}.{shared_gene, select, true { These conditions also share a linked gene.} other {}}"
+      },
+      "chip": {
+        "invalid": "This task could not run. Check its required search terms and record IDs."
+      },
+      "response": {
+        "planning_fallback": "The assistant could not choose search tasks. Zebratlas used keyword matches instead.",
+        "save_failed": "This conversation could not be saved. Copy it before leaving this page."
+      },
+      "template": {
+        "no_result": "No sourced result was found for this task. Review the search terms or try another task.",
+        "no_facts": "Zebratlas has no sourced information for this question."
+      },
+      "coverage": {
+        "source_unloaded": "We could not check {arg0}. Source status: {arg1}",
+        "gene_subset": "{arg0} was searched for these genes: {arg1}. {arg3} was outside that search, so its {what} remain unchecked",
+        "none_found": "No {what} linked to {arg0} ({arg1}) or its gene was found in {arg2} (searched: {arg3}{when})"
+      },
+      "list": {
+        "more": "{remaining, plural, =0 {{items}} one {{items} and # more} other {{items} and # more}}"
+      },
+      "term": {
+        "label": "{name} ({id}{plain_state, select, present {; {plain}} other {}})"
+      },
+      "validation": {
+        "no_model": "No model was requested.",
+        "validator": "The assistant's answer did not pass the source check.",
+        "provider": "The assistant could not produce an answer.",
+        "no_facts": "No sourced facts were available.",
+        "other": "A template answer was used."
+      },
+      "choice": {
+        "both": "Gene and symptoms",
+        "gene": "Gene",
+        "symptom": "Symptoms"
+      }
+    },
+    "contribute": {
+      "check": {
+        "sample_found": "The checked sample contains evidence about {kind}. A reviewer needs to verify it.",
+        "sample_not_found": "The checked sample contains no evidence about {kind}. The full source may contain it.",
+        "known_source_matched": "This source URL is already listed. Review it before adding a duplicate.",
+        "known_source_unmatched": "No matching source URL was found in the lists checked.",
+        "description_only": "A reviewer needs to identify this source from your description before checking it.",
+        "snapshots": "{retained} of {total} response snapshots were retained for rechecking. Each response lists its storage status.",
+        "duplicate_source_matched": "Another submission names this source. A reviewer needs to compare them.",
+        "duplicate_source_unmatched": "No matching source was found in pending or accepted submissions.",
+        "relationship_unmapped": "A reviewer needs to check the relationship you described before adding a connection.",
+        "no_url": "No link was given.",
+        "url_ok": "The page opens.",
+        "url_http_error": "The page answered with an error (HTTP {arg0}).",
+        "url_blocked": "This address points to a private network and was not opened.",
+        "url_invalid": "This is not a web address we can open.",
+        "url_too_large": "The page is too large to check automatically.",
+        "url_unreachable": "The page could not be reached right now.",
+        "no_quote": "No quote was given.",
+        "quote_no_url": "A quote was given without a link, so it can't be checked.",
+        "quote_found": "The quoted words appear on the page.",
+        "quote_not_found": "The quoted words were not found in the text checked. A reviewer can check the page itself.",
+        "quote_unchecked": "The page could not be read as text, so the quote was not checked.",
+        "identity_resolved": "Recorded entry: {arg0}.",
+        "identity_kind_mismatch": "{arg0} is recorded as a {arg1}; this field expects a {arg2}.",
+        "identity_unknown_id": "No entry was found for ID {id}.",
+        "identity_ambiguous": "\"{label}\" matches several entries; a reviewer will pick one.",
+        "identity_candidates": "\"{label}\" has no exact name match. Similar entries need review.",
+        "identity_new": "\"{label}\" has no recorded match. A reviewer will check whether to add it.",
+        "identity_not_found": "\"{label}\" was not found in the records checked.",
+        "edge_missing": "The connection could not be read.",
+        "edge_found": "This connection is recorded.",
+        "reviewed_connection": "The connection was added by a reviewed contribution.",
+        "connection_not_recorded": "This connection was not found in the records checked.",
+        "duplicate_unchecked": "Duplicates are checked once the condition or gene is found.",
+        "duplicate_curated": "This connection is already recorded from a curated source.",
+        "related_curated": "These entries already have a different recorded connection.",
+        "conflict_contribution": "Another contribution says this connection is wrong.",
+        "no_duplicate": "No matching report was found in the contribution queue.",
+        "duplicate_pending": "Others have reported the same thing.",
+        "conflict_curated": "This disputes a connection from a curated source; a reviewer compares both sources.",
+        "disputed_suggestion": "This disputes a connection that another contribution added or suggested.",
+        "contact_same": "This contact is already recorded.",
+        "contact_differs": "The submitted contact differs from the recorded contact.",
+        "contact_already_reported": "Others have reported the same contact problem.",
+        "duplicate_contribution": "This connection was already added by a reviewed contribution.",
+        "connection_awaiting_review": "Someone else suggested the same connection; it is waiting for review.",
+        "new_connection": "No matching connection was found in the records checked."
+      },
+      "error": {
+        "invalid": "Check the required fields and their values, then submit again.",
+        "not_found": "This contribution was not found.",
+        "transition": "Cannot {action} a contribution with status {from}.",
+        "blocked": "Resolve the blocking check results before accepting this contribution.",
+        "stale": "This contribution changed. Reload it and try again.",
+        "unauthorized": "Sign in as a reviewer to continue.",
+        "forbidden": "You do not have permission for this action.",
+        "rate_limited": "Too many submissions. Try again in {seconds} seconds.",
+        "internal": "We could not process this contribution. Try again later."
+      },
+      "check_kind": {
+        "licence": "licensing",
+        "formats": "data formats",
+        "identifiers": "identifiers"
+      }
+    },
+    "write": {
+      "template": {
+        "greeting": "Hello {recipient},",
+        "role": {
+          "parent": "Our child has been diagnosed with {condition}.",
+          "patient": "I live with {condition}.",
+          "carer": "I care for someone with {condition}.",
+          "group_leader": "I lead a patient group for {condition}.",
+          "researcher": "I am a researcher working on {condition}.",
+          "clinician": "I am a clinician caring for people with {condition}."
+        },
+        "found": "I found your contact on Zebratlas.",
+        "check_links": "Experts would need to assess these links before we plan work together.",
+        "meeting": "Could we arrange a 30-minute call in the next few weeks?",
+        "ask": "Could you tell us how we can take part, or whom we should contact?",
+        "closing": "Kind regards",
+        "closing_named": "Kind regards,\n{sender}",
+        "subject": "Question about {condition}"
+      }
+    },
+    "api": {
+      "error": {
+        "matcher_busy": "The matcher is busy. Try again shortly.",
+        "phenotype_bounds": "Too many or overlong phenotype identifiers.",
+        "uri_too_long": "The request address is too long.",
+        "internal": "We could not complete this request. Try again.",
+        "focus_required": "Choose an entry.",
+        "unit_limit": "Limit must be between 1 and 500.",
+        "condition_unknown": "Condition {id} was not found.",
+        "condition_retired": "Entry {id} has been retired. Open its replacement.",
+        "item_unknown": "Record {id} was not found.",
+        "scorer_unknown": "Scorer {name} is unknown. Choose fusion, atlas or resnik.",
+        "gene_unknown": "Gene {id} was not found.",
+        "job_unknown": "Task {job} is unknown.",
+        "question_unknown": "Research question {id} was not found.",
+        "question_id": "Use a question ID in the form condition~pathway.",
+        "cluster_unknown": "No research cluster was found for {id}.",
+        "card_unknown": "This contact is not linked to the selected condition.",
+        "llm_unavailable": "The writing assistant is unavailable."
+      },
+      "related": {
+        "warming_up": "Related conditions are loading. Try again in a few seconds.",
+        "unavailable": "Related conditions are unavailable. Try again later."
+      },
+      "questions": {
+        "warming_up": "Research questions are loading. Try again in a few seconds.",
+        "unavailable": "Research questions are unavailable. Try again later."
+      },
+      "clusters": {
+        "warming_up": "Research clusters are loading. Try again in a few seconds."
+      }
+    },
+    "questions": {
+      "clinvar_counts": "These counts refer to ClinVar submissions. They do not count patients or families.",
+      "drug_evidence": "Open Targets records a clinical stage for this drug. This does not show that it works for these conditions.",
+      "design": {
+        "assay": "Ask a domain expert to select a quantitative assay of {pathway} and check that it measures the relevant function in both conditions.",
+        "controls": "Compare models with verified variants from both conditions against matched corrected controls. Randomize batches and blind the analysis.",
+        "rescue": "Include a control that changes the selected pathway and a correction or rescue condition for each disease model. Check cell health to distinguish pathway effects from nonspecific damage.",
+        "strata": "Analyze each condition and group of variant effects separately before comparing effects and rescue responses."
+      },
+      "validate": {
+        "annotation": "A pathway annotation does not establish a shared disease mechanism or treatment response.",
+        "models": "An expert must select a specific pathway measurement, relevant cell type and verified models for the variants. Check whether these models are available.",
+        "plan": "After estimating variation in a pilot, pre-register effect direction and decision criteria. Plan independent biological replicates and sample size with a statistician.",
+        "effects": "Check each variant's effect and inheritance before combining condition groups. Analyze opposite effects in separate groups.",
+        "findings": "Review uncertainty findings linked to these conditions before interpreting a shared assay."
+      },
+      "proposal": {
+        "question": "Test whether variants associated with {conditions} disrupt the same measurable function in {pathway}.",
+        "support": "Both condition models show the planned pathway change compared with controls, and correction restores the same measurement in both. Replicate the result independently.",
+        "challenge": "Only one condition changes the measurement, effects point in incompatible directions, or differences disappear after accounting for cell health or batch."
+      },
+      "source": {
+        "clinvar": "{gene}: {variants} gene variants recorded in ClinVar."
+      },
+      "list_note": "These questions need testing. They are ordered by the recorded evidence and the communities involved.",
+      "rank_note": "The order reflects the communities involved, support in the records and recorded studies or researchers. It does not show how likely a hypothesis is to be true."
+    },
+    "facts": {
+      "person_author": "{name} is an author of {arg0}.",
+      "person_lead": "{name} leads {arg0}.",
+      "study_indexed": "{arg0} ({arg1}) is indexed with {arg2}, the MeSH term of {label}",
+      "study_registered": "{arg0} ({arg1}) is registered for {label}: {arg2}",
+      "organisation_condition": "{arg0} serves people with {label}",
+      "gene_condition": "{symbol} is a gene that causes {label}",
+      "study_record": "{arg0} ({arg1}): {arg2}",
+      "organisation_gene": "{arg0} serves people with {symbol} variants",
+      "condition_parent": "{label} is a kind of {anc_name} ({anc}, MONDO hierarchy)",
+      "study_parent": "{arg0} ({arg1}) is registered for {anc_name}: {arg2}",
+      "organisation_parent": "{arg0} serves people with {anc_name}",
+      "work_record": "{arg0} {arg1}",
+      "work_gene": "{arg0} names {symbol} ({arg1})",
+      "condition_onset": "Age at first symptoms recorded for {arg0}: {arg1}",
+      "condition_prevalence": "{arg0} {arg1}: {arg2} ({arg3})",
+      "condition_symptom": "{arg0} is a recorded feature of {arg1}",
+      "condition_causal_gene": "Changes in {symbol} are recorded as a cause of {arg0}",
+      "condition_definition": "{arg0}: {arg1}"
+    },
+    "cluster": {
+      "shared_records": "Processes recorded in this group: {processes}. Symptoms recorded in this group: {symptoms}.",
+      "counterexample": "{condition} was assigned to a different group in this analysis. Check the recorded similarities and differences before sharing research findings.",
+      "stable": "This grouping persisted when the analysis was repeated with different starting points and samples.",
+      "unstable": "This grouping changed when the analysis was repeated with different starting points or samples."
+    },
+    "verify": {
+      "unreadable": "The source could not be read or checked.",
+      "record": {
+        "matched": "All checked source records match their stored fingerprints.",
+        "changed": "A checked source record has changed or could not be read."
+      },
+      "file": {
+        "matched": "All checked source files match the fingerprints recorded when this entry was built.",
+        "changed": "A source file has changed or could not be read."
+      }
+    },
+    "related": {
+      "shared_gene": "Both conditions involve {gene}. Recorded effects: {here} in this condition; {there} in the other.",
+      "effect_conflict": "{gene} has different recorded effects: {here} in this condition; {there} in the other.",
+      "shared_processes": "The linked genes share these processes in the body: {processes}.",
+      "shared_symptoms": "Shared recorded symptoms: {symptoms}.",
+      "cause_unknown": "The sources checked record no causal gene for at least one condition. The cause cannot be compared from these records.",
+      "counter": {
+        "same_gene": "The recorded effects of {gene} differ between these conditions. Findings for one may not apply to the other.",
+        "within_condition": "Gene2Phenotype records different effects of {gene} within this condition. Check which applies to the gene variant being studied.",
+        "lookalike": "These conditions share symptoms, but their recorded gene processes differ. Similar symptoms alone do not establish a shared cause."
+      }
+    },
+    "resolve": {
+      "reconcile": {
+        "unconfigured": "The assistant is unavailable. Search results use recorded names and codes.",
+        "certain": "A matching condition was found in the recorded names and codes.",
+        "no_candidates": "No recorded condition was found for the assistant to check."
+      }
+    },
+    "models": {
+      "note": "Check this model's availability, gene variant and relevance to your condition with its owner."
+    },
+    "text": {
+      "sentences": "{sentences}"
+    },
+    "record": {
+      "statement": "{statement}"
+    },
+    "gaps": {
+      "missing": {
+        "patient_group": "No patient group on our list names this condition or its gene. Ask your genetic counsellor or a related patient group whether families with this condition are already in touch.",
+        "patient_group_unloaded": "Our list of patient groups is not loaded, so we could not check for one. Ask your genetic counsellor or a related patient group.",
+        "open_study": "No study on ClinicalTrials.gov that is recruiting or running names this condition or its gene. Ask the nearest specialist centre about studies that are not registered yet, and check studies for related conditions.",
+        "registry": "No patient registry or natural history study names this condition or its gene. Ask a related patient group whether its registry can include this gene, or join a registry for the broader group of conditions.",
+        "gene": "Orphanet and OMIM record no gene that causes this condition. Ask whether genetic testing was done and which gene change was found.",
+        "variant_effect": "Orphanet does not record how the gene change causes this condition: by reducing what the gene does, or by changing it. Ask a specialist.",
+        "prevalence": "Orphanet has no figure for how common this condition is. Patient registries and published case reports give a first count.",
+        "symptoms": "{n, plural, =0 {No symptoms of this condition are recorded in the Human Phenotype Ontology (HPO). A patient registry or natural history study would record them.} one {Only # symptom of this condition is recorded in the Human Phenotype Ontology (HPO). A patient registry or natural history study would record more.} other {Only # symptoms of this condition are recorded in the Human Phenotype Ontology (HPO). A patient registry or natural history study would record more.}}"
+      },
+      "question": {
+        "variant": "Does our {gene} gene change reduce what the gene does, or alter it? Does that affect which treatment research applies to us?",
+        "centre": "Is there a specialist centre that sees many people with this condition? Can we be referred?",
+        "researchers": "Which researchers or studies work on {gene}? Would they want to hear from us?",
+        "unregistered": "Are any studies starting soon that are not yet on ClinicalTrials.gov?"
+      },
+      "note": "These are things our sources do not record. Take the questions to a specialist."
+    },
+    "coverage": {
+      "none": "We found no record for {condition} in {sources} (checked {dates}). Patient groups or studies may exist outside these sources.",
+      "partial": "{source} was only searched for {genes}, not for {missing}.",
+      "partial_no_gene": "{source} was only searched for {genes}. This condition has no known gene, so it was not covered.",
+      "scope": {
+        "ctgov": "Studies registered on ClinicalTrials.gov, matched to rare conditions by name, MeSH term and gene",
+        "reporter": "NIH-funded research projects whose title, summary or keywords name the gene (NIH RePORTER)",
+        "pubmed": "Papers that name the gene in their title or abstract (PubMed, newest 5,000)",
+        "people": "Researchers with papers or grants on at least two of the genes we studied in depth",
+        "hgnc": "Other names and earlier symbols of each gene (HGNC)",
+        "contacts": "Contacts, officials and sites of studies linked to the genes we studied in depth",
+        "wikidata": "Names of conditions and genes in many languages (Wikidata, used for search only)",
+        "orgs": "Patient organisations found by web and directory searches in several languages, checked by hand against their own pages"
+      }
+    },
+    "why": {
+      "study_registered": "This {kind_label} is registered for {condition}.",
+      "study_gene": "This {kind_label} names {gene}, a gene that causes {condition}.",
+      "study_broader": "This {kind_label} is for {group}, a broader group that includes {condition}.",
+      "grant": "This NIH-funded project at {organisation} studies {about}.",
+      "org_condition": "{organisation} supports people with {condition}.",
+      "org_gene": "{organisation} supports people with changes in {gene}, the gene that causes {condition}.",
+      "org_broader": "{organisation} supports people with {group}, a broader group that includes {condition}.",
+      "researcher": "{name} has written {papers} papers about {about}{grants, plural, =0 {} one { and leads # NIH-funded project} other { and leads # NIH-funded projects}}."
+    },
+    "card": {
+      "subtitle": {
+        "study": "{kind_label} · {status_label}",
+        "grant": "{code} grant at {organisation}, {years}",
+        "kind": "{kind_label}"
+      },
+      "enrollment_note": "Planned number of participants for the whole study, across all conditions and genes. It is not a count for this condition."
+    },
+    "studykind": {
+      "trial": "A clinical trial tests a treatment in people.",
+      "registry": "A patient registry collects health information from many people over time, so researchers can study the condition.",
+      "natural_history": "A natural history study follows how the condition develops over time. Nobody receives a new treatment.",
+      "observational": "An observational study measures and records. Nobody receives a new treatment.",
+      "expanded_access": "An early access programme offers a treatment that is not yet approved, outside a clinical trial."
+    },
+    "channel": {
+      "ctgov_central_contact": "Study contact named by the sponsor on ClinicalTrials.gov",
+      "ctgov_contacts": "Study contacts and locations on ClinicalTrials.gov",
+      "reporter_project": "NIH RePORTER project page, with the lead researcher and institution",
+      "orcid": "Public ORCID profile, with a link to the researcher's institution",
+      "pubmed_author": "List of their papers on PubMed; the affiliation names the institution to contact",
+      "contact_form": "Official contact page",
+      "website": "Official website",
+      "none": "No public contact recorded",
+      "none_sponsor": "No public contact recorded. The sponsor is named in the study record."
+    },
+    "connections": {
+      "none_found": "No {kind_label} found for {condition}.{related, plural, =0 {} one { # for a related condition is shown.} other { # for related conditions are shown.}}"
+    },
+    "checked": {
+      "summary": "We checked {sources} loaded sources; {matched} had matches.",
+      "matched": "{source}: {n} matching items in our copy.",
+      "no_match": "No match in our {source} copy.",
+      "not_loaded": "{source} is not loaded."
+    },
+    "intake": {
+      "consent": "Your redacted document is sent to {processor} to find search terms.",
+      "processor": {
+        "lexical": "Terms are found on this server without a model call."
+      },
+      "model": {
+        "not_configured": "No model is configured; terms were found locally.",
+        "quota": "The model's quota was reached; terms were found locally.",
+        "unavailable": "The model is unavailable; terms were found locally."
+      },
+      "redaction": {
+        "none": "No obvious identifiers were found.",
+        "summary": "Removed identifiers: {items}.",
+        "kind": {
+          "name": "Removed names: {n}",
+          "date_of_birth": "Removed dates of birth: {n}",
+          "address": "Removed addresses: {n}",
+          "phone": "Removed phone numbers: {n}",
+          "email": "Removed e-mail addresses: {n}",
+          "record_number": "Removed record numbers: {n}",
+          "insurance_number": "Removed insurance numbers: {n}",
+          "iban": "Removed IBANs: {n}"
+        }
+      },
+      "notice": {
+        "not_diagnosis": "Research and connection information; not a diagnosis or treatment recommendation."
+      },
+      "error": {
+        "invalid": "Check the document and its required fields.",
+        "too_large": "The document is larger than 5 MB.",
+        "save_unavailable": "Document saving is unavailable.",
+        "sign_in_to_save": "Sign in to save this document.",
+        "unsupported": "Use PDF, DOCX or text."
+      }
+    },
+    "identity": {
+      "candidate_same_as": "Possibly the same as {target_label} ({target}): the names match, but no authoritative mapping confirms it.",
+      "candidate_source": "{source_id} has the same name and is possibly the same condition; no authoritative mapping confirms it."
+    },
+    "match": {
+      "claim": {
+        "ranker_v3": "On {cases} published cases with no detected direct PMID overlap, a preregistered rank fusion that mainly follows the Resnik ontology baseline and uses the atlas score to break its first-place ties raised exact top-1 from {atlas_top1} (atlas) and {resnik_top1} (Resnik) to {fusion_top1}, with positive publication-grouped 95% intervals for the gain; top-10 did not improve. Retrospective evidence on a benchmark whose earlier results informed the design; not clinical validation."
+      }
+    },
+    "find": {
+      "error": {
+        "query": "Invalid search request."
+      }
+    }
+  },
+  "content": {
+    "pricing": {
+      "s1": "Free for families. Planned tools for organisations.",
+      "s2": "Excluded; applicable taxes separate",
+      "s3": "No customers, revenue, willingness-to-pay or market-size claim",
+      "s4": "Free",
+      "s5": "Core family journeys",
+      "s6": "Cited evidence and freshness",
+      "s7": "Official public contacts",
+      "s8": "Editable template messages",
+      "s9": "Multilingual access",
+      "s10": "Optional account and personal saves",
+      "s11": "Free core access",
+      "s12": "Organisation",
+      "s13": "Shared workspace and saved maps/drafts",
+      "s14": "Alerts",
+      "s15": "Bounded discovery",
+      "s16": "Official-channel rechecks",
+      "s17": "Bounded support",
+      "s18": "Discuss a pilot — coming soon",
+      "s19": "Enterprise-research",
+      "s20": "Team workspace",
+      "s21": "Bounded discovery",
+      "s22": "Scouting worklists",
+      "s23": "Permission-gated public metadata API and bulk export",
+      "s24": "Official-channel rechecks",
+      "s25": "Bounded support",
+      "s26": "Discuss a pilot — coming soon",
+      "s27": "No patient data sales or private clinical-data offer",
+      "s28": "No pay-to-rank or sponsor control of corrections",
+      "s29": "Official public contacts remain free",
+      "s30": "No family search/identity sharing with scouts",
+      "s31": "Source-by-source licensing gate for public metadata exports",
+      "s32": "Contact verification means last-checked official public channel, never guaranteed access or reply",
+      "s33": "Introductions planned only with both parties opting in, separately scoped; no messages sent",
+      "s34": "Preserve attributed corrections, reviewer, source, time, superseded claim and appeal route"
+    },
+    "tenx": {
+      "s1": "A faster collaboration decision: test the hypothesis",
+      "s2": "Unmeasured assumption. No matched measured manual baseline or Atlas timing study was found; this is not treatment acceleration.",
+      "s3": "Dated feasibility go/no-go for reuse of a named natural-history asset, signed by the organisation lead and study lead or delegated investigator",
+      "s4": "Find candidate assets and people",
+      "s5": "Reconcile identities and map fit",
+      "s6": "Verify sources, freshness and contacts",
+      "s7": "Prepare reviewed brief and outreach",
+      "s8": "Shared response and human sign-off",
+      "s9": "Sequential assumption. Recompute from observed timestamps if tasks overlap; never sum parallel work.",
+      "s10": "Existing maintained graph assumed. Add graph-building/onboarding for a new slice and count volunteer/expert effort.",
+      "s11": "For D=0: M >= 10*A + 9*W. General: M >= 10*A + 9*(W+D)."
+    },
+    "trail": {
+      "s1": "SNAP25 community",
+      "s2": "SNAP25 community",
+      "s3": "STXBP1 and SNAP25 affect machinery that brain cells use to send signals. Some gene changes affect that machinery differently. Both communities are included in Simons Searchlight; ask its study team about joining or reusing research resources.",
+      "s4": "synaptic vesicle exocytosis",
+      "s5": "Release of signals between brain cells",
+      "s6": "This is an infrastructure-reuse opportunity, not evidence of treatment benefit.",
+      "s7": "Same process does not mean the same defect: some SNAP25 and STXBP1 variants increase release instead of reducing it. Variants must be compared separately before any shared approach.",
+      "s8": "The SNAP25 condition has conflicting names and codes in the catalogues; we link the gene community, not one disease code.",
+      "s9": "Joining from outside the USA is possible, but blood collection there is reviewed case by case. Available samples and cell lines are unknown until the team answers.",
+      "s10": "STXBP1 encephalopathy with epilepsy",
+      "s11": "Simons Searchlight study team",
+      "s12": "The study record and the official programme both name its study coordinator as the contact for joining and for research access.",
+      "s13": "STXBP1 and SNAP25 communities: reusing Simons Searchlight for a variant-stratified comparison",
+      "s14": "Hello Simons Searchlight study team,\n\nWe are exploring a research comparison between the STXBP1 and SNAP25 communities, both listed in Simons Searchlight. Experimental studies show that variants can affect synaptic release differently, so we would separate variants before considering a shared approach.\n\nCould your team advise whether an investigator can reuse your data collection and access process for this comparison, which data and samples are available, and who could discuss feasibility with us? We would also like to confirm country, language and variant eligibility before inviting families.\n\nThank you,\n[Your name]\n[Your patient group]",
+      "s15": "Do selected STXBP1 and SNAP25 variants share the same defect in how brain cells release signals?",
+      "s16": "If they do, one line of research could serve both communities.",
+      "s17": "STXBP1 encephalopathy",
+      "s18": "SNAP25 community",
+      "s19": "people in one published series",
+      "s20": "Release of signals between brain cells",
+      "s21": "STXBP1 C180Y lowered the amount of the protein in mouse neurons (protein instability).",
+      "s22": "SNAP25 I67N destabilised the release machinery and reduced spontaneous and evoked release in neurons.",
+      "s23": "SNAP25 V48F and D166Y increase spontaneous release instead of reducing it.",
+      "s24": "STXBP1 L446F (two homozygous cases) increased evoked transmission in a neuronal model.",
+      "s25": "With one normal STXBP1 copy present, measured transmission was normal in the same C180Y study.",
+      "s26": "Whether any rescue works for both genotypes: no experiment yet.",
+      "s27": "Which matched cell lines and samples are available, and which lab would run it.",
+      "s28": "Compare STXBP1 C180Y with separately specified SNAP25 variants (I67N kept apart from V48F/D166Y) in matched neurons with one protocol: spontaneous and evoked release, readily releasable pool, synchronisation; isogenic controls, independent cultures, blinded analysis. A defect in opposite directions blocks pooling.",
+      "s29": "Proposed design; feasibility and power still to be worked out.",
+      "s30": "Ask the Simons Searchlight study team whether its collection supports a variant-stratified STXBP1/SNAP25 comparison.",
+      "s31": "Simons Searchlight is recruiting; its conditions include STXBP1 Encephalopathy With Epilepsy and SNAP25; the study coordinator is the central contact.",
+      "s32": "Existing data and biospecimens can be requested through SFARI Base after review.",
+      "s33": "Simons Searchlight studies the SNAP25 community.",
+      "s34": "Official contact page of the programme.",
+      "s35": "STXBP1 patient variants such as C180Y reduce protein amount; experiments support protein instability.",
+      "s36": "A homozygous STXBP1 variant (L446F) increased evoked transmission in a neuronal model: not every variant reduces release.",
+      "s37": "SNAP25 takes part in vesicle fusion; I67N reduced release, while V48F and D166Y increased spontaneous release.",
+      "s38": "Families outside the USA can join; blood collection outside the USA is reviewed individually.",
+      "s39": "The programme is a natural-history database and biorepository, not a treatment trial.",
+      "s40": "G2P maps the SNAP25 disorder to MONDO:0014590, whose MONDO name is congenital myasthenic syndrome 18: an unresolved naming conflict.",
+      "s41": "A published series describes 23 people with SNAP25 variants; it mixes new and previously reported individuals, so they must not be added to other cohorts as independent cases."
+    }
+  },
+  "maintenance": {
+    "title": "Zebratlas: find your people. Coming soon.",
+    "description": "Zebratlas connects people with rare diseases to patient groups, studies and experts. Coming soon.",
+    "heading": "Zebratlas: find your people.",
+    "body": "A map that connects people living with rare diseases to patient groups, studies, registries and experts, with every link traced back to its source.",
+    "soon": "Coming soon."
+  },
+  "resources": {
+    "research": "Research resources",
+    "models": "Models, samples and data",
+    "papers": "Free full-text papers",
+    "funding": "Research funding",
+    "read": "Read free full text",
+    "request": "Request access",
+    "apply": "Apply for access",
+    "download": "Download",
+    "holderPage": "Holder’s official page",
+    "officialPage": "Official project or resource page",
+    "source": "Source",
+    "searchElsewhere": "Search other sources",
+    "discoveryUnchecked": "These are search links; their results have not been checked here.",
+    "availabilityUnknown": "Availability and suitability for your research have not been confirmed.",
+    "noRoute": "No verified access route is available.",
+    "cachedOnly": "Saved evidence only; the source has not been checked live.",
+    "reuseLicence": "Full-text reuse licence",
+    "unknown": "Unknown",
+    "recordLicence": "Record licence",
+    "fundingEvidence": "Funding evidence",
+    "verifyCached": "Check saved evidence",
+    "cacheMatches": "Saved evidence matches",
+    "checkedCache": "Saved source checked for this input",
+    "notChecked": "Not checked for this input",
+    "none": "No linked resource was found in the checked sources. Other resources may exist.",
+    "apiVerified": "The saved NIH API responses match this project.",
+    "apiUnverified": "The saved NIH API responses could not all be verified.",
+    "evidenceUnavailable": "Funding evidence is unavailable or has changed.",
+    "organisation": "Organisation",
+    "funder": "Funder",
+    "years": "Years",
+    "scope": {
+      "exact": "Names this diagnosis",
+      "gene": "Linked to a causal gene; not an exact diagnosis match",
+      "condition": "Linked through a condition associated with this gene",
+      "ortholog": "Linked through a model-organism gene",
+      "related": "Related research; not an exact diagnosis match"
+    },
+    "accessConditions": "Access conditions from the source"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run check:i18n && npm run check:colors && eslint && next build",
+    "start": "next start",
+    "lint": "eslint",
+    "check:i18n": "node --no-warnings scripts/check-i18n.ts && node --no-warnings scripts/check-zebra-i18n.ts",
+    "check:colors": "node --no-warnings scripts/check-colors.ts",
+    "test:unit": "node --no-warnings --test scripts/check-zebra-privacy-workflow.test.mjs scripts/check-zebra-privacy.test.mjs scripts/check-zebra-public-release.test.mjs",
+    "check:account": "node --no-warnings scripts/check-zebra-account.mjs",
+    "check:query": "node --no-warnings scripts/check-query-graph-view.mjs && node --no-warnings scripts/check-zebra-query-answer.ts"
+  },
+  "dependencies": {
+    "@traqula/generator-sparql-1-1": "1.4.0",
+    "@traqula/parser-sparql-1-1": "1.4.0",
+    "cytoscape": "^3.34.3",
+    "next": "16.3.8",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^24",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "playwright": "^1.63.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  }
+}

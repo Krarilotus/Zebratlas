@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "locale": "it",
+    "source": "en",
+    "machine_translated": true,
+    "reviewed": [
+      "en",
+      "de"
+    ],
+    "owner": "accounts agent (H2)",
+    "note": "Machine-translated from en; not reviewed.",
+    "connector": {
+      "author": "GPT-6.1-Sol",
+      "backcheck": "Own-device code approval, connection/model choice, revocation, unavailable selection and hosted reset retained.",
+      "native_reviewed": false
+    }
+  },
+  "title": "Il tuo account",
+  "nav": {
+    "account": "Account",
+    "saved": "Salvati",
+    "conversations": "Conversazioni"
+  },
+  "free": {
+    "title": "Non ti serve un account",
+    "lead": "Tutto l'atlante funziona senza accedere. Un account serve solo a conservare: le malattie che segui, le persone e i gruppi trovati, le bozze dei messaggi e le tue domande all'atlante."
+  },
+  "unavailable": {
+    "title": "Gli account non sono disponibili qui",
+    "lead": "Questa copia dell'atlante funziona senza il servizio account. Tutte le pagine funzionano; solo non si può salvare."
+  },
+  "form": {
+    "signInTitle": "Accedi",
+    "signUpTitle": "Crea un account",
+    "email": "E-mail",
+    "password": "Password",
+    "passwordHint": "Almeno 10 caratteri. Qualche parola facile da ricordare va benissimo.",
+    "name": "Il tuo nome (facoltativo)",
+    "signIn": "Accedi",
+    "signUp": "Crea account",
+    "pending": "Un momento…",
+    "toSignUp": "Sei nuovo? Crea un account",
+    "toSignIn": "Hai già un account? Accedi",
+    "privacy": "Conserviamo la tua e-mail, una forma cifrata (hash) della password e ciò che salvi. Nessun tracciamento, nessun indirizzo IP. Puoi scaricare o cancellare tutto in qualsiasi momento.",
+    "deleted": "Il tuo account e tutto il suo contenuto sono stati cancellati."
+  },
+  "error": {
+    "bad_credentials": "E-mail e password non corrispondono a nessun account.",
+    "conflict": "Esiste già un account con questa e-mail. Prova ad accedere.",
+    "invalid": "Alcuni dati non sono validi. Controllali, per favore.",
+    "invalid_email": "Inserisci un indirizzo e-mail valido.",
+    "password_short": "La password deve avere almeno 10 caratteri.",
+    "rate_limited": "Troppi tentativi. Attendi qualche minuto e riprova.",
+    "unavailable": "Gli account non sono disponibili ora. Tutto il resto funziona.",
+    "unauthorized": "Accedi di nuovo, per favore.",
+    "not_found": "Questo elemento non esiste più.",
+    "forbidden": "Non puoi modificare questo elemento.",
+    "generic": "Qualcosa è andato storto. Riprova."
+  },
+  "home": {
+    "signedInAs": "Accesso come {email}",
+    "greeting": "Ciao, {name}",
+    "plan": "Piano: {plan}",
+    "saved": "{n, plural, =0 {Salvati: ancora niente} one {Salvati: # elemento} other {Salvati: # elementi}}",
+    "conversations": "{n, plural, =0 {Conversazioni: ancora nessuna} other {Conversazioni: #}}"
+  },
+  "plan": {
+    "free": "Gratuito",
+    "organisation": "Organizzazione",
+    "enterprise": "Enterprise"
+  },
+  "role": {
+    "owner": "Proprietario",
+    "admin": "Amministratore",
+    "member": "Membro"
+  },
+  "orgs": {
+    "title": "Organizzazioni",
+    "lead": "Associazioni di pazienti e gruppi di ricerca possono tenere schede e bozze insieme, in un unico posto.",
+    "none": "Non fai ancora parte di nessuna organizzazione.",
+    "name": "Nome dell'organizzazione",
+    "create": "Crea organizzazione",
+    "created": "Organizzazione creata.",
+    "planOf": "Piano {plan}"
+  },
+  "data": {
+    "title": "I tuoi dati",
+    "lead": "Scarica in un unico file tutto ciò che conserviamo su di te, oppure esci.",
+    "export": "Scarica tutti i miei dati",
+    "signOut": "Esci",
+    "signOutAll": "Esci da tutti i dispositivi",
+    "manage": "Gestisci i miei dati",
+    "pageLead": "Gestisci le informazioni nel tuo account.",
+    "signedOut": "Accedi per vedere le informazioni salvate nel tuo account.",
+    "created": "Account creato",
+    "kept": "Salvato nel tuo account",
+    "documents": "Documenti salvati",
+    "documentsUnavailable": "Al momento non ? possibile caricare i documenti salvati.",
+    "documentsEmpty": "Non hai documenti salvati.",
+    "untitledDocument": "Documento senza titolo",
+    "view": "Visualizza",
+    "download": "Scarica",
+    "deleteDocument": "Elimina",
+    "contributions": "I tuoi contributi",
+    "contributionsUnavailable": "Al momento non ? possibile caricare i tuoi contributi.",
+    "contributionsEmpty": "Non hai contributi.",
+    "contributionRemoval": "Per rimuovere un singolo contributo, invia una richiesta di rimozione."
+  },
+  "password": {
+    "title": "Cambia password",
+    "current": "Password attuale",
+    "new": "Nuova password",
+    "submit": "Cambia password",
+    "done": "Password cambiata. Gli altri dispositivi sono stati disconnessi."
+  },
+  "delete": {
+    "title": "Elimina account",
+    "lead": "Elimina per sempre il tuo account e tutto ciò che hai salvato. Non si può annullare.",
+    "password": "La tua password, per confermare",
+    "submit": "Elimina il mio account",
+    "keepName": "Mantieni il mio nome sui miei contributi accettati"
+  },
+  "saved": {
+    "title": "Salvati",
+    "lead": "Ciò che hai conservato per tornarci sopra.",
+    "empty": "Ancora niente di salvato. Usa il pulsante Salva su una malattia, un contatto o una bozza di messaggio.",
+    "signedOut": "Accedi per vedere ciò che hai salvato. Salvare è facoltativo: nulla nell'atlante richiede un account.",
+    "signIn": "Accedi o crea un account",
+    "count": "{n, plural, one {# elemento} other {# elementi}}",
+    "savedOn": "Salvato il {date}",
+    "open": "Apri",
+    "remove": "Rimuovi",
+    "subject": "Oggetto: {subject}",
+    "kind": {
+      "condition": "Malattie che segui",
+      "connection_card": "Persone, gruppi e studi",
+      "connection_map": "Mappe",
+      "message_draft": "Bozze di messaggi",
+      "node": "Altro",
+      "search": "Ricerche"
+    }
+  },
+  "save": {
+    "save": "Salva",
+    "saved": "Salvato",
+    "remove": "Rimuovi dai salvati",
+    "signIn": "Accedi per salvare",
+    "draft": "Salva bozza",
+    "draftSaved": "Bozza salvata",
+    "conversation": "Salva conversazione",
+    "conversationSaved": "Conversazione salvata",
+    "pending": "Salvataggio…",
+    "failed": "Salvataggio non riuscito. Riprova."
+  },
+  "conversations": {
+    "title": "Conversazioni",
+    "lead": "Le tue domande all'atlante e le sue risposte, con le fonti che le sostengono.",
+    "empty": "Ancora nessuna conversazione.",
+    "messages": "{n, plural, one {# messaggio} other {# messaggi}}",
+    "updated": "Aggiornato il {date}",
+    "you": "Tu",
+    "atlas": "Atlante",
+    "sources": "Fonti",
+    "delete": "Elimina questa conversazione",
+    "back": "Tutte le conversazioni",
+    "notFound": "Questa conversazione non esiste o è stata eliminata."
+  },
+  "connector": {
+    "title": "Collegare i propri modelli",
+    "pair": "Inserisca il codice mostrato dal connettore sul proprio computer.",
+    "code": "Codice di associazione",
+    "approve": "Collegare",
+    "devices": "I suoi computer",
+    "none": "Nessun computer ancora collegato.",
+    "revoke": "Revocare l’accesso",
+    "connection": "Rispondere con",
+    "hosted": "Opzione ospitata predefinita",
+    "model": "Modello",
+    "defaultModel": "Predefinito del dispositivo",
+    "save": "Salvare la selezione",
+    "reset": "Usare l’opzione ospitata predefinita",
+    "offline": "Offline o accesso revocato",
+    "done": "Salvato.",
+    "refresh": "Aggiornare i dispositivi",
+    "instructions": "Configurare il connettore"
+  }
+}

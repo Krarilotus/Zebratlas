@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "locale": "zh-Hans",
+    "source": "en",
+    "machine_translated": true,
+    "reviewed": [
+      "en",
+      "de"
+    ],
+    "owner": "accounts agent (H2)",
+    "note": "Machine-translated from en; not reviewed.",
+    "connector": {
+      "author": "GPT-6.1-Sol",
+      "backcheck": "Own-device code approval, connection/model choice, revocation, unavailable selection and hosted reset retained.",
+      "native_reviewed": false
+    }
+  },
+  "title": "您的账户",
+  "nav": {
+    "account": "账户",
+    "saved": "已保存",
+    "conversations": "对话"
+  },
+  "free": {
+    "title": "您不需要账户",
+    "lead": "图谱的所有功能无需登录即可使用。账户只用于保存内容：您关注的疾病、找到的人和团体、消息草稿，以及您向图谱提出的问题。"
+  },
+  "unavailable": {
+    "title": "此处无法使用账户",
+    "lead": "这个图谱副本没有运行账户服务。所有页面照常可用，只是无法保存内容。"
+  },
+  "form": {
+    "signInTitle": "登录",
+    "signUpTitle": "创建账户",
+    "email": "电子邮箱",
+    "password": "密码",
+    "passwordHint": "至少 10 个字符。几个您容易记住的词就很好。",
+    "name": "您的名字（可选）",
+    "signIn": "登录",
+    "signUp": "创建账户",
+    "pending": "请稍候…",
+    "toSignUp": "第一次来？创建账户",
+    "toSignIn": "已有账户？登录",
+    "privacy": "我们保存您的邮箱、密码的加密（哈希）形式以及您保存的内容。没有跟踪，不记录 IP 地址。您可以随时下载或删除全部数据。",
+    "deleted": "您的账户及其全部内容已删除。"
+  },
+  "error": {
+    "bad_credentials": "该邮箱和密码与任何账户都不匹配。",
+    "conflict": "该邮箱已有账户。请尝试登录。",
+    "invalid": "部分信息无效，请检查。",
+    "invalid_email": "请输入有效的电子邮箱地址。",
+    "password_short": "密码至少需要 10 个字符。",
+    "rate_limited": "尝试次数过多。请等几分钟后再试。",
+    "unavailable": "账户功能暂时不可用。其他功能仍可正常使用。",
+    "unauthorized": "请重新登录。",
+    "not_found": "此项已不存在。",
+    "forbidden": "您不能修改此项。",
+    "generic": "出了点问题，请再试一次。"
+  },
+  "home": {
+    "signedInAs": "已登录：{email}",
+    "greeting": "您好，{name}",
+    "plan": "方案：{plan}",
+    "saved": "{n, plural, =0 {已保存：暂无} other {已保存：# 项}}",
+    "conversations": "{n, plural, =0 {对话：暂无} other {对话：# 个}}"
+  },
+  "plan": {
+    "free": "免费",
+    "organisation": "机构",
+    "enterprise": "企业"
+  },
+  "role": {
+    "owner": "所有者",
+    "admin": "管理员",
+    "member": "成员"
+  },
+  "orgs": {
+    "title": "机构",
+    "lead": "患者团体和研究团队可以把卡片和草稿集中保存在一个地方。",
+    "none": "您还不属于任何机构。",
+    "name": "机构名称",
+    "create": "创建机构",
+    "created": "机构已创建。",
+    "planOf": "{plan}方案"
+  },
+  "data": {
+    "title": "您的数据",
+    "lead": "将我们保存的关于您的所有内容下载为一个文件，或退出登录。",
+    "export": "下载我的全部数据",
+    "signOut": "退出登录",
+    "signOutAll": "在所有设备上退出",
+    "manage": "??????",
+    "pageLead": "??????????",
+    "signedOut": "??????????????",
+    "created": "??????",
+    "kept": "????????",
+    "documents": "??????",
+    "documentsUnavailable": "?????????????",
+    "documentsEmpty": "?????????",
+    "untitledDocument": "?????",
+    "view": "??",
+    "download": "??",
+    "deleteDocument": "??",
+    "contributions": "????",
+    "contributionsUnavailable": "???????????",
+    "contributionsEmpty": "??????",
+    "contributionRemoval": "?????????????????"
+  },
+  "password": {
+    "title": "修改密码",
+    "current": "当前密码",
+    "new": "新密码",
+    "submit": "修改密码",
+    "done": "密码已修改。您的其他设备已退出登录。"
+  },
+  "delete": {
+    "title": "删除账户",
+    "lead": "这将永久删除您的账户和您保存的所有内容，且无法撤销。",
+    "password": "请输入密码以确认",
+    "submit": "删除我的账户",
+    "keepName": "在我已被收录的贡献内容上保留我的姓名"
+  },
+  "saved": {
+    "title": "已保存",
+    "lead": "您留着以后再看的内容。",
+    "empty": "还没有保存任何内容。在疾病、联系人或消息草稿上使用“保存”按钮。",
+    "signedOut": "登录后可查看您保存的内容。保存是可选的：图谱中的任何功能都不需要账户。",
+    "signIn": "登录或创建账户",
+    "count": "{n, plural, other {# 项}}",
+    "savedOn": "保存于 {date}",
+    "open": "打开",
+    "remove": "移除",
+    "subject": "主题：{subject}",
+    "kind": {
+      "condition": "您关注的疾病",
+      "connection_card": "人、团体和研究",
+      "connection_map": "图谱视图",
+      "message_draft": "消息草稿",
+      "node": "其他",
+      "search": "搜索"
+    }
+  },
+  "save": {
+    "save": "保存",
+    "saved": "已保存",
+    "remove": "取消保存",
+    "signIn": "登录后保存",
+    "draft": "保存草稿",
+    "draftSaved": "草稿已保存",
+    "conversation": "保存对话",
+    "conversationSaved": "对话已保存",
+    "pending": "正在保存…",
+    "failed": "保存失败，请再试一次。"
+  },
+  "conversations": {
+    "title": "对话",
+    "lead": "您向图谱提出的问题和它的回答，以及背后的来源。",
+    "empty": "还没有对话。",
+    "messages": "{n, plural, other {# 条消息}}",
+    "updated": "更新于 {date}",
+    "you": "您",
+    "atlas": "图谱",
+    "sources": "来源",
+    "delete": "删除此对话",
+    "back": "所有对话",
+    "notFound": "此对话不存在或已被删除。"
+  },
+  "connector": {
+    "title": "连接自己的模型",
+    "pair": "请输入您自己电脑上的连接程序显示的代码。",
+    "code": "配对代码",
+    "approve": "连接",
+    "devices": "您的电脑",
+    "none": "尚未连接任何电脑。",
+    "revoke": "撤销访问权限",
+    "connection": "回答所用连接",
+    "hosted": "默认托管连接",
+    "model": "模型",
+    "defaultModel": "设备默认模型",
+    "save": "保存选择",
+    "reset": "使用默认托管连接",
+    "offline": "离线或已撤销访问权限",
+    "done": "已保存。",
+    "refresh": "刷新设备",
+    "instructions": "设置连接程序"
+  }
+}

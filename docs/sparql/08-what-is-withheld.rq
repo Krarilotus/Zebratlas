@@ -1,0 +1,5 @@
+# See which kinds of records contain shareable fields and which contain only identifiers, so researchers can judge what this release can answer.
+PREFIX ra: <https://w3id.org/rare-disease-atlas/vocab#>
+SELECT ?kind ?releaseStatus (COUNT(*) AS ?records) WHERE {
+  ?node ra:nodeKind ?kind ; ra:exportStatus ?releaseStatus .
+} GROUP BY ?kind ?releaseStatus ORDER BY ?kind ?releaseStatus

@@ -1,0 +1,56 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ra: <https://w3id.org/rare-disease-atlas/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://w3id.org/rare-disease-atlas/ontology/bridge-bfo> a owl:Ontology ;
+    dcterms:license <https://opensource.org/license/mit> ;
+    rdfs:comment "Atlas authored application profile, under the repository MIT option. External imports retain their own terms. Resolve imports only through manifest-pinned local artifacts." ;
+    owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo-core.owl>,
+        <https://w3id.org/rare-disease-atlas/ontology/1.0.0/tbox> ;
+    owl:versionIRI <https://w3id.org/rare-disease-atlas/ontology/1.0.0/bridge-bfo> ;
+    owl:versionInfo "1.0.0" .
+
+ra:DiseaseDescription rdfs:subClassOf ra:BFODiseaseConceptInformation .
+
+ra:GeneDescription rdfs:subClassOf ra:BFOGeneConceptInformation .
+
+ra:MaterialEntity rdfs:subClassOf bfo:BFO_0000040 .
+
+ra:PhenotypeDescription rdfs:subClassOf ra:BFOPhenotypeConceptInformation .
+
+ra:Process rdfs:subClassOf bfo:BFO_0000015 .
+
+ra:Quality rdfs:subClassOf bfo:BFO_0000019 .
+
+ra:Role rdfs:subClassOf bfo:BFO_0000023 .
+
+ra:BFODiseaseConceptInformation a owl:Class ;
+    rdfs:label "B F O Disease Concept Information" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:InformationEntity bfo:BFO_0000031 [ a owl:Restriction ;
+                        owl:onProperty ra:isAbout ;
+                        owl:someValuesFrom ra:DiseaseConcept ] ) ] ;
+    skos:definition "bfo information content explicitly about an Atlas DiseaseConcept." .
+
+ra:BFOGeneConceptInformation a owl:Class ;
+    rdfs:label "B F O Gene Concept Information" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:InformationEntity bfo:BFO_0000031 [ a owl:Restriction ;
+                        owl:onProperty ra:isAbout ;
+                        owl:someValuesFrom ra:GeneConcept ] ) ] ;
+    skos:definition "bfo information content explicitly about an Atlas GeneConcept." .
+
+ra:BFOPhenotypeConceptInformation a owl:Class ;
+    rdfs:label "B F O Phenotype Concept Information" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:InformationEntity bfo:BFO_0000031 [ a owl:Restriction ;
+                        owl:onProperty ra:isAbout ;
+                        owl:someValuesFrom ra:PhenotypeConcept ] ) ] ;
+    skos:definition "bfo information content explicitly about an Atlas PhenotypeConcept." .
+
+ra:InformationEntity rdfs:subClassOf bfo:BFO_0000031 .
+

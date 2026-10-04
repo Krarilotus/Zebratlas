@@ -1,0 +1,26 @@
+.view { position:relative; min-height:360px; height:100%; overflow:hidden; background:var(--z-paper); color:var(--z-ink); }
+.canvas { position:absolute; inset:0; touch-action:none; }
+.canvas > div { width:100%; height:100%; }
+.status { position:absolute; inset:40% 12px auto; text-align:center; font-size:13px; color:var(--z-muted); }
+.controls { position:absolute; bottom:36px; right:10px; display:flex; gap:2px; padding:2px; border:1px solid var(--z-line); border-radius:6px; background:var(--z-paper); }
+.controls button { min-width:44px; min-height:44px; padding:4px 8px; background:transparent; border:0; color:var(--z-ink); font:inherit; font-size:13px; cursor:pointer; }
+.controls button:focus-visible, .view :global(button:focus-visible) { outline:2px solid var(--z-teal); outline-offset:2px; }
+.credit { position:absolute; bottom:8px; right:10px; color:var(--z-muted); font-size:10px; text-decoration:underline; }
+.patterns { position:absolute; left:10px; bottom:8px; max-width:calc(100% - 200px); max-height:45%; overflow:auto; background:var(--z-paper); color:var(--z-muted); font-size:11px; }
+.patterns summary { cursor:pointer; }
+.patterns ul { margin:8px 0 0; padding-left:18px; overflow-wrap:anywhere; }
+.view :global(.qbg-node) { position:relative; width:160px; min-height:64px; }
+.view :global(.qbg-node-button) { width:100%; min-height:64px; padding:8px; background:var(--z-paper); border:1px solid var(--z-line); border-radius:7px; color:var(--z-ink); font:inherit; font-size:12px; cursor:pointer; }
+.view :global(.qbg-node-button[aria-pressed="true"]) { border-color:var(--z-teal); }
+.view :global(.qbg-label) { display:block; width:100%; overflow-wrap:anywhere; }
+.view :global(.qbg-socket) { position:absolute; top:26px; pointer-events:none; }
+.view :global(.qbg-input) { left:-4px; }
+.view :global(.qbg-output) { right:-4px; }
+.view :global(.qbg-socket .socket) { width:8px; height:8px; margin:0; border:1px solid var(--z-teal); background:var(--z-paper); }
+.view :global(.qbg-connection) { overflow:visible; position:absolute; inset:0; width:1px; height:1px; }
+.view :global(.qbg-edge) { fill:none; stroke:var(--z-muted); stroke-width:1.5; }
+.view :global(.qbg-relation-button) { width:100%; min-height:64px; padding:4px; border:0; background:transparent; color:var(--z-muted); font:inherit; font-size:11px; overflow-wrap:anywhere; cursor:pointer; }
+.view :global(.qbg-shadow .qbg-node-button) { border:1px dashed var(--z-teal); background:var(--z-mint); opacity:.82; }
+.view :global(.qbg-detail) { display:block; font-size:11px; color:var(--z-muted); margin-top:5px; }
+.view :global(.qbg-shadow-edge .qbg-edge) { stroke:var(--z-teal); stroke-dasharray:5 4; opacity:.55; }
+@media(max-width:540px) { .view { min-height:300px; } .patterns { max-width:48%; } .credit { font-size:9px; } }

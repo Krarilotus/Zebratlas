@@ -1,0 +1,17 @@
+.proof { margin:12px 0; padding:10px 0; border-top:1px solid var(--z-line); font-size:12px; line-height:1.5; color:var(--z-ink); overflow-wrap:anywhere; }
+.proof > summary { cursor:pointer; color:var(--z-accent); font-weight:500; }
+.content { padding-top:8px; }
+.conclusion { margin:0 0 7px; }
+.conclusion strong { font-weight:550; }
+.engine { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 12px; color:var(--z-muted); font-size:10px; }
+.premises p { margin:0; color:var(--z-muted); }
+.premises ul { padding-left:17px; margin:5px 0 10px; }
+.premises li { margin:3px 0; }
+.sources { color:var(--z-muted); font-size:11px; }
+.sources summary, .premises summary { cursor:pointer; }
+.record { padding:8px 0; border-bottom:1px solid var(--z-line); }
+.record a { color:var(--z-accent); text-decoration:underline; }
+.record dl { margin:5px 0 0; }
+.record dl > div { display:grid; grid-template-columns:minmax(90px,1fr) minmax(0,2fr); gap:8px; margin:4px 0; }
+.record dd { margin:0; overflow-wrap:anywhere; }
+.proof summary:focus-visible, .record a:focus-visible { outline:2px solid var(--z-accent); outline-offset:3px; }

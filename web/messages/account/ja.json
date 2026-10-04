@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "locale": "ja",
+    "source": "en",
+    "machine_translated": true,
+    "reviewed": [
+      "en",
+      "de"
+    ],
+    "owner": "accounts agent (H2)",
+    "note": "Machine-translated from en; not reviewed.",
+    "connector": {
+      "author": "GPT-6.1-Sol",
+      "backcheck": "Own-device code approval, connection/model choice, revocation, unavailable selection and hosted reset retained.",
+      "native_reviewed": false
+    }
+  },
+  "title": "アカウント",
+  "nav": {
+    "account": "アカウント",
+    "saved": "保存済み",
+    "conversations": "会話"
+  },
+  "free": {
+    "title": "アカウントは必要ありません",
+    "lead": "アトラスのすべての機能はログインなしで使えます。アカウントは保存のためだけのものです：フォローしている病気、見つけた人やグループ、メッセージの下書き、アトラスへの質問。"
+  },
+  "unavailable": {
+    "title": "ここではアカウントを利用できません",
+    "lead": "このアトラスはアカウントサービスなしで動いています。すべてのページは使えますが、保存はできません。"
+  },
+  "form": {
+    "signInTitle": "ログイン",
+    "signUpTitle": "アカウントを作成",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "passwordHint": "10文字以上。覚えやすい単語をいくつか並べるのがおすすめです。",
+    "name": "お名前（任意）",
+    "signIn": "ログイン",
+    "signUp": "アカウントを作成",
+    "pending": "少々お待ちください…",
+    "toSignUp": "はじめての方：アカウントを作成",
+    "toSignIn": "アカウントをお持ちの方：ログイン",
+    "privacy": "保存するのは、メールアドレス、パスワードを暗号化（ハッシュ化）したもの、そしてあなたが保存した内容だけです。追跡なし、IPアドレスの記録なし。いつでもすべてをダウンロードまたは削除できます。",
+    "deleted": "アカウントとそのすべての内容を削除しました。"
+  },
+  "error": {
+    "bad_credentials": "このメールアドレスとパスワードに一致するアカウントはありません。",
+    "conflict": "このメールアドレスのアカウントはすでにあります。ログインしてください。",
+    "invalid": "入力内容に無効なものがあります。確認してください。",
+    "invalid_email": "有効なメールアドレスを入力してください。",
+    "password_short": "パスワードは10文字以上にしてください。",
+    "rate_limited": "試行回数が多すぎます。数分待ってからもう一度お試しください。",
+    "unavailable": "現在アカウントは利用できません。ほかの機能はそのまま使えます。",
+    "unauthorized": "もう一度ログインしてください。",
+    "not_found": "この項目はもう存在しません。",
+    "forbidden": "この項目は変更できません。",
+    "generic": "問題が発生しました。もう一度お試しください。"
+  },
+  "home": {
+    "signedInAs": "{email} としてログイン中",
+    "greeting": "こんにちは、{name}さん",
+    "plan": "プラン：{plan}",
+    "saved": "{n, plural, =0 {保存済み：まだありません} other {保存済み：# 件}}",
+    "conversations": "{n, plural, =0 {会話：まだありません} other {会話：# 件}}"
+  },
+  "plan": {
+    "free": "無料",
+    "organisation": "団体",
+    "enterprise": "エンタープライズ"
+  },
+  "role": {
+    "owner": "オーナー",
+    "admin": "管理者",
+    "member": "メンバー"
+  },
+  "orgs": {
+    "title": "団体",
+    "lead": "患者会や研究チームは、カードや下書きを一か所にまとめて保存できます。",
+    "none": "まだどの団体にも所属していません。",
+    "name": "団体名",
+    "create": "団体を作成",
+    "created": "団体を作成しました。",
+    "planOf": "{plan}プラン"
+  },
+  "data": {
+    "title": "あなたのデータ",
+    "lead": "あなたについて保存しているすべてを1つのファイルでダウンロードするか、ログアウトします。",
+    "export": "すべてのデータをダウンロード",
+    "signOut": "ログアウト",
+    "signOutAll": "すべての端末からログアウト",
+    "manage": "??????",
+    "pageLead": "????????????????",
+    "signedOut": "?????????????????????????????",
+    "created": "????????",
+    "kept": "????????????",
+    "documents": "??????",
+    "documentsUnavailable": "??????????????????",
+    "documentsEmpty": "?????????????",
+    "untitledDocument": "?????",
+    "view": "??",
+    "download": "??????",
+    "deleteDocument": "??",
+    "contributions": "??????",
+    "contributionsUnavailable": "??????????????????",
+    "contributionsEmpty": "?????????",
+    "contributionRemoval": "????????????????????????????"
+  },
+  "password": {
+    "title": "パスワードを変更",
+    "current": "現在のパスワード",
+    "new": "新しいパスワード",
+    "submit": "パスワードを変更",
+    "done": "パスワードを変更しました。ほかの端末はログアウトされました。"
+  },
+  "delete": {
+    "title": "アカウントを削除",
+    "lead": "アカウントと保存したすべての内容が完全に削除されます。元に戻すことはできません。",
+    "password": "確認のためパスワードを入力",
+    "submit": "アカウントを削除する",
+    "keepName": "採用された投稿に私の名前を残す"
+  },
+  "saved": {
+    "title": "保存済み",
+    "lead": "あとで見返すために保存したもの。",
+    "empty": "まだ何も保存していません。病気、連絡先、メッセージの下書きにある「保存」ボタンを使ってください。",
+    "signedOut": "保存した内容を見るにはログインしてください。保存は任意です：アトラスの機能にアカウントは必要ありません。",
+    "signIn": "ログインまたはアカウント作成",
+    "count": "{n, plural, other {# 件}}",
+    "savedOn": "{date} に保存",
+    "open": "開く",
+    "remove": "削除",
+    "subject": "件名：{subject}",
+    "kind": {
+      "condition": "フォローしている病気",
+      "connection_card": "人・グループ・研究",
+      "connection_map": "マップ",
+      "message_draft": "メッセージの下書き",
+      "node": "その他",
+      "search": "検索"
+    }
+  },
+  "save": {
+    "save": "保存",
+    "saved": "保存済み",
+    "remove": "保存を取り消す",
+    "signIn": "ログインして保存",
+    "draft": "下書きを保存",
+    "draftSaved": "下書きを保存しました",
+    "conversation": "会話を保存",
+    "conversationSaved": "会話を保存しました",
+    "pending": "保存中…",
+    "failed": "保存できませんでした。もう一度お試しください。"
+  },
+  "conversations": {
+    "title": "会話",
+    "lead": "アトラスへの質問とその回答、そして根拠となる出典。",
+    "empty": "まだ会話はありません。",
+    "messages": "{n, plural, other {# 件のメッセージ}}",
+    "updated": "{date} に更新",
+    "you": "あなた",
+    "atlas": "アトラス",
+    "sources": "出典",
+    "delete": "この会話を削除",
+    "back": "すべての会話",
+    "notFound": "この会話は存在しないか、削除されました。"
+  },
+  "connector": {
+    "title": "自分のモデルを接続",
+    "pair": "ご自身のコンピューターのコネクターに表示されたコードを入力してください。",
+    "code": "ペアリングコード",
+    "approve": "接続",
+    "devices": "接続したコンピューター",
+    "none": "まだコンピューターは接続されていません。",
+    "revoke": "アクセスを取り消す",
+    "connection": "回答に使う接続",
+    "hosted": "既定のホスト接続",
+    "model": "モデル",
+    "defaultModel": "デバイスの既定モデル",
+    "save": "選択を保存",
+    "reset": "既定のホスト接続を使う",
+    "offline": "オフラインまたはアクセス取り消し済み",
+    "done": "保存しました。",
+    "refresh": "デバイスを更新",
+    "instructions": "コネクターを設定"
+  }
+}

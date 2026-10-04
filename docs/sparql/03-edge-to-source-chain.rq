@@ -1,0 +1,13 @@
+# Trace one licensed disease-gene assertion through its derivation, transformation, source file, exact locator, version, date and hash.
+PREFIX ra: <https://w3id.org/rare-disease-atlas/vocab#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?record ?url ?locator ?retrieved ?version ?hash ?hashScope ?source ?sourceHash ?activity ?agent WHERE {
+  VALUES ?edge { <https://w3id.org/rare-disease-atlas/edge/MONDO%3A0000023%7Chas_associated_gene%7CHGNC%3A15625> }
+  ?edge prov:qualifiedDerivation ?derivation .
+  ?derivation prov:entity ?record ; prov:hadActivity ?activity .
+  ?record dcterms:source ?url ; ra:recordLocator ?locator ; ra:retrievedAt ?retrieved ;
+          dcterms:hasVersion ?version ; ra:sha256 ?hash ; ra:hashScope ?hashScope ; dcterms:isPartOf ?source .
+  ?source ra:sha256 ?sourceHash .
+  ?activity prov:wasAssociatedWith ?agent .
+} ORDER BY ?record ?activity ?agent

@@ -1,0 +1,1821 @@
+{
+  "schema": "atlas.identity.rules",
+  "version": 1,
+  "reference_evaluation": {
+    "artifact": "eval/alignment/results/first-measurement.json",
+    "sha256": "71cd3d99c3e47ab0e7f528f8d6fe182351acf015c6cc3f95de934e2591c15268",
+    "interpretation": "Historical disease-closure concordance; MONDO-derived reference leakage. No independent per-rule gold result."
+  },
+  "rules": [
+    {
+      "id": "R-DIS-01",
+      "version": "1.0.0",
+      "statement": "Retain MONDO's asserted mapping predicate; exact equivalence requires the existing validity, retirement, cardinality, contradiction and cluster checks.",
+      "inputs": "MONDO SSSOM and OBO; Orphanet contradiction assertions",
+      "conditions": "GARD without a current assertion is demoted; no lexical equivalence.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch",
+        "skos:broadMatch",
+        "skos:narrowMatch",
+        "skos:relatedMatch"
+      ],
+      "sets": [
+        "disease-xrefs"
+      ],
+      "why_safe": "GARD without a current assertion is demoted; no lexical equivalence.",
+      "implementation": "crates/atlas-discovery/src/align/disease.rs",
+      "implementation_sha256": "c1ce62c8c552a5ef64413e7e4613551a30dc172047120f67febe30127b7f4681",
+      "precision_samples": [
+        {
+          "set": "disease-xrefs",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 20,
+          "verified": 20,
+          "unverifiable": 0,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": false
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "No independent rule-specific gold measurement. Disease closure results in eval/alignment are historical MONDO-derived reference concordance, not independent precision.",
+        "artifact": "eval/alignment/results/first-measurement.json",
+        "historical_reference_results": [
+          {
+            "task": "ncit2doid",
+            "variant": "mondo_exact_closure",
+            "reference_agreement_tp": 4311,
+            "reference_discordance_fp_under_closed_world_only": 23,
+            "not_recovered_reference_fn": 375,
+            "closed_world_reference_precision": {
+              "numerator": 4311,
+              "denominator": 4334,
+              "estimate": 0.9946931241347485,
+              "wilson95": [
+                0.9920490055716762,
+                0.9964610727025436
+              ]
+            },
+            "reference_recall": {
+              "numerator": 4311,
+              "denominator": 4686,
+              "estimate": 0.9199743918053778,
+              "wilson95": [
+                0.9118572394385969,
+                0.9274035403895011
+              ]
+            }
+          },
+          {
+            "task": "ncit2doid",
+            "variant": "joint_disease_exact_closure",
+            "reference_agreement_tp": 4311,
+            "reference_discordance_fp_under_closed_world_only": 23,
+            "not_recovered_reference_fn": 375,
+            "closed_world_reference_precision": {
+              "numerator": 4311,
+              "denominator": 4334,
+              "estimate": 0.9946931241347485,
+              "wilson95": [
+                0.9920490055716762,
+                0.9964610727025436
+              ]
+            },
+            "reference_recall": {
+              "numerator": 4311,
+              "denominator": 4686,
+              "estimate": 0.9199743918053778,
+              "wilson95": [
+                0.9118572394385969,
+                0.9274035403895011
+              ]
+            }
+          },
+          {
+            "task": "omim2ordo",
+            "variant": "mondo_exact_closure",
+            "reference_agreement_tp": 3221,
+            "reference_discordance_fp_under_closed_world_only": 56,
+            "not_recovered_reference_fn": 500,
+            "closed_world_reference_precision": {
+              "numerator": 3221,
+              "denominator": 3277,
+              "estimate": 0.9829111992676228,
+              "wilson95": [
+                0.9778751268723429,
+                0.9868164133088355
+              ]
+            },
+            "reference_recall": {
+              "numerator": 3221,
+              "denominator": 3721,
+              "estimate": 0.8656275194840096,
+              "wilson95": [
+                0.8542914148039363,
+                0.8762094749873525
+              ]
+            }
+          },
+          {
+            "task": "omim2ordo",
+            "variant": "joint_disease_exact_closure",
+            "reference_agreement_tp": 3268,
+            "reference_discordance_fp_under_closed_world_only": 69,
+            "not_recovered_reference_fn": 453,
+            "closed_world_reference_precision": {
+              "numerator": 3268,
+              "denominator": 3337,
+              "estimate": 0.9793227449805214,
+              "wilson95": [
+                0.9739148652107731,
+                0.9836283284519504
+              ]
+            },
+            "reference_recall": {
+              "numerator": 3268,
+              "denominator": 3721,
+              "estimate": 0.8782585326525127,
+              "wilson95": [
+                0.8673603333647144,
+                0.8883765298335502
+              ]
+            }
+          }
+        ],
+        "scope": "Joint/MONDO disease closure, not isolated rule; first-round pinned mappings; MONDO reference leakage."
+      }
+    },
+    {
+      "id": "R-DIS-02",
+      "version": "1.0.0",
+      "statement": "Translate Orphanet reference relationship types into exact, broad, narrow, related or candidate mappings.",
+      "inputs": "Orphanet product1 references and MONDO assertions",
+      "conditions": "Only Orphanet E equivalences passing the shared guards merge; granularity stays typed.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch",
+        "skos:broadMatch",
+        "skos:narrowMatch",
+        "skos:relatedMatch"
+      ],
+      "sets": [
+        "disease-orphanet-xrefs"
+      ],
+      "why_safe": "Only Orphanet E equivalences passing the shared guards merge; granularity stays typed.",
+      "implementation": "crates/atlas-discovery/src/align/disease.rs",
+      "implementation_sha256": "c1ce62c8c552a5ef64413e7e4613551a30dc172047120f67febe30127b7f4681",
+      "precision_samples": [
+        {
+          "set": "disease-orphanet-xrefs",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 13,
+          "verified": 13,
+          "unverifiable": 7,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": true
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "No independent rule-specific gold measurement. Disease closure results in eval/alignment are historical MONDO-derived reference concordance, not independent precision.",
+        "artifact": "eval/alignment/results/first-measurement.json",
+        "historical_reference_results": [
+          {
+            "task": "ncit2doid",
+            "variant": "mondo_exact_closure",
+            "reference_agreement_tp": 4311,
+            "reference_discordance_fp_under_closed_world_only": 23,
+            "not_recovered_reference_fn": 375,
+            "closed_world_reference_precision": {
+              "numerator": 4311,
+              "denominator": 4334,
+              "estimate": 0.9946931241347485,
+              "wilson95": [
+                0.9920490055716762,
+                0.9964610727025436
+              ]
+            },
+            "reference_recall": {
+              "numerator": 4311,
+              "denominator": 4686,
+              "estimate": 0.9199743918053778,
+              "wilson95": [
+                0.9118572394385969,
+                0.9274035403895011
+              ]
+            }
+          },
+          {
+            "task": "ncit2doid",
+            "variant": "joint_disease_exact_closure",
+            "reference_agreement_tp": 4311,
+            "reference_discordance_fp_under_closed_world_only": 23,
+            "not_recovered_reference_fn": 375,
+            "closed_world_reference_precision": {
+              "numerator": 4311,
+              "denominator": 4334,
+              "estimate": 0.9946931241347485,
+              "wilson95": [
+                0.9920490055716762,
+                0.9964610727025436
+              ]
+            },
+            "reference_recall": {
+              "numerator": 4311,
+              "denominator": 4686,
+              "estimate": 0.9199743918053778,
+              "wilson95": [
+                0.9118572394385969,
+                0.9274035403895011
+              ]
+            }
+          },
+          {
+            "task": "omim2ordo",
+            "variant": "mondo_exact_closure",
+            "reference_agreement_tp": 3221,
+            "reference_discordance_fp_under_closed_world_only": 56,
+            "not_recovered_reference_fn": 500,
+            "closed_world_reference_precision": {
+              "numerator": 3221,
+              "denominator": 3277,
+              "estimate": 0.9829111992676228,
+              "wilson95": [
+                0.9778751268723429,
+                0.9868164133088355
+              ]
+            },
+            "reference_recall": {
+              "numerator": 3221,
+              "denominator": 3721,
+              "estimate": 0.8656275194840096,
+              "wilson95": [
+                0.8542914148039363,
+                0.8762094749873525
+              ]
+            }
+          },
+          {
+            "task": "omim2ordo",
+            "variant": "joint_disease_exact_closure",
+            "reference_agreement_tp": 3268,
+            "reference_discordance_fp_under_closed_world_only": 69,
+            "not_recovered_reference_fn": 453,
+            "closed_world_reference_precision": {
+              "numerator": 3268,
+              "denominator": 3337,
+              "estimate": 0.9793227449805214,
+              "wilson95": [
+                0.9739148652107731,
+                0.9836283284519504
+              ]
+            },
+            "reference_recall": {
+              "numerator": 3268,
+              "denominator": 3721,
+              "estimate": 0.8782585326525127,
+              "wilson95": [
+                0.8673603333647144,
+                0.8883765298335502
+              ]
+            }
+          }
+        ],
+        "scope": "Joint/MONDO disease closure, not isolated rule; first-round pinned mappings; MONDO reference leakage."
+      }
+    },
+    {
+      "id": "R-DIS-03",
+      "version": "1.0.0",
+      "statement": "Retain a MONDO OBO GARD cross-reference without an equivalence annotation as a candidate.",
+      "inputs": "MONDO OBO GARD xref annotation",
+      "conditions": "Never merges.",
+      "predicates": [
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "disease-xrefs"
+      ],
+      "why_safe": "Never merges.",
+      "implementation": "crates/atlas-discovery/src/align/disease.rs",
+      "implementation_sha256": "c1ce62c8c552a5ef64413e7e4613551a30dc172047120f67febe30127b7f4681",
+      "precision_samples": [
+        {
+          "set": "disease-xrefs",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 20,
+          "verified": 20,
+          "unverifiable": 0,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": false
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "No independent rule-specific gold measurement. Disease closure results in eval/alignment are historical MONDO-derived reference concordance, not independent precision.",
+        "artifact": "eval/alignment/results/first-measurement.json",
+        "historical_reference_results": [
+          {
+            "task": "ncit2doid",
+            "variant": "mondo_exact_closure",
+            "reference_agreement_tp": 4311,
+            "reference_discordance_fp_under_closed_world_only": 23,
+            "not_recovered_reference_fn": 375,
+            "closed_world_reference_precision": {
+              "numerator": 4311,
+              "denominator": 4334,
+              "estimate": 0.9946931241347485,
+              "wilson95": [
+                0.9920490055716762,
+                0.9964610727025436
+              ]
+            },
+            "reference_recall": {
+              "numerator": 4311,
+              "denominator": 4686,
+              "estimate": 0.9199743918053778,
+              "wilson95": [
+                0.9118572394385969,
+                0.9274035403895011
+              ]
+            }
+          },
+          {
+            "task": "ncit2doid",
+            "variant": "joint_disease_exact_closure",
+            "reference_agreement_tp": 4311,
+            "reference_discordance_fp_under_closed_world_only": 23,
+            "not_recovered_reference_fn": 375,
+            "closed_world_reference_precision": {
+              "numerator": 4311,
+              "denominator": 4334,
+              "estimate": 0.9946931241347485,
+              "wilson95": [
+                0.9920490055716762,
+                0.9964610727025436
+              ]
+            },
+            "reference_recall": {
+              "numerator": 4311,
+              "denominator": 4686,
+              "estimate": 0.9199743918053778,
+              "wilson95": [
+                0.9118572394385969,
+                0.9274035403895011
+              ]
+            }
+          },
+          {
+            "task": "omim2ordo",
+            "variant": "mondo_exact_closure",
+            "reference_agreement_tp": 3221,
+            "reference_discordance_fp_under_closed_world_only": 56,
+            "not_recovered_reference_fn": 500,
+            "closed_world_reference_precision": {
+              "numerator": 3221,
+              "denominator": 3277,
+              "estimate": 0.9829111992676228,
+              "wilson95": [
+                0.9778751268723429,
+                0.9868164133088355
+              ]
+            },
+            "reference_recall": {
+              "numerator": 3221,
+              "denominator": 3721,
+              "estimate": 0.8656275194840096,
+              "wilson95": [
+                0.8542914148039363,
+                0.8762094749873525
+              ]
+            }
+          },
+          {
+            "task": "omim2ordo",
+            "variant": "joint_disease_exact_closure",
+            "reference_agreement_tp": 3268,
+            "reference_discordance_fp_under_closed_world_only": 69,
+            "not_recovered_reference_fn": 453,
+            "closed_world_reference_precision": {
+              "numerator": 3268,
+              "denominator": 3337,
+              "estimate": 0.9793227449805214,
+              "wilson95": [
+                0.9739148652107731,
+                0.9836283284519504
+              ]
+            },
+            "reference_recall": {
+              "numerator": 3268,
+              "denominator": 3721,
+              "estimate": 0.8782585326525127,
+              "wilson95": [
+                0.8673603333647144,
+                0.8883765298335502
+              ]
+            }
+          }
+        ],
+        "scope": "Joint/MONDO disease closure, not isolated rule; first-round pinned mappings; MONDO reference leakage."
+      }
+    },
+    {
+      "id": "R-DIS-04",
+      "version": "1.0.0",
+      "statement": "Use the current GARD record's explicit Xref_IDs__c identifiers after checking DiseaseID__c, id, current index membership and IsDeleted.",
+      "inputs": "Current GARD index and single-record JSON; MONDO and Orphanet",
+      "conditions": "No old-to-new renumbering; shared guards and cross-source granularity checks apply.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "gard-xrefs"
+      ],
+      "why_safe": "No old-to-new renumbering; shared guards and cross-source granularity checks apply.",
+      "implementation": "crates/atlas-discovery/src/align/gard.rs",
+      "implementation_sha256": "66e67aaa9b023e8ed0db873676667c162cdf1aa5875d956764cdb586b3ac28c8",
+      "precision_samples": [
+        {
+          "set": "gard-xrefs",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "result": {
+            "sample_size": 20,
+            "correct": 20,
+            "incorrect": 0,
+            "unverifiable": 0,
+            "method": "Pinned exact hash sample; agent compared GARD asserted identifiers and names/synonyms against OLS4 MONDO records and cached Orphanet product1 ORPHA labels/OMIM mappings. NCBI E-utilities robots block respected. A broad ataxia identity was demoted by the cross-source check before final sampling.",
+            "sample_sha256": "94b536f470e6957bd427f13ffd9b03f981c4862923e18f1c51191c2ff3a9229e",
+            "inspection_evidence_sha256": "996ebe62a725a5ff94361ae27b829a7b3e5f7c1ac9764f493c815c3b04cea76d",
+            "caveat": "Small agent-inspected sample, not human clinical curation or proof of global precision.",
+            "sample_content_sha256": "3d8159cca388a890d035ee5878311355f1d87ea95555a92502340fe7d2ecdb36"
+          },
+          "artifact": "crates/atlas-discovery/examples/align-round2-precision.json"
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "No independent rule-specific gold measurement. Disease closure results in eval/alignment are historical MONDO-derived reference concordance, not independent precision.",
+        "artifact": "eval/alignment/results/first-measurement.json",
+        "historical_reference_results": [
+          {
+            "task": "ncit2doid",
+            "variant": "mondo_exact_closure",
+            "reference_agreement_tp": 4311,
+            "reference_discordance_fp_under_closed_world_only": 23,
+            "not_recovered_reference_fn": 375,
+            "closed_world_reference_precision": {
+              "numerator": 4311,
+              "denominator": 4334,
+              "estimate": 0.9946931241347485,
+              "wilson95": [
+                0.9920490055716762,
+                0.9964610727025436
+              ]
+            },
+            "reference_recall": {
+              "numerator": 4311,
+              "denominator": 4686,
+              "estimate": 0.9199743918053778,
+              "wilson95": [
+                0.9118572394385969,
+                0.9274035403895011
+              ]
+            }
+          },
+          {
+            "task": "ncit2doid",
+            "variant": "joint_disease_exact_closure",
+            "reference_agreement_tp": 4311,
+            "reference_discordance_fp_under_closed_world_only": 23,
+            "not_recovered_reference_fn": 375,
+            "closed_world_reference_precision": {
+              "numerator": 4311,
+              "denominator": 4334,
+              "estimate": 0.9946931241347485,
+              "wilson95": [
+                0.9920490055716762,
+                0.9964610727025436
+              ]
+            },
+            "reference_recall": {
+              "numerator": 4311,
+              "denominator": 4686,
+              "estimate": 0.9199743918053778,
+              "wilson95": [
+                0.9118572394385969,
+                0.9274035403895011
+              ]
+            }
+          },
+          {
+            "task": "omim2ordo",
+            "variant": "mondo_exact_closure",
+            "reference_agreement_tp": 3221,
+            "reference_discordance_fp_under_closed_world_only": 56,
+            "not_recovered_reference_fn": 500,
+            "closed_world_reference_precision": {
+              "numerator": 3221,
+              "denominator": 3277,
+              "estimate": 0.9829111992676228,
+              "wilson95": [
+                0.9778751268723429,
+                0.9868164133088355
+              ]
+            },
+            "reference_recall": {
+              "numerator": 3221,
+              "denominator": 3721,
+              "estimate": 0.8656275194840096,
+              "wilson95": [
+                0.8542914148039363,
+                0.8762094749873525
+              ]
+            }
+          },
+          {
+            "task": "omim2ordo",
+            "variant": "joint_disease_exact_closure",
+            "reference_agreement_tp": 3268,
+            "reference_discordance_fp_under_closed_world_only": 69,
+            "not_recovered_reference_fn": 453,
+            "closed_world_reference_precision": {
+              "numerator": 3268,
+              "denominator": 3337,
+              "estimate": 0.9793227449805214,
+              "wilson95": [
+                0.9739148652107731,
+                0.9836283284519504
+              ]
+            },
+            "reference_recall": {
+              "numerator": 3268,
+              "denominator": 3721,
+              "estimate": 0.8782585326525127,
+              "wilson95": [
+                0.8673603333647144,
+                0.8883765298335502
+              ]
+            }
+          }
+        ],
+        "scope": "Joint/MONDO disease closure, not isolated rule; first-round pinned mappings; MONDO reference leakage."
+      }
+    },
+    {
+      "id": "R-DIS-05",
+      "version": "1.0.0",
+      "statement": "A MONDO-only GARD assertion remains a candidate unless the current GARD record explicitly corroborates it.",
+      "inputs": "MONDO OBO and current GARD JSON",
+      "conditions": "Current-ID corroboration required before exact; no label or zero-padding identity inference.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "gard-xrefs"
+      ],
+      "why_safe": "Current-ID corroboration required before exact; no label or zero-padding identity inference.",
+      "implementation": "crates/atlas-discovery/src/align/gard.rs",
+      "implementation_sha256": "66e67aaa9b023e8ed0db873676667c162cdf1aa5875d956764cdb586b3ac28c8",
+      "precision_samples": [
+        {
+          "set": "gard-xrefs",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "result": {
+            "sample_size": 20,
+            "correct": 20,
+            "incorrect": 0,
+            "unverifiable": 0,
+            "method": "Pinned exact hash sample; agent compared GARD asserted identifiers and names/synonyms against OLS4 MONDO records and cached Orphanet product1 ORPHA labels/OMIM mappings. NCBI E-utilities robots block respected. A broad ataxia identity was demoted by the cross-source check before final sampling.",
+            "sample_sha256": "94b536f470e6957bd427f13ffd9b03f981c4862923e18f1c51191c2ff3a9229e",
+            "inspection_evidence_sha256": "996ebe62a725a5ff94361ae27b829a7b3e5f7c1ac9764f493c815c3b04cea76d",
+            "caveat": "Small agent-inspected sample, not human clinical curation or proof of global precision.",
+            "sample_content_sha256": "3d8159cca388a890d035ee5878311355f1d87ea95555a92502340fe7d2ecdb36"
+          },
+          "artifact": "crates/atlas-discovery/examples/align-round2-precision.json"
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "No independent rule-specific gold measurement. Disease closure results in eval/alignment are historical MONDO-derived reference concordance, not independent precision.",
+        "artifact": "eval/alignment/results/first-measurement.json",
+        "historical_reference_results": [
+          {
+            "task": "ncit2doid",
+            "variant": "mondo_exact_closure",
+            "reference_agreement_tp": 4311,
+            "reference_discordance_fp_under_closed_world_only": 23,
+            "not_recovered_reference_fn": 375,
+            "closed_world_reference_precision": {
+              "numerator": 4311,
+              "denominator": 4334,
+              "estimate": 0.9946931241347485,
+              "wilson95": [
+                0.9920490055716762,
+                0.9964610727025436
+              ]
+            },
+            "reference_recall": {
+              "numerator": 4311,
+              "denominator": 4686,
+              "estimate": 0.9199743918053778,
+              "wilson95": [
+                0.9118572394385969,
+                0.9274035403895011
+              ]
+            }
+          },
+          {
+            "task": "ncit2doid",
+            "variant": "joint_disease_exact_closure",
+            "reference_agreement_tp": 4311,
+            "reference_discordance_fp_under_closed_world_only": 23,
+            "not_recovered_reference_fn": 375,
+            "closed_world_reference_precision": {
+              "numerator": 4311,
+              "denominator": 4334,
+              "estimate": 0.9946931241347485,
+              "wilson95": [
+                0.9920490055716762,
+                0.9964610727025436
+              ]
+            },
+            "reference_recall": {
+              "numerator": 4311,
+              "denominator": 4686,
+              "estimate": 0.9199743918053778,
+              "wilson95": [
+                0.9118572394385969,
+                0.9274035403895011
+              ]
+            }
+          },
+          {
+            "task": "omim2ordo",
+            "variant": "mondo_exact_closure",
+            "reference_agreement_tp": 3221,
+            "reference_discordance_fp_under_closed_world_only": 56,
+            "not_recovered_reference_fn": 500,
+            "closed_world_reference_precision": {
+              "numerator": 3221,
+              "denominator": 3277,
+              "estimate": 0.9829111992676228,
+              "wilson95": [
+                0.9778751268723429,
+                0.9868164133088355
+              ]
+            },
+            "reference_recall": {
+              "numerator": 3221,
+              "denominator": 3721,
+              "estimate": 0.8656275194840096,
+              "wilson95": [
+                0.8542914148039363,
+                0.8762094749873525
+              ]
+            }
+          },
+          {
+            "task": "omim2ordo",
+            "variant": "joint_disease_exact_closure",
+            "reference_agreement_tp": 3268,
+            "reference_discordance_fp_under_closed_world_only": 69,
+            "not_recovered_reference_fn": 453,
+            "closed_world_reference_precision": {
+              "numerator": 3268,
+              "denominator": 3337,
+              "estimate": 0.9793227449805214,
+              "wilson95": [
+                0.9739148652107731,
+                0.9836283284519504
+              ]
+            },
+            "reference_recall": {
+              "numerator": 3268,
+              "denominator": 3721,
+              "estimate": 0.8782585326525127,
+              "wilson95": [
+                0.8673603333647144,
+                0.8883765298335502
+              ]
+            }
+          }
+        ],
+        "scope": "Joint/MONDO disease closure, not isolated rule; first-round pinned mappings; MONDO reference leakage."
+      }
+    },
+    {
+      "id": "R-GEN-01",
+      "version": "1.0.0",
+      "statement": "Align HGNC with NCBI Gene and Ensembl using source identifier cross-references and reciprocal contradiction checks.",
+      "inputs": "HGNC complete set and human NCBI gene_info",
+      "conditions": "Approved/current identifiers only; shared cardinality and cluster checks apply.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "gene-xrefs"
+      ],
+      "why_safe": "Approved/current identifiers only; shared cardinality and cluster checks apply.",
+      "implementation": "crates/atlas-discovery/src/align/gene.rs",
+      "implementation_sha256": "ee51038f5d76f1a90e9d167dbe306dd2a25ce50970fd7f04833b633c1afe08ea",
+      "precision_samples": [
+        {
+          "set": "gene-xrefs",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 20,
+          "verified": 20,
+          "unverifiable": 0,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": false
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-GEN-02",
+      "version": "1.0.0",
+      "statement": "Emit the HGNC to UniProt gene-product relationship.",
+      "inputs": "HGNC uniprot_ids",
+      "conditions": "Gene and protein remain distinct; never merges.",
+      "predicates": [
+        "RO:0002205"
+      ],
+      "sets": [
+        "gene-xrefs"
+      ],
+      "why_safe": "Gene and protein remain distinct; never merges.",
+      "implementation": "crates/atlas-discovery/src/align/gene.rs",
+      "implementation_sha256": "ee51038f5d76f1a90e9d167dbe306dd2a25ce50970fd7f04833b633c1afe08ea",
+      "precision_samples": [
+        {
+          "set": "gene-xrefs",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 20,
+          "verified": 20,
+          "unverifiable": 0,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": false
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-TRI-01",
+      "version": "1.0.0",
+      "statement": "Recognise registry identifiers in CT.gov secondary IDs and ICTRP main/secondary IDs and registry naming conventions.",
+      "inputs": "CT.gov secondary-ID pages; ICTRP registry records",
+      "conditions": "Syntax guards, cardinality, cluster checks; ICTRP member-state mirrors are a declared alias space.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "trial-xrefs"
+      ],
+      "why_safe": "Syntax guards, cardinality, cluster checks; ICTRP member-state mirrors are a declared alias space.",
+      "implementation": "crates/atlas-discovery/src/align/trial.rs",
+      "implementation_sha256": "fd22317ddb082830e6140cfed709e59652d0374dc25b506dfcf2fe6ea53ccbcd",
+      "precision_samples": [
+        {
+          "set": "trial-xrefs",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 17,
+          "verified": 17,
+          "unverifiable": 3,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": false
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-TRI-02",
+      "version": "1.0.0",
+      "statement": "Propose sponsor protocol-ID matches; CT.gov pairs also require equal lead sponsor and title overlap.",
+      "inputs": "CT.gov orgStudyId/title/sponsor; EU CTR sponsor protocol",
+      "conditions": "Never merges; shared protocol numbers can describe unrelated studies.",
+      "predicates": [
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "trial-xrefs"
+      ],
+      "why_safe": "Never merges; shared protocol numbers can describe unrelated studies.",
+      "implementation": "crates/atlas-discovery/src/align/trial.rs",
+      "implementation_sha256": "fd22317ddb082830e6140cfed709e59652d0374dc25b506dfcf2fe6ea53ccbcd",
+      "precision_samples": [
+        {
+          "set": "trial-xrefs",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 17,
+          "verified": 17,
+          "unverifiable": 3,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": false
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-ORG-01",
+      "version": "1.0.0",
+      "statement": "Match equal normalised organisation name, country and website host to exactly one active ROR record.",
+      "inputs": "Source organisation mentions and ROR dump",
+      "conditions": "The conjunction and uniqueness are required; retirement/cardinality guards still apply.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "org-ror"
+      ],
+      "why_safe": "The conjunction and uniqueness are required; retirement/cardinality guards still apply.",
+      "implementation": "crates/atlas-discovery/src/align/org.rs",
+      "implementation_sha256": "c27201e63aa676a24e96a20cfed1e63c58738da27ab01d0e48ec4d5c2bf4cbc7",
+      "precision_samples": [
+        {
+          "set": "org-ror",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 20,
+          "verified": 20,
+          "unverifiable": 0,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": false
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-ORG-02",
+      "version": "1.0.0",
+      "statement": "Propose ROR candidates by name with country, name alone, or website host alone.",
+      "inputs": "Source organisation/funder mentions and ROR dump",
+      "conditions": "Incomplete conjunction never merges.",
+      "predicates": [
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "org-ror",
+        "funder-ror"
+      ],
+      "why_safe": "Incomplete conjunction never merges.",
+      "implementation": "crates/atlas-discovery/src/align/org.rs",
+      "implementation_sha256": "c27201e63aa676a24e96a20cfed1e63c58738da27ab01d0e48ec4d5c2bf4cbc7",
+      "precision_samples": [
+        {
+          "set": "org-ror",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 20,
+          "verified": 20,
+          "unverifiable": 0,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": false
+        },
+        {
+          "set": "funder-ror",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 20,
+          "verified": 20,
+          "unverifiable": 0,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": false
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-FUN-01",
+      "version": "1.0.0",
+      "statement": "Use ROR's FundRef cross-references; only the preferred FundRef identifier may be exact.",
+      "inputs": "ROR external_ids FundRef and preferred flag",
+      "conditions": "Non-preferred IDs may identify faculties or administered funds and remain candidates.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "funder-ror"
+      ],
+      "why_safe": "Non-preferred IDs may identify faculties or administered funds and remain candidates.",
+      "implementation": "crates/atlas-discovery/src/align/org.rs",
+      "implementation_sha256": "c27201e63aa676a24e96a20cfed1e63c58738da27ab01d0e48ec4d5c2bf4cbc7",
+      "precision_samples": [
+        {
+          "set": "funder-ror",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 20,
+          "verified": 20,
+          "unverifiable": 0,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": false
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-WRK-01",
+      "version": "1.0.0",
+      "statement": "Align PMID, DOI and PMCID asserted on one PubMed/Europe PMC record, checked against NCBI PMC-ids.",
+      "inputs": "PubMed/Europe PMC caches and NCBI PMC-ids",
+      "conditions": "Source-record identifier assertion with contradiction/cardinality checks; no title matching.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "work-ids"
+      ],
+      "why_safe": "Source-record identifier assertion with contradiction/cardinality checks; no title matching.",
+      "implementation": "crates/atlas-discovery/src/align/work.rs",
+      "implementation_sha256": "6f22ff2e1104e4974d669899aea89ae42631ac1f255ab943d88b50e6657ebcf2",
+      "precision_samples": [
+        {
+          "set": "work-ids",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 20,
+          "verified": 20,
+          "unverifiable": 0,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": false
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-DRG-01",
+      "version": "1.0.0",
+      "statement": "Align ChEMBL, DrugBank identifier and UNII using UniChem full standard InChI identity.",
+      "inputs": "UniChem identifier mapping files",
+      "conditions": "Full-structure equality, not connectivity, drug-name similarity or therapeutic equivalence; shared guards apply.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "drug-xrefs"
+      ],
+      "why_safe": "Full-structure equality, not connectivity, drug-name similarity or therapeutic equivalence; shared guards apply.",
+      "implementation": "crates/atlas-discovery/src/align/drug.rs",
+      "implementation_sha256": "19797a8e6d5818377e7316cda9ba0fada8774b1cbd30b9eecbc253b026ef19fe",
+      "precision_samples": [
+        {
+          "set": "drug-xrefs",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "correct": 8,
+          "verified": 8,
+          "unverifiable": 12,
+          "artifact": "crates/atlas-discovery/examples/align-precision.json",
+          "superseded_for_current_gard_rules": false
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-DRG-02",
+      "version": "1.0.0",
+      "statement": "Align UNII with an active RxNav IN/PIN ingredient assertion returned by UNII_CODE lookup.",
+      "inputs": "RxNav lookup and ingredient properties; GSRS identity evidence",
+      "conditions": "Products and combinations are excluded; shared guards apply.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "rxnorm-xrefs"
+      ],
+      "why_safe": "Products and combinations are excluded; shared guards apply.",
+      "implementation": "crates/atlas-discovery/src/align/rxnorm.rs",
+      "implementation_sha256": "fb11fdfa0a82673f3ded4a82ce63ae0be16c94e1b9576ae3467127cd0a65462c",
+      "precision_samples": [
+        {
+          "set": "rxnorm-xrefs",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "result": {
+            "sample_size": 20,
+            "correct": 20,
+            "incorrect": 0,
+            "unverifiable": 0,
+            "method": "Pinned exact sample; agent checked reciprocal RxNav UNII_CODE property assertions and GSRS substance name agreement with RxNorm active IN/PIN properties, including precise salts. Wikidata robots blocks respected.",
+            "sample_sha256": "15bd371ed3576d294751be13c31997e3acc30f1daad24a5dcc4b5df93c2fed05",
+            "inspection_evidence_sha256": "d10be2d41aed7cfceccabdfdb145b5b435ab01dd68fa5cf0ac63e4320299280b",
+            "caveat": "Identifier/ingredient identity only; not clinical efficacy or treatment advice.",
+            "sample_content_sha256": "14a77f5dd66bffcb49b708509348df484e0970cab3e80693d9e5a1bae9e6d3b0"
+          },
+          "artifact": "crates/atlas-discovery/examples/align-round2-precision.json"
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-PER-01",
+      "version": "1.0.0",
+      "statement": "Align an upstream author/PI occurrence with its source-asserted checksum-valid ORCID.",
+      "inputs": "PubMed/Europe PMC author ORCID assertions",
+      "conditions": "Occurrence alias spaces only; stable profile IDs retain cardinality/cluster checks; withholding applied; release false.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "researcher-orcid"
+      ],
+      "why_safe": "Occurrence alias spaces only; stable profile IDs retain cardinality/cluster checks; withholding applied; release false.",
+      "implementation": "crates/atlas-discovery/src/align/researchers.rs",
+      "implementation_sha256": "f61702bb349c9d6bec4f8e64aa42330df39ac6bdc423c94357ec99b55a8acc1e",
+      "precision_samples": [
+        {
+          "set": "researcher-orcid",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "result": {
+            "sample_size": 20,
+            "correct": 20,
+            "incorrect": 0,
+            "unverifiable": 0,
+            "method": "Pinned hash sample; source PubMed author occurrence compared with Europe PMC core authorList ORCID, surname and first initial; common upstream publication metadata is not independent curation.",
+            "release": false,
+            "report_scope": "counts only; no personal identifiers or names",
+            "sample_sha256": "db9283e7cc082453105d6e2e4ec671b911b1a58e162365e6d4024cc16b737bb9",
+            "inspection_evidence_sha256": "d1bec6f18c870cdc7251c6631b6bb81827bd8224911019bd1eea59f149412751",
+            "sample_content_sha256": "123bc197695aa1c9b29716d28d9790b08aa87df95f4fc1c55942ec96c77d0b0a"
+          },
+          "artifact": "crates/atlas-discovery/examples/align-round2-precision.json"
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-PER-02",
+      "version": "1.0.0",
+      "statement": "Propose equal researcher names with asserted ROR affiliation and topic overlap.",
+      "inputs": "Source author names, affiliations and topics",
+      "conditions": "Never merges and never joins distinct asserted ORCIDs; release false.",
+      "predicates": [
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "researcher-orcid"
+      ],
+      "why_safe": "Never merges and never joins distinct asserted ORCIDs; release false.",
+      "implementation": "crates/atlas-discovery/src/align/researchers.rs",
+      "implementation_sha256": "f61702bb349c9d6bec4f8e64aa42330df39ac6bdc423c94357ec99b55a8acc1e",
+      "precision_samples": [
+        {
+          "set": "researcher-orcid",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "result": {
+            "sample_size": 20,
+            "correct": 20,
+            "incorrect": 0,
+            "unverifiable": 0,
+            "method": "Pinned hash sample; source PubMed author occurrence compared with Europe PMC core authorList ORCID, surname and first initial; common upstream publication metadata is not independent curation.",
+            "release": false,
+            "report_scope": "counts only; no personal identifiers or names",
+            "sample_sha256": "db9283e7cc082453105d6e2e4ec671b911b1a58e162365e6d4024cc16b737bb9",
+            "inspection_evidence_sha256": "d1bec6f18c870cdc7251c6631b6bb81827bd8224911019bd1eea59f149412751",
+            "sample_content_sha256": "123bc197695aa1c9b29716d28d9790b08aa87df95f4fc1c55942ec96c77d0b0a"
+          },
+          "artifact": "crates/atlas-discovery/examples/align-round2-precision.json"
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-ORG-03",
+      "version": "1.0.0",
+      "statement": "Accept one chosen active ROR API result only with country/website agreement and the hash-bound agent-inspected gate.",
+      "inputs": "ROR affiliation response, original source mention and inspection gate",
+      "conditions": "No gate or blocked API means no exact; shared guards apply. No exact rows measured in the recorded run.",
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "org-ror-affiliation"
+      ],
+      "why_safe": "No gate or blocked API means no exact; shared guards apply. No exact rows measured in the recorded run.",
+      "implementation": "crates/atlas-discovery/src/align/affiliation.rs",
+      "implementation_sha256": "99e9a9f4707cb9e5aae5b617cbe03e564cab7673f16ee4be868ed6be256c20bc",
+      "precision_samples": [
+        {
+          "set": "org-ror-affiliation",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "result": {
+            "sample_size": 20,
+            "sample_tier": "candidate",
+            "correct": 13,
+            "incorrect": 1,
+            "unverifiable": 6,
+            "retired_wrong_scope": 1,
+            "exact_authorized": false,
+            "method": "Agent inspected the pinned candidates against original source organisation names, pinned ROR metadata, and official organisation websites. Thirteen active institutions agreed; one withdrawn branch-campus alias is the wrong scope; six blocked/timed-out sites remain unverified. ROR API robots 403 respected; no chosen response or exact precision gate exists.",
+            "sample_sha256": "46c34961ad603771a4f44bdb5ff56f514600aa6f5a2cdec5b9e1faff8fdbec0b",
+            "inspection_evidence_sha256": "4776fa3a4ded2309f5e43e40a3d71cfef30fc80fa6a0275a78b33c45e23be530",
+            "sample_content_sha256": "ec95a50737333bb8006bac8ada7689cf1caca5e955d4477f9d51b09014c25442"
+          },
+          "artifact": "crates/atlas-discovery/examples/align-round2-precision.json"
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-ORG-04",
+      "version": "1.0.0",
+      "statement": "Retain dump name matches as candidates when ROR API acquisition is blocked/unavailable.",
+      "inputs": "Pinned ROR dump and original organisation mention",
+      "conditions": "Even matching country/website cannot bypass the missing chosen-response gate.",
+      "predicates": [
+        "skos:closeMatch"
+      ],
+      "sets": [
+        "org-ror-affiliation"
+      ],
+      "why_safe": "Even matching country/website cannot bypass the missing chosen-response gate.",
+      "implementation": "crates/atlas-discovery/src/align/affiliation.rs",
+      "implementation_sha256": "99e9a9f4707cb9e5aae5b617cbe03e564cab7673f16ee4be868ed6be256c20bc",
+      "precision_samples": [
+        {
+          "set": "org-ror-affiliation",
+          "scope": "set-level, not isolated rule precision",
+          "assessment": "agent-inspected, not independent gold",
+          "result": {
+            "sample_size": 20,
+            "sample_tier": "candidate",
+            "correct": 13,
+            "incorrect": 1,
+            "unverifiable": 6,
+            "retired_wrong_scope": 1,
+            "exact_authorized": false,
+            "method": "Agent inspected the pinned candidates against original source organisation names, pinned ROR metadata, and official organisation websites. Thirteen active institutions agreed; one withdrawn branch-campus alias is the wrong scope; six blocked/timed-out sites remain unverified. ROR API robots 403 respected; no chosen response or exact precision gate exists.",
+            "sample_sha256": "46c34961ad603771a4f44bdb5ff56f514600aa6f5a2cdec5b9e1faff8fdbec0b",
+            "inspection_evidence_sha256": "4776fa3a4ded2309f5e43e40a3d71cfef30fc80fa6a0275a78b33c45e23be530",
+            "sample_content_sha256": "ec95a50737333bb8006bac8ada7689cf1caca5e955d4477f9d51b09014c25442"
+          },
+          "artifact": "crates/atlas-discovery/examples/align-round2-precision.json"
+        }
+      ],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-CELL-01",
+      "version": "1.0.0",
+      "statement": "Construct RRID:CVCL_xxxx from the primary Cellosaurus accession using the verified official naming convention.",
+      "inputs": "Cellosaurus primary accession and official RRID convention page",
+      "conditions": "Identity is the same accession in a declared identifier namespace; no labels.",
+      "predicates": [
+        "skos:exactMatch"
+      ],
+      "sets": [
+        "assets-cell-identifiers"
+      ],
+      "why_safe": "Identity is the same accession in a declared identifier namespace; no labels.",
+      "implementation": "src/rare_atlas/sources/assets_mappings.py",
+      "implementation_sha256": "4e0cff32eaee45f65f53e0f7e60798863c53fb3247608f18dd9550586777423f",
+      "precision_samples": [],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-CELL-02",
+      "version": "1.0.0",
+      "statement": "Retain a direct hPSCreg cross-reference from the same Cellosaurus cell-line record.",
+      "inputs": "Cellosaurus xref-list database hPSCreg",
+      "conditions": "Source same-line identifier assertion; no labels.",
+      "predicates": [
+        "skos:exactMatch"
+      ],
+      "sets": [
+        "assets-cell-identifiers"
+      ],
+      "why_safe": "Source same-line identifier assertion; no labels.",
+      "implementation": "src/rare_atlas/sources/assets_mappings.py",
+      "implementation_sha256": "4e0cff32eaee45f65f53e0f7e60798863c53fb3247608f18dd9550586777423f",
+      "precision_samples": [],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-ORTH-01",
+      "version": "1.0.0",
+      "statement": "Retain Alliance human orthology as a typed relationship.",
+      "inputs": "Alliance orthology export",
+      "conditions": "Orthologs are different genes; never merges.",
+      "predicates": [
+        "RO:HOM0000017"
+      ],
+      "sets": [
+        "alliance-human-orthologs"
+      ],
+      "why_safe": "Orthologs are different genes; never merges.",
+      "implementation": "src/rare_atlas/sources/alliance_assets.py",
+      "implementation_sha256": "0a535466e212bdf6f01611e70c2aabdffccbf2fdaf2e2dbac71788037d60cf40",
+      "precision_samples": [],
+      "gold_standard": {
+        "result": null,
+        "reason": "Independent gold-standard result not measured."
+      }
+    },
+    {
+      "id": "R-DIS-06",
+      "version": "1.0.0",
+      "statement": "MONDO exact assertion requires release reconciliation with the pinned OBO; absent assertion is a release-drift candidate. Upstream justification retained.",
+      "sets": [
+        "disease-xrefs"
+      ],
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch",
+        "skos:broadMatch",
+        "skos:narrowMatch",
+        "skos:relatedMatch"
+      ],
+      "implementation": "crates/atlas-discovery/src/align/disease.rs",
+      "implementation_sha256": "29946cbd4433f16f1479ecc123ba17934cd42af0a38ef9fbf65da0182ae0d6f5",
+      "predecessor_rule_ids": [
+        "R-DIS-01"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-measurement.json",
+        "status": "measured coverage effect; independent gold unavailable",
+        "independent_gold_result": null,
+        "limitation": "Bio-ML is historical MONDO concordance; other entity types lack independent gold/recall denominator.",
+        "baseline": {
+          "rows": 114135,
+          "by_predicate": {
+            "skos:exactMatch": 90528,
+            "skos:closeMatch": 23522,
+            "skos:broadMatch": 85
+          },
+          "conflicts": {
+            "retired": 2050,
+            "cluster_conflict": 4594,
+            "one_to_many": 711,
+            "cross_source": 258
+          }
+        },
+        "revised": {
+          "rows": 114135,
+          "by_predicate": {
+            "skos:exactMatch": 90046,
+            "skos:closeMatch": 24004,
+            "skos:broadMatch": 85
+          },
+          "conflicts": {
+            "incompatible_entity_regime": 481,
+            "retired": 2050,
+            "cluster_conflict": 4594,
+            "one_to_many": 711,
+            "cross_source": 258,
+            "invalid_identifier": 1
+          }
+        },
+        "disease_reference_interpretation": "Historical Bio-ML/MONDO concordance, NOT independent identity precision or matcher superiority. Fixed reference census and dependent closure pairs make nominal Wilson intervals descriptive.",
+        "scope": "per-set pipeline coverage, not isolated causal per-rule precision or recall"
+      }
+    },
+    {
+      "id": "R-GEN-03",
+      "version": "1.0.0",
+      "statement": "Human HGNC/NCBI/Ensembl assertions use existing contradiction checks; an absent GeneID has unknown status, never inferred retirement.",
+      "sets": [
+        "gene-xrefs"
+      ],
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "implementation": "crates/atlas-discovery/src/align/gene.rs",
+      "implementation_sha256": "3d1c7e359b675a323028b93e8874e221552566787b080b47f749e2ed1b25784e",
+      "predecessor_rule_ids": [
+        "R-GEN-01"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-measurement.json",
+        "status": "measured coverage effect; independent gold unavailable",
+        "independent_gold_result": null,
+        "limitation": "Bio-ML is historical MONDO concordance; other entity types lack independent gold/recall denominator.",
+        "baseline": {
+          "rows": 108086,
+          "by_predicate": {
+            "skos:exactMatch": 86907,
+            "RO:0002205": 20377,
+            "skos:closeMatch": 802
+          },
+          "conflicts": {
+            "cross_source": 687,
+            "many_to_one": 14,
+            "one_to_many": 8,
+            "retired": 107
+          }
+        },
+        "revised": {
+          "rows": 108086,
+          "by_predicate": {
+            "skos:exactMatch": 86907,
+            "RO:0002205": 20377,
+            "skos:closeMatch": 802
+          },
+          "conflicts": {
+            "cross_source": 687,
+            "many_to_one": 14,
+            "one_to_many": 8,
+            "status_unknown": 1,
+            "retired": 106
+          }
+        },
+        "disease_reference_interpretation": "Historical Bio-ML/MONDO concordance, NOT independent identity precision or matcher superiority. Fixed reference census and dependent closure pairs make nominal Wilson intervals descriptive.",
+        "scope": "per-set pipeline coverage, not isolated causal per-rule precision or recall"
+      }
+    },
+    {
+      "id": "R-ORG-05",
+      "version": "1.0.0",
+      "statement": "Organisation equality requires normalized name, a country among all ROR locations, and exact normalized website host; shared subdomains and ambiguous alternatives remain candidates.",
+      "sets": [
+        "org-ror"
+      ],
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "implementation": "crates/atlas-discovery/src/align/org.rs",
+      "implementation_sha256": "ad50f70307603a5f8b8dd8fbe18250d4822c132b4931a215bbd5837fbde65864",
+      "predecessor_rule_ids": [
+        "R-ORG-01"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-measurement.json",
+        "status": "measured coverage effect; independent gold unavailable",
+        "independent_gold_result": null,
+        "limitation": "Bio-ML is historical MONDO concordance; other entity types lack independent gold/recall denominator.",
+        "baseline": {
+          "rows": 105,
+          "by_predicate": {
+            "skos:exactMatch": 22,
+            "skos:closeMatch": 83
+          },
+          "conflicts": {
+            "retired": 1
+          }
+        },
+        "revised": {
+          "rows": 219,
+          "by_predicate": {
+            "skos:closeMatch": 198,
+            "skos:exactMatch": 21
+          },
+          "conflicts": {
+            "retired": 11
+          }
+        },
+        "disease_reference_interpretation": "Historical Bio-ML/MONDO concordance, NOT independent identity precision or matcher superiority. Fixed reference census and dependent closure pairs make nominal Wilson intervals descriptive.",
+        "scope": "per-set pipeline coverage, not isolated causal per-rule precision or recall"
+      }
+    },
+    {
+      "id": "R-FUN-02",
+      "version": "1.0.0",
+      "statement": "Funder equality requires an explicitly preferred FundRef assertion; singleton without preferred status remains a candidate.",
+      "sets": [
+        "funder-ror"
+      ],
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "implementation": "crates/atlas-discovery/src/align/org.rs",
+      "implementation_sha256": "ad50f70307603a5f8b8dd8fbe18250d4822c132b4931a215bbd5837fbde65864",
+      "predecessor_rule_ids": [
+        "R-FUN-01"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-measurement.json",
+        "status": "measured coverage effect; independent gold unavailable",
+        "independent_gold_result": null,
+        "limitation": "Bio-ML is historical MONDO concordance; other entity types lack independent gold/recall denominator.",
+        "baseline": {
+          "rows": 29980,
+          "by_predicate": {
+            "skos:exactMatch": 24195,
+            "skos:closeMatch": 5785
+          },
+          "conflicts": {
+            "retired": 617,
+            "many_to_one": 26
+          }
+        },
+        "revised": {
+          "rows": 29986,
+          "by_predicate": {
+            "skos:closeMatch": 13709,
+            "skos:exactMatch": 16277
+          },
+          "conflicts": {
+            "many_to_one": 26,
+            "retired": 617
+          }
+        },
+        "disease_reference_interpretation": "Historical Bio-ML/MONDO concordance, NOT independent identity precision or matcher superiority. Fixed reference census and dependent closure pairs make nominal Wilson intervals descriptive.",
+        "scope": "per-set pipeline coverage, not isolated causal per-rule precision or recall"
+      }
+    },
+    {
+      "id": "R-WRK-02",
+      "version": "1.0.0",
+      "statement": "Work identifier assertions retain existing contradiction/cardinality checks and conservatively parse DOI registrant and nonempty whitespace-free suffix; no claim of publisher registration verification.",
+      "sets": [
+        "work-ids"
+      ],
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "implementation": "crates/atlas-discovery/src/align/work.rs",
+      "implementation_sha256": "cf949810ed0b59219cb04f6587708d3ae751e90c62375f0ded5f3fc0afd18a4d",
+      "predecessor_rule_ids": [
+        "R-WRK-01"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-measurement.json",
+        "status": "measured coverage effect; independent gold unavailable",
+        "independent_gold_result": null,
+        "limitation": "Bio-ML is historical MONDO concordance; other entity types lack independent gold/recall denominator.",
+        "baseline": {
+          "rows": 13213,
+          "by_predicate": {
+            "skos:exactMatch": 13208,
+            "skos:closeMatch": 5
+          },
+          "conflicts": {
+            "cross_source": 4,
+            "one_to_many": 3,
+            "many_to_many": 1,
+            "many_to_one": 1
+          }
+        },
+        "revised": {
+          "rows": 13213,
+          "by_predicate": {
+            "skos:exactMatch": 13208,
+            "skos:closeMatch": 5
+          },
+          "conflicts": {
+            "cross_source": 4,
+            "one_to_many": 3,
+            "many_to_many": 1,
+            "many_to_one": 1
+          }
+        },
+        "disease_reference_interpretation": "Historical Bio-ML/MONDO concordance, NOT independent identity precision or matcher superiority. Fixed reference census and dependent closure pairs make nominal Wilson intervals descriptive.",
+        "scope": "per-set pipeline coverage, not isolated causal per-rule precision or recall"
+      }
+    },
+    {
+      "id": "R-ID-01",
+      "version": "1.0.0",
+      "statement": "All-input eligibility: explicit syntax/entity regime/method/receipt gate, SEMAPV extraction migration with original method retained, global prefix and typed-relation conflict quarantine, immutable assertion receipts and hash-bound reversible revocation. ICTRP mirrors and source-asserted PubMed/Europe PMC author occurrences are scoped namespace multiplicity exceptions; stable profiles are not.",
+      "sets": [
+        "*"
+      ],
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "implementation": "crates/atlas-discovery/src/align/safety.rs",
+      "implementation_sha256": "4c43a711ca45cd8b6208bf1ed368fa163f13763c926197f5826f49d2e538c00b",
+      "predecessor_rule_ids": [],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-measurement.json",
+        "status": "measured global structural gate; independent semantic precision unidentified",
+        "independent_gold_result": null,
+        "limitation": "Bio-ML is historical MONDO concordance; other entity types lack independent gold/recall denominator.",
+        "baseline": null,
+        "revised": null,
+        "disease_reference_interpretation": "Historical Bio-ML/MONDO concordance, NOT independent identity precision or matcher superiority. Fixed reference census and dependent closure pairs make nominal Wilson intervals descriptive.",
+        "effect": {
+          "accepted": 321213,
+          "rejected": 257,
+          "typed_or_candidate": 393555,
+          "conflicting_components": 54
+        },
+        "scope": "per-set pipeline coverage, not isolated causal per-rule precision or recall"
+      }
+    },
+    {
+      "id": "R-ORG-06",
+      "version": "1.0.0",
+      "statement": "Normalized name, all-country and exact website-host agreement only retrieve candidates. No composite, ROR API score/chosen flag or agent inspection authorizes identity; explicit source equivalence is required.",
+      "sets": [
+        "org-ror"
+      ],
+      "predicates": [
+        "skos:closeMatch"
+      ],
+      "implementation": "crates/atlas-discovery/src/align/org.rs",
+      "implementation_sha256": "0d47fb867dca873518a962068f5741ae744e69edbd50fb10df10cfe57d67e212",
+      "predecessor_rule_ids": [
+        "R-ORG-01",
+        "R-ORG-03",
+        "R-ORG-05"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-takeover-measurement.json",
+        "status": "measured correction coverage and invalidation; independent identity gold unavailable",
+        "independent_gold_result": null,
+        "limitation": "Bio-ML is historical MONDO concordance; other entity types lack independent gold/recall denominator.",
+        "scope": "fixed-input structural audit and historical MONDO concordance, not independent accuracy or clinical validity",
+        "revised": {
+          "rows": 219,
+          "by_predicate": {
+            "skos:closeMatch": 219
+          },
+          "conflicts": {
+            "retired": 11
+          }
+        },
+        "baseline": {
+          "rows": 105,
+          "by_predicate": {
+            "skos:exactMatch": 22,
+            "skos:closeMatch": 83
+          },
+          "conflicts": {
+            "retired": 1
+          }
+        },
+        "superseded_assertions": {
+          "org-ror.installed": {
+            "rows": 105,
+            "by_predicate": {
+              "skos:closeMatch": 105
+            },
+            "conflicts": {
+              "organisation_without_source_equivalence": 22,
+              "retired": 1
+            }
+          },
+          "org-ror.superseded-stage": {
+            "rows": 198,
+            "by_predicate": {
+              "skos:closeMatch": 198
+            },
+            "conflicts": {
+              "organisation_without_source_equivalence": 21,
+              "retired": 10
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "R-ID-02",
+      "version": "1.0.0",
+      "statement": "All-input source-asserted eligibility: R-ID-01 checks with the composite-organisation exception removed; historical R-ORG-01/03/05 and candidate-only R-ORG-06 cannot authorize exact identity even after method relabeling. Retain assertions and emit invalidation requirements for every rejected merge and all dependent inferences before activation.",
+      "sets": [
+        "*"
+      ],
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "implementation": "crates/atlas-discovery/src/align/safety.rs",
+      "implementation_sha256": "eba716fbcf198ba4160eb5e44da5e31b9f2223578395bd91a2a14f64c11defce",
+      "predecessor_rule_ids": [
+        "R-ID-01"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-takeover-measurement.json",
+        "status": "measured correction coverage and invalidation; independent identity gold unavailable",
+        "independent_gold_result": null,
+        "limitation": "Bio-ML is historical MONDO concordance; other entity types lack independent gold/recall denominator.",
+        "scope": "fixed-input structural audit and historical MONDO concordance, not independent accuracy or clinical validity",
+        "effect": {
+          "corrected_projection": {
+            "accepted": 321430,
+            "rejected": 257,
+            "typed_or_candidate": 409535
+          },
+          "conflicting_components": 54,
+          "superseded_organisation_assertions": {
+            "rejected": 43,
+            "typed_or_candidate": 260
+          }
+        }
+      }
+    },
+    {
+      "id": "R-ORG-07",
+      "version": "1.0.0",
+      "statement": "ROR API chosen flags, metadata conjunctions and agent-inspected samples only corroborate candidates; no affiliation response authorizes exact identity without explicit source equivalence.",
+      "sets": [
+        "org-ror-affiliation"
+      ],
+      "predicates": [
+        "skos:closeMatch"
+      ],
+      "implementation": "crates/atlas-discovery/src/align/affiliation.rs",
+      "implementation_sha256": "a031d391b33081e12d6331cf6b2150f2a673a6e3880d897b787ebe86f155bcff",
+      "predecessor_rule_ids": [
+        "R-ORG-03",
+        "R-ORG-04"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-takeover-measurement.json",
+        "status": "measured correction coverage and invalidation; independent identity gold unavailable",
+        "independent_gold_result": null,
+        "limitation": "Bio-ML is historical MONDO concordance; other entity types lack independent gold/recall denominator.",
+        "scope": "fixed-input structural audit and historical MONDO concordance, not independent accuracy or clinical validity",
+        "revised": {
+          "rows": 48,
+          "by_predicate": {
+            "skos:closeMatch": 48
+          },
+          "conflicts": {
+            "retired": 3,
+            "ambiguous_name": 5,
+            "country_mismatch": 2,
+            "website_mismatch": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "R-ID-03",
+      "version": "1.0.0",
+      "statement": "Shared source-asserted identity policy; complete hash-verified gate and accepted assertion/decision receipts required by native identity, SSSOM, snapshot reuse and bounded inference input. Manifest changes force complete rebuild. Historical composite rules stay rejected.",
+      "implementation": "crates/atlas-core/src/identity_policy.rs",
+      "implementation_sha256": "c487b733526006343d42713c8ec1173299fa9a0300c78add62cedd7ae6346872",
+      "sets": [
+        "*"
+      ],
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "predecessor_rule_ids": [
+        "R-ID-02"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-integration-audit.json",
+        "scope": "consumer safety and projection coverage; not independent accuracy or clinical validation",
+        "status": "consumer safety tests; measured dataset coverage is in the referenced audit"
+      }
+    },
+    {
+      "id": "R-PER-03",
+      "version": "1.0.0",
+      "statement": "Canonicalise source author occurrences only through accepted checksum-valid ORCID mappings; preserve occurrence records and hashes. Exclude name-unioned overlap profiles and do not infer identity from names or shared grants. People remain private and suppression applies.",
+      "implementation": "crates/atlas-ingest/src/graph/people.rs",
+      "implementation_sha256": "6186b9599b04a86e399ecbe15b8600829a9d67c2fb3a0586d1bbd4fcd3563ff8",
+      "sets": [
+        "researcher-orcid"
+      ],
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "predecessor_rule_ids": [
+        "R-PER-01",
+        "R-PER-02"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-integration-audit.json",
+        "scope": "consumer safety and projection coverage; not independent accuracy or clinical validation",
+        "status": "consumer safety tests; measured dataset coverage is in the referenced audit"
+      }
+    },
+    {
+      "id": "R-DIS-07",
+      "version": "1.0.0",
+      "statement": "Export canonical disease aliases only with accepted gate decision chain; publish MappingChaining justification and component dependencies, never relabel source assertions as a new manual curation. No ungated native/legacy alias projection.",
+      "implementation": "crates/atlas-release/src/mappings.rs",
+      "implementation_sha256": "59ce091ba95acca69ee82239cd58df79b0bf67058189cf927d654d1faea7211d",
+      "sets": [
+        "disease-identity"
+      ],
+      "predicates": [
+        "skos:exactMatch"
+      ],
+      "predecessor_rule_ids": [
+        "R-DIS-01",
+        "R-DIS-02"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-integration-audit.json",
+        "scope": "consumer safety and projection coverage; not independent accuracy or clinical validation",
+        "status": "consumer safety tests; measured dataset coverage is in the referenced audit"
+      }
+    },
+    {
+      "id": "R-DIS-08",
+      "version": "1.0.0",
+      "statement": "Export canonical disease aliases only with accepted gate decision chain; publish MappingChaining justification and component dependencies, never relabel source assertions as a new manual curation. No ungated native/legacy alias projection. Preserve the semantic-units mapping RDF source assertions alongside the accepted projection.",
+      "implementation": "crates/atlas-release/src/mappings.rs",
+      "implementation_sha256": "a1f41686805f5f8a4233e04bf1cc9ea23ca3229e27f5ca377e29d79c61392f35",
+      "sets": [
+        "disease-identity"
+      ],
+      "predicates": [
+        "skos:exactMatch"
+      ],
+      "predecessor_rule_ids": [
+        "R-DIS-07"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-master-integration-audit.json",
+        "scope": "consumer safety and projection coverage; not independent accuracy or clinical validation",
+        "status": "consumer safety tests; measured dataset coverage is in the referenced audit"
+      }
+    },
+    {
+      "id": "R-PER-04",
+      "version": "1.0.0",
+      "statement": "Canonicalise source author occurrences only through accepted checksum-valid ORCID mappings; preserve occurrence records and hashes. Exclude name-unioned overlap profiles and do not infer identity from names or shared grants. People remain private and suppression applies. Activity labels explicitly describe source occurrences and accepted ORCID decisions.",
+      "implementation": "crates/atlas-ingest/src/graph/people.rs",
+      "implementation_sha256": "21f32ab6b384cfc02fd88926b2330a7d45c2b090239891687049dff02b98ee91",
+      "sets": [
+        "researcher-orcid"
+      ],
+      "predicates": [
+        "skos:exactMatch",
+        "skos:closeMatch"
+      ],
+      "predecessor_rule_ids": [
+        "R-PER-03"
+      ],
+      "measurement": {
+        "artifact": "crates/atlas-discovery/examples/round3-master-integration-audit.json",
+        "scope": "consumer safety and projection coverage; not independent accuracy or clinical validation",
+        "status": "consumer safety tests; measured dataset coverage is in the referenced audit"
+      }
+    }
+  ]
+}

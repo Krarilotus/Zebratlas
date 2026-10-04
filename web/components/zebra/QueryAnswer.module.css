@@ -1,0 +1,31 @@
+.answer { min-width:0; padding:18px 25px; color:var(--z-ink,#182b36); border-bottom:1px solid var(--z-line,#e2eaed); font-size:13px; line-height:1.55; }
+.answer h2 { margin:0 0 12px; font-size:14px; font-weight:600; }
+.answer h3 { font-size:12px; font-weight:600; margin:10px 0 6px; }
+.answer p { margin:8px 0; }
+.answer a, .node, .download { color:var(--z-teal,#17675f); text-underline-offset:3px; }
+.answer a { overflow-wrap:anywhere; }
+.answer :is(a,button,summary,[tabindex]):focus-visible { outline:2px solid var(--z-teal,#17675f); outline-offset:3px; }
+.result + .result { margin-top:16px; }
+.scroll { overflow:auto; max-height:400px; overscroll-behavior:contain; }
+.answer table { width:100%; border-collapse:collapse; font-size:12px; text-align:left; }
+.answer caption { text-align:left; color:var(--z-muted,#617580); padding:0 0 8px; font-size:11px; }
+.answer th { color:var(--z-muted,#617580); font-weight:500; white-space:nowrap; }
+.answer th,.answer td { padding:9px 12px 9px 0; border-bottom:1px solid var(--z-line,#e2eaed); vertical-align:top; }
+.answer td { min-width:70px; max-width:280px; overflow-wrap:anywhere; }
+.number { font-variant-numeric:tabular-nums; }
+.boolean { font-size:24px; font-weight:500; }
+.muted,.unbound,.language { color:var(--z-muted,#617580); }
+.unbound { font-style:italic; font-size:11px; }
+.language { font-size:10px; }
+.node,.download { border:0; background:none; font:inherit; cursor:pointer; text-align:left; padding:0; }
+.node { min-height:34px; text-decoration:underline; text-underline-offset:3px; }
+.download { min-height:44px; }
+.answer summary { min-height:44px; cursor:pointer; color:var(--z-teal,#17675f); padding:10px 0; }
+.details { margin-top:8px; font-size:11px; }
+.trace { border-top:1px solid var(--z-line,#e2eaed); padding:10px 0; }
+.answer dl { display:grid; grid-template-columns:80px minmax(0,1fr); gap:5px 12px; margin:0; }
+.answer dt { color:var(--z-muted,#617580); }
+.answer dd { margin:0; overflow-wrap:anywhere; }
+.answer pre { max-height:240px; overflow:auto; white-space:pre-wrap; overflow-wrap:anywhere; font-size:10px; margin:0 0 12px; }
+.answer ul { padding-left:18px; }
+@media(max-width:720px) { .answer { padding:14px 25px; } .scroll { max-height:320px; } .node { min-height:44px; } .answer td { max-width:210px; } }

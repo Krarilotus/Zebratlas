@@ -1,0 +1,135 @@
+{
+  "schema": "atlas.tbox.manifest.v1",
+  "ontology_version": "1.0.0",
+  "namespace": "https://w3id.org/rare-disease-atlas/vocab#",
+  "license": "MIT (repository option; authored files only)",
+  "selected_foundations": [
+    "BFO 2020 core",
+    "DOLCE+DnS Ultralite canonical DUL 4.2"
+  ],
+  "deployment_modules": [
+    "tbox.ttl",
+    "bridge-bfo.ttl"
+  ],
+  "downloadable_optional_modules": [
+    "bridge-dul.ttl",
+    "shapes.ttl"
+  ],
+  "production_import_policy": "Append only deployment_modules. Imports are metadata and must not trigger unpinned network resolution. Keep DUL bridge separately queryable/downloadable; upstream artifacts are privately pinned for validation.",
+  "foundation_comparison": {
+    "BFO": "OBO scientific/biomedical hub; ISO/IEC 21838-2",
+    "DUL": "OWL-native descriptions, concepts, social agents and information objects; W3C SSN alignment demonstrates interoperability",
+    "SUMO": "Broad knowledge/WordNet ecosystem; less direct OBO integration for this graph",
+    "GFO": "Rich integrative foundation; no project-specific installed bridge evidence justifying replacement of BFO/DUL"
+  },
+  "imports": "Independent bridge modules; use exact local artifact hashes. No BFO\u2194DUL equivalence; no remote auto-import. DUL is not identical to ISO DOLCE.",
+  "abox_policy": "ra:Node denotes release projection information, defined *Record classes classify only ra:Node + nodeKind. Canonical source class IRIs without ra:Node remain untyped as records. Biological referents require separate IRIs and evidence.",
+  "sources": [
+    {
+      "file": "bfo-core.owl",
+      "source_url": "https://raw.githubusercontent.com/BFO-ontology/BFO-2020/master/21838-2/owl/bfo-core.owl",
+      "sha256": "b65c817a7a25501499d287981aea972f2ce33146dcfb855915a459f6a051718d",
+      "bytes": 98418,
+      "format": "xml",
+      "version": "BFO 2020 core",
+      "license": "CC-BY-4.0",
+      "retrieved_at": "2026-10-04T07:46:44.228723+00:00",
+      "retrieval_basis": "this run; local download write completion timestamp, not historical source release time"
+    },
+    {
+      "file": "DUL-canonical.owl",
+      "source_url": "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl",
+      "sha256": "e5f6429596d2c7014730bad85aaaa9c39530235f27f596cd0e7ce85e6bbcba66",
+      "bytes": 186902,
+      "format": "turtle",
+      "version": "DUL 4.2",
+      "license": "unverified; do not redistribute upstream bytes",
+      "retrieved_at": "2026-10-04T07:48:04.816725+00:00",
+      "retrieval_basis": "this run; local download write completion timestamp, not historical source release time"
+    },
+    {
+      "file": "DUL.owl",
+      "source_url": "https://www.loa.istc.cnr.it/ontologies/DUL.owl",
+      "sha256": "b27e0111f1201d8815d6a68fdf1c3d8eaa9f34327bece17c75a3410fbe626485",
+      "bytes": 162362,
+      "format": "xml",
+      "version": "LOA namespace DUL 3.22; contextual only, NOT imported",
+      "license": "unverified",
+      "retrieved_at": "2026-10-04T07:47:36.301667+00:00",
+      "retrieval_basis": "this run; local download write completion timestamp, not historical source release time"
+    },
+    {
+      "file": "lecture.pdf",
+      "source_url": "https://www.fiz-karlsruhe.de/sites/default/files/FIZ/Dokumente/Forschung/ISE/Publications/Invited%20Talks/20210625-Harald-Sack-FAIR-Research-Data-Management-with-Knowledge-Graphs-and-Ontologies-InnoMatSafety.pdf",
+      "sha256": "b82bbe494e475684f516bc2cb3302ba74ce5e51abf7714efc51b1bb83e89f039",
+      "bytes": 14941019,
+      "format": "pdf",
+      "version": "Sack lecture 2021-06-25; page 20 ontology layers",
+      "license": "unverified; contextual only",
+      "retrieved_at": "2026-10-04T07:47:36.792524+00:00",
+      "retrieval_basis": "this run; local download write completion timestamp, not historical source release time"
+    }
+  ],
+  "source_files": [
+    {
+      "file": "crates/atlas-core/src/node.rs",
+      "sha256": "3a7916c213a46df59fa6b070e4aeb69910f6bb004ca1a4bf43ca64c7aef49af1"
+    },
+    {
+      "file": "crates/atlas-core/src/graph/model.rs",
+      "sha256": "ca3fb735ccac93fd3f56a2a3f8aa1550af59acd131f649953b681353898d8633"
+    },
+    {
+      "file": "crates/atlas-core/src/graph/assets.rs",
+      "sha256": "8bd902e237c6ef1fd4d8233034fbd13e0eab850ae6114b22cf66253c9a472612"
+    },
+    {
+      "file": "crates/atlas-release/src/rdf.rs",
+      "sha256": "1adc76f7904b86b9b8f8a294abae1bbc4c96e846f487ed068d6c7e2f913608a6"
+    }
+  ],
+  "outputs": {
+    "bridge-bfo.ttl": {
+      "sha256": "cd81c9fc0e8b03c9db6169e061adfdc4a70182af04acee5630110fde84dae189",
+      "bytes": 2745
+    },
+    "bridge-dul.ttl": {
+      "sha256": "6abd3eee2f00b4d14d3d24f08e083bd23428d05dfcc030f745430e30f70af276",
+      "bytes": 2837
+    },
+    "GOVERNANCE.md": {
+      "sha256": "4bb25bcac0567d7919ee0d900a38aedc80ab34cbc6bc71e3ad95eaba1c3b3e66",
+      "bytes": 8194
+    },
+    "mapping-ledger.json": {
+      "sha256": "28c058d4feb1fe8b9921e2dc88f841c68b1248435a3a509b83e3aebed92edd5a",
+      "bytes": 19554
+    },
+    "shapes.ttl": {
+      "sha256": "28772c7ea220d4350c6839127e405093f91b9bcc582fdfff491db057cec32daf",
+      "bytes": 2698
+    },
+    "tbox.ttl": {
+      "sha256": "4f37b19398d09294e5174597e23831347a53c4d99f196dda9c724e25cfd1963d",
+      "bytes": 52225
+    },
+    "competency-queries.rq": {
+      "sha256": "83aed319993c906b8bb491993a38aef08e41bd825b6f8feb5e4e0ab0c651e57a",
+      "bytes": 705
+    }
+  },
+  "review_status": "release candidate; scientific semantic migration review remains explicit",
+  "namespace_resolution_status": "Unverified; no claim that w3id namespace is publicly registered or deployed",
+  "import_catalog": {
+    "http://purl.obolibrary.org/obo/bfo/2020/bfo-core.owl": {
+      "source_file": "bfo-core.owl",
+      "sha256": "b65c817a7a25501499d287981aea972f2ce33146dcfb855915a459f6a051718d",
+      "redistribution": "CC-BY-4.0; attribution required"
+    },
+    "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl": {
+      "source_file": "DUL-canonical.owl",
+      "sha256": "e5f6429596d2c7014730bad85aaaa9c39530235f27f596cd0e7ce85e6bbcba66",
+      "redistribution": "blocked until upstream licence verified"
+    }
+  }
+}

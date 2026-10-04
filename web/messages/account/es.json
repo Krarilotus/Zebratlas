@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "locale": "es",
+    "source": "en",
+    "machine_translated": true,
+    "reviewed": [
+      "en",
+      "de"
+    ],
+    "owner": "accounts agent (H2)",
+    "note": "Machine-translated from en; not reviewed.",
+    "connector": {
+      "author": "GPT-6.1-Sol",
+      "backcheck": "Own-device code approval, connection/model choice, revocation, unavailable selection and hosted reset retained.",
+      "native_reviewed": false
+    }
+  },
+  "title": "Su cuenta",
+  "nav": {
+    "account": "Cuenta",
+    "saved": "Guardado",
+    "conversations": "Conversaciones"
+  },
+  "free": {
+    "title": "No necesita una cuenta",
+    "lead": "Todo en el atlas funciona sin iniciar sesión. Una cuenta solo le permite guardar cosas: enfermedades que sigue, personas y grupos que encontró, borradores de mensajes y sus preguntas al atlas."
+  },
+  "unavailable": {
+    "title": "Las cuentas no están disponibles aquí",
+    "lead": "Esta copia del atlas funciona sin el servicio de cuentas. Todas las páginas funcionan; solo no se puede guardar nada."
+  },
+  "form": {
+    "signInTitle": "Iniciar sesión",
+    "signUpTitle": "Crear una cuenta",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "passwordHint": "Al menos 10 caracteres. Unas palabras que pueda recordar funcionan bien.",
+    "name": "Su nombre (opcional)",
+    "signIn": "Iniciar sesión",
+    "signUp": "Crear cuenta",
+    "pending": "Un momento…",
+    "toSignUp": "¿Es nuevo aquí? Cree una cuenta",
+    "toSignIn": "¿Ya tiene una cuenta? Inicie sesión",
+    "privacy": "Guardamos su correo, una forma cifrada (hash) de su contraseña y lo que usted guarda. Sin rastreo, sin direcciones IP. Puede descargar o borrar todo en cualquier momento.",
+    "deleted": "Su cuenta y todo su contenido se han borrado."
+  },
+  "error": {
+    "bad_credentials": "Ese correo y esa contraseña no coinciden con ninguna cuenta.",
+    "conflict": "Ya existe una cuenta con este correo. Intente iniciar sesión.",
+    "invalid": "Algunos datos no son válidos. Revíselos, por favor.",
+    "invalid_email": "Introduzca una dirección de correo válida.",
+    "password_short": "Su contraseña necesita al menos 10 caracteres.",
+    "rate_limited": "Demasiados intentos. Espere unos minutos y vuelva a intentarlo.",
+    "unavailable": "Las cuentas no están disponibles ahora. Todo lo demás sigue funcionando.",
+    "unauthorized": "Inicie sesión de nuevo, por favor.",
+    "not_found": "Este elemento ya no existe.",
+    "forbidden": "No puede cambiar este elemento.",
+    "generic": "Algo salió mal. Inténtelo de nuevo."
+  },
+  "home": {
+    "signedInAs": "Sesión iniciada como {email}",
+    "greeting": "Hola, {name}",
+    "plan": "Plan: {plan}",
+    "saved": "{n, plural, =0 {Guardado: nada todavía} one {Guardado: # elemento} other {Guardado: # elementos}}",
+    "conversations": "{n, plural, =0 {Conversaciones: ninguna todavía} other {Conversaciones: #}}"
+  },
+  "plan": {
+    "free": "Gratis",
+    "organisation": "Organización",
+    "enterprise": "Empresa"
+  },
+  "role": {
+    "owner": "Propietario",
+    "admin": "Administrador",
+    "member": "Miembro"
+  },
+  "orgs": {
+    "title": "Organizaciones",
+    "lead": "Los grupos de pacientes y los equipos de investigación pueden guardar tarjetas y borradores juntos en un solo lugar.",
+    "none": "Todavía no forma parte de ninguna organización.",
+    "name": "Nombre de la organización",
+    "create": "Crear organización",
+    "created": "Organización creada.",
+    "planOf": "Plan {plan}"
+  },
+  "data": {
+    "title": "Sus datos",
+    "lead": "Descargue en un archivo todo lo que guardamos sobre usted, o cierre la sesión.",
+    "export": "Descargar todos mis datos",
+    "signOut": "Cerrar sesión",
+    "signOutAll": "Cerrar sesión en todos los dispositivos",
+    "manage": "Gestionar mis datos",
+    "pageLead": "Gestiona la informaci?n de tu cuenta.",
+    "signedOut": "Inicia sesi?n para ver la informaci?n guardada en tu cuenta.",
+    "created": "Cuenta creada",
+    "kept": "Guardado en tu cuenta",
+    "documents": "Documentos guardados",
+    "documentsUnavailable": "No se pueden cargar los documentos guardados ahora.",
+    "documentsEmpty": "No tienes documentos guardados.",
+    "untitledDocument": "Documento sin t?tulo",
+    "view": "Ver",
+    "download": "Descargar",
+    "deleteDocument": "Eliminar",
+    "contributions": "Tus aportaciones",
+    "contributionsUnavailable": "No se pueden cargar tus aportaciones ahora.",
+    "contributionsEmpty": "No tienes aportaciones.",
+    "contributionRemoval": "Para eliminar una aportaci?n concreta, env?a una solicitud de eliminaci?n."
+  },
+  "password": {
+    "title": "Cambiar contraseña",
+    "current": "Contraseña actual",
+    "new": "Contraseña nueva",
+    "submit": "Cambiar contraseña",
+    "done": "Contraseña cambiada. Se cerró la sesión en sus otros dispositivos."
+  },
+  "delete": {
+    "title": "Borrar cuenta",
+    "lead": "Esto borra su cuenta y todo lo que guardó, para siempre. No se puede deshacer.",
+    "password": "Su contraseña, para confirmar",
+    "submit": "Borrar mi cuenta",
+    "keepName": "Mantener mi nombre en mis aportaciones aceptadas"
+  },
+  "saved": {
+    "title": "Guardado",
+    "lead": "Lo que guardó para volver más tarde.",
+    "empty": "Todavía no ha guardado nada. Use el botón Guardar en una enfermedad, un contacto o un borrador de mensaje.",
+    "signedOut": "Inicie sesión para ver lo que guardó. Guardar es opcional: nada en el atlas necesita una cuenta.",
+    "signIn": "Iniciar sesión o crear una cuenta",
+    "count": "{n, plural, one {# elemento} other {# elementos}}",
+    "savedOn": "Guardado el {date}",
+    "open": "Abrir",
+    "remove": "Quitar",
+    "subject": "Asunto: {subject}",
+    "kind": {
+      "condition": "Enfermedades que sigue",
+      "connection_card": "Personas, grupos y estudios",
+      "connection_map": "Mapas",
+      "message_draft": "Borradores de mensajes",
+      "node": "Otras cosas",
+      "search": "Búsquedas"
+    }
+  },
+  "save": {
+    "save": "Guardar",
+    "saved": "Guardado",
+    "remove": "Quitar de guardados",
+    "signIn": "Inicie sesión para guardar",
+    "draft": "Guardar borrador",
+    "draftSaved": "Borrador guardado",
+    "conversation": "Guardar conversación",
+    "conversationSaved": "Conversación guardada",
+    "pending": "Guardando…",
+    "failed": "No se pudo guardar. Inténtelo de nuevo."
+  },
+  "conversations": {
+    "title": "Conversaciones",
+    "lead": "Sus preguntas al atlas y sus respuestas, con las fuentes que las respaldan.",
+    "empty": "Todavía no hay conversaciones.",
+    "messages": "{n, plural, one {# mensaje} other {# mensajes}}",
+    "updated": "Actualizado el {date}",
+    "you": "Usted",
+    "atlas": "Atlas",
+    "sources": "Fuentes",
+    "delete": "Borrar esta conversación",
+    "back": "Todas las conversaciones",
+    "notFound": "Esta conversación no existe o se ha borrado."
+  },
+  "connector": {
+    "title": "Conectar sus propios modelos",
+    "pair": "Introduzca el código que muestra el conector en su propio ordenador.",
+    "code": "Código de vinculación",
+    "approve": "Conectar",
+    "devices": "Sus ordenadores",
+    "none": "Todavía no hay ordenadores conectados.",
+    "revoke": "Revocar acceso",
+    "connection": "Responder con",
+    "hosted": "Opción alojada predeterminada",
+    "model": "Modelo",
+    "defaultModel": "Predeterminado del dispositivo",
+    "save": "Guardar selección",
+    "reset": "Usar la opción alojada predeterminada",
+    "offline": "Sin conexión o acceso revocado",
+    "done": "Guardado.",
+    "refresh": "Actualizar dispositivos",
+    "instructions": "Configurar el conector"
+  }
+}

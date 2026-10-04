@@ -1,0 +1,57 @@
+.panel { color:var(--z-ink,#182b36); font-size:14px; line-height:1.6; padding:4px 0 16px; }
+.header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; }
+.panel h3 { font-size:20px; font-weight:550; letter-spacing:-.025em; margin:0; }
+.panel h4 { font-size:13px; font-weight:600; margin:18px 0 8px; }
+.panel p { margin:8px 0 16px; }
+.muted, .sourceMeta, .panel small { color:var(--z-muted,#617580); }
+.panel button, .panel select, .panel a { -webkit-tap-highlight-color:transparent; }
+.panel button { min-height:44px; padding:8px 13px; font:inherit; color:var(--z-teal,#17675f); border:1px solid var(--z-line,#e2eaed); border-radius:7px; background:transparent; cursor:pointer; }
+.panel button:hover { background:var(--z-mint,#d7eee8); }
+.panel button:disabled { opacity:.6; cursor:wait; }
+.panel a { color:var(--z-teal,#17675f); text-underline-offset:3px; overflow-wrap:anywhere; }
+.panel :is(button, select, textarea, input, a, summary):focus-visible { outline:2px solid var(--z-teal,#17675f); outline-offset:3px; }
+.panel .iconButton { border:0; padding:10px; display:grid; place-items:center; }
+.sourceList { list-style:none; padding:0; margin:0; }
+.sourceList > li { border-bottom:1px solid var(--z-line,#e2eaed); padding:15px 0; }
+.sourceLink { display:inline-flex; align-items:center; gap:8px; font-weight:550; min-height:44px; }
+.sourceMeta { font-size:12px; display:flex; flex-wrap:wrap; gap:4px 12px; }
+.sourceList blockquote { border-left:2px solid var(--z-line,#e2eaed); margin:12px 0; padding:0 0 0 12px; }
+.panel summary { min-height:44px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--z-teal,#17675f); font-size:13px; }
+.panel summary::before { content:'+'; font-size:17px; width:12px; }
+.panel details[open] > summary::before { content:'−'; }
+.section { margin-top:16px; border-top:1px solid var(--z-line,#e2eaed); padding-top:8px; }
+.metadata { display:grid; grid-template-columns:minmax(70px,auto) minmax(0,1fr); gap:8px 12px; font-size:12px; margin:8px 0 16px; }
+.metadata dt { color:var(--z-muted,#617580); }
+.metadata dd { margin:0; overflow-wrap:anywhere; }
+.metadata code, .trace > code { font-size:11px; overflow-wrap:anywhere; }
+.trace { padding:12px 0; border-bottom:1px solid var(--z-line,#e2eaed); }
+.trace > code { display:block; margin-bottom:8px; }
+.trace p { font-size:12px; }
+.reference { display:block; margin:.25rem 0; }
+.proof { white-space:pre-wrap; overflow-wrap:anywhere; max-height:320px; overflow:auto; font-size:11px; line-height:1.5; }
+.steps { padding-left:20px; font-size:12px; }
+.steps li { padding:6px 0; }
+.steps small { display:block; }
+.field { display:flex; flex-direction:column; gap:6px; margin:0 0 16px; }
+.field > span, .field > label { font-size:12px; color:var(--z-muted,#617580); }
+.field select, .field input, .field textarea { font:inherit; color:var(--z-ink,#182b36); background:var(--z-paper,#f8fafb); border:1px solid var(--z-line,#e2eaed); border-radius:7px; padding:10px 11px; width:100%; box-sizing:border-box; }
+.field select, .field input { min-height:44px; }
+.field textarea { font-size:14px; line-height:1.65; min-height:380px; resize:vertical; }
+.row { display:flex; gap:12px; }
+.row .field { flex:1; min-width:0; }
+.self { display:flex; gap:8px; align-items:center; min-height:44px; font-size:12px; color:var(--z-muted,#617580); cursor:pointer; }
+.self input { accent-color:var(--z-teal,#17675f); width:18px; height:18px; }
+.actions { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
+.panel .primary { background:var(--z-teal,#17675f); border-color:var(--z-teal,#17675f); color:white; }
+.panel .primary:hover { background:#11534d; }
+.status { font-size:12px; color:var(--z-muted,#617580); }
+.facts { margin:10px 0; padding-left:18px; }
+.facts li { margin:10px 0; overflow-wrap:anywhere; }
+.printArea { display:none; }
+@media (max-width:480px) { .field select, .field textarea, .field input { font-size:16px; } .row { gap:8px; } }
+@media print {
+  :global(body *) { visibility:hidden; }
+  .printArea, .printArea * { visibility:visible; }
+  .printArea { display:block; position:absolute; inset:0 auto auto 0; width:100%; background:white; color:black; padding:24px; box-sizing:border-box; font-size:11px; }
+  .printArea pre { white-space:pre-wrap; overflow-wrap:anywhere; font:inherit; }
+}

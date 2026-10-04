@@ -1,0 +1,35 @@
+[package]
+name = "atlas-llm"
+description = "Bring-your-own LLM providers (HTTP APIs, local servers, subscription CLIs) with a content cache and PROV-O records."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+atlas-core.workspace = true
+async-trait = "0.1"
+genai = "0.6.5"
+humantime.workspace = true
+regex.workspace = true
+reqwest = { version = "0.13", default-features = false, features = ["json", "rustls"] }
+jsonschema = { version = "0.58", default-features = false }
+serde.workspace = true
+serde_json.workspace = true
+tempfile = "3"
+sha2.workspace = true
+thiserror.workspace = true
+tokio = { workspace = true, features = ["process", "time", "io-util", "fs", "sync"] }
+toml = "1"
+which = "8"
+
+[dev-dependencies]
+anyhow.workspace = true
+axum.workspace = true
+dotenvy = "0.15"
+tower-http.workspace = true
+wiremock = "0.6"
+
+[[example]]
+name = "connector"
+path = "examples/connector.rs"

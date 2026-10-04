@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "locale": "en",
+    "source": "en",
+    "machine_translated": false,
+    "reviewed": [
+      "en",
+      "de"
+    ],
+    "owner": "accounts agent (H2)",
+    "note": "Account, Saved and conversation screens. Plain language, short sentences. ICU MessageFormat.",
+    "connector": {
+      "author": "GPT-6.1-Sol",
+      "backcheck": "Own-device code approval, connection/model choice, revocation, unavailable selection and hosted reset retained.",
+      "native_reviewed": false
+    }
+  },
+  "title": "Your account",
+  "nav": {
+    "account": "Account",
+    "saved": "Saved",
+    "conversations": "Conversations"
+  },
+  "free": {
+    "title": "You don't need an account",
+    "lead": "Everything in the atlas works without signing in. An account only lets you keep things: conditions you follow, people and groups you found, message drafts and your questions to the atlas."
+  },
+  "unavailable": {
+    "title": "Accounts are not available here",
+    "lead": "This copy of the atlas runs without the account service. Every page still works; you just can't save things."
+  },
+  "form": {
+    "signInTitle": "Sign in",
+    "signUpTitle": "Create an account",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "At least 10 characters. A few words you can remember work well.",
+    "name": "Your name (optional)",
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "pending": "One moment…",
+    "toSignUp": "New here? Create an account",
+    "toSignIn": "Already have an account? Sign in",
+    "privacy": "We keep your email, a scrambled (hashed) form of your password and what you save. No tracking, no IP addresses. You can download or delete everything at any time.",
+    "deleted": "Your account and everything in it were deleted."
+  },
+  "error": {
+    "bad_credentials": "That email and password don't match an account.",
+    "conflict": "There is already an account with this email. Try signing in.",
+    "invalid": "Some of the details are not valid. Please check them.",
+    "invalid_email": "Please enter a valid email address.",
+    "password_short": "Your password needs at least 10 characters.",
+    "rate_limited": "Too many attempts. Please wait a few minutes and try again.",
+    "unavailable": "Accounts are not available right now. Everything else still works.",
+    "unauthorized": "Please sign in again.",
+    "not_found": "This item doesn't exist any more.",
+    "forbidden": "You can't change this item.",
+    "generic": "Something went wrong. Please try again."
+  },
+  "home": {
+    "signedInAs": "Signed in as {email}",
+    "greeting": "Hello, {name}",
+    "plan": "Plan: {plan}",
+    "saved": "{n, plural, =0 {Saved: nothing yet} one {Saved: # item} other {Saved: # items}}",
+    "conversations": "{n, plural, =0 {Conversations: none yet} other {Conversations: #}}"
+  },
+  "plan": {
+    "free": "Free",
+    "organisation": "Organisation",
+    "enterprise": "Enterprise"
+  },
+  "role": {
+    "owner": "Owner",
+    "admin": "Admin",
+    "member": "Member"
+  },
+  "orgs": {
+    "title": "Organisations",
+    "lead": "Patient groups and research teams can keep cards and drafts together in one place.",
+    "none": "You are not part of an organisation yet.",
+    "name": "Name of the organisation",
+    "create": "Create organisation",
+    "created": "Organisation created.",
+    "planOf": "{plan} plan"
+  },
+  "data": {
+    "title": "Your data",
+    "lead": "Download everything we keep about you as one file, or sign out.",
+    "export": "Download all my data",
+    "signOut": "Sign out",
+    "signOutAll": "Sign out on all devices",
+    "manage": "Manage my data",
+    "pageLead": "Manage the information in your account.",
+    "signedOut": "Sign in to see the information saved in your account.",
+    "created": "Account created",
+    "kept": "Saved in your account",
+    "documents": "Saved documents",
+    "documentsUnavailable": "Saved documents cannot be loaded right now.",
+    "documentsEmpty": "You have no saved documents.",
+    "untitledDocument": "Untitled document",
+    "view": "View",
+    "download": "Download",
+    "deleteDocument": "Delete",
+    "contributions": "Your contributions",
+    "contributionsUnavailable": "Your contributions cannot be loaded right now.",
+    "contributionsEmpty": "You have no contributions.",
+    "contributionRemoval": "To remove an individual contribution, send a removal request."
+  },
+  "password": {
+    "title": "Change password",
+    "current": "Current password",
+    "new": "New password",
+    "submit": "Change password",
+    "done": "Password changed. Your other devices were signed out."
+  },
+  "delete": {
+    "title": "Delete account",
+    "lead": "This deletes your account and everything you saved, for good. It can't be undone.",
+    "password": "Your password, to confirm",
+    "submit": "Delete my account",
+    "keepName": "Keep my name on my accepted contributions"
+  },
+  "saved": {
+    "title": "Saved",
+    "lead": "What you kept to come back to.",
+    "empty": "Nothing saved yet. Use the Save button on a condition, a connection or a message draft.",
+    "signedOut": "Sign in to see what you saved. Saving is optional: nothing in the atlas needs an account.",
+    "signIn": "Sign in or create an account",
+    "count": "{n, plural, one {# item} other {# items}}",
+    "savedOn": "Saved on {date}",
+    "open": "Open",
+    "remove": "Remove",
+    "subject": "Subject: {subject}",
+    "kind": {
+      "condition": "Conditions you follow",
+      "connection_card": "People, groups and studies",
+      "connection_map": "Maps",
+      "message_draft": "Message drafts",
+      "node": "Other things",
+      "search": "Searches"
+    }
+  },
+  "save": {
+    "save": "Save",
+    "saved": "Saved",
+    "remove": "Remove from saved",
+    "signIn": "Sign in to save",
+    "draft": "Save draft",
+    "draftSaved": "Draft saved",
+    "conversation": "Save conversation",
+    "conversationSaved": "Conversation saved",
+    "pending": "Saving…",
+    "failed": "Couldn't save. Please try again."
+  },
+  "conversations": {
+    "title": "Conversations",
+    "lead": "Your questions to the atlas and its answers, with the sources behind them.",
+    "empty": "No conversations yet.",
+    "messages": "{n, plural, one {# message} other {# messages}}",
+    "updated": "Updated {date}",
+    "you": "You",
+    "atlas": "Atlas",
+    "sources": "Sources",
+    "delete": "Delete this conversation",
+    "back": "All conversations",
+    "notFound": "This conversation doesn't exist or was deleted."
+  },
+  "connector": {
+    "title": "Connect your own models",
+    "pair": "Enter the code shown by the connector on your own computer.",
+    "code": "Pairing code",
+    "approve": "Connect",
+    "devices": "Your computers",
+    "none": "No computers connected yet.",
+    "revoke": "Revoke",
+    "connection": "Answer with",
+    "hosted": "Hosted default",
+    "model": "Model",
+    "defaultModel": "Device default",
+    "save": "Save selection",
+    "reset": "Use hosted default",
+    "offline": "Offline or revoked",
+    "done": "Saved.",
+    "refresh": "Refresh devices",
+    "instructions": "Set up the connector"
+  }
+}

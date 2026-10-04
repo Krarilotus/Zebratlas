@@ -1,0 +1,22 @@
+*.sh text eol=lf
+
+# Versioned identity rules bind these implementation bytes across Windows checkouts.
+crates/atlas-core/src/identity_policy.rs -text
+crates/atlas-ingest/src/graph/people.rs -text
+crates/atlas-release/src/mappings.rs -text
+# Preserve the bytes covered by the compiled dependency's SHA-256 manifest.
+web/public/query-by-graph/editor.js -text
+web/public/query-by-graph/query_by_graph_bg.wasm -text
+
+# Pinned generated query-viewer bundles retain exact upstream bytes and string whitespace.
+web/public/query-by-graph/*.js -text -whitespace
+web/public/query-by-graph/*.wasm binary
+web/public/zebra/tbox/** -text -whitespace
+
+# The submission manifest pins shipped blobs, including on Windows checkouts.
+* -text
+Cargo.toml -text
+Cargo.lock -text
+crates/** -text
+src/** -text
+data/cache/mappings/rules.json -text

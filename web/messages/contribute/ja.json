@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "owner": "contribute agent",
+    "note": "Machine-translated; review section in English (internal page)."
+  },
+  "suggest": "つながりを提案する・修正する",
+  "suggestShort": "提案・修正",
+  "title": "{name} の地図の改善にご協力ください",
+  "lead": "載っていない患者会、レジストリ、研究、研究者をご存じですか？ 間違いや古い情報はありませんか？ お知らせください。すべての提案は公開前に人が確認し、常にコミュニティからの提案として表示されます。",
+  "back": "{name} に戻る",
+  "badge": "コミュニティからの提案",
+  "pending": "{n, plural, other {この疾患に関するコミュニティからの提案 # 件を確認中です。}}",
+  "kind": {
+    "legend": "何をしますか？",
+    "new_link": "足りないつながりを追加する",
+    "correction": "ここに誤りがある",
+    "missing_evidence": "根拠が不足している",
+    "outdated_contact": "連絡先が古い"
+  },
+  "subjectKind": {
+    "legend": "どの種類のつながりですか？",
+    "patient_group": "患者会",
+    "organisation": "その他の団体",
+    "registry": "レジストリ",
+    "study": "研究",
+    "person": "研究者・臨床医"
+  },
+  "field": {
+    "subject": "名前",
+    "subjectHint": "その団体のウェブサイトに書かれている名前。",
+    "about": "どのつながりについてですか？",
+    "aboutCondition": "この疾患全般について",
+    "statement": "ご自身の言葉で",
+    "statementHint": "何が新しく、何が誤りで、何が足りませんか？ 数文で十分です。",
+    "evidenceUrl": "根拠へのリンク",
+    "evidenceUrlHint": "それを示す公開ウェブページ（例：その団体のウェブサイト）。",
+    "quote": "そのページの文言（任意）",
+    "quoteHint": "それを示す一文をページからコピーしてください。ページにあるか確認します。",
+    "contactUrl": "公式の連絡先ページ（任意）",
+    "contactUrlNew": "現在の連絡先ページ",
+    "assistant": "AI アシスタントの助けを借りて見つけましたか？（任意）",
+    "assistantHint": "例：ChatGPT や Claude。提案と一緒に記録します。",
+    "you": "あなたについて（すべて任意）",
+    "name": "お名前",
+    "contact": "質問用のメールアドレス",
+    "contactHint": "確認担当者だけが見ます。匿名のままにする場合は空欄にしてください。",
+    "organisation": "代表している団体"
+  },
+  "submit": "提案を送信",
+  "sending": "送信中…",
+  "error": {
+    "unavailable": "現在、提案を送信できません。後でもう一度お試しください。",
+    "invalid": "フォームを確認してください：{detail}",
+    "rate_limited": "この接続からの提案が多すぎます。後でもう一度お試しください。",
+    "generic": "問題が発生しました。もう一度お試しください。"
+  },
+  "status": {
+    "title": "あなたの提案",
+    "thanks": "ありがとうございます！提案は確認待ちの列に入りました。確認が済むまで地図には表示されません。",
+    "state": {
+      "submitted": "受信済み、自動チェック中",
+      "auto_checked": "自動チェック済み、確認待ち",
+      "accepted": "承認：コミュニティからの提案として地図に表示",
+      "rejected": "承認されませんでした"
+    },
+    "reason": "確認者の理由：{reason}",
+    "checks": "自動チェック",
+    "noChecks": "自動チェックはまだ終わっていません。1 分後にページを再読み込みしてください。",
+    "notFound": "この提案が見つかりません。",
+    "prov": "完全な履歴（PROV-O）",
+    "privacy": "メールアドレスがここに表示されることはありません。",
+    "submittedOn": "{date} に送信",
+    "check": {
+      "pass": "OK",
+      "warn": "注意",
+      "fail": "問題",
+      "skipped": "未チェック"
+    }
+  },
+  "review": {
+    "title": "Review suggestions",
+    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
+    "token": "Reviewer key",
+    "tokenHint": "Kept only on this page, never stored.",
+    "open": "Open the queue",
+    "empty": "Nothing is waiting for review.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "reason": "Reason (required, shown publicly)",
+    "recheck": "Run checks again",
+    "contact": "Contact",
+    "anonymous": "anonymous",
+    "unauthorized": "This key is not valid.",
+    "unavailable": "The review service can't be reached.",
+    "failed": "Not saved: {detail}",
+    "saved": "Saved.",
+    "statement": "Statement",
+    "evidence": "Evidence",
+    "quote": "Quote",
+    "subject": "Who",
+    "target": "Condition or gene",
+    "edge": "Connection",
+    "foundVia": "Found with",
+    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+  }
+}

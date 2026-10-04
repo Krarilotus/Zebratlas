@@ -1,0 +1,9 @@
+# Check that STXBP1 resolves to its stable HGNC identifier and inspect the exact naming record and its hash.
+PREFIX ra: <https://w3id.org/rare-disease-atlas/vocab#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?gene ?identifier ?record ?url ?locator ?hash WHERE {
+  ?gene rdfs:label "STXBP1" ; ra:nodeKind "gene" ; dcterms:identifier ?identifier ; prov:wasDerivedFrom ?record .
+  ?record dcterms:source ?url ; ra:recordLocator ?locator ; ra:sha256 ?hash .
+} ORDER BY ?gene ?identifier ?record ?url ?locator ?hash

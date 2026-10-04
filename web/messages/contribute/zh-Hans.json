@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "owner": "contribute agent",
+    "note": "Machine-translated; review section in English (internal page)."
+  },
+  "suggest": "建议一个关联或更正此处",
+  "suggestShort": "建议或更正",
+  "title": "帮助完善{name}的地图",
+  "lead": "您知道我们遗漏的患者组织、登记库、研究或研究人员吗？这里有错误或过时的内容吗？请告诉我们。每条建议在显示前都会由人工审核，并始终标注为社区建议。",
+  "back": "返回{name}",
+  "badge": "社区建议",
+  "pending": "{n, plural, other {关于此疾病的 # 条社区建议正在审核中。}}",
+  "kind": {
+    "legend": "您想做什么？",
+    "new_link": "添加缺失的关联",
+    "correction": "这里有错误",
+    "missing_evidence": "缺少证据",
+    "outdated_contact": "联系方式已过时"
+  },
+  "subjectKind": {
+    "legend": "这是哪种关联？",
+    "patient_group": "患者组织",
+    "organisation": "其他组织",
+    "registry": "登记库",
+    "study": "研究",
+    "person": "研究人员或临床医生"
+  },
+  "field": {
+    "subject": "名称",
+    "subjectHint": "与其官方网站上显示的名称一致。",
+    "about": "这与哪个关联有关？",
+    "aboutCondition": "与此疾病整体相关",
+    "statement": "用您自己的话说",
+    "statementHint": "什么是新的、错误的或缺失的？几句话即可。",
+    "evidenceUrl": "证据链接",
+    "evidenceUrlHint": "能说明这一点的公开网页，例如该组织的官方网站。",
+    "quote": "该网页上的原文（可选）",
+    "quoteHint": "从网页复制一句能说明这一点的话。我们会核实它确实在页面上。",
+    "contactUrl": "官方联系页面（可选）",
+    "contactUrlNew": "当前的联系页面",
+    "assistant": "是否有 AI 助手帮您找到这些信息？（可选）",
+    "assistantHint": "例如 ChatGPT 或 Claude。我们会随建议一起记录。",
+    "you": "关于您（均为可选）",
+    "name": "您的姓名",
+    "contact": "用于提问的电子邮件",
+    "contactHint": "只有审核人员能看到。留空即可保持匿名。",
+    "organisation": "您代表的团体"
+  },
+  "submit": "发送建议",
+  "sending": "正在发送…",
+  "error": {
+    "unavailable": "目前无法发送建议。请稍后再试。",
+    "invalid": "请检查表单：{detail}",
+    "rate_limited": "来自此连接的建议过多。请稍后再试。",
+    "generic": "出了点问题。请重试。"
+  },
+  "status": {
+    "title": "您的建议",
+    "thanks": "谢谢！您的建议已进入审核队列。在审核人员检查之前，它不会出现在地图上。",
+    "state": {
+      "submitted": "已收到，自动检查进行中",
+      "auto_checked": "已自动检查，等待审核",
+      "accepted": "已接受：在地图上显示为社区建议",
+      "rejected": "未被接受"
+    },
+    "reason": "审核理由：{reason}",
+    "checks": "自动检查",
+    "noChecks": "自动检查尚未完成。请一分钟后刷新此页面。",
+    "notFound": "找不到此建议。",
+    "prov": "完整历史（PROV-O）",
+    "privacy": "您的电子邮件地址绝不会在此显示。",
+    "submittedOn": "发送于 {date}",
+    "check": {
+      "pass": "通过",
+      "warn": "提示",
+      "fail": "问题",
+      "skipped": "未检查"
+    }
+  },
+  "review": {
+    "title": "Review suggestions",
+    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
+    "token": "Reviewer key",
+    "tokenHint": "Kept only on this page, never stored.",
+    "open": "Open the queue",
+    "empty": "Nothing is waiting for review.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "reason": "Reason (required, shown publicly)",
+    "recheck": "Run checks again",
+    "contact": "Contact",
+    "anonymous": "anonymous",
+    "unauthorized": "This key is not valid.",
+    "unavailable": "The review service can't be reached.",
+    "failed": "Not saved: {detail}",
+    "saved": "Saved.",
+    "statement": "Statement",
+    "evidence": "Evidence",
+    "quote": "Quote",
+    "subject": "Who",
+    "target": "Condition or gene",
+    "edge": "Connection",
+    "foundVia": "Found with",
+    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+  }
+}

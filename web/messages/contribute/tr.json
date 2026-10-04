@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "owner": "contribute agent",
+    "note": "Machine-translated; review section in English (internal page)."
+  },
+  "suggest": "Bir bağlantı öner veya bunu düzelt",
+  "suggestShort": "Öner veya düzelt",
+  "title": "{name} haritasını geliştirmeye yardım edin",
+  "lead": "Burada olmayan bir hasta derneği, kayıt, çalışma veya araştırmacı biliyor musunuz? Yanlış ya da güncel olmayan bir şey mi var? Bize söyleyin. Her öneri görünmeden önce bir kişi tarafından kontrol edilir ve her zaman topluluk önerisi olarak işaretlenir.",
+  "back": "{name} sayfasına dön",
+  "badge": "Topluluk önerisi",
+  "pending": "{n, plural, one {Bu hastalıkla ilgili # topluluk önerisi inceleniyor.} other {Bu hastalıkla ilgili # topluluk önerisi inceleniyor.}}",
+  "kind": {
+    "legend": "Ne yapmak istersiniz?",
+    "new_link": "Eksik bir bağlantı ekle",
+    "correction": "Burada bir şey yanlış",
+    "missing_evidence": "Kanıt eksik",
+    "outdated_contact": "Bir iletişim bilgisi eski"
+  },
+  "subjectKind": {
+    "legend": "Bu ne tür bir bağlantı?",
+    "patient_group": "Hasta derneği",
+    "organisation": "Başka bir kuruluş",
+    "registry": "Kayıt",
+    "study": "Çalışma",
+    "person": "Araştırmacı veya hekim"
+  },
+  "field": {
+    "subject": "Ad",
+    "subjectHint": "Kendi web sitelerinde yazdığı şekliyle.",
+    "about": "Bu hangi bağlantıyla ilgili?",
+    "aboutCondition": "Genel olarak bu hastalıkla",
+    "statement": "Kendi sözlerinizle",
+    "statementHint": "Yeni, yanlış ya da eksik olan ne? Birkaç cümle yeterli.",
+    "evidenceUrl": "Kanıt bağlantısı",
+    "evidenceUrlHint": "Bunu gösteren herkese açık bir web sayfası, örneğin grubun kendi sitesi.",
+    "quote": "O sayfadan sözcükler (isteğe bağlı)",
+    "quoteHint": "Sayfadan bunu gösteren bir cümle kopyalayın. Orada olup olmadığını kontrol ederiz.",
+    "contactUrl": "Resmi iletişim sayfası (isteğe bağlı)",
+    "contactUrlNew": "Güncel iletişim sayfası",
+    "assistant": "Bunu bulmanıza bir yapay zekâ asistanı yardım etti mi? (isteğe bağlı)",
+    "assistantHint": "Örneğin ChatGPT veya Claude. Öneriyle birlikte kaydederiz.",
+    "you": "Sizin hakkınızda (hepsi isteğe bağlı)",
+    "name": "Adınız",
+    "contact": "Sorular için e-posta",
+    "contactHint": "Yalnızca inceleyen kişi görür. Anonim kalmak için boş bırakın.",
+    "organisation": "Adına konuştuğunuz grup"
+  },
+  "submit": "Öneriyi gönder",
+  "sending": "Gönderiliyor…",
+  "error": {
+    "unavailable": "Şu anda öneri gönderilemiyor. Lütfen daha sonra tekrar deneyin.",
+    "invalid": "Lütfen formu kontrol edin: {detail}",
+    "rate_limited": "Bu bağlantıdan çok fazla öneri geldi. Lütfen daha sonra tekrar deneyin.",
+    "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+  },
+  "status": {
+    "title": "Öneriniz",
+    "thanks": "Teşekkürler! Öneriniz inceleme kuyruğunda. Biri kontrol edene kadar haritada görünmez.",
+    "state": {
+      "submitted": "Alındı, otomatik kontroller sürüyor",
+      "auto_checked": "Otomatik kontrol edildi, inceleme bekliyor",
+      "accepted": "Kabul edildi: haritada topluluk önerisi olarak gösteriliyor",
+      "rejected": "Kabul edilmedi"
+    },
+    "reason": "İnceleme gerekçesi: {reason}",
+    "checks": "Otomatik kontroller",
+    "noChecks": "Otomatik kontroller henüz bitmedi. Sayfayı bir dakika sonra yenileyin.",
+    "notFound": "Bu öneriyi bulamıyoruz.",
+    "prov": "Tam geçmiş (PROV-O)",
+    "privacy": "E-posta adresiniz burada asla gösterilmez.",
+    "submittedOn": "{date} tarihinde gönderildi",
+    "check": {
+      "pass": "Tamam",
+      "warn": "Not",
+      "fail": "Sorun",
+      "skipped": "Kontrol edilmedi"
+    }
+  },
+  "review": {
+    "title": "Review suggestions",
+    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
+    "token": "Reviewer key",
+    "tokenHint": "Kept only on this page, never stored.",
+    "open": "Open the queue",
+    "empty": "Nothing is waiting for review.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "reason": "Reason (required, shown publicly)",
+    "recheck": "Run checks again",
+    "contact": "Contact",
+    "anonymous": "anonymous",
+    "unauthorized": "This key is not valid.",
+    "unavailable": "The review service can't be reached.",
+    "failed": "Not saved: {detail}",
+    "saved": "Saved.",
+    "statement": "Statement",
+    "evidence": "Evidence",
+    "quote": "Quote",
+    "subject": "Who",
+    "target": "Condition or gene",
+    "edge": "Connection",
+    "foundVia": "Found with",
+    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+  }
+}

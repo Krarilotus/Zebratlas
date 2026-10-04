@@ -1,0 +1,1707 @@
+{
+  "_meta": {
+    "locale": "tr",
+    "source": "en",
+    "machine_translated": false,
+    "reviewed": [],
+    "note": "İngilizceden makine çevirisi; gözden geçirilenler: en, de.",
+    "native_review": "pending",
+    "unit_errors": {
+      "author": "GPT-6.1-Sol",
+      "backcheck": "Entry selection and inclusive 1 to 500 limit retained.",
+      "native_reviewed": false
+    },
+    "bench_fixes": {
+      "keys": [
+        "coverage.outside_verified_neighbourhood",
+        "connections.why.project"
+      ],
+      "agent_authored": true,
+      "semantic_backcheck": true,
+      "native_speaker_reviewed": false
+    },
+    "agent_authored": true,
+    "author": "GPT-6.1-Sol (translate-world)",
+    "method": "Agent-written from intent; separate agent back-check; no translation provider.",
+    "source_sha256": "4df11cc7d75b7ea629f95600783cae894d63154423b5c9a8d3f80249ddd83893",
+    "source_fingerprint": "9e486cc693b33d0167ca991bab8c1bf9d0e8c0c42eefd70e6f8f405f909a4084",
+    "review_ref": "world-review-tr.json",
+    "reviewed_at": "2026-10-04T06:11:23.947585+00:00",
+    "bench_frontend": {
+      "agent_authored": true,
+      "semantic_backcheck": true,
+      "native_speaker_reviewed": false
+    }
+  },
+  "app": {
+    "name": "Zebratlas",
+    "promise": "Nadir hastalıklar için hasta destek grupları ve araştırmalar",
+    "skip": "Ana içeriğe geç",
+    "home": "Zebratlas ana sayfası",
+    "mainNav": "Ana menü",
+    "footerNav": "Zebratlas hakkında daha fazla bilgi",
+    "notAdvice": "Zebratlas tıbbi tavsiye vermez veya tanı koymaz.",
+    "free": "Aileler için ücretsiz. Hesap gerekmez.",
+    "sampleBadge": "Örnek veriler",
+    "sampleHint": "İçeriğin bir bölümü test amaçlı örnek veridir. Örnek kuruluşlar gerçek değildir.",
+    "loading": "Yükleniyor…",
+    "opensNewTab": "(yeni sekmede açılır)",
+    "notFoundTitle": "Bu sayfa bulunamadı",
+    "notFoundLead": "Bağlantı eski olabilir. Ana sayfadan yeniden arama yapabilirsiniz.",
+    "backHome": "Ana sayfaya dön",
+    "errorTitle": "Bir sorun oluştu",
+    "errorLead": "Yeniden deneyin. Sorun devam ederse daha sonra tekrar deneyin.",
+    "tryAgain": "Yeniden dene",
+    "showMore": "{n, plural, one {# tane daha göster} other {# tane daha göster}}",
+    "curatedBadge": "Elle kontrol edildi",
+    "curatedHint": "Bu bağlantı {date} tarihinde “Bilginin dayanağı” bölümündeki kaynaklarla elle karşılaştırıldı. Zebratlas sunucusu bunu henüz hesaplamıyor."
+  },
+  "nav": {
+    "about": "Hakkında",
+    "pricing": "Kuruluşlar için",
+    "signIn": "Giriş yap",
+    "saved": "Kaydedilenler",
+    "search": "Ara",
+    "account": "Hesap",
+    "accountOf": "Hesap: {name}",
+    "signUp": "Hesap oluştur",
+    "signOut": "Çıkış yap",
+    "sources": "Veri kaynakları ve lisanslar",
+    "contributeData": "Veri paylaş",
+    "partners": "İş ortakları",
+    "contact": "İletişim",
+    "privacy": "Gizlilik",
+    "imprint": "Yasal bilgiler",
+    "openSource": "Açık kaynak",
+    "help": "Yardım",
+    "menu": "Menü",
+    "underTheHood": "Veri ve işleme ayrıntıları",
+    "impact": "Zaman tasarrufu"
+  },
+  "language": {
+    "current": "Dil: {name}",
+    "choose": "Dilinizi seçin",
+    "contentNote": "Bu metnin dili: {language}. Çeviri için Zebratlas sunucusu gerekir.",
+    "showOriginal": "Özgün metni göster ({language})",
+    "machineNote": "Bu metni bir yapay zekâ asistanı yazdı; ana dili bu dil olan biri henüz incelemedi. Adlar, kodlar ve bağlantılar korunur.",
+    "label": "Dil"
+  },
+  "home": {
+    "label": "Zebratlas'ta ara",
+    "placeholder": "Arayın veya metin yapıştırın",
+    "submit": "Ara",
+    "welcome": "Zebratlas'a hoş geldiniz",
+    "explore": "Araştırma toplulukları grafiğini görüntüle",
+    "title": "Nadir hastalıklar için hasta destek grupları ve araştırmalar",
+    "lead": "Bildiğiniz bilgiyi yazın: tanı, gen veya doktorun mektubundan bir cümle. Herhangi bir dili kullanabilirsiniz.",
+    "examples": "Örnekler",
+    "exampleSentence": "Kızımda STXBP1 geninde bir mutasyon var",
+    "rareExample": "Henüz grubu bulunamayan nadir bir hastalık örneği",
+    "door": {
+      "research": "Araştırma veya sektör için: kanıtlar",
+      "org": "Kuruluşlar için planlar"
+    },
+    "doorsLabel": "Diğer seçenekler",
+    "specimen": "Örnek: {name}",
+    "openSpecimen": "{name} şemasını aç",
+    "figPeople": "{n, plural, one {araştırmacı} other {araştırmacı}}"
+  },
+  "find": {
+    "label": "Yeniden ara",
+    "chooseTitle": "Hastalık seçin",
+    "chooseLead": "“{q}” için eşleşmeler",
+    "understood": "Yazdığınız metinden “{term}” kullanıldı.",
+    "via": {
+      "name": "Ad eşleşiyor",
+      "alias": "Bu hastalığın diğer adı: {term}",
+      "gene": "{term} genindeki değişiklikten kaynaklanıyor",
+      "typo": "Yazdığınıza yakın: {term}",
+      "sentence": "Metninizde {term} geni bulundu",
+      "id": "{term} kodu eşleşiyor",
+      "symptom": "{term} belirtisi eşleşiyor"
+    },
+    "noneTitle": "“{q}” henüz bulunamadı",
+    "emptyTitle": "Zebratlas'ta ara"
+  },
+  "condition": {
+    "more": "Bu hastalık hakkında daha fazla bilgi",
+    "medicalNames": "Tıbbi adlar",
+    "gene": "Gen",
+    "glossary": "Doktorların kullandığı terimler",
+    "doctorQuestion": "Çocuğumuzun katılabileceği bir {name} araştırması veya hasta kayıt sistemi var mı? Yakınımızdaki uzman kim?",
+    "forGroupsLink": "Vücuttaki aynı süreçle ilgili hastalıkların grupları",
+    "plainGene": "Bu, {gene} adlı gendeki değişiklikten kaynaklanan nadir bir hastalıktır.",
+    "plainNoGene": "Bu nadir bir hastalıktır.",
+    "plainMore": "Bu hastalıkta uzman bir doktor, çocuğunuz için ne anlama geldiğini açıklayabilir.",
+    "definition": "Tıbbi açıklama",
+    "geneTitle": "{gene} ile ilişkili hastalık",
+    "figCases": "{n, plural, one {tıp yayınlarında tanımlanan aile} other {tıp yayınlarında tanımlanan aile}}",
+    "figGroups": "{n, plural, one {hasta destek grubu} other {hasta destek grubu}}",
+    "code": "Kod",
+    "groupsTitle": "Hasta ve aile destek grupları",
+    "otherGroups": "{n, plural, one {{gene} için # grup daha} other {{gene} için # grup daha}}",
+    "studiesTitle": "Katılabileceğiniz araştırmalar",
+    "studiesLead": "Şu anda katılımcı kabul eden araştırmalar ve hasta kayıt sistemleri. Kayıt sistemleri araştırmaları desteklemek için birçok ailenin sağlık bilgilerini toplar.",
+    "noOpenStudies": "Tam olarak bu hastalık için şu anda katılımcı kabul eden araştırma bulamadık.",
+    "closedStudies": "{n, plural, one {Alımı kapanmış veya tamamlanmış # araştırmayı göster} other {Alımı kapanmış veya tamamlanmış # araştırmayı göster}}",
+    "doctorsTitle": "Bu hastalıkta uzman merkezler",
+    "noDoctors": "Tam olarak bu hastalık için uzman merkez bulamadık.",
+    "askDoctor": "Doktorunuza sorabileceğiniz bir soru:",
+    "onwardLabel": "Hasta destek grupları ve araştırmacılar için",
+    "forGroupsLead": "Ortak nedeni olan diğer hastalıklar ve iletişim kurabileceğiniz kişiler.",
+    "moreStudies": "Daha fazla araştırma ({n})",
+    "otherStudies": "Diğer araştırmalar ({n})",
+    "onThisPage": "Bu sayfada",
+    "what": "Bu hastalık hakkında",
+    "notAlone": "Kişiler ve çalışmalar",
+    "thisWeek": "Bu hafta yapabilecekleriniz",
+    "kindExplain": {
+      "registry": "Kayıt sistemi birçok kişinin sağlık bilgilerini toplar; bu, araştırmaların daha hızlı başlamasına yardımcı olur.",
+      "natural_history": "Doğal seyir çalışması, hastalığın nasıl değiştiğini öğrenmek için kişileri zaman içinde izler.",
+      "trial": "Tedavi çalışması, bir tedavinin güvenli ve yararlı olup olmadığını sınar.",
+      "observational": "Gözlemsel çalışma gözlem ve ölçüm yapar; tedavi vermez.",
+      "patient_group": "Hasta grubunu aynı tanıya sahip aileler yürütür.",
+      "expert_centre": "Uzman merkezde bu hastalığı iyi bilen doktorlar çalışır.",
+      "researcher": "Araştırmacı bu hastalığı inceler ve yeni çalışmalardan haberdar olabilir.",
+      "expanded_access": "Erken erişim programı, hâlâ sınanan bir tedaviyi çalışma dışında sunabilir.",
+      "organisation": "Bu hastalık üzerine çalışan bir kuruluş.",
+      "grant": "Araştırma hibesi bir araştırma projesini finanse eder. Ekip başka çalışmaları biliyor olabilir."
+    },
+    "figOpen": "{n, plural, one {katılımcı alan çalışma} other {katılımcı alan çalışma}}",
+    "shownOf": "{total} sonuçtan {shown} tanesi gösteriliyor",
+    "view": {
+      "label": "Bu hastalığın görünümleri",
+      "overview": "Genel görünüm",
+      "communities": "Topluluklar",
+      "evidence": "Kanıtlar",
+      "questions": "Araştırma soruları"
+    },
+    "step": {
+      "contact": "Hasta grubuna yazın",
+      "join": "Katılımcı alan bir çalışmaya çocuğunuzun katılıp katılamayacağını sorun",
+      "doctor": "Doktorunuza sorun"
+    },
+    "studyKinds": "Çalışma türleri",
+    "figExact": "{n, plural, one {bu tanıya yönelik iletişim} other {bu tanıya yönelik iletişim}}",
+    "figRelated": "{n, plural, one {ilgili topluluk} other {ilgili topluluk}}",
+    "figSearched": "{n, plural, one {kaynak tarandı} other {kaynak tarandı}}"
+  },
+  "gap": {
+    "title": "Tam olarak bu hastalık için henüz grup veya araştırma bulunamadı",
+    "found": "{n, plural, =0 {sonuç bulunamadı} one {# sonuç bulundu} other {# sonuç bulundu}}",
+    "closest": "{n, plural, one {# yakın topluluk daha} other {# yakın topluluk daha}}",
+    "noneRelated": "İlişkili bir topluluk da bulamadık. Aşağıdaki adımlar yine de yardımcı olabilir.",
+    "unknownTitle": "Kaynaklarda yer almayan bilgiler",
+    "questionsTitle": "Uzmanınıza sorabileceğiniz sorular",
+    "notCovered": "bu gen için henüz arama yapılmadı",
+    "nearestGroup": "Yazabileceğiniz en yakın ilişkili grup",
+    "nearestFor": "Bu gruptaki ailelerde, vücuttaki aynı süreci etkileyen {condition} var.",
+    "sharedRegistry": "İlişkili hastalıkları olan aileleri kabul eden araştırma",
+    "sharedRegistryFor": "{condition} ve ilişkili hastalıkları kapsar. Ailenizin katılıp katılamayacağını sorun.",
+    "pubmed": "{gene} hakkında yayın yapan araştırmacılar (PubMed)",
+    "searched": "Nerelerde aradık",
+    "startTitle": "Sonraki adımlar",
+    "step": {
+      "contact_related": "En yakın gruba ulaşın",
+      "join_registry": "Birden fazla geni kapsayan kayıt sistemine katılın",
+      "find_researchers": "Araştırmacılara ulaşın",
+      "ask_doctor": "Uzman doktorunuzla konuşun"
+    },
+    "col": {
+      "source": "Kaynak",
+      "result": "Sonuç",
+      "date": "Arama tarihi"
+    },
+    "notes": "{n, plural, one {aramaya ilişkin # not} other {aramaya ilişkin # not}}",
+    "noTarget": "Henüz iletişim bilgisi bulunamadı"
+  },
+  "card": {
+    "kind": {
+      "patient_group": "Hasta destek grubu",
+      "registry": "Hasta kayıt sistemi",
+      "natural_history": "Hastalığın doğal seyri araştırması",
+      "trial": "Tedavi araştırması",
+      "observational": "Gözlemsel araştırma",
+      "expert_centre": "Uzman merkez",
+      "researcher": "Araştırmacı",
+      "expanded_access": "Tedaviye erken erişim programı",
+      "organisation": "Kuruluş",
+      "grant": "Araştırma hibesi"
+    },
+    "match": {
+      "related": "İlişkili bir hastalık için",
+      "exact": "Tam olarak bu tanı için",
+      "broad": "Birden fazla hastalık için"
+    },
+    "status": {
+      "recruiting": "Açık: katılımcı aranıyor",
+      "not_yet_recruiting": "Henüz katılımcı alınmıyor",
+      "active_not_recruiting": "Sürüyor, yeni katılımcı alınmıyor",
+      "enrolling_by_invitation": "Yalnızca davetle",
+      "completed": "Tamamlandı",
+      "terminated": "Erken sonlandırıldı",
+      "withdrawn": "Başlamadan geri çekildi",
+      "suspended": "Geçici olarak durduruldu",
+      "unknown": "Durum bilinmiyor"
+    },
+    "why": "Neden bu kişi veya grup",
+    "channel": {
+      "website": "İnternet sitesi",
+      "contact_form": "İletişim formu",
+      "email": "E-posta",
+      "study_contact": "Araştırma iletişim bilgileri",
+      "institution_page": "Kurum sayfası",
+      "registry_record": "Araştırma yetkilileri",
+      "profile": "Herkese açık profil",
+      "grant_page": "Hibe sayfası"
+    },
+    "write": "Mesaj yaz",
+    "writeProposal": "Öneri yaz",
+    "checkedOn": "Kontrol tarihi: {date}",
+    "sample": "Örnek",
+    "sampleHint": "Test amaçlı örnek. Gerçek bir kuruluş değil.",
+    "askStudy": "Araştırma ekibine sor",
+    "where": "Yer",
+    "languages": "Diller",
+    "serves": "Ayrıca destek verilenler",
+    "more": "Diğer iletişim kanalları"
+  },
+  "know": {
+    "tier": {
+      "high": "Resmî kayıt veya yayımlanmış araştırma",
+      "moderate": "Uzman açıklaması",
+      "low": "Hesaplanmış veya henüz kontrol edilmemiş"
+    },
+    "retrieved": "Erişim tarihi: {date}",
+    "openRecord": "Kaydı aç",
+    "checksum": "Dosya parmak izi (SHA-256)",
+    "verify": "Kaynağı yeniden kontrol et",
+    "verifying": "Kontrol ediliyor…",
+    "verifyResult": {
+      "unchanged": "Son kontrolümüzden beri değişmedi. Dosya parmak izi eşleşiyor.",
+      "changed": "Kayıt son kontrolümüzden sonra değişti. Lütfen kaydı okuyun.",
+      "unreachable": "Şu anda kaynağa erişilemedi."
+    },
+    "verifySample": "Örnek kontrol: gerçek bir kaynağa bağlantı kurulmadı.",
+    "validatorOk": "Bu karttaki her cümle bir kaynakla destekleniyor.",
+    "validatorFail": "Bazı cümleler bir kaynakla eşleştirilemedi.",
+    "underTheHood": "Tam kayıt",
+    "source": "Kaynak",
+    "noSource": "eklenmemiş",
+    "sourcesMore": "{first} ve {n, plural, one {# kaynak daha} other {# kaynak daha}}",
+    "correct": "Hata bildir",
+    "sourceNames": {
+      "orphanetEpidemiology": "Orphanet epidemiyoloji verileri",
+      "similarity": "Zebratlas benzerliği (belirtiler ve mekanizma)"
+    },
+    "title": "Nasıl biliyoruz",
+    "lead": "Kayıtlar",
+    "sources": "{n, plural, one {# kaynak} other {# kaynak}}",
+    "record": "Kayıt",
+    "quote": "Kaynaktan alıntı",
+    "noSources": "Henüz kaynak eklenmemiş."
+  },
+  "community": {
+    "title": "İlgili topluluklar",
+    "why": "Bağlantının nedeni",
+    "shared": {
+      "symptoms": "Ortak ayırt edici belirtiler",
+      "genes": "Aynı gen",
+      "processes": "Vücuttaki aynı süreç"
+    },
+    "strength": {
+      "strong": "Güçlü bağlantı",
+      "some": "Bir ölçüde bağlantı",
+      "weak": "Zayıf bağlantı"
+    },
+    "assets": "Geliştirdikleri kaynaklar",
+    "assetType": {
+      "registry": "Hasta kayıt sistemi",
+      "natural_history": "Hastalığın doğal seyri araştırması",
+      "trial": "Tedavi araştırması",
+      "observational": "Gözlemsel araştırma",
+      "model": "Laboratuvar modeli",
+      "grant": "Araştırma hibesi",
+      "biobank": "Biyobanka"
+    },
+    "duplicate": "{ids} ile örtüşebilir. Yeni bir kaynak oluşturmadan önce kontrol edin.",
+    "notSameTitle": "Benzer belirtiler, farklı neden",
+    "looksLike": "Neden benziyor",
+    "differs": "Neden farklı",
+    "peopleTitle": "Bu topluluklar arasında zaten çalışan kişiler",
+    "worksIn": "Çalıştığı konular",
+    "noPeople": "Bu topluluklar arasında çalışan birini henüz bulamadık.",
+    "none": "İlişkili toplulukları henüz bulamadık.",
+    "shareTitle": "Yönetim kurulunuzla paylaşın",
+    "copyLink": "Bağlantıyı kopyala",
+    "copied": "Kopyalandı",
+    "print": "Yazdır veya PDF olarak kaydet",
+    "limits": "Bu bağlantının göstermediği bilgiler",
+    "noUnlike": "En yakın ilişkili hastalıklar arasında bulunamadı.",
+    "lead": "Kaydedilmiş bağlantıları izlemek için bir topluluk veya biyolojik yolak seçin.",
+    "sameProcess": "Vücuttaki aynı süreç",
+    "sameGene": "Aynı gen",
+    "checkedByHand": "{date} tarihinde elle kontrol edildi",
+    "heldBy": "{name} tarafından tutuluyor",
+    "coversList": "kapsam: {list}",
+    "writeTo": "Mesaj alıcısı: {name}",
+    "questionTitle": "Ortak, yanıtlanmamış araştırma sorunuz",
+    "questionOpen": "Kanıtlar, belirleyici deney ve deneyi yapabilecek kişiler",
+    "notSameLead": "Bu hastalıkların belirtileri benzer, nedenleri farklıdır.",
+    "showUnlike": "{n, plural, one {Benzer belirtili # hastalığı göster} other {Benzer belirtili # hastalığı göster}}",
+    "alsoListed": "{list} için de listeleniyor. Tek bir çalışma iki topluluğa da yarar sağlayabilir.",
+    "mapLabel": "İlgili toplulukların haritası. Parlak noktalar vücuttaki aynı sorunu paylaşır. İçi boş noktalar benzer görünür, ancak nedenleri farklıdır.",
+    "assetsCount": "{n, plural, =0 {Henüz kaynak oluşturulmadı} one {# kaynak oluşturuldu} other {# kaynak oluşturuldu}}",
+    "covers": "Kapsam",
+    "sponsor": "Yürüten: {name}",
+    "figUnlike": "{n, plural, one {farklı nedenli benzer hastalık} other {farklı nedenli benzer hastalık}}",
+    "figAssets": "{n, plural, one {yeniden kullanılabilecek çalışma veya kayıt sistemi} other {yeniden kullanılabilecek çalışma veya kayıt sistemi}}"
+  },
+  "write": {
+    "title": "{name} için mesaj",
+    "proposalTitle": "{name} için öneri",
+    "lead": "İstediğiniz kısmı değiştirin. Siz gönderene kadar hiçbir şey gönderilmez.",
+    "subject": "Konu",
+    "body": "Mesaj",
+    "copy": "Metni kopyala",
+    "copied": "Kopyalandı",
+    "mail": "E-posta uygulamasında aç",
+    "language": "Mesaj dili",
+    "languageApply": "Değiştir",
+    "keep": "Adlar, kodlar ve bağlantılar her dilde aynı kalır.",
+    "basedOn": "Taslağın dayanağı",
+    "section": {
+      "why_us": "Bizim hakkımızda",
+      "why_you": "Size neden yazıyoruz",
+      "share": "Paylaşabileceklerimiz",
+      "check": "Uzmanların önce kontrol etmesi gerekenler",
+      "ask": "Sonraki adımımız"
+    },
+    "notFound": "Bu bağlantı bulunamadı.",
+    "back": "{name} sayfasına dön",
+    "template": {
+      "familySubject": "Çocuğumuza yeni {condition} tanısı kondu",
+      "familyBody": "Merhaba {name},\n\nÇocuğumuza yakın zamanda {condition} tanısı kondu. Grubunuzu Zebratlas üzerinden bulduk.\n\n{why}\n\nDiğer ailelerle iletişim kurmak ve katılabileceğimiz araştırmaları veya hasta kayıt sistemlerini öğrenmek istiyoruz. Bağlantı kurmamıza yardımcı olabilir misiniz?\n\nTeşekkürler,\n[Adınız]",
+      "groupSubject": "Birlikte çalışma: {condition} ve {name}",
+      "groupBody": "Merhaba {name},\n\n{condition} için bir hasta destek grubuna liderlik ediyorum. Topluluklarımızın vücuttaki aynı süreçle ilgili ortak bir sorunu olabileceğini düşünüyoruz.\n\n{why}\n\nİki grubun aileleri de yararlansın diye geliştirdiğimiz kaynakları ve neleri paylaşabileceğimizi konuşmak istiyoruz. Plan yapmadan önce uzmanlar bu bağlantıyı kontrol etmelidir.\n\nÖnümüzdeki haftalarda 30 dakikalık bir görüşme yapabilir miyiz?\n\nSaygılarımla,\n[Adınız]",
+      "note": "Bu basit bir şablondur. Zebratlas sunucusuyla taslak, bağlantılı kayıtlardan hazırlanır ve kontrol edilir.",
+      "share": "Ailelerin sık sorduğu soruların listesi ve araştırma ekipleriyle bağlantılarımız.",
+      "check": "Vücuttaki ortak sorun üzerine araştırmanın iki gruba da yarar sağlayıp sağlayamayacağı.",
+      "ask": "İki yönetim kurulu arasında ilk 30 dakikalık görüşme.",
+      "whyUs": "Biz, {condition} ile yaşayan aileleriz."
+    },
+    "verified": "Bu taslak aşağıdaki kaynaklarla elle karşılaştırıldı.",
+    "send": {
+      "form": "Mesajı kopyala ve iletişim formunu aç",
+      "site": "Mesajı kopyala ve sayfalarını aç"
+    },
+    "sendCopied": "Kopyalandı. Sayfalarına yapıştırın.",
+    "sendHint": "Mesajınızı sayfalarına yapıştırmanız için kopyalarız. Adınıza hiçbir şey göndermeyiz.",
+    "nothingSent": "E-posta uygulamanız bu mesajla açılır. Siz gönderene kadar gönderilmez.",
+    "generate": "Başka taslak oluştur",
+    "generating": "Taslak oluşturuluyor…",
+    "unavailable": "Taslak oluşturma kullanılamıyor. Mevcut taslağınız burada duruyor.",
+    "apply": "Oluşturulan taslağı uygula",
+    "to": "Alıcı",
+    "sendVia": "Gönderim kanalı",
+    "validatorOk": "Bu taslaktaki her gerekçe bir kaynakla destekleniyor.",
+    "validatorFail": "Bazı gerekçeler bir kaynakla eşleştirilemedi. Lütfen kontrol edin."
+  },
+  "hood": {
+    "title": "Veri ve işleme ayrıntıları",
+    "lead": "Zebratlas'taki her bağlantı, alındığı kaydın kendisine işaret eder.",
+    "forCard": "Kart: {name}",
+    "chooseCard": "Tam yolunu görmek için bir karttan “Veri ve işleme ayrıntıları” bölümünü açın.",
+    "path": "Grafikteki yol",
+    "pathLead": "Her satır iki öğe arasındaki bağlantıyı ve destekleyen kayıtları gösterir.",
+    "edgeKind": {
+      "observed": "Kaynakta belirtilmiş",
+      "extracted": "Model tarafından metinden çıkarılmış",
+      "inferred": "Zebratlas tarafından hesaplanmış",
+      "hypothesis": "Test edilecek fikir"
+    },
+    "evidence": "{n, plural, one {# kayıt} other {# kayıt}}",
+    "prov": "Köken zinciri (PROV-O)",
+    "entities": "Kaynak dosyaları",
+    "activities": "İşleme adımları",
+    "version": "Sürüm",
+    "retrieved": "Erişim tarihi",
+    "sha": "SHA-256",
+    "licence": "Lisans",
+    "agent": "Yazılım",
+    "llm": "Dil modeli çağrıları",
+    "llmNone": "Dil modeli kullanılmadı.",
+    "llmCached": "önbellekten",
+    "llmFresh": "yeni çağrı",
+    "validator": "İddia kontrolü",
+    "validatorChecked": "{n, plural, one {# cümle kontrol edildi} other {# cümle kontrol edildi}}",
+    "integrity": "Grafik kontrolleri",
+    "integrityLead": "{date} tarihinde tüm grafik üzerinde çalıştırıldı.",
+    "integrityNone": "Sunucu henüz kontrol sonuçlarını bildirmedi.",
+    "counts": "Grafik boyutu",
+    "checkOk": "geçti",
+    "checkFail": "{n, plural, one {# sorun} other {# sorun}}",
+    "rdf": "Bu hastalığın grafiğini indir (RDF Turtle)",
+    "rdfMissing": "RDF indirmek için Zebratlas sunucusu gerekir.",
+    "raw": "Ham kayıt (JSON)",
+    "sourceList": "Tüm kaynaklar ve sürümleri",
+    "noProv": "Bu öğe için köken kaydı bulunamadı.",
+    "recordsTitle": "Kaynak kayıtları",
+    "reason": "Bu bağlantının dayanağı",
+    "purpose": {
+      "curated": "Elle kontrol edilmiş kanıt yolu",
+      "why_sentence": "Bağlantı açıklaması",
+      "message_template": "Mesaj şablonu",
+      "partner_proposal": "İş birliği önerisi",
+      "outreach_message": "İletişim mesajı"
+    },
+    "origin": {
+      "curated": "Elle kontrol edildi",
+      "llm": "Asistan",
+      "template": "Şablon",
+      "lexical": "Kayıtlı ad eşleşmesi"
+    }
+  },
+  "pricing": {
+    "title": "Aileler için ücretsiz. Kuruluşlar için araçlar.",
+    "lead": "Aileler için siteyi kullanmak ücretsizdir ve hesap gerektirmez. Kuruluşlar ek özellikler için ödeme yapabilir.",
+    "placeholder": "Planlar ve fiyatlar hazırlanıyor. Hazır olduklarında burada gösterilecek.",
+    "comingSoon": "Yakında",
+    "available": "Şimdi kullanılabilir",
+    "promiseTitle": "Taahhüdümüz",
+    "featuresFor": "Dâhil olan özellikler",
+    "hint": "{feature}: kuruluş planına dâhil",
+    "hintLink": "Planları gör",
+    "hintAlerts": "Yeni araştırma ve grup bildirimleri",
+    "hintExport": "Dışa aktarma ve API erişimi",
+    "hintWorkspace": "Yönetim kurulunuz için ortak çalışma alanı",
+    "free": "Ücretsiz",
+    "perMonth": "Aylık {price}"
+  },
+  "impact": {
+    "title": "Zebratlas ile olası zaman tasarrufu",
+    "lead": "Aynı hedef, Zebratlas ile ve olmadan. Bu sayılar varsayımdır; henüz ölçülmüş sonuçlar değildir.",
+    "placeholder": "Zaman karşılaştırması hazırlanıyor. Hazır olduğunda burada gösterilecek.",
+    "today": "Bugün",
+    "withAtlas": "Zebratlas ile",
+    "total": "Toplam: {value}",
+    "factor": "Temel senaryoda yaklaşık {factor} kat daha hızlı",
+    "assumptions": "Varsayımlar",
+    "sources": "Kaynaklar",
+    "chartLabel": "Aynı hedef için iki süre: bugün {today}, Zebratlas ile {atlas}.",
+    "step": "Adım",
+    "duration": "Süre",
+    "scenarios": "Diğer senaryolar",
+    "scenario": "{today} yerine {atlas}: yaklaşık {factor} kat daha hızlı",
+    "milestone": "Hedef"
+  },
+  "assistant": {
+    "free": "Ücretsiz asistan",
+    "left": "{n, plural, =0 {Bugün için istek kalmadı} one {Bugün # istek kaldı} other {Bugün # istek kaldı}}",
+    "own": "veya kendi anahtarınızı ya da yerel modelinizi kullanın",
+    "quota": "Ücretsiz asistanın günlük sınırına ulaşıldı. Yarın yeniden kullanılabilir. Şimdi kendi anahtarınızı veya yerel modelinizi kullanabilirsiniz.",
+    "noKey": "Anahtar gerekmez."
+  },
+  "question": {
+    "title": "Ortak araştırma soruları",
+    "none": "Bu hastalık için henüz ortak bir soru kaydedilmedi.",
+    "status": {
+      "proposed": "Önerildi, test edilmedi",
+      "running": "Test ediliyor",
+      "answered": "Yanıtlandı"
+    },
+    "concerns": "Sorunun ilgili olduğu topluluklar",
+    "for": "Destekleyen kanıtlar",
+    "against": "Karşı kanıtlar",
+    "unknown": "Bilinmiyor",
+    "experiment": "Soruyu yanıtlayacak deney",
+    "who": "Yardımcı olabilecek kişiler",
+    "firstStep": "İlk adım",
+    "join": "Katılmak için araştırma ekibine yazın",
+    "contribute": "Kanıt ekle",
+    "open": "Kanıtlar ve deney",
+    "experts": "Sorabileceğiniz uzman adayları (kurumları üzerinden iletişim kurun)",
+    "drugs": "Bu hastalıklar veya genleri için klinik araştırmadaki ilaçlar (klinik aşama, etki gösterdiklerinin kanıtı değildir)",
+    "communities": "{n, plural, one {topluluk} other {topluluk}}",
+    "scientificTerm": "Bilimsel terim",
+    "everyCure": {
+      "title": "Every Cure tahminleri",
+      "body": "Bağlantı hazır. Every Cure veri koşullarını doğruladıktan sonra gösterilecek.",
+      "link": "everycure.org"
+    },
+    "lead": "Yanıtları {name} ve diğer topluluklara yarar sağlayabilecek sorular: destekleyen ve karşı kanıtlar, belirleyici deney ve deneyi yapabilecek kişiler."
+  },
+  "questions": {
+    "hypothesis": {
+      "shared_process": "{genes}, {process} sürecinde ortak bir sorun taşıyor olabilir mi?"
+    },
+    "why": {
+      "shared_process": "Bu {communities} topluluğun her birinde {process} ile ilişkili bir gen var. Sorun ortaksa tek bir araştırma yönü hepsine yarar sağlayabilir.{more, plural, =0 {} one { Bu soruya bir gen daha dâhil.} other { Bu soruya # gen daha dâhil.}}"
+    },
+    "shared": {
+      "process": "Ortak: {process}"
+    },
+    "term": {
+      "pathway": "{pathway} ({id})"
+    },
+    "process": {
+      "connect": "beyin hücrelerinin nasıl bağlantı kurduğu",
+      "release": "beyin hücrelerinin nasıl sinyal saldığı",
+      "calming": "beynin yatıştırıcı sinyali",
+      "go_signal": "beynin temel uyarıcı sinyali",
+      "dopamine": "beynin dopamin sinyali",
+      "heart_signal": "kalbin elektrik sinyalleri",
+      "electric": "sinir hücrelerinin elektrik sinyalleri",
+      "calcium": "hücrelerin kalsiyumu nasıl içeri aldığı",
+      "tuning": "beyin hücreleri arasındaki bağlantıların nasıl güçlenip zayıfladığı",
+      "passing": "beyin hücrelerinin sinyalleri nasıl ilettiği",
+      "memory": "belleğin nasıl çalıştığı",
+      "growth_signal": "beyin hücreleri için büyüme sinyalleri",
+      "brain_growth": "beynin nasıl büyüyüp bağlantılar kurduğu",
+      "recycling": "hücrelerin maddeleri nasıl parçalayıp geri dönüştürdüğü",
+      "intake": "hücrelerin maddeleri nasıl içeri aldığı",
+      "energy": "hücrelerin nasıl enerji ürettiği",
+      "surface_anchor": "hücrelerin proteinleri yüzeylerine nasıl bağladığı",
+      "protein_building": "hücrelerin proteinleri nasıl ürettiği",
+      "cell_death": "hücre ölümünün nasıl düzenlendiği",
+      "unmapped": "vücuttaki aynı süreç"
+    },
+    "for": {
+      "statement": "{condition}: {statement}"
+    },
+    "against": {
+      "finding": "{explanation}",
+      "same_gene_different_mechanism": "Aynı gen, olası farklı neden ({gene}): {why}",
+      "mechanism_split": "Aynı hastalık içinde neden farklı olabilir ({gene}): {why}",
+      "lookalike": "Belirtiler benzer, ancak neden farklı olabilir ({gene}): {why}",
+      "variant_level": "Bir gendeki değişiklikler aynı etkiyi göstermez: bazıları geni devre dışı bırakır, bazıları işlevini değiştirir. Gen düzeyindeki bağlantı her varyant için geçerli olmayabilir."
+    },
+    "unknown": {
+      "validate": "Henüz kontrol edilmedi: {text}",
+      "functional_coverage": "{gene}: ClinVar, {variants} varyantın {with_functional_data} tanesi için etkiyi inceleyen laboratuvar testleri kaydetmiş."
+    },
+    "experiment": "{conditions} ile ilişkili varyantlar, {pathway} içinde aynı ölçülebilir işlevi bozuyor mu?",
+    "experiment_note": "Destekler: {support} Sorgulatır: {challenge}",
+    "bridge": {
+      "worked_on": "{gene}: kamuya açık kayıtlarda {grants, plural, one {# hibede} other {# hibede}}, {papers, plural, one {# yayında} other {# yayında}} ve {trials, plural, one {# klinik araştırmada} other {# klinik araştırmada}} adı geçiyor",
+      "identity": {
+        "same": "Aynı kişi (araştırmacı kimliğiyle bağlandı)",
+        "possible": "Aynı kişi olabilir: kayıtlar kimlikle değil, ad ve iş yeriyle bağlandı"
+      },
+      "suggestion": "{genes} arasında ortak bir nedeni sormak için uygun bir uzman olabilir (önerimiz). {institution} üzerinden iletişim kurun."
+    },
+    "drug": {
+      "indication": "{drug}, {condition} için klinik araştırmalarda {stage} aşamasına ulaştı (Open Targets; bu, etkili olduğunu göstermez).",
+      "indication_related": "{drug}, ilişkili hastalık {condition} için klinik araştırmalarda {stage} aşamasına ulaştı (Open Targets; bu, etkili olduğunu göstermez).",
+      "target": "{drug}, {gene} üzerinde etki eder ({mechanism}); ulaşılan en ileri klinik aşama: {stage} (Open Targets; bu, etkili olduğunu göstermez)."
+    }
+  },
+  "people": {
+    "suggestion": "Önerimiz"
+  },
+  "demo": {
+    "item": {
+      "pricing": {
+        "title": "Kuruluşlar için",
+        "text": "Hizmetin nasıl finanse edilebileceği."
+      },
+      "ask": {
+        "title": "Asistan",
+        "text": "Grafikten verilen yanıtlar; her cümlenin kaynağı belirtilir."
+      },
+      "review": {
+        "title": "İnceleme kuyruğu",
+        "text": "Katkıların yayımlanmadan önce incelendiği yer."
+      },
+      "story": {
+        "title": "STXBP1 örneği",
+        "text": "Bir ailenin sayfası: yazılacak grup, açık araştırmalar ve her birinin kaynağı."
+      },
+      "communities": {
+        "title": "Ortak sorunu olan gruplar: STXBP1 ve SNAP25",
+        "text": "SNAP25 topluluğu ve Simons Searchlight ile elle kontrol edilen bağlantı ve öneri."
+      },
+      "gap": {
+        "title": "Henüz grubu bulunamayan hastalık",
+        "text": "Açık yanıt: tam eşleşme yok, en yakın grup ve yanıtlanmamış sorular."
+      },
+      "hood": {
+        "title": "Veri ve işleme ayrıntıları",
+        "text": "Her bağlantının tam yolu: kaynaklar, sürümler, dosya parmak izleri, PROV-O ve dil modeli çağrıları."
+      },
+      "impact": {
+        "title": "Zaman tasarrufu",
+        "text": "10 kat senaryosu: bugünkü süre ile Zebratlas üzerinden izlenen yolun varsayımlarla karşılaştırılması."
+      }
+    },
+    "title": "Demo ve değerlendirme",
+    "lead": "Jüri ve inceleyenler için materyaller. Ürün içinden bağlantı verilmez."
+  },
+  "suggest": {
+    "missing": "Eksik olan bir grup, araştırma veya veri kümesini bize bildirin.",
+    "add": "Ekle"
+  },
+  "legal": {
+    "about": {
+      "title": "Zebratlas hakkında",
+      "lead": "Zebratlas, nadir genetik hastalıklarla yaşayan ailelerin ve hasta destek gruplarının yardımcı olabilecek kişileri bulmasını sağlar.",
+      "howTitle": "Bilginin dayanağı",
+      "how": "Hastalık ve gen veri tabanları, araştırma kayıtları, hibeler, yayınlar ve hasta kuruluşlarının sitelerindeki açık kayıtları birleştiririz. Her bağlantıda kaynak ve kontrol tarihi gösterilir.",
+      "limitsTitle": "Hizmetin sınırları",
+      "limits": "Tıbbi tavsiye vermeyiz veya tedavileri değerlendirmeyiz. Özellikle İngilizce dışındaki kaynaklarda gruplar ve araştırmalar gözden kaçabilir. Sonuç bulamazsak bunu söyler ve nerede aradığımızı gösteririz.",
+      "helpTitle": "Eksikleri tamamlamamıza yardımcı olun",
+      "help": "Hasta destek grupları, kayıt sistemleri ve araştırmacılar eksik bilgileri ekleyebilir. Her gönderiyi yayımlanmadan önce kontrol ederiz.",
+      "whoTitle": "Projeyi kim yaptı",
+      "who": "Zebratlas, 7. Küresel Yapay Zekâ Hackathonu'nda (Hack-Nation, görev 5) başladı. Kodu açık kaynaktır."
+    },
+    "sources": {
+      "lead": "Zebratlas'ın gösterdiği bilgiler bu kaynaklardan gelir. Her biri için lisans, kullanılan sürüm ve kaynağın istediği atıf belirtilir.",
+      "licence": "Lisans",
+      "version": "Sürüm",
+      "attribution": "Atıf",
+      "confirm": "koşullar henüz doğrulanmadı",
+      "code": "Kendi kodumuz açık kaynaktır. Alınan verilere kaynaklarının lisansı uygulanır.",
+      "use": {
+        "orphanet": "Nadir hastalıklar, genleri, görülme sıklığı ve başlangıç zamanı.",
+        "hpo": "Benzer belirtili hastalıkları karşılaştırmak için bulgular ve belirtiler.",
+        "mondo": "Veri tabanları arasında her hastalık için ortak ad ve kod.",
+        "g2p": "Hangi gen değişikliklerinin hangi hastalıklara yol açtığı ve nasıl etki ettiği.",
+        "clingen": "Bir genin hastalığa yol açtığına dair kanıtların gücü.",
+        "hgnc": "Genlerin resmî adları ve diğer adları.",
+        "go": "Aynı süreci etkileyen hastalıkları bulmak için her genin hücredeki işlevi.",
+        "reactome": "Genlerin birlikte rol aldığı vücut süreçleri.",
+        "clinvar": "Hastalığa yol açtığı bilinen belirli gen değişiklikleri.",
+        "ctgov": "Araştırmalar, kayıt sistemleri, katılımcı alımı ve resmî iletişim bilgileri.",
+        "reporter": "Araştırma hibeleri: kimin hangi gen üzerinde çalıştığı.",
+        "pubmed": "Kimin hangi gen hakkında yayın yaptığı. Yalnızca bibliyografik bilgileri saklarız.",
+        "wikidata": "Birçok dilde hastalık adları.",
+        "orgs": "Hasta destek grupları: adları, ülkeleri, dilleri ve iletişim yolları."
+      }
+    },
+    "partners": {
+      "lead": "Zebratlas'ın henüz resmî iş ortakları yok.",
+      "text": "Kayıtları doğru tutmak ve verileri bağlamak için hasta kuruluşları, kayıt sistemleri ve araştırma ağlarıyla çalışmak istiyoruz. Temsil ettiğiniz kuruluşun kaynaklarını bize bildirin."
+    },
+    "contact": {
+      "lead": "Sorularınızı, düzeltmelerinizi veya fikirlerinizi bize yazın.",
+      "mailTitle": "E-posta",
+      "fixTitle": "Düzeltmeler",
+      "fix": "Kaydın kaynağı altındaki “Hata bildir” seçeneğini kullanın. Bildirim ilgili incelemeye ulaşır.",
+      "medical": "Tıbbi soruları yanıtlayamayız. Lütfen doktorunuza danışın.",
+      "a11yTitle": "Erişilebilirlik ve geri bildirim",
+      "a11y": "WCAG 2.2 AA düzeyine uymayı hedefliyoruz. Bir özelliği kullanamıyorsanız veya geri bildiriminiz varsa yukarıdaki adrese yazın.",
+      "formTitle": "Bize yazın",
+      "message": "Mesajınız",
+      "send": "Gönder",
+      "sent": "Teşekkürler. E-postayla yanıt vereceğiz.",
+      "invalid": "E-posta adresinizi ve mesajınızı girin."
+    },
+    "privacy": {
+      "lead": "Zebratlas'ı hesap olmadan ve izlenmeden kullanabilirsiniz.",
+      "noneTitle": "İzleme yok",
+      "none": "Analiz, reklam veya izleme çerezleri kullanmayız. Verileri satmayız veya paylaşmayız.",
+      "accountTitle": "Hesap oluşturursanız",
+      "account": "E-posta adresinizi, isteğe bağlı görünen adınızı, parolanızın güvenli biçimini ve kaydettiklerinizi saklarız. Bir çerez oturumunuzu açık tutar. Hesabınızı ve içindekileri istediğiniz zaman silebilirsiniz.",
+      "contributeTitle": "Düzeltme veya veri gönderirseniz",
+      "contribute": "İnceleyen kişinin soru sorabilmesi için gönderinizi ve paylaşırsanız adınızla iletişim adresinizi saklarız. Kabul edilen katkılar kaynaklarıyla gösterilir; iletişim bilgileriniz yayımlanmaz.",
+      "languageTitle": "Belgeler ve aramalar",
+      "language": "Belge yapıştırdığınızda veya yüklediğinizde sunucumuz arama terimlerini bulmadan önce belirgin kimlik bilgilerini kaldırır. Arama kutusunun yanındaki bildirim, gönderimden önce metni alabilecek işlemcileri belirtir. Belgeler bellekte işlenir ve ardından silinir. Yalnızca dosya parmak izi, boyut ve işlem zamanlarını tutarız. Giriş yapıp kaydetmeyi seçerseniz belge hesabınızda şifrelenir; “Verileriniz” bölümünden görebilir, indirebilir veya silebilirsiniz. Adınıza mesaj göndermeyiz.",
+      "logsTitle": "Sunucu günlükleri",
+      "logs": "Sunucumuz, hizmeti kötüye kullanımdan korumak için IP adresi gibi teknik verileri kısa süreli kaydeder.",
+      "rightsTitle": "Haklarınız",
+      "rights": "GDPR kapsamında hakkınızda saklanan verileri öğrenebilir, düzeltilmesini veya silinmesini isteyebilir ve veri koruma makamına şikâyette bulunabilirsiniz.",
+      "controllerTitle": "Veri sorumlusu"
+    },
+    "imprint": {
+      "lead": "DDG (Alman Dijital Hizmetler Yasası) madde 5 uyarınca bilgiler.",
+      "operatorTitle": "İşletmeci",
+      "contactTitle": "İletişim",
+      "operator": "Johannes Mitschunas",
+      "contactForm": "İletişim formu",
+      "private": "Zebratlas, Johannes Mitschunas'ın kişisel projesidir; Friedrich Schiller University Jena'nın bir hizmeti değildir.",
+      "street": "Inselplatz 5",
+      "city": "07743 Jena",
+      "country": "Almanya",
+      "email": "johannes.mitschunas@uni-jena.de"
+    }
+  },
+  "data": {
+    "title": "Verilerinizi bağlayın",
+    "lead": "Eksik olan bir grup, araştırma veya veri kümesini bildirin. Her gönderiyi yayımlanmadan önce kontrol ederiz.",
+    "field": {
+      "name": "Kayıt sistemi, veri kümesi veya kaynağın adı",
+      "organisation": "Kuruluş",
+      "what": "Sahip olduğunuz kaynak",
+      "url": "Bağlantı (internet adresi)",
+      "licence": "Lisans veya kullanım koşulları",
+      "licenceHint": "Örneğin CC BY 4.0 veya “istek üzerine”.",
+      "ids": "Kullanılan tanımlayıcılar",
+      "idsOther": "Diğer tanımlayıcılar",
+      "description": "Açıklama"
+    },
+    "submit": "İncelemeye gönder",
+    "kind": {
+      "registry": "Hasta kayıt sistemi",
+      "dataset": "Veri kümesi",
+      "knowledge_graph": "Bilgi grafiği",
+      "endpoint": "API veya SPARQL uç noktası",
+      "mapping": "Eşleme dosyası",
+      "other": "Başka bir şey"
+    },
+    "error": {
+      "invalid": "E-posta adresinizi ve bir bağlantı veya açıklama girin.",
+      "unavailable": "Şu anda gönderilemiyor. Daha sonra deneyin.",
+      "rate_limited": "Buradan çok fazla gönderi yapıldı. Birkaç dakika sonra deneyin.",
+      "generic": "Bir sorun oluştu. Yeniden deneyin."
+    },
+    "linkOrDescription": "Bağlantı veya açıklama",
+    "storage": "Gönderinizi incelemek için saklarız ve size e-posta yazabiliriz. Her gönderiyi yayımlanmadan önce kontrol ederiz."
+  },
+  "help": {
+    "result": {
+      "link": "Veri kaynaklarımız",
+      "title": "Sonucu ve kaynağını okuma",
+      "text": "Hastalık sayfası hasta destek gruplarını, şu anda katılımcı alan araştırmaları ve uzman merkezleri gösterir. Her kaydın altındaki “Kaynak”, bilginin nereden geldiğini ve son kontrol tarihini gösterir."
+    },
+    "contact": {
+      "title": "Grup veya araştırmayla iletişim",
+      "text": "“Mesaj yaz” düzenleyebileceğiniz bir mesaj açar. Kopyalayıp grubun sitesi, formu veya e-postasıyla gönderin. Adınıza hiçbir şey göndermeyiz.",
+      "link": "Grup bul"
+    },
+    "contribute": {
+      "title": "Bilgi düzeltme veya ekleme",
+      "text": "Bir kayıt yanlışsa veya eksik varsa kaynağın altındaki “Hata bildir” seçeneğini kullanın. Her gönderiyi yayımlanmadan önce kontrol ederiz. Kendi verileriniz için “Silme veya düzeltme iste” seçeneğini kullanın.",
+      "link": "Bize ulaşın"
+    },
+    "data": {
+      "title": "Verilerinizi bağlama",
+      "text": "Kayıt sistemleri, araştırma grupları ve kuruluşlar veri kümesi, kayıt sistemi, bilgi grafiği veya uç nokta bildirebilir. Bağlantı ya da kısa açıklama ve e-posta yeterlidir.",
+      "link": "Veri paylaş"
+    },
+    "account": {
+      "title": "Hesabınız ve verileriniz",
+      "text": "Hesap gerekmez. Hesapla sayfa, mesaj ve belgeleri kaydedebilirsiniz. İçindekilerin tamamını istediğiniz zaman indirebilir veya silebilirsiniz.",
+      "link": "Giriş yap veya hesap oluştur"
+    },
+    "search": {
+      "title": "Arama",
+      "text": "Her sayfanın üstündeki arama kutusuna metninizi yazın. Yazarken sayfadaki eşleşmeler vurgulanır; Ara düğmesi tüm Zebratlas'ta arar. Doktor mektubunu yapıştırabilir veya ekleyebilir, çıkarılan terimleri aramadan önce değiştirebilirsiniz.",
+      "link": "Aramaya git"
+    }
+  },
+  "checked": {
+    "title": "{subject} için kontrol ettiklerimiz",
+    "matched": "{n, plural, one {# eşleşme} other {# eşleşme}}",
+    "none": "eşleşme yok",
+    "find": {
+      "names": "Hastalık adları ve diğer adları (Mondo, Orphanet, OMIM)",
+      "genes": "Gen adları ve sembolleri (HGNC)",
+      "codes": "Hastalık kodları (MONDO, ORPHA, OMIM)",
+      "text": "Metninizdeki gen veya hastalık adları"
+    }
+  },
+  "search": {
+    "hint": "Sorunuzu yazabilir veya metninizi buraya yapıştırabilirsiniz.",
+    "matches": "Bu sayfada {n} sonuç bulundu. Enter sonraki sonuca geçer.",
+    "noMatches": "Bu sayfada bulunamadı. Ara düğmesi tüm Zebratlas'ta arar.",
+    "filters": "Filtreler",
+    "kindLegend": "Göster",
+    "kind": {
+      "condition": "Hastalıklar",
+      "gene": "Genler",
+      "patient_group": "Hasta destek grupları",
+      "study": "Araştırmalar ve kayıt sistemleri",
+      "model": "Modeller ve örnekler",
+      "therapy": "Tedavi programları",
+      "funding": "Finansman",
+      "paper": "Yayınlar"
+    },
+    "country": "Ülke",
+    "language": "Dil",
+    "recruiting": "Yalnızca şu anda katılımcı kabul eden araştırmalar",
+    "consent": "Arama terimlerini bulmak için belgeniz {processor} sistemine gönderilir ve işlemden hemen sonra silinir.",
+    "rights": "Haklarınız",
+    "save": "Hesabıma kaydet (şifreli)",
+    "extract": "Arama terimlerini bul",
+    "extracting": "Belge okunuyor",
+    "found": "Bu arama terimlerini bulduk. Aramadan önce istediğinizi değiştirin veya kaldırın.",
+    "remove": "{term} terimini kaldır",
+    "addTerm": "Terim ekle",
+    "searchTerms": "Bu terimlerle ara",
+    "intakeUnavailable": "Belge okuma şu anda kullanılamıyor. Daha sonra deneyin.",
+    "intakeError": "Belge okunamadı. Başka bir dosya ekleyebilirsiniz.",
+    "attach": "Belge ekle",
+    "fileError": "En fazla 5 MB boyutunda PDF, DOCX veya TXT dosyası seçin.",
+    "localConsent": "Sunucumuz belgenizden arama terimlerini bulur ve belgeyi hemen siler. Hiçbir model belgeyi almaz.",
+    "checkingProcessor": "Belgenizin nerede işleneceği kontrol ediliyor…",
+    "model": "{model} tarafından bulunan arama terimleri.",
+    "localTerms": "Arama terimleri sunucumuzda model kullanılmadan bulundu.",
+    "noTerms": "Arama terimi bulunamadı. Terim ekleyebilirsiniz.",
+    "saved": "Hesabınıza kaydedildi. Verilerinizi görün."
+  },
+  "explore": {
+    "title": "Araştırma toplulukları grafiği",
+    "lead": "Merkezde {name}, çevresinde vücuttaki aynı süreçle ilişkili topluluklar var. Daha yakın ve kalın gösterim daha güçlü bağlantı demektir. Bir topluluğu seçerek merkeze alın.",
+    "show": "Göster",
+    "has": {
+      "group": "hasta destek grubu olan",
+      "assets": "araştırma veya kayıt sistemi olan"
+    },
+    "apply": "Uygula",
+    "graphLabel": "{name} ile bağlantılı toplulukların grafiği",
+    "legend": "Dolu daire: yazabileceğiniz hasta destek grubu veya araştırma ekibi. Boş daire: henüz bilinen yok.",
+    "listTitle": "{name} ile bağlantılı topluluklar",
+    "toCommunities": "Kaynakları ve yazabileceğiniz kişiler"
+  },
+  "form": {
+    "required": "zorunlu",
+    "optional": "isteğe bağlı",
+    "email": "E-posta adresiniz",
+    "name": "Adınız",
+    "describeIt": "Açıklayın"
+  },
+  "removal": {
+    "link": "Silme veya düzeltme iste",
+    "title": "Silme veya düzeltme isteği",
+    "lead": "Zebratlas'taki sizinle veya kuruluşunuzla ilgili bilgilerin silinmesini ya da düzeltilmesini istiyorsanız veya kullanımına itiraz ediyorsanız burada bildirin. Hesap gerekmez.",
+    "type": "İsteğiniz",
+    "types": {
+      "remove": "Sil",
+      "correct": "Düzelt",
+      "object": "Kullanımına itiraz ediyorum"
+    },
+    "concerns": "İlgili bilgi",
+    "concernsHint": "Kaydın bağlantısı, ad veya ORCID ya da kısa açıklama.",
+    "details": "Bilmemiz gereken diğer bilgiler",
+    "handling": "İsteğinizi e-postayla doğrularız, bilginin size ait olduğunu doğrulamanızı isteyebiliriz ve 30 gün içinde karar veririz.",
+    "submit": "İsteği gönder",
+    "sentTitle": "İstek alındı",
+    "sent": "Teşekkürler. İsteğinizi e-postayla doğrulayacak ve 30 gün içinde karar vereceğiz.",
+    "error": {
+      "invalid": "E-posta adresinizi girin, isteğinizi seçin ve ilgili bilgiyi belirtin.",
+      "unavailable": "Şu anda gönderilemiyor. Bunun yerine bize yazın:",
+      "rate_limited": "Buradan çok fazla istek gönderildi. Birkaç dakika sonra deneyin.",
+      "generic": "Bir sorun oluştu. Yeniden deneyin."
+    }
+  },
+  "connectionMap": {
+    "title": "Bağlantılar ve dayanakları",
+    "lead": "Kaydedilmiş bağlantıları izlemek için bir topluluk veya biyolojik yolak seçin.",
+    "overview": "Genel görünüm",
+    "count": "{n} bağlantı grubu",
+    "partial": "{total} birimden {n} tanesi yüklendi. Genel görünüm, dönen tüm grupları içerir.",
+    "unavailable": "Bağlantının kanıtları kullanılamıyor. Destek iletişim bilgileri yukarıda gösteriliyor.",
+    "pathGap": "Yüklenen kanıtlarda bu gruba giden kayıtlı bir yol yok.",
+    "inference": "Ortak bir yolakta yer almak araştırma için ipucudur. Ortak hastalık mekanizmasını veya tedaviyi kanıtlamaz.",
+    "unknown": "Kaydedilmemiş",
+    "selected": "Seçilen grup",
+    "bounded": "Bu görünüm, dönen sonuçların bir bölümünü gösterir. Eksik öğelerin yokluğu doğrulanmış değildir.",
+    "fixture": "C incelemesinin sabit kanıtları; canlı veri değil",
+    "expand": "Bağlantıları genişlet",
+    "collapse": "Bağlantıları daralt",
+    "contact": "Resmî iletişim bilgisi",
+    "close": "Kapat",
+    "diagnosis": "Tanı",
+    "pathway": "Yolak açıklaması",
+    "other": "Diğer gen veya hastalık",
+    "community": "Topluluk",
+    "asset": "Araştırma veya kaynak",
+    "contrary": "Karşı kanıtlar",
+    "relations": {
+      "has_associated_gene": "ilişkili geni var",
+      "serves_gene": "şu gende varyantı olan kişileri destekler",
+      "participates_in": "şu yolakla ilişkilendirilmiş",
+      "names_gene": "araştırma kaydında geni adlandırır",
+      "studies_condition": "şu hastalık için dizinlenmiş",
+      "serves_condition": "şu hastalıkla yaşayan kişileri destekler",
+      "held_by": "şu kişi veya kuruluş tarafından tutulur",
+      "sponsored_by": "kayıtlı sponsoru"
+    },
+    "locator": "Kaydın konumu",
+    "hashScope": "Özet değerinin kapsamı"
+  },
+  "facts": {
+    "person_same": "{name} ve {other} aynı kişidir."
+  },
+  "verify": {
+    "record": {
+      "partial": "Kontrol edilen kayıtlar eşleşiyor; bazı kayıtlar henüz kontrol edilmedi.",
+      "unavailable": "Kontrol edilebilecek kaynak kaydı bulunmuyor."
+    }
+  },
+  "about": {
+    "title": "Nasıl çalışır",
+    "lead": "Atlas, aileleri ve hasta gruplarını yardımcı olabilecek kişilerle ve çalışmalarla buluşturur. Her bağlantının kaynağı gösterilir.",
+    "s1Title": "Her hastalık için tek kimlik",
+    "s1Text": "Başlıca hastalık kataloglarını (MONDO, Orphanet, OMIM, HPO) her hastalık için tek kayıtta birleştirir ve tüm kaynak kimliklerini koruruz.",
+    "s2Title": "Kaynaklı bağlantılar",
+    "s2Text": "Hasta grupları, çalışmalar, kayıt sistemleri, araştırmacılar, makaleler ve hibeler hastalıklarla ilişkilendirilir. Her bağlantıda kaynak kaydı, tarih ve dijital parmak izi korunur.",
+    "s3Title": "Sade ve denetlenmiş anlatım",
+    "s3Text": "Dil modelleri sade açıklamaları ve mesaj taslaklarını yalnızca bağlantılı kayıtlardan yazar. Doğrulayıcı, her cümlenin bir kayda atıf yaptığını denetler.",
+    "s4Title": "Yalnızca adlar değil, ortak mekanizmalar",
+    "s4Text": "Hastalıklar gene, vücuttaki sürece ve ardından ayırt edici belirtilere göre gruplandırılır. Benzer görünüp farklı nedeni olanlar açıkça belirtilir.",
+    "s5Title": "Dünya çapında ve birçok dilde",
+    "s5Text": "Her dildeki kaynaklar bulunur, çevrilir ve aynı hastalıkla eşleştirilir. Özgün metin her zaman korunur.",
+    "s6Title": "Kendiniz çalıştırın",
+    "s6Text": "Kod, veri işleme hattı ve grafik dışa aktarımı açıktır. Deponun README dosyasında tümünü çalıştıran tek bir komut bulunur.",
+    "numbersTitle": "Atlas bugün",
+    "privacyTitle": "Gizliliğiniz",
+    "privacyText": "Hesap açmadan arama yapabilirsiniz. Konuşmaları kaydetmek isteğe bağlıdır. Verileri asla satmayız."
+  },
+  "theme": {
+    "dark": "Koyu tema"
+  },
+  "chart": {
+    "sector": {
+      "groups": "Gruplar",
+      "studies": "Çalışmalar",
+      "people": "Araştırmacılar",
+      "funding": "Finansman"
+    },
+    "label": "{name} şeması: ortada hastalık, çevresinde gruplar, çalışmalar ve araştırmacılar",
+    "none": "Bulunamadı"
+  },
+  "api": {
+    "error": {
+      "focus_required": "Bir kayıt seçin.",
+      "unit_limit": "Sınır 1 ile 500 arasında olmalıdır."
+    }
+  },
+  "coverage": {
+    "outside_verified_neighbourhood": "Bu hastalık için doğrulanmış kanıtlarımız sınırlıdır. Başka araştırmalar da olabilir."
+  },
+  "connections": {
+    "why": {
+      "project": "{organisation} bünyesindeki bu araştırma projesi {subject} konusunu belirtir."
+    }
+  },
+  "backend": {
+    "integrity": {
+      "contract": {
+        "identity-merge-has-rule-evidence": "Her SSSOM diğer adı, bir birleştirme işlemi ve özete bağlı sürümlü eşleme satırlarıyla ilişkilidir",
+        "edge-endpoint-resolves": "Her kenarın iki ucu, ilişkinin izin verdiği türde bir düğüme karşılık gelir; boşta kalan kenar yoktur",
+        "edge-has-provenance": "Her kenarın varlık, kayıt konumu ve sha256 içeren en az 1 kaynak kaydı ve onu üreten işlem vardır",
+        "node-has-provenance": "Her çalışma, hibe, makale, kişi, kuruluş ve kaynağın sha256 içeren en az 1 kaynak kaydı vardır",
+        "edge-id-unique": "Kenar kimlikleri (from|relation|to) benzersizdir; paralel kanıtlar tek kenarda birleştirilir",
+        "record-entity-has-checksum": "Her kaydın dayandığı kaynak dosyanın sha256 özeti kaydedilmiştir",
+        "record-has-licence": "Her kaydın kaynak dosyasında lisans ve sınıfı belirtilir: open / share_alike / non_commercial / unknown",
+        "asset-has-access-route": "Her kaynak, kimde bulunduğunu veya ona nasıl erişileceğini URL ya da sahibiyle belirtir",
+        "candidate-not-merged": "candidate_same_as çifti tek düğümde birleşmez; adaylar bağlantıdır, birleştirme değildir (D30)",
+        "source-header-checksums-match": "Yüklenen her kaynak önbellek başlığı sağlama toplamı denetimlerini geçer."
+      },
+      "problem": {
+        "identity_activity": "Kimlik birleştirme işlemi eksik",
+        "identity_derivation": "Üyelerin türetim veya eşleme satırları eksik",
+        "identity_rule": "Kuralın sürümü yok veya kanıt eksik",
+        "record_index": "{r} kaydı aralık dışında",
+        "record_entity": "{arg0} kaydı bilinmeyen bir varlığı adlandırıyor",
+        "record_checksum": "{arg0} kaydında sha256 yok",
+        "endpoint_from": "Başlangıç ucu {arg0} boşta",
+        "endpoint_to": "Bitiş ucu {arg0} boşta",
+        "endpoint_kind": "{arg0}, {from} → {to} bekliyor; bulunan: {f} → {t}",
+        "duplicate_edge": "Bu kimliği paylaşan kenar sayısı: {n}",
+        "entity_licence": "{arg0} varlığının lisans kaydı yok",
+        "person_orcids": "ORCID sayısı: {arg0}; kimlikler: {arg1}",
+        "orcid_people": "ORCID, {arg0} kişi düğümünde: {arg1}",
+        "different_orcids": "Farklı ORCID kimlikleri: {a} ve {b}",
+        "no_record": "Kaynak kaydı yok",
+        "unknown_activity": "Bilinmeyen işlem",
+        "no_checksum": "sha256 yok",
+        "no_access": "Erişim yolu yok",
+        "self_link": "Düğümün kendisine bağlantısı",
+        "header_checksums": "{n} önbellek başlığı sağlama toplamı denetimi başarısız oldu."
+      }
+    },
+    "account": {
+      "error": {
+        "unauthorized": "Devam etmek için giriş yapın.",
+        "bad_credentials": "E-posta adresi veya parola yanlış.",
+        "invalid": "Gerekli alanları ve değerlerini kontrol edip tekrar deneyin.",
+        "not_found": "Bu öğe bulunamadı.",
+        "forbidden": "Bu öğeyi değiştirme izniniz yok.",
+        "conflict": "Bu değişiklik mevcut bir öğeyle çakışıyor. Tekrar denemeden önce sayfayı yenileyip kontrol edin.",
+        "rate_limited": "Çok fazla deneme yapıldı. Daha sonra tekrar deneyin.",
+        "unavailable": "Hesaplar şu an kullanılamıyor. Giriş yapmadan arama yapabilirsiniz.",
+        "internal": "Bu hesap isteği tamamlanamadı. Daha sonra tekrar deneyin."
+      },
+      "export": {
+        "credentials": "Bu indirmeye parola özetleri ve oturum belirteçleri dahil değildir. Yalnızca parola özetini ve her oturum belirtecinin parmak izini saklarız.",
+        "public_data": "Hastalık kayıtları ve kaynakları hesabınızdan ayrı, herkese açık verilerdir. Kaydedilen öğeler, bağlantılı kayıtların kimliklerini içerir.",
+        "network_data": "Hesabınız IP adreslerini veya tarayıcı bilgilerini saklamaz."
+      },
+      "data": {
+        "contributions_unavailable": "Katkılarınız şu anda yüklenemedi."
+      },
+      "deleted": {
+        "account": "Hesabınız silindi.",
+        "sessions": "Her yerden çıkış yaptınız.",
+        "documents": "{n} kayıtlı belge, okunmalarını sağlayan anahtarla birlikte silindi.",
+        "saved": "{n} kayıtlı öğe ve {conversations} konuşma silindi.",
+        "contributions_not_connected": "Katkılar bu sunucuda saklanmaz.",
+        "contributions_none": "Katkınız yoktu.",
+        "contributions_credited": "Seçtiğiniz gibi {n} kabul edilmiş katkı adınızla Atlas'ta kalır; e-posta adresiniz ve hesap bağlantınız kaldırıldı.",
+        "contributions_anonymised": "{n} kabul edilmiş katkı, adınız, e-posta adresiniz veya hesap bağlantınız olmadan Atlas'ta kalır."
+      }
+    },
+    "ask": {
+      "error": {
+        "context_too_large": "Konuşma bağlamı çok büyük. Yeni bir konuşma başlatın.",
+        "empty_question": "Bir soru yazın veya arama görevi seçin.",
+        "question_too_long": "Sorunuz en fazla {limit} karakter olsun.",
+        "generic": "Bir sorun oluştu. Tekrar deneyin."
+      },
+      "attribute": {
+        "inheritance": "Kalıtım biçimi",
+        "onset": "İlk belirtilerin görüldüğü yaş"
+      },
+      "prevalence": {
+        "figure": "Bildirilen değer: {value}"
+      },
+      "fragment": {
+        "retrieved_date": ", alınma tarihi: {date}",
+        "checked_date": "; kontrol tarihi: {d}",
+        "countries": "; ülkeler: {arg0}",
+        "sponsor": "; destekleyici: {arg0}",
+        "country": ", ülke: {c}",
+        "description": ": {d}",
+        "verified_date": "; resmî kanalın doğrulandığı tarih: {d}",
+        "affiliation": ", bağlı kurum: {a}",
+        "funded_range": ", finansman dönemi: {a}–{b}",
+        "funded_year": ", finansman yılı: {a}",
+        "paper_year": " ({y})",
+        "match_reason": " [eşleşme nedeni: {reason}]"
+      },
+      "need": {
+        "groups": "Hasta grupları veya uzman merkezler",
+        "studies": "Çalışmalar",
+        "papers": "Yayınlar",
+        "grants": "NIH araştırma projeleri",
+        "patient_group": "Hasta destek grubu",
+        "open_study": "Devam eden veya planlanan çalışma ya da kayıt sistemi",
+        "researcher": "Araştırmacı",
+        "project": "Araştırma projesi"
+      },
+      "frequency": {
+        "always": "Kaydedilen tüm olgularda",
+        "very_often": "Kaydedilen olguların çoğunda",
+        "often": "Sık",
+        "sometimes": "Bazen",
+        "rarely": "Nadiren",
+        "not": "Kaydedilen olguların hiçbirinde yok"
+      },
+      "kind": {
+        "any": "Bağlantılar",
+        "study": "Çalışma",
+        "trial": "Klinik çalışma",
+        "registry": "Hasta kayıt sistemi",
+        "natural_history": "Hastalığın doğal seyri araştırması",
+        "observational": "Gözlemsel araştırma",
+        "expanded_access": "Genişletilmiş erişim programı",
+        "patient_group": "Hasta destek grubu",
+        "expert_centre": "Uzman merkez",
+        "researcher": "Araştırmacı",
+        "grant": "Araştırma projesi",
+        "sponsor": "Çalışma destekleyicisi",
+        "institution": "Kurum",
+        "organisation": "Kuruluş"
+      },
+      "status": {
+        "any": "Kaydedilen herhangi bir durum",
+        "open": "Devam eden veya planlanan",
+        "recruiting": "Katılımcı alıyor",
+        "closed": "Kapalı veya güncel değil"
+      },
+      "assets": {
+        "selection": "{kind} kaynakları, durum: {status}"
+      },
+      "relation": {
+        "studies_condition": "İçin kaydedilmiş çalışma",
+        "names_gene": "Geni belirtir",
+        "about_gene": "Gen hakkındadır",
+        "about_condition": "Hakkındadır",
+        "author_of": "Yazarıdır",
+        "principal_investigator_of": "Yürütür",
+        "sponsored_by": "Destekleyen kuruluş",
+        "awarded_to": "Verildiği kurum",
+        "serves_condition": "Hastalarına destek verir",
+        "serves_gene": "Geninde değişiklik olan kişilere destek verir",
+        "same_as": "Aynı kişidir",
+        "held_by": "şu kişi veya kuruluş tarafından tutulur",
+        "model_of": "Araştırma modelidir",
+        "studied_for": "İçin geliştiriliyor veya araştırılıyor",
+        "targets": "Geni hedefler",
+        "resource_for": "Araştırma kaynağıdır",
+        "funds": "Üzerine araştırmayı finanse eder",
+        "claims_about": "Hakkında çıkarılmış ve alıntısı denetlenmiş ifade içerir",
+        "has_phenotype": "Özelliği görülür",
+        "orthologous_to": "Karşılık gelen genidir",
+        "gene_associated_with_condition": "İlişkilidir",
+        "candidate_same_as": "Aynısı olabilir",
+        "related_to": "Bağlantılıdır"
+      },
+      "note": {
+        "corrected_spelling": "Doğrudan eşleşme bulunamadı. Düzeltilmiş '{fixed}' yazımı arandı",
+        "genes_shown": "Toplam ilişkili gen: {arg0}; 6 tanesi gösteriliyor",
+        "symptoms_shown": "Kaydedilen belirti: {arg0}; 8 tanesi gösteriliyor",
+        "source_unloaded": "Kaynak kullanılamadığı için {what} bakımından {source} kontrol edilemedi",
+        "exact_connection": "En az bir doğrudan ilişkili {what} bulundu",
+        "broader_groups": "Bağlantılar altında daha geniş hastalıklar için {related} hasta grubu listeleniyor",
+        "links_shown": "10 bağlantı gösteriliyor. Daha fazlası kayıtlı",
+        "conditions_shown": "{arg1} ile ilişkili hastalık: {arg0}; 8 tanesi gösteriliyor",
+        "shared_researchers": "{la} için {arg0}, {lb} için {arg1} araştırmacı; ortak: {arg2}; gösterilen: {arg3}",
+        "counts": "{arg0} {what} bulundu ({exact} hastalık veya geniyle doğrudan, {arg1} daha geniş grup ya da çoklu gen bağlantısıyla ilişkili); en güçlüden başlayarak {shown} tanesi gösteriliyor",
+        "gene_conditions": "{arg1} paylaşan diğer hastalık: {arg0}; 5 tanesi gösteriliyor",
+        "symptom_threshold": "Hiçbir hastalık, {arg0} ile {MIN_SHARED} ortak nadir belirti arama eşiğini karşılamadı",
+        "cause_comparison_unavailable": "Bu sonuçların kayıtlı nedenleri karşılaştırılamadı. Ortak belirtiler tek başına ortak nedeni kanıtlamaz",
+        "gene_results": "{arg1} ile ilişkili hastalık: {arg0}; {arg2} tanesi gösteriliyor",
+        "process_unavailable": "Reactome ve Gene Ontology süreç kayıtları kullanılamadığı için '{process}' aranamadı",
+        "no_path": "{arg0} ile {arg1} arasında en fazla {MAX_DEPTH} bağlantılık kayıtlı bir zincir yok",
+        "path_length": "En kısa kayıtlı zincir: {arg0} bağlantı"
+      },
+      "fact": {
+        "recorded_symptom": "{arg0} ({arg1}) için görülen belirti: {arg2}",
+        "symptom_conditions": "Atlasta {term} veya daha özgül biçimini kaydeden hastalık sayısı: {arg0}",
+        "gene_condition_link": "{symbol}, {arg0} ile ilişkili",
+        "symptom_frequency": "{name} için {term}: bildirilen {arg0} (sıklık {raw})",
+        "symptom_possible": "{name} durumunda {term} görülebilir",
+        "matched_record": "'{text}', {how} \"{matched}\" üzerinden {arg0} {arg1} ({arg2}) ile eşleşiyor",
+        "candidate_condition": "'{text}' için önerilen hastalık: {arg0} ({arg1})",
+        "definition": "{name} ({id}): {arg0}",
+        "rare_classification": "{name} ({id}) nadir hastalık olarak sınıflandırılıyor",
+        "synonyms": "{name} için diğer adlar: {arg0}",
+        "attribute": "{name} için {what}: {arg0}",
+        "prevalence": "{name} ({arg1}) için {arg0}: {value}",
+        "connections_summary": "Kontrol edilen kaynaklarda {name} veya geni için {studies} çalışma ({open} devam eden veya planlanan) ve {groups} hasta grubu veya uzman merkez listeleniyor",
+        "prevalence_missing": "Orphanet'te {name} ({id}) sıklığına ilişkin değer kayıtlı değil",
+        "causal_gene_missing": "Orphanet veya OMIM'de {name} ({id}) için nedensel gen kayıtlı değil",
+        "symptoms_missing": "Human Phenotype Ontology'de {name} ({id}) için belirti kayıtlı değil",
+        "record_definition": "{arg0} ({arg1}): {arg2}",
+        "term_definition": "{arg0}{def}",
+        "parent_condition": "MONDO hastalık hiyerarşisinde {label} ({cid}), {anc_name} ({anc}) türüdür",
+        "study": "{arg0} ({arg1}): {arg2}. Durum: {arg3}{sponsor}{countries}{checked}",
+        "organisation": "{arg0}: {arg1}{place}{about}{verified}",
+        "researcher": "{arg0} bir araştırmacıdır{aff}{checked}",
+        "grant": "{arg0} ({arg1}), {arg2} bünyesinde NIH tarafından finanse edilen araştırma projesidir{years}",
+        "paper": "{arg0} ({arg1}), {arg2} içinde yayımlanan bir makaledir{year}",
+        "gene_association": "{arg0} ({arg1}), {arg2} ({arg3}) ile ilişkili bir gendir: {assoc} (kaynak: {arg4})",
+        "recorded_relationship": "{arg0} ile {arg2} arasındaki ilişki: {arg1}{reason}",
+        "gene_identity": "{gene} ({id}), '{name}' genidir.{aliases_count, plural, =0 {} one { Diğer kayıtlı simgeler: {aliases}.} other { Diğer kayıtlı simgeler: {aliases}.}}",
+        "related_shared_symptoms": "{condition} ({id}) ile {query} için {count} ortak kayıtlı belirti var: {symptoms}.{shared_gene, select, true { Bu hastalıklar ayrıca ilişkili bir geni paylaşır.} other {}}"
+      },
+      "chip": {
+        "invalid": "Bu görev çalıştırılamadı. Gerekli arama terimlerini ve kayıt kimliklerini kontrol edin."
+      },
+      "response": {
+        "planning_fallback": "Asistan arama görevlerini seçemedi. Zebratlas anahtar sözcük eşleşmelerini kullandı.",
+        "save_failed": "Bu konuşma kaydedilemedi. Sayfadan ayrılmadan önce kopyalayın."
+      },
+      "template": {
+        "no_result": "Bu görev için kaynaklı sonuç bulunamadı. Arama terimlerini gözden geçirin veya başka bir görev deneyin.",
+        "no_facts": "Zebratlas'ta bu soru için kaynaklı bilgi yok."
+      },
+      "coverage": {
+        "source_unloaded": "{arg0} kontrol edilemedi. Kaynak durumu: {arg1}",
+        "gene_subset": "{arg0} şu genler için arandı: {arg1}. {arg3} bu aramanın dışındaydı; bu yüzden ona ilişkin {what} kontrol edilmedi",
+        "none_found": "{arg2} içinde {arg0} ({arg1}) veya geniyle ilişkili {what} bulunamadı (arama: {arg3}{when})"
+      },
+      "list": {
+        "more": "{remaining, plural, =0 {{items}} one {{items} ve # tane daha} other {{items} ve # tane daha}}"
+      },
+      "term": {
+        "label": "{name} ({id}{plain_state, select, present {; {plain}} other {}})"
+      },
+      "validation": {
+        "no_model": "Model istenmedi.",
+        "validator": "Asistanın yanıtı kaynak kontrolünü geçemedi.",
+        "provider": "Asistan yanıt üretemedi.",
+        "no_facts": "Kaynaklı olgular mevcut değildi.",
+        "other": "Şablon yanıt kullanıldı."
+      },
+      "choice": {
+        "both": "Gen ve belirtiler",
+        "gene": "Gen",
+        "symptom": "Belirtiler"
+      }
+    },
+    "contribute": {
+      "check": {
+        "sample_found": "Kontrol edilen örnekte {kind} hakkında kanıt var. İnceleyen kişinin doğrulaması gerekir.",
+        "sample_not_found": "Kontrol edilen örnekte {kind} hakkında kanıt yok. Kaynağın tamamında bulunabilir.",
+        "known_source_matched": "Bu kaynak URL'si zaten listelenmiş. Tekrar eklemeden önce inceleyin.",
+        "known_source_unmatched": "Kontrol edilen listelerde eşleşen kaynak URL'si bulunamadı.",
+        "description_only": "İnceleyen kişi, kontrol etmeden önce açıklamanızdan kaynağı belirlemelidir.",
+        "snapshots": "Yeniden kontrol için {total} yanıt görüntüsünden {retained} tanesi saklandı. Her yanıt depolama durumunu belirtir.",
+        "duplicate_source_matched": "Başka bir gönderi de bu kaynağı belirtiyor. İnceleyen kişi bunları karşılaştırmalıdır.",
+        "duplicate_source_unmatched": "Bekleyen veya kabul edilen gönderilerde eşleşen kaynak bulunamadı.",
+        "relationship_unmapped": "Bağlantı eklenmeden önce inceleyen kişi açıkladığınız ilişkiyi kontrol etmelidir.",
+        "no_url": "Bağlantı verilmedi.",
+        "url_ok": "Sayfa açılıyor.",
+        "url_http_error": "Sayfa hata döndürdü (HTTP {arg0}).",
+        "url_blocked": "Bu adres özel bir ağa yöneliyor ve açılmadı.",
+        "url_invalid": "Bu, açabileceğimiz bir web adresi değil.",
+        "url_too_large": "Sayfa otomatik kontrol için çok büyük.",
+        "url_unreachable": "Sayfaya şu anda ulaşılamadı.",
+        "no_quote": "Alıntı verilmedi.",
+        "quote_no_url": "Alıntı bağlantısız verildiği için kontrol edilemiyor.",
+        "quote_found": "Alıntılanan sözcükler sayfada bulunuyor.",
+        "quote_not_found": "Kontrol edilen metinde alıntı bulunamadı. İnceleyen kişi sayfanın kendisini kontrol edebilir.",
+        "quote_unchecked": "Sayfa metin olarak okunamadığı için alıntı kontrol edilmedi.",
+        "identity_resolved": "Kayıtlı giriş: {arg0}.",
+        "identity_kind_mismatch": "{arg0}, {arg1} olarak kayıtlı; bu alan {arg2} bekliyor.",
+        "identity_unknown_id": "{id} kimliği için giriş bulunamadı.",
+        "identity_ambiguous": "\"{label}\" birden fazla girişle eşleşiyor; inceleyen kişi birini seçecek.",
+        "identity_candidates": "\"{label}\" için tam ad eşleşmesi yok. Benzer girişler incelenmeli.",
+        "identity_new": "\"{label}\" için kayıtlı eşleşme yok. İnceleyen kişi eklenip eklenmeyeceğini kontrol edecek.",
+        "identity_not_found": "Kontrol edilen kayıtlarda \"{label}\" bulunamadı.",
+        "edge_missing": "Bağlantı okunamadı.",
+        "edge_found": "Bu bağlantı kayıtlı.",
+        "reviewed_connection": "Bağlantı, incelenmiş bir gönderiyle eklendi.",
+        "connection_not_recorded": "Kontrol edilen kayıtlarda bu bağlantı bulunamadı.",
+        "duplicate_unchecked": "Hastalık veya gen bulunduğunda tekrarlar kontrol edilir.",
+        "duplicate_curated": "Bu bağlantı, düzenlenmiş bir kaynaktan zaten kayıtlı.",
+        "related_curated": "Bu girişler arasında başka bir bağlantı zaten kayıtlı.",
+        "conflict_contribution": "Başka bir gönderi bu bağlantının yanlış olduğunu belirtiyor.",
+        "no_duplicate": "Gönderi kuyruğunda eşleşen bildirim bulunamadı.",
+        "duplicate_pending": "Başkaları da aynı durumu bildirdi.",
+        "conflict_curated": "Bu, düzenlenmiş kaynaktaki bağlantıya itiraz ediyor; inceleyen kişi iki kaynağı karşılaştırır.",
+        "disputed_suggestion": "Bu, başka bir gönderinin eklediği veya önerdiği bağlantıya itiraz ediyor.",
+        "contact_same": "Bu iletişim bilgisi zaten kayıtlı.",
+        "contact_differs": "Gönderilen iletişim bilgisi kayıtlı bilgiden farklı.",
+        "contact_already_reported": "Başkaları da aynı iletişim sorununu bildirdi.",
+        "duplicate_contribution": "Bu bağlantı incelenmiş bir gönderiyle zaten eklendi.",
+        "connection_awaiting_review": "Başka biri aynı bağlantıyı önerdi; inceleme bekliyor.",
+        "new_connection": "Kontrol edilen kayıtlarda eşleşen bağlantı bulunamadı."
+      },
+      "error": {
+        "invalid": "Gerekli alanları ve değerlerini kontrol edip yeniden gönderin.",
+        "not_found": "Bu gönderi bulunamadı.",
+        "transition": "{from} durumundaki gönderide {action} yapılamaz.",
+        "blocked": "Gönderiyi kabul etmeden önce engelleyici kontrol sonuçlarını giderin.",
+        "stale": "Bu gönderi değişti. Yenileyip tekrar deneyin.",
+        "unauthorized": "Devam etmek için inceleyen kişi olarak giriş yapın.",
+        "forbidden": "Bu işlem için izniniz yok.",
+        "rate_limited": "Çok fazla gönderi yapıldı. {seconds} saniye sonra tekrar deneyin.",
+        "internal": "Bu gönderi işlenemedi. Daha sonra tekrar deneyin."
+      },
+      "check_kind": {
+        "licence": "lisans",
+        "formats": "veri biçimleri",
+        "identifiers": "tanımlayıcılar"
+      }
+    },
+    "write": {
+      "template": {
+        "greeting": "Merhaba {recipient},",
+        "role": {
+          "parent": "Çocuğumuza {condition} tanısı kondu.",
+          "patient": "{condition} ile yaşıyorum.",
+          "carer": "{condition} olan bir kişiye bakım veriyorum.",
+          "group_leader": "{condition} için bir hasta grubunu yönetiyorum.",
+          "researcher": "{condition} üzerine çalışan bir araştırmacıyım.",
+          "clinician": "{condition} olan kişilere bakım veren bir klinisyenim."
+        },
+        "found": "İletişim bilgilerinizi Zebratlas'ta buldum.",
+        "check_links": "Birlikte çalışmayı planlamadan önce uzmanların bu bağlantıları değerlendirmesi gerekir.",
+        "meeting": "Önümüzdeki birkaç hafta içinde 30 dakikalık bir görüşme ayarlayabilir miyiz?",
+        "ask": "Nasıl katılabileceğimizi veya kiminle iletişime geçmemiz gerektiğini söyleyebilir misiniz?",
+        "closing": "Saygılarımla",
+        "closing_named": "Saygılarımla,\n{sender}",
+        "subject": "{condition} hakkında soru"
+      }
+    },
+    "api": {
+      "error": {
+        "matcher_busy": "Eşleştirme hizmeti meşgul. Kısa süre sonra tekrar deneyin.",
+        "phenotype_bounds": "Fenotip kimlikleri çok fazla veya çok uzun.",
+        "uri_too_long": "İstek adresi çok uzun.",
+        "internal": "İstek tamamlanamadı. Tekrar deneyin.",
+        "focus_required": "Bir kayıt seçin.",
+        "unit_limit": "Sınır 1 ile 500 arasında olmalıdır.",
+        "condition_unknown": "{id} hastalığı bulunamadı.",
+        "condition_retired": "{id} kaydı kullanımdan kaldırıldı. Yerine geçen kaydı açın.",
+        "item_unknown": "{id} kaydı bulunamadı.",
+        "scorer_unknown": "{name} puanlayıcısı bilinmiyor. fusion, atlas veya resnik seçin.",
+        "gene_unknown": "{id} geni bulunamadı.",
+        "job_unknown": "{job} görevi bilinmiyor.",
+        "question_unknown": "{id} araştırma sorusu bulunamadı.",
+        "question_id": "Soru kimliğini condition~pathway biçiminde kullanın.",
+        "cluster_unknown": "{id} için araştırma kümesi bulunamadı.",
+        "card_unknown": "Bu iletişim kaydı seçilen hastalıkla ilişkili değil.",
+        "llm_unavailable": "Yazım asistanı kullanılamıyor."
+      },
+      "related": {
+        "warming_up": "İlgili hastalıklar yükleniyor. Birkaç saniye sonra tekrar deneyin.",
+        "unavailable": "İlgili hastalıklar kullanılamıyor. Daha sonra tekrar deneyin."
+      },
+      "questions": {
+        "warming_up": "Araştırma soruları yükleniyor. Birkaç saniye sonra tekrar deneyin.",
+        "unavailable": "Araştırma soruları kullanılamıyor. Daha sonra tekrar deneyin."
+      },
+      "clusters": {
+        "warming_up": "Araştırma kümeleri yükleniyor. Birkaç saniye sonra tekrar deneyin."
+      }
+    },
+    "questions": {
+      "clinvar_counts": "Bu sayılar ClinVar gönderilerini ifade eder; hasta veya aile sayısı değildir.",
+      "drug_evidence": "Open Targets bu ilaç için klinik aşama kaydeder. Bu, bu hastalıklarda etkili olduğunu göstermez.",
+      "design": {
+        "assay": "Alan uzmanından {pathway} için nicel bir test seçmesini ve iki hastalıkta da ilgili işlevi ölçtüğünü kontrol etmesini isteyin.",
+        "controls": "İki hastalığın doğrulanmış varyantlarını taşıyan modelleri eşlenmiş düzeltilmiş kontrollerle karşılaştırın. Partileri rastgeleleştirin ve analizi körleyin.",
+        "rescue": "Seçilen yolağı değiştiren bir kontrol ve her hastalık modeli için düzeltme veya kurtarma koşulu ekleyin. Yolak etkisini özgül olmayan hasardan ayırmak için hücre sağlığını kontrol edin.",
+        "strata": "Etkileri ve kurtarma yanıtlarını karşılaştırmadan önce her hastalığı ve varyant etki grubunu ayrı analiz edin."
+      },
+      "validate": {
+        "annotation": "Yolak anotasyonu ortak hastalık mekanizmasını veya tedavi yanıtını kanıtlamaz.",
+        "models": "Uzman, özgül yolak ölçümünü, ilgili hücre türünü ve varyantlar için doğrulanmış modelleri seçmelidir. Modellerin kullanılabilirliğini kontrol edin.",
+        "plan": "Pilot çalışmada değişkenliği tahmin ettikten sonra etki yönünü ve karar ölçütlerini önceden kaydedin. Bağımsız biyolojik tekrarları ve örneklem büyüklüğünü istatistikçiyle planlayın.",
+        "effects": "Hastalık gruplarını birleştirmeden önce her varyantın etkisini ve kalıtımını kontrol edin. Zıt etkileri ayrı gruplarda analiz edin.",
+        "findings": "Ortak testi yorumlamadan önce bu hastalıklara ilişkin belirsizlik bulgularını inceleyin."
+      },
+      "proposal": {
+        "question": "{conditions} ile ilişkili varyantların {pathway} içinde aynı ölçülebilir işlevi bozup bozmadığını sınayın.",
+        "support": "İki hastalık modeli de kontrollere göre planlanan yolak değişimini gösterir ve düzeltme ikisinde de aynı ölçümü geri getirir. Sonucu bağımsız olarak tekrarlayın.",
+        "challenge": "Yalnızca bir hastalık ölçümü değiştirir, etkilerin yönleri uyuşmaz veya hücre sağlığı ya da parti hesaba katılınca farklar kaybolur."
+      },
+      "source": {
+        "clinvar": "{gene}: ClinVar'da kayıtlı gen varyantı sayısı {variants}."
+      },
+      "list_note": "Bu soruların sınanması gerekir. Kayıtlı kanıtlara ve ilgili topluluklara göre sıralanırlar.",
+      "rank_note": "Sıra; ilgili toplulukları, kayıtlardaki desteği ve kayıtlı çalışmaları veya araştırmacıları yansıtır. Hipotezin doğru olma olasılığını göstermez."
+    },
+    "facts": {
+      "person_author": "{name}, {arg0} yazarıdır.",
+      "person_lead": "{name}, {arg0} projesini yürütür.",
+      "study_indexed": "{arg0} ({arg1}), {label} için MeSH terimi olan {arg2} ile indekslenmiş",
+      "study_registered": "{arg0} ({arg1}), {label} için kayıtlı: {arg2}",
+      "organisation_condition": "{arg0}, {label} olan kişilere destek verir",
+      "gene_condition": "{symbol}, {label} hastalığına neden olan gendir",
+      "study_record": "{arg0} ({arg1}): {arg2}",
+      "organisation_gene": "{arg0}, {symbol} varyantı olan kişilere destek verir",
+      "condition_parent": "{label}, {anc_name} türüdür ({anc}, MONDO hiyerarşisi)",
+      "study_parent": "{arg0} ({arg1}), {anc_name} için kayıtlı: {arg2}",
+      "organisation_parent": "{arg0}, {anc_name} olan kişilere destek verir",
+      "work_record": "{arg0} {arg1}",
+      "work_gene": "{arg0}, {symbol} ({arg1}) genini belirtir",
+      "condition_onset": "{arg0} için kayıtlı ilk belirti yaşı: {arg1}",
+      "condition_prevalence": "{arg0} {arg1}: {arg2} ({arg3})",
+      "condition_symptom": "{arg0}, {arg1} için kayıtlı bir özelliktir",
+      "condition_causal_gene": "{symbol} değişiklikleri {arg0} nedeni olarak kayıtlı",
+      "condition_definition": "{arg0}: {arg1}"
+    },
+    "cluster": {
+      "shared_records": "Bu kümede kayıtlı süreçler: {processes}. Kayıtlı belirtiler: {symptoms}.",
+      "counterexample": "Bu analizde {condition} başka bir kümeye atandı. Araştırma bulgularını paylaşmadan önce kayıtlı benzerlikleri ve farkları kontrol edin.",
+      "stable": "Analiz farklı başlangıç noktaları ve örneklerle tekrarlandığında bu gruplama korundu.",
+      "unstable": "Analiz farklı başlangıç noktaları veya örneklerle tekrarlandığında bu gruplama değişti."
+    },
+    "verify": {
+      "unreadable": "Kaynak okunamadı veya kontrol edilemedi.",
+      "record": {
+        "matched": "Kontrol edilen tüm kaynak kayıtları saklanan parmak izleriyle eşleşiyor.",
+        "changed": "Kontrol edilen kaynak kaydı değişmiş veya okunamamış."
+      },
+      "file": {
+        "matched": "Kontrol edilen tüm kaynak dosyalar, bu giriş oluşturulurken kaydedilen parmak izleriyle eşleşiyor.",
+        "changed": "Kaynak dosya değişmiş veya okunamamış."
+      }
+    },
+    "related": {
+      "shared_gene": "İki hastalık da {gene} ile ilişkili. Kayıtlı etkiler: bu hastalıkta {here}, diğerinde {there}.",
+      "effect_conflict": "{gene} için kayıtlı etkiler farklı: bu hastalıkta {here}, diğerinde {there}.",
+      "shared_processes": "İlişkili genler vücuttaki şu süreçleri paylaşır: {processes}.",
+      "shared_symptoms": "Kayıtlı ortak belirtiler: {symptoms}.",
+      "cause_unknown": "Kontrol edilen kaynaklarda en az bir hastalık için nedensel gen kayıtlı değil. Bu kayıtlardan nedenler karşılaştırılamaz.",
+      "counter": {
+        "same_gene": "İki hastalıkta {gene} için kayıtlı etkiler farklıdır. Birindeki bulgular diğerine uygulanamayabilir.",
+        "within_condition": "Gene2Phenotype bu hastalık içinde {gene} için farklı etkiler kaydeder. İncelenen varyanta hangisinin uyduğunu kontrol edin.",
+        "lookalike": "Hastalıklar belirtileri paylaşır, ancak kayıtlı gen süreçleri farklıdır. Benzer belirtiler tek başına ortak nedeni kanıtlamaz."
+      }
+    },
+    "resolve": {
+      "reconcile": {
+        "unconfigured": "Asistan kullanılamıyor. Arama sonuçları kayıtlı adları ve kodları kullanıyor.",
+        "certain": "Kayıtlı adlar ve kodlarda eşleşen hastalık bulundu.",
+        "no_candidates": "Asistanın kontrol edebileceği kayıtlı hastalık bulunamadı."
+      }
+    },
+    "models": {
+      "note": "Modelin kullanılabilirliğini, gen varyantını ve hastalığınızla ilgisini sahibiyle kontrol edin."
+    },
+    "text": {
+      "sentences": "{sentences}"
+    },
+    "record": {
+      "statement": "{statement}"
+    },
+    "gaps": {
+      "missing": {
+        "patient_group": "Listemizdeki hiçbir hasta grubu bu hastalığı veya genini belirtmiyor. Ailelerin zaten iletişimde olup olmadığını genetik danışmanınıza veya ilgili hasta grubuna sorun.",
+        "patient_group_unloaded": "Hasta grubu listemiz yüklenmediği için kontrol edemedik. Genetik danışmanınıza veya ilgili hasta grubuna sorun.",
+        "open_study": "ClinicalTrials.gov'da katılımcı alan veya süren hiçbir çalışma bu hastalığı ya da genini belirtmiyor. Yakındaki uzman merkeze henüz kaydedilmemiş çalışmaları sorun ve ilişkili hastalık çalışmalarını kontrol edin.",
+        "registry": "Hiçbir hasta kayıt sistemi veya doğal seyir çalışması bu hastalığı ya da genini belirtmiyor. İlgili grubun kaydının bu geni kapsayıp kapsayamayacağını sorun veya daha geniş hastalık grubunun kaydına katılın.",
+        "gene": "Orphanet ve OMIM bu hastalığa neden olan gen kaydetmiyor. Genetik test yapılıp yapılmadığını ve hangi gen değişikliğinin bulunduğunu sorun.",
+        "variant_effect": "Orphanet gen değişikliğinin işlevi azaltarak mı değiştirerek mi hastalığa neden olduğunu kaydetmiyor. Uzmana danışın.",
+        "prevalence": "Orphanet'te hastalığın sıklığına ilişkin değer yok. Hasta kayıtları ve yayımlanmış olgu raporları ilk sayımı sağlar.",
+        "symptoms": "Human Phenotype Ontology'de (HPO) bu hastalık için {n, plural, =0 {belirti kaydı yok} one {yalnızca # belirti kayıtlı} other {yalnızca # belirti kayıtlı}}. Hasta kayıt sistemi veya doğal seyir çalışması belirtileri kaydedebilir."
+      },
+      "question": {
+        "variant": "Bizim {gene} değişikliğimiz genin işlevini azaltıyor mu, değiştiriyor mu? Bu, hangi tedavi araştırmalarının bize uygun olduğunu etkiler mi?",
+        "centre": "Bu hastalığı olan çok sayıda kişiye bakan uzman merkez var mı? Bizi yönlendirebilir misiniz?",
+        "researchers": "Hangi araştırmacılar veya çalışmalar {gene} üzerine çalışıyor? Bizden haber almak isterler mi?",
+        "unregistered": "Yakında başlayacak, henüz ClinicalTrials.gov'da olmayan çalışmalar var mı?"
+      },
+      "note": "Bunlar kaynaklarımızda kayıtlı olmayan konular. Soruları uzmana götürün."
+    },
+    "coverage": {
+      "none": "{sources} içinde {condition} için kayıt bulunamadı (kontrol: {dates}). Bu kaynakların dışında hasta grupları veya çalışmalar olabilir.",
+      "partial": "{source} yalnızca {genes} için arandı; {missing} için aranmadı.",
+      "partial_no_gene": "{source} yalnızca {genes} için arandı. Bu hastalığın bilinen geni olmadığı için kapsam dışındaydı.",
+      "scope": {
+        "ctgov": "ClinicalTrials.gov'da kayıtlı, ad, MeSH terimi ve gen üzerinden nadir hastalıklarla eşleştirilmiş çalışmalar",
+        "reporter": "Başlığı, özeti veya anahtar sözcükleri geni belirten NIH destekli projeler (NIH RePORTER)",
+        "pubmed": "Başlığında veya özetinde geni belirten makaleler (PubMed, en yeni 5,000)",
+        "people": "Ayrıntılı incelediğimiz genlerin en az ikisi üzerinde makalesi veya hibesi olan araştırmacılar",
+        "hgnc": "Her genin diğer adları ve önceki simgeleri (HGNC)",
+        "contacts": "Ayrıntılı incelediğimiz genlerle ilişkili çalışmaların iletişim kişileri, yetkilileri ve merkezleri",
+        "wikidata": "Birçok dilde hastalık ve gen adları (Wikidata, yalnızca arama için)",
+        "orgs": "Birçok dilde web ve dizin aramalarıyla bulunan, kendi sayfalarıyla elle kontrol edilmiş hasta kuruluşları"
+      }
+    },
+    "why": {
+      "study_registered": "Bu {kind_label}, {condition} için kayıtlı.",
+      "study_gene": "Bu {kind_label}, {condition} hastalığına neden olan {gene} genini belirtir.",
+      "study_broader": "Bu {kind_label}, {condition} içeren daha geniş {group} grubu içindir.",
+      "grant": "{organisation} bünyesindeki bu NIH destekli proje, {about} konusunu inceler.",
+      "org_condition": "{organisation}, {condition} olan kişilere destek verir.",
+      "org_gene": "{organisation}, {condition} hastalığına neden olan {gene} geninde değişiklik olan kişilere destek verir.",
+      "org_broader": "{organisation}, {condition} içeren daha geniş {group} grubundaki kişilere destek verir.",
+      "researcher": "{name}, {about} hakkında {papers} makale yazdı{grants, plural, =0 {} one { ve # NIH destekli projeyi yürütüyor} other { ve # NIH destekli projeyi yürütüyor}}."
+    },
+    "card": {
+      "subtitle": {
+        "study": "{kind_label} · {status_label}",
+        "grant": "{organisation} bünyesinde {code} hibesi, {years}",
+        "kind": "{kind_label}"
+      },
+      "enrollment_note": "Tüm hastalıklar ve genler için çalışmanın tamamında planlanan katılımcı sayısıdır. Bu hastalığa ait sayı değildir."
+    },
+    "studykind": {
+      "trial": "Klinik çalışma, insanlarda bir tedaviyi sınar.",
+      "registry": "Hasta kayıt sistemi, araştırmacıların hastalığı inceleyebilmesi için birçok kişinin sağlık bilgilerini zaman içinde toplar.",
+      "natural_history": "Doğal seyir çalışması hastalığın zaman içindeki gelişimini izler. Kimse yeni tedavi almaz.",
+      "observational": "Gözlemsel çalışma ölçer ve kaydeder. Kimse yeni tedavi almaz.",
+      "expanded_access": "Erken erişim programı, klinik çalışma dışında henüz onaylanmamış bir tedavi sunar."
+    },
+    "channel": {
+      "ctgov_central_contact": "ClinicalTrials.gov'da destekleyicinin belirttiği çalışma iletişim kişisi",
+      "ctgov_contacts": "ClinicalTrials.gov'daki çalışma iletişim kişileri ve merkezler",
+      "reporter_project": "Baş araştırmacı ve kurumu içeren NIH RePORTER proje sayfası",
+      "orcid": "Araştırmacının kurumuna bağlantı içeren açık ORCID profili",
+      "pubmed_author": "PubMed'deki makale listesi; bağlı kurum bilgisi iletişim kurulacak kurumu belirtir",
+      "contact_form": "Resmî iletişim sayfası",
+      "website": "Resmî web sitesi",
+      "none": "Herkese açık iletişim bilgisi kayıtlı değil",
+      "none_sponsor": "Herkese açık iletişim bilgisi kayıtlı değil. Destekleyici çalışma kaydında belirtiliyor."
+    },
+    "connections": {
+      "none_found": "{condition} için {kind_label} bulunamadı.{related, plural, =0 {} one { İlgili hastalık için # sonuç gösteriliyor.} other { İlgili hastalıklar için # sonuç gösteriliyor.}}"
+    },
+    "checked": {
+      "summary": "{sources} yüklü kaynak kontrol edildi; {matched} kaynakta eşleşme vardı.",
+      "matched": "{source}: kopyamızda {n} eşleşen öğe var.",
+      "no_match": "{source} kopyamızda eşleşme yok.",
+      "not_loaded": "{source} yüklenmemiş."
+    },
+    "intake": {
+      "consent": "Kimlik bilgileri gizlenmiş belgeniz arama terimlerini bulmak için {processor} hizmetine gönderilir.",
+      "processor": {
+        "lexical": "Terimler model çağrısı olmadan bu sunucuda bulunur."
+      },
+      "model": {
+        "not_configured": "Model yapılandırılmamış; terimler yerel olarak bulundu.",
+        "quota": "Model kotasına ulaşıldı; terimler yerel olarak bulundu.",
+        "unavailable": "Model kullanılamıyor; terimler yerel olarak bulundu."
+      },
+      "redaction": {
+        "none": "Belirgin kimlik bilgisi bulunamadı.",
+        "summary": "Kaldırılan kimlik bilgileri: {items}.",
+        "kind": {
+          "name": "Kaldırılan adlar: {n}",
+          "date_of_birth": "Kaldırılan doğum tarihleri: {n}",
+          "address": "Kaldırılan adresler: {n}",
+          "phone": "Kaldırılan telefon numaraları: {n}",
+          "email": "Kaldırılan e-posta adresleri: {n}",
+          "record_number": "Kaldırılan kayıt numaraları: {n}",
+          "insurance_number": "Kaldırılan sigorta numaraları: {n}",
+          "iban": "Kaldırılan IBAN numaraları: {n}"
+        }
+      },
+      "notice": {
+        "not_diagnosis": "Araştırma ve bağlantı bilgisi; tanı veya tedavi önerisi değildir."
+      },
+      "error": {
+        "invalid": "Belgeyi ve gerekli alanları kontrol edin.",
+        "too_large": "Belge 5 MB'den büyük.",
+        "save_unavailable": "Belge kaydetme kullanılamıyor.",
+        "sign_in_to_save": "Bu belgeyi kaydetmek için giriş yapın.",
+        "unsupported": "PDF, DOCX veya metin kullanın."
+      }
+    },
+    "identity": {
+      "candidate_same_as": "{target_label} ({target}) ile aynı olabilir: adlar eşleşiyor, ancak yetkili eşleme bunu doğrulamıyor.",
+      "candidate_source": "{source_id} aynı ada sahip ve aynı hastalık olabilir; yetkili eşleme bunu doğrulamıyor."
+    },
+    "match": {
+      "claim": {
+        "ranker_v3": "Doğrudan PMID örtüşmesi saptanmayan {cases} yayımlanmış olguda, önceden kaydedilmiş sıralama birleşimi esas olarak Resnik ontoloji temelini izleyip birincilik eşitliğini Atlas puanıyla çözerek tam ilk sonuç başarısını {atlas_top1} (Atlas) ve {resnik_top1} (Resnik) değerlerinden {fusion_top1} değerine çıkardı. Yayına göre gruplanmış kazanç için 95% aralıkları pozitifti; ilk 10 iyileşmedi. Bu, önceki sonuçları tasarımı etkilemiş bir ölçütte geriye dönük kanıttır; klinik doğrulama değildir."
+      }
+    },
+    "find": {
+      "error": {
+        "query": "Arama isteği geçersiz."
+      }
+    }
+  },
+  "content": {
+    "pricing": {
+      "s1": "Aileler için ücretsiz. Kuruluşlara yönelik araçlar planlanıyor.",
+      "s2": "Vergiler dahil değildir; uygulanacak vergiler ayrıca hesaplanır",
+      "s3": "Müşteri, gelir, ödeme isteği veya pazar büyüklüğü iddiası yok",
+      "s4": "Ücretsiz",
+      "s5": "Aileler için temel kullanım yolları",
+      "s6": "Kaynaklı kanıtlar ve güncellik",
+      "s7": "Resmî, herkese açık iletişim bilgileri",
+      "s8": "Düzenlenebilir mesaj şablonları",
+      "s9": "Çok dilli erişim",
+      "s10": "İsteğe bağlı hesap ve kişisel kayıtlar",
+      "s11": "Temel işlevlere ücretsiz erişim",
+      "s12": "Kuruluş",
+      "s13": "Ortak çalışma alanı, kaydedilmiş haritalar ve taslaklar",
+      "s14": "Bildirimler",
+      "s15": "Sınırlı keşif",
+      "s16": "Resmî kanalların yeniden kontrolü",
+      "s17": "Sınırlı destek",
+      "s18": "Pilot uygulamayı görüşün — yakında",
+      "s19": "Kurumsal araştırma",
+      "s20": "Ekip çalışma alanı",
+      "s21": "Sınırlı keşif",
+      "s22": "Fırsat araştırması iş listeleri",
+      "s23": "İzne bağlı herkese açık üstveri API'si ve toplu dışa aktarım",
+      "s24": "Resmî kanalların yeniden kontrolü",
+      "s25": "Sınırlı destek",
+      "s26": "Pilot uygulamayı görüşün — yakında",
+      "s27": "Hasta verisi satışı veya özel klinik veri teklifi yok",
+      "s28": "Sıralama için ödeme veya düzeltmeler üzerinde destekleyici kontrolü yok",
+      "s29": "Resmî, herkese açık iletişim bilgileri ücretsiz kalır",
+      "s30": "Ailelerin aramaları veya kimlikleri fırsat araştırmacılarıyla paylaşılmaz",
+      "s31": "Herkese açık üstveri dışa aktarımı için her kaynağın lisansı ayrı kontrol edilir",
+      "s32": "İletişim doğrulaması, resmî açık kanalın son kontrolünü ifade eder; erişim veya yanıt garantisi vermez",
+      "s33": "Tanıştırmalar yalnızca iki tarafın onayıyla, ayrıca belirlenen kapsamda planlanıyor; mesaj gönderilmedi",
+      "s34": "Düzeltmenin atfı, inceleyen kişi, kaynak, zaman, önceki iddia ve itiraz yolu korunur"
+    },
+    "tenx": {
+      "s1": "Daha hızlı iş birliği kararı: hipotezi sınayın",
+      "s2": "Ölçülmemiş varsayım. Eşleştirilmiş ölçülü manuel temel veya Atlas süre çalışması bulunmadı; bu, tedavinin hızlanması anlamına gelmez.",
+      "s3": "Belirli doğal seyir kaynağının yeniden kullanımına ilişkin, kuruluş lideri ile çalışma lideri veya yetkili araştırmacının imzaladığı tarihli uygunluk kararı",
+      "s4": "Aday kaynakları ve kişileri bulun",
+      "s5": "Kimlikleri uzlaştırın ve uygunluğu belirleyin",
+      "s6": "Kaynakları, güncelliği ve iletişim bilgilerini kontrol edin",
+      "s7": "İncelenmiş özeti ve iletişimi hazırlayın",
+      "s8": "Ortak yanıt süresi ve insan onayı",
+      "s9": "İşlerin sırayla yapıldığı varsayılır. Görevler örtüşüyorsa gözlenen zamanlardan yeniden hesaplayın; paralel işleri toplamayın.",
+      "s10": "Bakımı yapılan mevcut grafik varsayılır. Yeni alan için grafik oluşturma ve başlangıç işlerini ekleyin; gönüllü ve uzman emeğini sayın.",
+      "s11": "D=0 için: M >= 10*A + 9*W. Genel olarak: M >= 10*A + 9*(W+D)."
+    },
+    "trail": {
+      "s1": "SNAP25 topluluğu",
+      "s2": "SNAP25 topluluğu",
+      "s3": "STXBP1 ve SNAP25, beyin hücrelerinin sinyal gönderdiği mekanizmayı etkiler. Bazı gen değişikliklerinin etkileri farklıdır. İki topluluk da Simons Searchlight kapsamındadır; katılım veya araştırma kaynaklarını yeniden kullanma konusunda ekibe danışın.",
+      "s4": "Sinaptik vezikül ekzositozu",
+      "s5": "Beyin hücreleri arasında sinyal salınması",
+      "s6": "Bu, araştırma altyapısını yeniden kullanma fırsatıdır; tedavi yararının kanıtı değildir.",
+      "s7": "Aynı süreç, aynı bozukluk anlamına gelmez: bazı SNAP25 ve STXBP1 varyantları salınmayı azaltmak yerine artırır. Ortak yaklaşım öncesinde varyantlar ayrı karşılaştırılmalıdır.",
+      "s8": "Kataloglarda SNAP25 hastalığının adları ve kodları çelişir; tek hastalık kodunu değil, gen topluluğunu ilişkilendiririz.",
+      "s9": "ABD dışından katılım mümkündür; ancak orada kan toplama her vaka için ayrı değerlendirilir. Ekip yanıtlayana kadar kullanılabilir örnekler ve hücre hatları bilinmez.",
+      "s10": "Epilepsili STXBP1 ensefalopatisi",
+      "s11": "Simons Searchlight çalışma ekibi",
+      "s12": "Çalışma kaydı ve resmî program, katılım ve araştırma erişimi için çalışma koordinatörünü iletişim kişisi olarak belirtir.",
+      "s13": "STXBP1 ve SNAP25 toplulukları: varyantlara göre karşılaştırmada Simons Searchlight'ın yeniden kullanımı",
+      "s14": "Merhaba Simons Searchlight çalışma ekibi,\n\nSimons Searchlight'ta listelenen STXBP1 ve SNAP25 toplulukları arasında bir araştırma karşılaştırmasını değerlendiriyoruz. Deneysel çalışmalar, varyantların sinaptik salınmayı farklı etkileyebildiğini gösteriyor; bu nedenle ortak yaklaşım öncesinde varyantları ayıracağız.\n\nBir araştırmacının bu karşılaştırma için veri toplama ve erişim sürecinizi yeniden kullanıp kullanamayacağı, hangi veri ve örneklerin mevcut olduğu ve uygunluğu kiminle görüşebileceğimiz konusunda bilgi verebilir misiniz? Aileleri davet etmeden önce ülke, dil ve varyant uygunluğunu da teyit etmek istiyoruz.\n\nTeşekkürler,\n[Adınız]\n[Hasta grubunuz]",
+      "s15": "Seçilen STXBP1 ve SNAP25 varyantları, beyin hücrelerinin sinyal salınmasında aynı bozukluğu paylaşıyor mu?",
+      "s16": "Öyleyse tek bir araştırma yönü iki topluluğa da hizmet edebilir.",
+      "s17": "STXBP1 ensefalopatisi",
+      "s18": "SNAP25 topluluğu",
+      "s19": "Yayımlanmış bir olgu serisindeki kişiler",
+      "s20": "Beyin hücreleri arasında sinyal salınması",
+      "s21": "STXBP1 C180Y, fare nöronlarında protein miktarını azalttı (protein kararsızlığı).",
+      "s22": "SNAP25 I67N salınma mekanizmasını kararsızlaştırdı ve nöronlarda kendiliğinden ve uyarılmış salınmayı azalttı.",
+      "s23": "SNAP25 V48F ve D166Y, kendiliğinden salınmayı azaltmak yerine artırır.",
+      "s24": "STXBP1 L446F (iki homozigot olgu), nöronal modelde uyarılmış iletimi artırdı.",
+      "s25": "Aynı C180Y çalışmasında bir normal STXBP1 kopyası varken ölçülen iletim normaldi.",
+      "s26": "Herhangi bir kurtarmanın iki genotipte de işe yarayıp yaramadığı: henüz deney yok.",
+      "s27": "Hangi eşlenmiş hücre hatlarının ve örneklerin mevcut olduğu ve deneyi hangi laboratuvarın yapacağı.",
+      "s28": "STXBP1 C180Y'yi ayrı tanımlanmış SNAP25 varyantlarıyla (I67N, V48F/D166Y'den ayrı) eşlenmiş nöronlarda tek protokolle karşılaştırın: kendiliğinden ve uyarılmış salınma, hemen salınabilir havuz, eşzamanlılık; izojenik kontroller, bağımsız kültürler, kör analiz. Zıt yönlü bozukluklar sonuçların birleştirilmesini engeller.",
+      "s29": "Önerilen tasarım; uygunluk ve istatistiksel güç henüz belirlenmedi.",
+      "s30": "Simons Searchlight ekibine, koleksiyonunun varyantlara göre STXBP1/SNAP25 karşılaştırmasını destekleyip desteklemediğini sorun.",
+      "s31": "Simons Searchlight katılımcı alıyor; kapsamındaki hastalıklar epilepsili STXBP1 ensefalopatisi ve SNAP25'i içeriyor. Çalışma koordinatörü merkezi iletişim kişisidir.",
+      "s32": "Mevcut veri ve biyolojik örnekler, incelemenin ardından SFARI Base üzerinden istenebilir.",
+      "s33": "Simons Searchlight, SNAP25 topluluğunu inceler.",
+      "s34": "Programın resmî iletişim sayfası.",
+      "s35": "C180Y gibi hastalardaki STXBP1 varyantları protein miktarını azaltır; deneyler protein kararsızlığını destekler.",
+      "s36": "Homozigot STXBP1 varyantı (L446F), nöronal modelde uyarılmış iletimi artırdı; her varyant salınmayı azaltmaz.",
+      "s37": "SNAP25 vezikül füzyonunda yer alır; I67N salınmayı azaltırken V48F ve D166Y kendiliğinden salınmayı artırdı.",
+      "s38": "ABD dışındaki aileler katılabilir; ABD dışında kan toplama ayrı ayrı değerlendirilir.",
+      "s39": "Program doğal seyir veri tabanı ve biyolojik örnek deposudur; tedavi çalışması değildir.",
+      "s40": "G2P, SNAP25 bozukluğunu MONDO:0014590 ile eşler; MONDO'daki adı konjenital miyastenik sendrom 18'dir. Bu adlandırma çelişkisi çözülmemiştir.",
+      "s41": "Yayımlanmış seri, SNAP25 varyantlı 23 kişiyi tanımlar. Yeni ve daha önce bildirilmiş kişileri birlikte içerdiği için başka kohortlara bağımsız olgular olarak eklenmemelidirler."
+    }
+  },
+  "maintenance": {
+    "title": "Zebratlas: sizi anlayan insanları bulun. Yakında.",
+    "description": "Zebratlas, nadir hastalıklarla yaşayan kişileri hasta grupları, çalışmalar ve uzmanlarla buluşturur. Yakında.",
+    "heading": "Zebratlas: sizi anlayan insanları bulun.",
+    "body": "Nadir hastalıklarla yaşayan kişileri hasta grupları, çalışmalar, kayıt sistemleri ve uzmanlarla buluşturan harita; her bağlantı kaynağına kadar izlenebilir.",
+    "soon": "Yakında."
+  },
+  "resources": {
+    "research": "Araştırma kaynakları",
+    "models": "Modeller, örnekler ve veriler",
+    "papers": "Ücretsiz tam metin makaleler",
+    "funding": "Araştırma finansmanı",
+    "read": "Ücretsiz tam metni oku",
+    "request": "Erişim talep et",
+    "apply": "Erişim başvurusu yap",
+    "download": "İndir",
+    "holderPage": "Sağlayıcının resmî sayfası",
+    "officialPage": "Projenin veya kaynağın resmî sayfası",
+    "source": "Kaynak",
+    "searchElsewhere": "Diğer kaynaklarda ara",
+    "discoveryUnchecked": "Bunlar arama bağlantılarıdır; sonuçları burada kontrol edilmemiştir.",
+    "availabilityUnknown": "Kullanılabilirlik ve araştırmanıza uygunluk doğrulanmamıştır.",
+    "noRoute": "Doğrulanmış bir erişim yolu mevcut değil.",
+    "cachedOnly": "Yalnızca kaydedilmiş kanıtlar; kaynak canlı olarak kontrol edilmedi.",
+    "reuseLicence": "Tam metni yeniden kullanım lisansı",
+    "unknown": "Bilinmiyor",
+    "recordLicence": "Kayıt lisansı",
+    "fundingEvidence": "Finansman kanıtları",
+    "verifyCached": "Kaydedilmiş kanıtları kontrol et",
+    "cacheMatches": "Kaydedilmiş kanıtlar eşleşiyor",
+    "checkedCache": "Kaydedilmiş kaynak bu girdi için kontrol edildi",
+    "notChecked": "Bu girdi için kontrol edilmedi",
+    "none": "Kontrol edilen kaynaklarda bağlantılı bir kaynak bulunamadı. Başka kaynaklar olabilir.",
+    "apiVerified": "Kaydedilmiş NIH API yanıtları bu projeyle eşleşiyor.",
+    "apiUnverified": "Kaydedilmiş NIH API yanıtlarının tümü doğrulanamadı.",
+    "evidenceUnavailable": "Finansman kanıtları mevcut değil veya değişmiş.",
+    "organisation": "Kuruluş",
+    "funder": "Fon sağlayıcı",
+    "years": "Yıllar",
+    "scope": {
+      "exact": "Bu tanıyı belirtir",
+      "gene": "Nedensel bir genle bağlantılı; tanıyla tam eşleşme değil",
+      "condition": "Bu genle ilişkili bir durum üzerinden bağlantılı",
+      "ortholog": "Bir model organizmanın geni üzerinden bağlantılı",
+      "related": "İlişkili araştırma; tanıyla tam eşleşme değil"
+    },
+    "accessConditions": "Kaynağa göre erişim koşulları"
+  }
+}

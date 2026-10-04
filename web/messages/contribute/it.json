@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "owner": "contribute agent",
+    "note": "Machine-translated; review section in English (internal page)."
+  },
+  "suggest": "Suggerisci un collegamento o correggi",
+  "suggestShort": "Suggerisci o correggi",
+  "title": "Aiuta a migliorare la mappa per {name}",
+  "lead": "Conosci un'associazione di pazienti, un registro, uno studio o un ricercatore che manca? Qualcosa è sbagliato o non aggiornato? Diccelo. Una persona controlla ogni suggerimento prima che compaia, e resta sempre segnato come suggerito dalla comunità.",
+  "back": "Torna a {name}",
+  "badge": "Suggerito dalla comunità",
+  "pending": "{n, plural, one {# suggerimento della comunità su questa malattia è in revisione.} other {# suggerimenti della comunità su questa malattia sono in revisione.}}",
+  "kind": {
+    "legend": "Cosa vuoi fare?",
+    "new_link": "Aggiungere un collegamento mancante",
+    "correction": "Qui c'è qualcosa di sbagliato",
+    "missing_evidence": "Manca una prova",
+    "outdated_contact": "Un contatto non è aggiornato"
+  },
+  "subjectKind": {
+    "legend": "Che tipo di collegamento è?",
+    "patient_group": "Associazione di pazienti",
+    "organisation": "Altra organizzazione",
+    "registry": "Registro",
+    "study": "Studio",
+    "person": "Ricercatore o medico"
+  },
+  "field": {
+    "subject": "Nome",
+    "subjectHint": "Il nome come compare sul loro sito.",
+    "about": "Di quale collegamento si tratta?",
+    "aboutCondition": "Di questa malattia in generale",
+    "statement": "Con parole tue",
+    "statementHint": "Cosa è nuovo, sbagliato o mancante? Bastano poche frasi.",
+    "evidenceUrl": "Link alla prova",
+    "evidenceUrlHint": "Una pagina web pubblica che lo mostri, per esempio il sito del gruppo.",
+    "quote": "Parole da quella pagina (facoltativo)",
+    "quoteHint": "Copia una frase della pagina che lo mostri. Controlliamo che ci sia.",
+    "contactUrl": "Pagina di contatto ufficiale (facoltativo)",
+    "contactUrlNew": "La pagina di contatto attuale",
+    "assistant": "Un assistente IA ti ha aiutato a trovarlo? (facoltativo)",
+    "assistantHint": "Per esempio ChatGPT o Claude. Lo registriamo con il suggerimento.",
+    "you": "Su di te (tutto facoltativo)",
+    "name": "Il tuo nome",
+    "contact": "E-mail per domande",
+    "contactHint": "La vede solo chi revisiona. Lascia vuoto per restare anonimo.",
+    "organisation": "Gruppo che rappresenti"
+  },
+  "submit": "Invia suggerimento",
+  "sending": "Invio…",
+  "error": {
+    "unavailable": "Al momento non è possibile inviare suggerimenti. Riprova più tardi.",
+    "invalid": "Controlla il modulo: {detail}",
+    "rate_limited": "Troppi suggerimenti da questa connessione. Riprova più tardi.",
+    "generic": "Qualcosa è andato storto. Riprova."
+  },
+  "status": {
+    "title": "Il tuo suggerimento",
+    "thanks": "Grazie! Il tuo suggerimento è in coda di revisione. Non compare sulla mappa finché qualcuno non lo ha controllato.",
+    "state": {
+      "submitted": "Ricevuto, controlli automatici in corso",
+      "auto_checked": "Controllato automaticamente, in attesa di revisione",
+      "accepted": "Accettato: mostrato sulla mappa come suggerito dalla comunità",
+      "rejected": "Non accettato"
+    },
+    "reason": "Motivo della revisione: {reason}",
+    "checks": "Controlli automatici",
+    "noChecks": "I controlli automatici non sono ancora finiti. Ricarica la pagina tra un minuto.",
+    "notFound": "Non troviamo questo suggerimento.",
+    "prov": "Cronologia completa (PROV-O)",
+    "privacy": "La tua e-mail non viene mai mostrata qui.",
+    "submittedOn": "Inviato il {date}",
+    "check": {
+      "pass": "OK",
+      "warn": "Nota",
+      "fail": "Problema",
+      "skipped": "Non controllato"
+    }
+  },
+  "review": {
+    "title": "Review suggestions",
+    "lead": "Every suggestion stays separate from the curated map until a reviewer accepts it. Check the evidence, then accept or reject with a reason; the reason is shown publicly.",
+    "token": "Reviewer key",
+    "tokenHint": "Kept only on this page, never stored.",
+    "open": "Open the queue",
+    "empty": "Nothing is waiting for review.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "reason": "Reason (required, shown publicly)",
+    "recheck": "Run checks again",
+    "contact": "Contact",
+    "anonymous": "anonymous",
+    "unauthorized": "This key is not valid.",
+    "unavailable": "The review service can't be reached.",
+    "failed": "Not saved: {detail}",
+    "saved": "Saved.",
+    "statement": "Statement",
+    "evidence": "Evidence",
+    "quote": "Quote",
+    "subject": "Who",
+    "target": "Condition or gene",
+    "edge": "Connection",
+    "foundVia": "Found with",
+    "counts": "{open} waiting · {accepted} accepted · {rejected} rejected"
+  }
+}

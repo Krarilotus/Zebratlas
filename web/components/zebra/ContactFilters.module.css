@@ -1,0 +1,4 @@
+.filters { display:flex; align-items:center; flex-wrap:wrap; gap:10px; padding:4px 0 16px; color:var(--z-muted); font-size:12px; }
+.filters select { min-height:44px; max-width:100%; padding:8px 28px 8px 10px; border:1px solid var(--z-line); border-radius:5px; background:var(--z-paper); color:var(--z-ink); font:inherit; font-size:13px; }
+.filters select:focus-visible { outline:2px solid var(--z-teal); outline-offset:2px; }
+.filters select:disabled { opacity:.5; }

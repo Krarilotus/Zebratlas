@@ -1,0 +1,87 @@
+import type { ConnectionsResponse, GapsResponse, NodeKind, ProvChain, RelatedResponse, ResearchQuestion, SummaryResponse } from "@/lib/types";
+import type { Account, ConversationSummary, SavedItem, SavedPayload } from "@/components/account/types";
+
+export type GraphEvidence = { source: string; url?: string; record?: string; retrieved_at?: string; version?: string; sha256?: string };
+export type GraphNode = { id: string; label: string; kind: NodeKind | string; subkind?: string; matched: boolean; context?: boolean; anchor_id?: string; direction?: string; community_seed_ids?: string[] };
+export type GraphEdge = { id: string; source: string; target: string; relation: string; label: string; highlighted: boolean; kind?: string; context?: boolean; anchor_id?: string; direction?: string; community_seed_ids?: string[]; evidence: GraphEvidence[]; runtime_reasoning?: boolean; proof?: unknown; reason?: string };
+export type GraphCommunity = {
+  strategy: string; scope: string; node_limit: number; edge_limit: number;
+  seeds: { id: string; shown_nodes: number; shown_edges: number; direct_edges: number; people: number; available_nodes: number; available_edges: number; truncated: boolean; counts_exact: boolean }[];
+  shared_nodes: { id: string; seed_ids: string[] }[];
+};
+export type SearchGraph = { nodes: GraphNode[]; edges: GraphEdge[]; community?: GraphCommunity };
+export type ExploreResult = {
+  id: string; label: string; kind: string; reason: string; score: number; evidence: GraphEvidence[]; url?: string;
+  facts?: { key: string; value: string }[];
+  holder?: { id?: string | null; name: string };
+  official_action?: { action: string; url: string; outcome?: string; audience?: string; availability?: string | null; source?: { url?: string; version?: string; sha256?: string; record_locator?: string; retrieved_at?: string } };
+  how_to_get?: { route: string; url?: string | null; note?: string | null };
+  status?: string; match?: string; relation_kind?: string; metadata_evidence?: GraphEvidence[]; provenance_id?: string;
+};
+export const EXPLORE_INTENTS = ["all", "conditions", "researchers", "studies", "papers", "funding", "models", "therapies", "resources", "groups", "outcomes", "gaps"] as const;
+export type ExplorePlan = { focus: string[]; intent: typeof EXPLORE_INTENTS[number]; filters: { country?: string | null; recruiting?: boolean | null; kind?: string | null } };
+export type ExploreSchema = { version: number; classes: { kind: string; count: number }[]; atlas: Record<string, unknown>; data?: Record<string, unknown>; relations: string[]; core_relations: string[]; understanding_schema: Record<string, unknown>; model_skill: string; limits: { query_bytes: number; nodes: number; edges: number }; execution: { sparql_configured: boolean; store_snapshot_equivalence: string } };
+export type SparqlTerm = { type: string; value: string; datatype?: string; "xml:lang"?: string };
+export type QueryResult = {
+  backend: string;
+  data: { head?: { vars?: string[] }; results?: { bindings?: Record<string, SparqlTerm>[] }; boolean?: boolean };
+  provenance: Record<string, unknown>[];
+  query?: string | null;
+  lineage: { source_url: string; retrieved_at: string; version: string; sha256: string; record_locator: string };
+  activity: Record<string, unknown>;
+  latency_ms: number;
+  truncated: boolean;
+  notes: string[];
+};
+export type QueryExecution = {
+  status?: "executed" | "not_executed" | "unsupported";
+  question_status?: "partial" | "not_executed";
+  diagnostic?: string;
+  routing?: { route: string };
+  answer: { plan?: Record<string, unknown> | null; results: QueryResult[]; model_provenance: Record<string, unknown>[]; tool_trace: Record<string, unknown>[]; latency_ms: number };
+  semantic_focus: string[];
+  activity: Record<string, unknown>;
+};
+export type SparqlRunSettings = { limit: number; reasoning: boolean; focus: string[]; semantic_focus: string[]; linked: { id: string; label: string; kind?: string }[] };
+export type ExploreResponse = {
+  query: string;
+  interpretation: { mode: "agent" | "indexed" | "sparql"; entities: { id: string; label: string; kind: string }[]; intent: string; warning?: string; routing?: { route: string } };
+  results: ExploreResult[];
+  graph: SearchGraph;
+  execution: { engine: "indexed-atlas" | "nrese" | "none"; sparql?: string | null; queries?: { seed_ids: string[]; community_seed_id?: string; stage: string; sparql: string; engine: "nrese"; row_count: number; limit: number; reasoning?: boolean; activity?: Record<string, unknown> }[]; elapsed_ms: number; truncated: boolean; runtime_reasoning?: boolean; reasoning_proofs?: unknown[]; reasoning_warning?: string | null; rerun_context?: SparqlRunSettings };
+  plan?: ExplorePlan;
+  query_execution?: QueryExecution;
+};
+export type JobItem = { id: string; what: { kind: string; label: string }; holder?: { id?: string; name: string; kind?: string } | null; how_to_get: { route: string; url?: string; note?: string }; facts: { key: string; value: string }[]; match: string; via: { edge_id: string; relation: string; reason?: string }; source?: { name: string; record: string; url?: string; retrieved_at?: string; sha256?: string }; licence?: { id?: string; class?: string; release?: boolean } };
+export type JobsResponse = { subject: { id: string; kind: string; label: string }; genes: { id: string; kind: string; label: string }[]; jobs: { job: string; label: unknown; total: number; items: JobItem[]; none_found?: unknown; searched: { source: string; label: string; status: string; retrieved_at?: string; records: number }[] }[] };
+export type InitiativeAction = { action: string; url: string; outcome?: string; audience?: string; date?: string; retrieved_at?: string; availability?: string; source?: { url?: string; version?: string; sha256?: string; record_locator?: string; retrieved_at?: string; kind?: string } };
+export type Initiative = { id: string; initiative: string; description?: string; scope: string; research_only?: boolean; official_action?: InitiativeAction | null; official_actions?: InitiativeAction[]; reported_actions?: { action: string; url: string; outcome?: string; audience?: string; verification?: string; destination_status?: string; active?: false; source?: InitiativeAction["source"] }[]; scopes?: { kind: string; target?: string; label?: string }[]; languages?: string[]; provenance?: string; links?: { id: string; relation: string; target: string }[]; verification?: string; reason?: string };
+export type InitiativesResponse = { initiatives: Initiative[]; references: Initiative[] };
+export type ModelChoice = { connection: string; model?: string | null };
+export type ModelConnection = { name: string; label: string; kind: string; runs_on: string; base_url?: string; default_model?: string; models: string[]; needs_key: boolean; key_from_env_available: boolean; availability?: unknown; free_tier?: unknown };
+export type ModelsResponse = { default?: string; selected?: ModelChoice | null; connections: ModelConnection[] };
+export type ModelConnectionCheck = { connection: string; connected: boolean; models: string[]; availability?: { reason?: string; available?: boolean } };
+export type ConnectorDevice = { id: string; user_id: string; label: string; created_at: number; revoked_at?: number | null };
+export const CONDITION_SECTIONS = ["summary", "connections", "related", "questions", "gaps", "jobs"] as const;
+export type ConditionSection = typeof CONDITION_SECTIONS[number];
+export type ConditionDetail = { id: string; summary: SummaryResponse | null; connections: ConnectionsResponse | null; related: RelatedResponse | null; questions: ResearchQuestion[]; gaps: GapsResponse | null; unavailable: string[]; loadedSections?: ConditionSection[]; jobs?: JobsResponse | null; initiatives?: Initiative[] };
+export type ExtractedDocument = { name: string; text: string; format: string; pages?: number | null; chars: number; truncated: boolean; redactions: number };
+export type AccountState = { state: "signed_out" } | { state: "signed_in"; account: Account };
+export type AuthResult = AccountState | { state: "verification_required"; code: "verification_sent" };
+export type EmailActionResult = { state: "accepted" | "verified" | "password_reset"; code: string };
+export type ContributionInput = {
+  kind: "new_link" | "correction" | "missing_evidence" | "outdated_contact" | "data_source" | "other";
+  kind_other?: string;
+  subject: { id?: string; label?: string };
+  target?: { id?: string; label?: string };
+  subject_kind?: "patient_group" | "organisation" | "registry" | "study" | "person" | "other";
+  statement: string;
+  evidence_url?: string;
+  quote?: string;
+  contact_url?: string;
+  edge?: string;
+  found_via?: { page?: string; assistant?: string };
+  contributor: { contact?: string; name?: string; organisation?: string };
+  lang?: string;
+};
+export type { ProvChain, Account, SavedItem, SavedPayload, ConversationSummary };

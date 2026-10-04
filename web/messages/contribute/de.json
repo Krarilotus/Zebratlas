@@ -1,0 +1,103 @@
+{
+  "_meta": { "owner": "contribute agent", "note": "Reviewed German." },
+  "suggest": "Verbindung vorschlagen oder korrigieren",
+  "suggestShort": "Vorschlagen oder korrigieren",
+  "title": "Helfen Sie mit, die Karte für {name} zu verbessern",
+  "lead": "Kennen Sie eine Patientenorganisation, ein Register, eine Studie oder eine Forscherin, die hier fehlt? Ist etwas falsch oder veraltet? Sagen Sie es uns. Ein Mensch prüft jeden Vorschlag, bevor er erscheint, und er bleibt immer als Vorschlag aus der Community gekennzeichnet.",
+  "back": "Zurück zu {name}",
+  "badge": "Vorschlag aus der Community",
+  "pending": "{n, plural, one {# Vorschlag aus der Community zu dieser Erkrankung wird geprüft.} other {# Vorschläge aus der Community zu dieser Erkrankung werden geprüft.}}",
+  "kind": {
+    "legend": "Was möchten Sie tun?",
+    "new_link": "Eine fehlende Verbindung ergänzen",
+    "correction": "Hier stimmt etwas nicht",
+    "missing_evidence": "Ein Beleg fehlt",
+    "outdated_contact": "Ein Kontakt ist veraltet"
+  },
+  "subjectKind": {
+    "legend": "Um welche Art von Verbindung geht es?",
+    "patient_group": "Patientenorganisation",
+    "organisation": "Andere Organisation",
+    "registry": "Register",
+    "study": "Studie",
+    "person": "Forscherin, Forscher oder Ärztin, Arzt"
+  },
+  "field": {
+    "subject": "Name",
+    "subjectHint": "Der Name, wie er auf der eigenen Website steht.",
+    "about": "Um welche Verbindung geht es?",
+    "aboutCondition": "Um diese Erkrankung allgemein",
+    "statement": "In Ihren eigenen Worten",
+    "statementHint": "Was ist neu, falsch oder fehlt? Ein paar Sätze genügen.",
+    "evidenceUrl": "Link zum Beleg",
+    "evidenceUrlHint": "Eine öffentliche Webseite, die es zeigt, zum Beispiel die eigene Website der Gruppe.",
+    "quote": "Worte von dieser Seite (optional)",
+    "quoteHint": "Kopieren Sie einen Satz von der Seite, der es zeigt. Wir prüfen, ob er dort steht.",
+    "contactUrl": "Offizielle Kontaktseite (optional)",
+    "contactUrlNew": "Die aktuelle Kontaktseite",
+    "assistant": "Hat Ihnen ein KI-Assistent beim Finden geholfen? (optional)",
+    "assistantHint": "Zum Beispiel ChatGPT oder Claude. Wir vermerken das beim Vorschlag.",
+    "you": "Über Sie (alles optional)",
+    "name": "Ihr Name",
+    "contact": "E-Mail für Rückfragen",
+    "contactHint": "Nur die prüfende Person sieht sie. Leer lassen, um anonym zu bleiben.",
+    "organisation": "Gruppe, für die Sie sprechen"
+  },
+  "submit": "Vorschlag senden",
+  "sending": "Wird gesendet…",
+  "error": {
+    "unavailable": "Vorschläge können gerade nicht gesendet werden. Bitte versuchen Sie es später noch einmal.",
+    "invalid": "Bitte prüfen Sie das Formular: {detail}",
+    "rate_limited": "Zu viele Vorschläge von dieser Verbindung. Bitte versuchen Sie es später noch einmal.",
+    "generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es noch einmal."
+  },
+  "status": {
+    "title": "Ihr Vorschlag",
+    "thanks": "Danke! Ihr Vorschlag ist in der Prüfwarteschlange. Er erscheint erst auf der Karte, wenn ihn jemand geprüft hat.",
+    "state": {
+      "submitted": "Eingegangen, automatische Prüfungen laufen",
+      "auto_checked": "Automatisch geprüft, wartet auf eine Prüferin oder einen Prüfer",
+      "accepted": "Angenommen: auf der Karte als Vorschlag aus der Community sichtbar",
+      "rejected": "Nicht angenommen"
+    },
+    "reason": "Begründung der Prüfung: {reason}",
+    "checks": "Automatische Prüfungen",
+    "noChecks": "Die automatischen Prüfungen sind noch nicht fertig. Laden Sie die Seite in einer Minute neu.",
+    "notFound": "Diesen Vorschlag finden wir nicht.",
+    "prov": "Vollständiger Verlauf (PROV-O)",
+    "privacy": "Ihre E-Mail-Adresse wird hier nie angezeigt.",
+    "submittedOn": "Gesendet am {date}",
+    "check": {
+      "pass": "In Ordnung",
+      "warn": "Hinweis",
+      "fail": "Problem",
+      "skipped": "Nicht geprüft"
+    }
+  },
+  "review": {
+    "title": "Vorschläge prüfen",
+    "lead": "Jeder Vorschlag bleibt von der kuratierten Karte getrennt, bis ihn jemand annimmt. Prüfen Sie den Beleg, dann nehmen Sie an oder lehnen ab, jeweils mit Begründung; die Begründung ist öffentlich.",
+    "token": "Prüfschlüssel",
+    "tokenHint": "Bleibt nur auf dieser Seite, wird nie gespeichert.",
+    "open": "Warteschlange öffnen",
+    "empty": "Nichts wartet auf Prüfung.",
+    "accept": "Annehmen",
+    "reject": "Ablehnen",
+    "reason": "Begründung (Pflicht, öffentlich sichtbar)",
+    "recheck": "Prüfungen erneut ausführen",
+    "contact": "Kontakt",
+    "anonymous": "anonym",
+    "unauthorized": "Dieser Schlüssel ist ungültig.",
+    "unavailable": "Der Prüfdienst ist nicht erreichbar.",
+    "failed": "Nicht gespeichert: {detail}",
+    "saved": "Gespeichert.",
+    "statement": "Aussage",
+    "evidence": "Beleg",
+    "quote": "Zitat",
+    "subject": "Wer",
+    "target": "Erkrankung oder Gen",
+    "edge": "Verbindung",
+    "foundVia": "Gefunden mit",
+    "counts": "{open} offen · {accepted} angenommen · {rejected} abgelehnt"
+  }
+}

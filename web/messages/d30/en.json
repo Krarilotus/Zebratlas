@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "note": "D30 keys (identity candidates, live ranking claim), kept apart while the main catalogs are being edited; merge into the 12 catalogs. Server fallbacks: crates/atlas-server/src/copy_d30.rs."
+  },
+  "identity": {
+    "candidate_same_as": "Possibly the same as {target_label} ({target}): the names match, but no authoritative mapping confirms it.",
+    "candidate_source": "{source_id} has the same name and is possibly the same condition; no authoritative mapping confirms it."
+  },
+  "match": {
+    "claim": {
+      "ranker_v3": "On {cases} published cases with no detected direct PMID overlap, a preregistered rank fusion that mainly follows the Resnik ontology baseline and uses the atlas score to break its first-place ties raised exact top-1 from {atlas_top1} (atlas) and {resnik_top1} (Resnik) to {fusion_top1}, with positive publication-grouped 95% intervals for the gain; top-10 did not improve. Retrospective evidence on a benchmark whose earlier results informed the design; not clinical validation."
+    }
+  }
+}

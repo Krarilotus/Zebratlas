@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "locale": "tr",
+    "source": "en",
+    "machine_translated": true,
+    "reviewed": [
+      "en",
+      "de"
+    ],
+    "owner": "accounts agent (H2)",
+    "note": "Machine-translated from en; not reviewed.",
+    "connector": {
+      "author": "GPT-6.1-Sol",
+      "backcheck": "Own-device code approval, connection/model choice, revocation, unavailable selection and hosted reset retained.",
+      "native_reviewed": false
+    }
+  },
+  "title": "Hesabınız",
+  "nav": {
+    "account": "Hesap",
+    "saved": "Kaydedilenler",
+    "conversations": "Sohbetler"
+  },
+  "free": {
+    "title": "Hesaba ihtiyacınız yok",
+    "lead": "Atlastaki her şey giriş yapmadan çalışır. Hesap yalnızca bir şeyleri saklamanızı sağlar: takip ettiğiniz hastalıklar, bulduğunuz kişiler ve gruplar, mesaj taslakları ve atlasa sorduğunuz sorular."
+  },
+  "unavailable": {
+    "title": "Hesaplar burada kullanılamıyor",
+    "lead": "Atlasın bu kopyası hesap hizmeti olmadan çalışıyor. Tüm sayfalar çalışır; yalnızca kaydetme yapılamaz."
+  },
+  "form": {
+    "signInTitle": "Giriş yap",
+    "signUpTitle": "Hesap oluştur",
+    "email": "E-posta",
+    "password": "Şifre",
+    "passwordHint": "En az 10 karakter. Kolay hatırlayacağınız birkaç kelime iyi bir seçimdir.",
+    "name": "Adınız (isteğe bağlı)",
+    "signIn": "Giriş yap",
+    "signUp": "Hesap oluştur",
+    "pending": "Bir saniye…",
+    "toSignUp": "Yeni misiniz? Hesap oluşturun",
+    "toSignIn": "Hesabınız var mı? Giriş yapın",
+    "privacy": "E-postanızı, şifrenizin şifrelenmiş (hash) halini ve kaydettiklerinizi saklarız. İzleme yok, IP adresi yok. İstediğiniz zaman her şeyi indirebilir veya silebilirsiniz.",
+    "deleted": "Hesabınız ve tüm içeriği silindi."
+  },
+  "error": {
+    "bad_credentials": "Bu e-posta ve şifre hiçbir hesapla eşleşmiyor.",
+    "conflict": "Bu e-postayla zaten bir hesap var. Giriş yapmayı deneyin.",
+    "invalid": "Bazı bilgiler geçersiz. Lütfen kontrol edin.",
+    "invalid_email": "Lütfen geçerli bir e-posta adresi girin.",
+    "password_short": "Şifreniz en az 10 karakter olmalı.",
+    "rate_limited": "Çok fazla deneme. Birkaç dakika bekleyip tekrar deneyin.",
+    "unavailable": "Hesaplar şu anda kullanılamıyor. Geri kalan her şey çalışıyor.",
+    "unauthorized": "Lütfen yeniden giriş yapın.",
+    "not_found": "Bu öğe artık mevcut değil.",
+    "forbidden": "Bu öğeyi değiştiremezsiniz.",
+    "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+  },
+  "home": {
+    "signedInAs": "{email} olarak giriş yapıldı",
+    "greeting": "Merhaba, {name}",
+    "plan": "Plan: {plan}",
+    "saved": "{n, plural, =0 {Kaydedilenler: henüz yok} other {Kaydedilenler: # öğe}}",
+    "conversations": "{n, plural, =0 {Sohbetler: henüz yok} other {Sohbetler: #}}"
+  },
+  "plan": {
+    "free": "Ücretsiz",
+    "organisation": "Kuruluş",
+    "enterprise": "Kurumsal"
+  },
+  "role": {
+    "owner": "Sahip",
+    "admin": "Yönetici",
+    "member": "Üye"
+  },
+  "orgs": {
+    "title": "Kuruluşlar",
+    "lead": "Hasta grupları ve araştırma ekipleri kartları ve taslakları tek bir yerde birlikte saklayabilir.",
+    "none": "Henüz bir kuruluşa üye değilsiniz.",
+    "name": "Kuruluşun adı",
+    "create": "Kuruluş oluştur",
+    "created": "Kuruluş oluşturuldu.",
+    "planOf": "{plan} planı"
+  },
+  "data": {
+    "title": "Verileriniz",
+    "lead": "Hakkınızda sakladığımız her şeyi tek bir dosya olarak indirin ya da çıkış yapın.",
+    "export": "Tüm verilerimi indir",
+    "signOut": "Çıkış yap",
+    "signOutAll": "Tüm cihazlarda çıkış yap",
+    "manage": "Verilerimi y?net",
+    "pageLead": "Hesab?n?zdaki bilgileri y?netin.",
+    "signedOut": "Hesab?n?zda kay?tl? bilgileri g?rmek i?in oturum a??n.",
+    "created": "Hesap olu?turma tarihi",
+    "kept": "Hesab?n?zda kay?tl?",
+    "documents": "Kaydedilen belgeler",
+    "documentsUnavailable": "Kaydedilen belgeler ?u anda y?klenemiyor.",
+    "documentsEmpty": "Kaydedilmi? belgeniz yok.",
+    "untitledDocument": "Ba?l?ks?z belge",
+    "view": "G?r?nt?le",
+    "download": "?ndir",
+    "deleteDocument": "Sil",
+    "contributions": "Katk?lar?n?z",
+    "contributionsUnavailable": "Katk?lar?n?z ?u anda y?klenemiyor.",
+    "contributionsEmpty": "Katk?n?z yok.",
+    "contributionRemoval": "Belirli bir katk?y? kald?rmak i?in kald?rma talebi g?nderin."
+  },
+  "password": {
+    "title": "Şifreyi değiştir",
+    "current": "Mevcut şifre",
+    "new": "Yeni şifre",
+    "submit": "Şifreyi değiştir",
+    "done": "Şifre değiştirildi. Diğer cihazlarınızda oturum kapatıldı."
+  },
+  "delete": {
+    "title": "Hesabı sil",
+    "lead": "Bu işlem hesabınızı ve kaydettiğiniz her şeyi kalıcı olarak siler. Geri alınamaz.",
+    "password": "Onaylamak için şifreniz",
+    "submit": "Hesabımı sil",
+    "keepName": "Kabul edilen katkılarımda adım görünmeye devam etsin"
+  },
+  "saved": {
+    "title": "Kaydedilenler",
+    "lead": "Daha sonra dönmek için sakladıklarınız.",
+    "empty": "Henüz bir şey kaydedilmedi. Bir hastalık, bağlantı veya mesaj taslağındaki Kaydet düğmesini kullanın.",
+    "signedOut": "Kaydettiklerinizi görmek için giriş yapın. Kaydetmek isteğe bağlıdır: atlasta hiçbir şey hesap gerektirmez.",
+    "signIn": "Giriş yapın veya hesap oluşturun",
+    "count": "{n, plural, other {# öğe}}",
+    "savedOn": "{date} tarihinde kaydedildi",
+    "open": "Aç",
+    "remove": "Kaldır",
+    "subject": "Konu: {subject}",
+    "kind": {
+      "condition": "Takip ettiğiniz hastalıklar",
+      "connection_card": "Kişiler, gruplar ve çalışmalar",
+      "connection_map": "Haritalar",
+      "message_draft": "Mesaj taslakları",
+      "node": "Diğer",
+      "search": "Aramalar"
+    }
+  },
+  "save": {
+    "save": "Kaydet",
+    "saved": "Kaydedildi",
+    "remove": "Kaydedilenlerden kaldır",
+    "signIn": "Kaydetmek için giriş yapın",
+    "draft": "Taslağı kaydet",
+    "draftSaved": "Taslak kaydedildi",
+    "conversation": "Sohbeti kaydet",
+    "conversationSaved": "Sohbet kaydedildi",
+    "pending": "Kaydediliyor…",
+    "failed": "Kaydedilemedi. Lütfen tekrar deneyin."
+  },
+  "conversations": {
+    "title": "Sohbetler",
+    "lead": "Atlasa sorduğunuz sorular ve yanıtları, dayandıkları kaynaklarla birlikte.",
+    "empty": "Henüz sohbet yok.",
+    "messages": "{n, plural, other {# mesaj}}",
+    "updated": "{date} tarihinde güncellendi",
+    "you": "Siz",
+    "atlas": "Atlas",
+    "sources": "Kaynaklar",
+    "delete": "Bu sohbeti sil",
+    "back": "Tüm sohbetler",
+    "notFound": "Bu sohbet yok ya da silinmiş."
+  },
+  "connector": {
+    "title": "Kendi modellerinizi bağlayın",
+    "pair": "Kendi bilgisayarınızdaki bağlayıcının gösterdiği kodu girin.",
+    "code": "Eşleştirme kodu",
+    "approve": "Bağla",
+    "devices": "Bilgisayarlarınız",
+    "none": "Henüz bağlı bilgisayar yok.",
+    "revoke": "Erişimi iptal et",
+    "connection": "Yanıt için bağlantı",
+    "hosted": "Varsayılan barındırılan bağlantı",
+    "model": "Model",
+    "defaultModel": "Cihazın varsayılan modeli",
+    "save": "Seçimi kaydet",
+    "reset": "Varsayılan barındırılan bağlantıyı kullan",
+    "offline": "Çevrimdışı veya erişimi iptal edilmiş",
+    "done": "Kaydedildi.",
+    "refresh": "Cihazları yenile",
+    "instructions": "Bağlayıcıyı kur"
+  }
+}

@@ -1,0 +1,58 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ra: <https://w3id.org/rare-disease-atlas/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://w3id.org/rare-disease-atlas/ontology/bridge-dul> a owl:Ontology ;
+    dcterms:license <https://opensource.org/license/mit> ;
+    rdfs:comment "Atlas authored application profile, under the repository MIT option. External imports retain their own terms. Resolve imports only through manifest-pinned local artifacts." ;
+    owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl>,
+        <https://w3id.org/rare-disease-atlas/ontology/1.0.0/tbox> ;
+    owl:versionIRI <https://w3id.org/rare-disease-atlas/ontology/1.0.0/bridge-dul> ;
+    owl:versionInfo "1.0.0" .
+
+ra:Concept rdfs:subClassOf dul:Concept .
+
+ra:DiseaseDescription rdfs:subClassOf ra:DULDiseaseConceptInformation .
+
+ra:GeneDescription rdfs:subClassOf ra:DULGeneConceptInformation .
+
+ra:MaterialEntity rdfs:subClassOf dul:PhysicalObject .
+
+ra:Organization rdfs:subClassOf dul:Organization .
+
+ra:PhenotypeDescription rdfs:subClassOf ra:DULPhenotypeConceptInformation .
+
+ra:Process rdfs:subClassOf dul:Event .
+
+ra:Quality rdfs:subClassOf dul:Quality .
+
+ra:DULDiseaseConceptInformation a owl:Class ;
+    rdfs:label "D U L Disease Concept Information" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:InformationEntity dul:InformationObject [ a owl:Restriction ;
+                        owl:onProperty ra:isAbout ;
+                        owl:someValuesFrom ra:DiseaseConcept ] ) ] ;
+    skos:definition "dul information content explicitly about an Atlas DiseaseConcept." .
+
+ra:DULGeneConceptInformation a owl:Class ;
+    rdfs:label "D U L Gene Concept Information" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:InformationEntity dul:InformationObject [ a owl:Restriction ;
+                        owl:onProperty ra:isAbout ;
+                        owl:someValuesFrom ra:GeneConcept ] ) ] ;
+    skos:definition "dul information content explicitly about an Atlas GeneConcept." .
+
+ra:DULPhenotypeConceptInformation a owl:Class ;
+    rdfs:label "D U L Phenotype Concept Information" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ra:InformationEntity dul:InformationObject [ a owl:Restriction ;
+                        owl:onProperty ra:isAbout ;
+                        owl:someValuesFrom ra:PhenotypeConcept ] ) ] ;
+    skos:definition "dul information content explicitly about an Atlas PhenotypeConcept." .
+
+ra:InformationEntity rdfs:subClassOf dul:InformationObject .
+

@@ -1,0 +1,6 @@
+.form fieldset{border:0;padding:0;margin:0;min-width:0;display:grid;gap:18px}
+.form input,.form select,.form button{min-height:44px}
+.optional summary,.checks summary{min-height:44px;align-content:center;cursor:pointer}
+.optional label{margin-top:16px}
+.context{min-width:0}
+.checks{margin-top:20px}
