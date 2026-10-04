@@ -6,7 +6,7 @@ Find people, communities and research working on a rare disease. Describe what y
 
 Open a result to see why it matched, inspect its connected graph, and check the evidence behind a relationship. The query workspace exposes the executed SPARQL and supports guarded reruns. Accounts let you save useful results and connect your own model access.
 
-Source assertions and inferred relationships remain distinguishable. Uncertain identity matches stay candidates. Research navigation does not replace clinical advice.
+Source assertions and inferred relationships remain distinguishable. For supported ontology-hierarchy queries, nrese explains the rules, premises and sources behind an inference. HermiT checks the authored schema separately; clinical, mechanism and treatment validation remain separate. Uncertain identity matches stay candidates.
 
 ## Run it yourself
 
