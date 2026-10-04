@@ -12,7 +12,7 @@ Source assertions and inferred relationships remain distinguishable. For support
 
 The public sample contains **15 conditions, 4 genes and 16 condition–gene associations** from Orphadata and HGNC. Each association retains its source evidence. Search, graph inspection and all 16 association hashes passed **22 checks on the Linux API**. These numbers describe this sample; the hosted app has broader coverage. The sample contains no researcher/person records, identity merges or inferred mechanisms; these sample checks do not validate end-to-end collaborator matching.
 
-Requires Node.js 24, Python 3.11+ and Rust 1.91+. Start the sample API in one terminal:
+Requires Git, Node.js 24, Python 3.11+ and Rust 1.91+ with a native C/C++ linker. Commands below use Bash (Git Bash on Windows). The sample launcher needs only Python's standard library. Start the sample API in one terminal:
 
 ```bash
 git clone https://github.com/Krarilotus/Zebratlas.git
@@ -29,7 +29,21 @@ npm ci
 ZEBRA_BACKEND_URL=http://127.0.0.1:8000 npm run dev
 ```
 
-Open `http://localhost:3000`. [Setup](docs/SETUP.md) covers production builds and optional model access; [data and licences](docs/DATA.md) describes the sample and hosted data boundaries.
+Open `http://localhost:3000/zebra` and search `STXBP1`. The API listens on port 8000; the web interface listens on port 3000. On Windows the launcher finds `atlas-server.exe` automatically. Stop both processes with Ctrl+C.
+
+This is a temporary, source-backed demo: it verifies the bundled snapshots, keeps mutable state outside the sample, uses in-memory account/contribution databases, and removes inherited provider/email secrets. It does **not** configure working signup mail, persistent accounts, personal connectors or an external SPARQL engine. Missing optional services leave their features unavailable; the sample does not become the full hosted research dataset.
+
+For the complete self-hosted configuration, follow [Setup](docs/SETUP.md): persistent API/web startup, shared model budgets, personal BYOK/connectors, account email and optional SPARQL. [Data and licences](docs/DATA.md) describes the sample and hosted data boundaries.
+
+| Optional feature | Configuration |
+| --- | --- |
+| Shared assistant paid for by the operator | `ATLAS_LLM_CONFIG` with explicit `free_tier = true` and `env_fallback = true`; `ATLAS_FREE_DAILY_USD`, `ATLAS_FREE_SPEND_FILE`, request limits and kill switch |
+| Personal model access | A personal connection with `env_fallback = false`, or an authenticated connector account; never silently use the operator's key |
+| Signup verification and password reset | `RESEND_API_KEY`, `ATLAS_ACCOUNT_EMAIL_FROM` and an HTTPS `ATLAS_ACCOUNT_PUBLIC_ORIGIN` |
+| Persistent account/contribution state | `RARE_ATLAS_ACCOUNTS_DB`, `RARE_ATLAS_CONTRIB_DB`; personal connectors also use `ATLAS_CONNECTOR_DB` |
+| External query workspace execution | Matching `ATLAS_QUERY_SCHEMA`, `ATLAS_QUERY_ENDPOINT` and `ATLAS_SPARQL_URL`; separately run and populate the RDF service |
+
+An API key authenticates a provider; it is **not permission to share that key with app users**. The shared connection configuration authorizes guarded operator spending. Personal connections remain separate. Set `ATLAS_FREE_FALLBACKS` explicitly for the shared routes you intend to use; an explicit provider/model/key selection never authorizes a silent switch to another provider. Keep credentials on the API server or the user's connector machine, never in `NEXT_PUBLIC_*` variables.
 
 For bulk research, the [verified public graph](https://huggingface.co/datasets/Krarilotus/zebratlas-kg/tree/dd8851755ab95fea08df63b9a1a35975edc73a16) contains **292,391 nodes and 835,141 edge records**: **45,556 asserted relationships** and **789,585 link-only records**. Fourteen optional crosswalk sets remain withheld. The bundled sample provides the local app setup; the bulk projection supports RDF and JSON analysis.
 
@@ -44,7 +58,7 @@ For bulk research, the [verified public graph](https://huggingface.co/datasets/K
 | Model access | Configured provider or a user's connector account |
 | Query diagram | Query-by-Graph and Traqula parser/generator |
 
-The interface has English and German catalogues. Its 12-language selector uses explicit English fallbacks where translations are incomplete; native review is separate from code validation.
+The interface supports twelve languages. Results include a short source-backed explanation where available; eligible connected models can simplify a condition definition in the selected language. Newer untranslated labels retain explicit English fallbacks; native review is separate from code validation.
 
 ## Contribute
 

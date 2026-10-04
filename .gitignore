@@ -8,6 +8,8 @@ web/next-env.d.ts
 *.log
 .env
 .env.*
+var/
+llm.local.toml
 *.sqlite
 *.sqlite3
 *.db
