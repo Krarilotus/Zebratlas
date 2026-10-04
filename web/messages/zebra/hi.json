@@ -505,7 +505,14 @@
     "plan": "क्वेरी और प्रमाण",
     "remove": "हटाएँ",
     "authBusy": "कृपया प्रतीक्षा करें…",
-    "therapies": "उपचार"
+    "therapies": "उपचार",
+    "entityOverview": {
+      "source": "स्रोत का मूल पाठ",
+      "ai": "एआई सारांश",
+      "original": "मूल स्रोत ({language})",
+      "sourceDetails": "स्रोत",
+      "geneIdentity": "{symbol} एक जीन है। इसका आधिकारिक नाम {name} है।"
+    }
   },
   "proofWords": {
     "inferred": "इस संबंध का आधार",

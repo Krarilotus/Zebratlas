@@ -505,6 +505,13 @@
       "message_draft": "Nachrichtenentwurf",
       "node": "Datensatz",
       "search": "Suche"
+    },
+    "entityOverview": {
+      "source": "Quellentext",
+      "ai": "KI-Zusammenfassung",
+      "original": "Originalquelle ({language})",
+      "sourceDetails": "Quellen",
+      "geneIdentity": "{symbol} ist ein Gen. Sein offizieller Name lautet {name}."
     }
   },
   "briefTasks": [

@@ -505,6 +505,13 @@
       "message_draft": "Message draft",
       "node": "Record",
       "search": "Search"
+    },
+    "entityOverview": {
+      "source": "Source text",
+      "ai": "AI summary",
+      "original": "Original source ({language})",
+      "sourceDetails": "Sources",
+      "geneIdentity": "{symbol} is a gene. Its official name is {name}."
     }
   },
   "briefTasks": [

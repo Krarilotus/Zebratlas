@@ -505,7 +505,14 @@
     "plan": "Sorgu ve kanıtlar",
     "remove": "Kaldır",
     "authBusy": "Lütfen bekleyin…",
-    "therapies": "Tedaviler"
+    "therapies": "Tedaviler",
+    "entityOverview": {
+      "source": "Kaynak metni",
+      "ai": "Yapay zekâ özeti",
+      "original": "Özgün kaynak ({language})",
+      "sourceDetails": "Kaynaklar",
+      "geneIdentity": "{symbol} bir gendir. Resmî adı {name} şeklindedir."
+    }
   },
   "proofWords": {
     "inferred": "Bu bağlantının dayanağı",

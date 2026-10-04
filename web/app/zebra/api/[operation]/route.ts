@@ -6,6 +6,8 @@ import { HOSTED_MODEL_COOKIE, HttpError, bodyObject, boundedString, conditionBun
 import { sourceDates } from "@/lib/zebra/normalize";
 import { CONDITION_SECTIONS, EXPLORE_INTENTS, type ConditionSection } from "@/lib/zebra/types";
 
+import { overviewRequest } from "@/lib/zebra/overview-request";
+
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 type Context = { params: Promise<{ operation: string }> };
@@ -97,6 +99,11 @@ async function handle(request: Request, context: Context): Promise<Response> {
         return jsonResponse({ ...document, name: "document" });
       }
       const body = await bodyObject(request);
+      if (operation === "overview") {
+        const payload = overviewRequest(body);
+        if (!payload) throw new HttpError(400, "Invalid overview request.");
+        return jsonResponse(await upstreamJson(request, "/api/explore/overview", { method: "POST", body: payload, timeout: payload.enhance ? 16000 : 5000 }));
+      }
       if (operation === "privacy") {
         if (Object.keys(body).some((key) => !["email", "concerns", "type"].includes(key))) throw new HttpError(400, "privacyRequest");
         const email = boundedString(body.email, "email address", 254).trim();

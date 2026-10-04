@@ -505,7 +505,14 @@
     "plan": "Query ed evidenze",
     "remove": "Rimuovi",
     "authBusy": "Attendi…",
-    "therapies": "Terapie"
+    "therapies": "Terapie",
+    "entityOverview": {
+      "source": "Testo della fonte",
+      "ai": "Sintesi con IA",
+      "original": "Fonte originale ({language})",
+      "sourceDetails": "Fonti",
+      "geneIdentity": "{symbol} è un gene. Il suo nome ufficiale è {name}."
+    }
   },
   "proofWords": {
     "inferred": "Perché questo collegamento",

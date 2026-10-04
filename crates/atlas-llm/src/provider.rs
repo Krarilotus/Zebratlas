@@ -150,6 +150,11 @@ pub trait Provider: Send + Sync + std::fmt::Debug {
     /// Check reachability / installation / login without a model call.
     async fn probe(&self) -> Availability;
 
+    /// Metadata-only probe using a request-scoped key, never retained by the provider.
+    async fn probe_for_key(&self, _key: Option<&ApiKey>) -> Availability {
+        self.probe().await
+    }
+
     /// Run one completion. `model` is already resolved (request or connection default).
     /// `key` is the resolved key (never stored). Must respect `req.deadline`.
     async fn complete(&self, req: &CompletionRequest, model: &str, key: Option<&ApiKey>) -> Result<ProviderOutput>;

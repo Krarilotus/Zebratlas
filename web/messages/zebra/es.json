@@ -505,7 +505,14 @@
     "plan": "Consulta y fundamentos",
     "remove": "Quitar",
     "authBusy": "Espere un momento…",
-    "therapies": "Tratamientos"
+    "therapies": "Tratamientos",
+    "entityOverview": {
+      "source": "Texto de la fuente",
+      "ai": "Resumen con IA",
+      "original": "Fuente original ({language})",
+      "sourceDetails": "Fuentes",
+      "geneIdentity": "{symbol} es un gen. Su nombre oficial es {name}."
+    }
   },
   "proofWords": {
     "inferred": "Por qué existe esta relación",

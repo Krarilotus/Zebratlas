@@ -505,7 +505,14 @@
     "plan": "クエリと根拠",
     "remove": "削除",
     "authBusy": "お待ちください…",
-    "therapies": "治療法"
+    "therapies": "治療法",
+    "entityOverview": {
+      "source": "出典の本文",
+      "ai": "AIによる要約",
+      "original": "出典の原文（{language}）",
+      "sourceDetails": "出典",
+      "geneIdentity": "{symbol} は遺伝子です。正式名称は {name} です。"
+    }
   },
   "proofWords": {
     "inferred": "このつながりの理由",

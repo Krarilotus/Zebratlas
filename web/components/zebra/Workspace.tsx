@@ -31,6 +31,8 @@ import { contactPlan, contactRole, type ContactRole } from "./contact-filters";
 import { classifyExploreError } from "@/lib/zebra/explore-error";
 import { isShortIndexedName, lookupIndexedNames, type IndexedLookupMatch } from "@/lib/zebra/indexed-lookup";
 import { possibleMatchPlan, possibleMatchState, publicSearchCaption } from "./possible-matches";
+import EntityOverview from "./EntityOverview";
+import { overviewSubject } from "@/lib/zebra/overview-identity";
 
 function GraphPending() { const copy = useZebraCopy(); return <div className="z-graph-loading" role="status"><ZebraLoader /><span>{copy.loading}</span></div>; }
 const Graph = dynamic(() => import("./Graph"), { ssr: false, loading: GraphPending });
@@ -330,6 +332,7 @@ export function Workspace({ initialQuery = "", initialView = "home", initialNode
   }, [conditionId, panelOpen, locale]);
   const resultData = rootData ?? data;
   const candidateState = useMemo(() => possibleMatchState(resultData), [resultData]);
+  const overviewEntity = useMemo(() => overviewSubject(resultData), [resultData]);
   function choosePossibleMatch(id: string) { const plan = possibleMatchPlan(resultData, id); if (plan) void runSearch(actualQuery.current, query, false, undefined, plan, false); }
   function chooseRole(role: ContactRole) { const plan = contactPlan(resultData, role); if (plan) void runSearch(actualQuery.current, query, false, undefined, plan, false); }
   function chooseFilter(value: string) { setFilter(value); const snapshot = snapshots.current.get(activeSearch.current); if (snapshot) snapshot.filter = value; }
@@ -447,6 +450,7 @@ export function Workspace({ initialQuery = "", initialView = "home", initialNode
           <div className={`z-findings-sheet ${page === "info" ? "z-slide-info" : "z-slide-results"}`} inert={phone && drawerShown}>
             {page === "results" ? <section className="z-results z-results-page" aria-label={copy.results}>
               <div className="z-results-heading"><div><p className="z-eyebrow">{communityView ? copy.community : copy.results}</p><h1>{resultTitle}</h1>{query && query !== resultTitle && <details className="z-original-query"><summary>{query.length > 110 ? `${query.slice(0, 110)}...` : query}</summary><p>{query}</p></details>}</div>{!candidateState && <button type="button" className="z-query-info" title={views.query} aria-label={views.query} onClick={openQuery}>{queryInfoSymbol}</button>}</div>
+              {!busy && !error && !candidateState && !communityView && <EntityOverview entity={overviewEntity} />}
               {keywordRouting && !candidateState && <p className="z-eyebrow" role="status"><strong>{copy.exploreError.keyword}</strong>{" · "}{copy.exploreError.keywordScope}</p>}
               {resultData && !candidateState && <ContactFilters value={contactRole(resultData, communityView)} disabled={busy || !contactPlan(resultData, "all")} onChange={chooseRole} />}
               {kinds.length > 1 && <div className="z-filters" aria-label={copy.results}><button aria-pressed={filter === "all"} onClick={() => chooseFilter("all")}>{copy.all}<span>{resultData?.results.length}</span></button>{kinds.map((kind) => <button key={kind} aria-pressed={filter === kind} onClick={() => chooseFilter(kind)}>{kindLabel(kind)}<span>{resultData?.results.filter((item) => item.kind === kind).length}</span></button>)}</div>}

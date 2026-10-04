@@ -9,7 +9,9 @@ import { suggestionContext } from "../lib/zebra/search-suggestions.ts";
 async function isolatedModule(path, prefix = "") {
   const source = (await readFile(new URL(path, import.meta.url), "utf8")).replace(/^import .*;\r?$/gm, "");
   const js = stripTypeScriptTypes(source, { mode: "transform" });
-  return import(`data:text/javascript;base64,${Buffer.from(languagePrelude(path.includes("route.ts")) + prefix + js).toString("base64")}`);
+  const overview = await readFile(new URL("../lib/zebra/overview-request.ts", import.meta.url), "utf8");
+  const overviewCode = path.includes("route.ts") ? stripTypeScriptTypes(overview.replace(/^import .*;\r?$/gm, ""), { mode: "transform" }) + "\n" : "";
+  return import(`data:text/javascript;base64,${Buffer.from(languagePrelude(path.includes("route.ts")) + overviewCode + prefix + js).toString("base64")}`);
 }
 
 test("private words and filenames never appear in client request URLs", async () => {

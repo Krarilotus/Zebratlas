@@ -505,7 +505,14 @@
     "plan": "查询与依据",
     "remove": "移除",
     "authBusy": "请稍候…",
-    "therapies": "疗法"
+    "therapies": "疗法",
+    "entityOverview": {
+      "source": "来源原文",
+      "ai": "AI 摘要",
+      "original": "原始来源（{language}）",
+      "sourceDetails": "资料来源",
+      "geneIdentity": "{symbol} 是一种基因，其官方名称为 {name}。"
+    }
   },
   "proofWords": {
     "inferred": "这项关联的依据",

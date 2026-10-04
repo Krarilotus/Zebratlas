@@ -505,7 +505,14 @@
     "plan": "Consulta e fundamentos",
     "remove": "Remover",
     "authBusy": "Aguarde…",
-    "therapies": "Terapias"
+    "therapies": "Terapias",
+    "entityOverview": {
+      "source": "Texto da fonte",
+      "ai": "Resumo por IA",
+      "original": "Fonte original ({language})",
+      "sourceDetails": "Fontes",
+      "geneIdentity": "{symbol} é um gene. O seu nome oficial é {name}."
+    }
   },
   "proofWords": {
     "inferred": "Porquê esta ligação",

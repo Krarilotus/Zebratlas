@@ -11,7 +11,9 @@ const require = createRequire(process.env.ZEBRA_TEST_WEB ? path.join(process.env
 const ts = require("typescript"), React = require("react"), { renderToStaticMarkup } = require("react-dom/server");
 async function isolatedModule(relative, prefix = "") {
   const source = fs.readFileSync(path.join(root, relative), "utf8").replace(/^import .*;\r?$/gm, "");
-  return import(`data:text/javascript;base64,${Buffer.from(languagePrelude(relative.includes("route.ts")) + prefix + stripTypeScriptTypes(source, { mode: "transform" })).toString("base64")}`);
+  const overview = fs.readFileSync(path.join(root, "lib/zebra/overview-request.ts"), "utf8");
+  const overviewCode = relative.includes("route.ts") ? stripTypeScriptTypes(overview.replace(/^import .*;\r?$/gm, ""), { mode: "transform" }) + "\n" : "";
+  return import(`data:text/javascript;base64,${Buffer.from(languagePrelude(relative.includes("route.ts")) + overviewCode + prefix + stripTypeScriptTypes(source, { mode: "transform" })).toString("base64")}`);
 }
 
 test("anonymous client sends private concerns only in a fixed POST body", async () => {

@@ -267,6 +267,14 @@ impl Provider for HttpProvider {
         self.probe_with_key(key.as_ref()).await
     }
 
+    async fn probe_for_key(&self, key: Option<&ApiKey>) -> Availability {
+        let key = self.key_policy.resolve(key);
+        if self.key_policy.needs_key() && key.is_none() {
+            return Availability::not_ready("key-needed");
+        }
+        self.probe_with_key(key.as_ref()).await
+    }
+
     async fn complete(&self, req: &CompletionRequest, model: &str, key: Option<&ApiKey>) -> Result<ProviderOutput> {
         if self.key_policy.needs_key() && key.is_none() {
             return Err(LlmError::MissingKey {
@@ -508,7 +516,7 @@ mod connection_metadata_tests {
             .expect(1)
             .mount(&server)
             .await;
-        let availability = provider.probe_with_key(Some(&key)).await;
+        let availability = provider.probe_for_key(Some(&key)).await;
         assert!(availability.available);
         assert_eq!(availability.models, vec!["configured-model"]);
         let public = serde_json::to_string(&availability).unwrap();
@@ -529,7 +537,7 @@ mod connection_metadata_tests {
             .expect(1)
             .mount(&server)
             .await;
-        let failed = provider.probe_with_key(Some(&key)).await;
+        let failed = provider.probe_for_key(Some(&key)).await;
         assert!(!failed.available);
         assert_eq!(failed.reason, "auth-failed");
         assert_eq!(

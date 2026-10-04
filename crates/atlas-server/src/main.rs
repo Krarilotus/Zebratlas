@@ -23,6 +23,7 @@ mod drugs;
 mod explore;
 mod explore_candidates;
 mod explore_document;
+mod explore_overview;
 mod explore_failover;
 mod explore_projection;
 mod explore_query;

@@ -262,6 +262,19 @@ impl Llm {
         Ok(a)
     }
 
+    /// Probe the selected request scope without substituting a different connection.
+    pub async fn probe_call(&self, call: &Call) -> Result<Availability> {
+        let conn = self.registry.get(&call.connection)?;
+        let mut a = conn.provider.probe_for_key(call.key.as_ref()).await;
+        if let Some(t) = self.registry.free_tier(&call.connection) {
+            if let Some(blocked) = t.status(call.visitor.as_deref(), self.free_key(conn).is_some()).blocked {
+                a.available = false;
+                a.reason = reason_code(blocked);
+            }
+        }
+        Ok(a)
+    }
+
     /// Validate credentials without inference, then intersect with configured model IDs.
     pub async fn check_connection(&self, name: &str) -> Result<ConnectionCheck> {
         let conn = self.registry.get(name)?;

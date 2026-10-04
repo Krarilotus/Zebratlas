@@ -505,7 +505,14 @@
     "plan": "Запрос и его основания",
     "remove": "Удалить",
     "authBusy": "Подождите…",
-    "therapies": "Методы лечения"
+    "therapies": "Методы лечения",
+    "entityOverview": {
+      "source": "Текст источника",
+      "ai": "Краткое описание от ИИ",
+      "original": "Исходный источник ({language})",
+      "sourceDetails": "Источники",
+      "geneIdentity": "{symbol} — это ген. Его официальное название — {name}."
+    }
   },
   "proofWords": {
     "inferred": "Почему возникла эта связь",

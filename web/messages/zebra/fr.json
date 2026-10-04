@@ -505,7 +505,14 @@
     "plan": "Requête et éléments à l’appui",
     "remove": "Retirer",
     "authBusy": "Veuillez patienter…",
-    "therapies": "Traitements"
+    "therapies": "Traitements",
+    "entityOverview": {
+      "source": "Texte de la source",
+      "ai": "Résumé par IA",
+      "original": "Source originale ({language})",
+      "sourceDetails": "Sources",
+      "geneIdentity": "{symbol} est un gène. Son nom officiel est {name}."
+    }
   },
   "proofWords": {
     "inferred": "Pourquoi ce lien",

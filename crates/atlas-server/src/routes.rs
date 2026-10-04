@@ -237,6 +237,7 @@ pub(crate) fn model_routes(s: &AppState, conversations: Option<Arc<dyn atlas_ask
     let api = Router::new()
         .route("/api/resolve", get(crate::find::resolve))
         .route("/api/explore", post(crate::explore::search))
+        .route("/api/explore/overview", post(crate::explore_overview::overview))
         .route("/api/condition/{id}/connections", get(journeys::connections))
         .route("/api/condition/{id}/summary", get(journeys::summary))
         .route("/api/message", post(journeys::message))

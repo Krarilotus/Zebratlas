@@ -11,8 +11,10 @@ function load(path,imports,globals={}) {
 }
 class HttpError extends Error {constructor(status,message){super(message);this.status=status;}}
 const upstreamCalls=[];
+const supportedLocales=load("../lib/i18n/config.ts",{}).LOCALES;
+const overviewModule=load("../lib/zebra/overview-request.ts",{"./locale":{ZEBRA_LOCALES:supportedLocales}});
 const route=load('../app/zebra/api/[operation]/route.ts',{
- '@/lib/zebra/error-copy':{localizedError:(request,detail,code)=>({detail,code})},'@/lib/adapt':{},'@/components/account/types':{SAVED_KINDS:[]},'@/lib/zebra/types':{CONDITION_SECTIONS:[],EXPLORE_INTENTS:[]},'@/lib/zebra/normalize':{sourceDates:value=>value},
+ '@/lib/zebra/overview-request':overviewModule,'@/lib/zebra/error-copy':{localizedError:(request,detail,code)=>({detail,code})},'@/lib/adapt':{},'@/components/account/types':{SAVED_KINDS:[]},'@/lib/zebra/types':{CONDITION_SECTIONS:[],EXPLORE_INTENTS:[]},'@/lib/zebra/normalize':{sourceDates:value=>value},
  '@/lib/zebra/server':{HttpError,bodyObject:request=>request.json(),boundedString:(value,name,max=200,required=true)=>{if(typeof value!=='string'||value.length>max||(required&&!value.trim()))throw new HttpError(400,name);return value;},jsonResponse:(body,status=200)=>Response.json(body,{status}),upstreamJson:async(request,path,init)=>{upstreamCalls.push({path,init});return {engine:'nrese',receipt:'actual'};},enc:encodeURIComponent},
 });
 const get=(search)=>route.GET(new Request('https://zebratlas.example/zebra/api/query-suggestions?'+search),{params:Promise.resolve({operation:'query-suggestions'})});
@@ -58,3 +60,36 @@ await assert.rejects(client.runSparqlQuery('SELECT * WHERE {}','reviewed-file.tx
 await assert.rejects(client.runSparqlQuery('SELECT * WHERE {}','reviewed-file.txt',undefined,{...settings,reasoning:undefined}),/execution settings/);
 assert.equal(requests.length,validRequests,'Unknown settings are rejected before any API request');
 console.log('PASS query proxy/client: bounded five-item index, guarded rerun settings, UTF-8 limits, separate semantic focus, public caption only, no display-label forwarding, immutable original execution and no model route.');
+
+// Run the actual overview validator and BFF branch, with only upstream I/O mocked.
+const overview = body => route.POST(new Request('https://zebratlas.example/zebra/api/overview', {
+ method: 'POST', headers: {'content-type':'application/json'}, body:JSON.stringify(body),
+}), {params:Promise.resolve({operation:'overview'})});
+for (const lang of supportedLocales) {
+ for (const enhance of [false, true]) {
+  const response=await overview({id:'HGNC:11444',lang,enhance});
+  assert.equal(response.status,200);
+  assert.deepEqual(await response.json(),{engine:'nrese',receipt:'actual'});
+  const forwarded=upstreamCalls.at(-1);
+  assert.equal(forwarded.path,'/api/explore/overview');
+  assert.equal(forwarded.init.method,'POST');
+  assert.deepEqual(JSON.parse(JSON.stringify(forwarded.init.body)),{id:'HGNC:11444',lang,enhance});
+  assert.equal(forwarded.init.timeout,enhance?16000:5000,'Enhancement alone selects the bounded longer timeout');
+ }
+ const ordinary=await overview({id:'MONDO:0012812',lang});
+ assert.equal(ordinary.status,200);
+ assert.equal(upstreamCalls.at(-1).init.body.enhance,false,'Ordinary disclosure cannot implicitly request enhancement');
+ assert.equal(upstreamCalls.at(-1).init.timeout,5000);
+}
+const beforeRejectedOverview=upstreamCalls.length;
+for (const field of ['query','text','document','documents','filename','caption','prompt','url','connection','model']) {
+ const response=await overview({id:'HGNC:11444',lang:'en',[field]:'PRIVATE PATIENT CONTENT'});
+ assert.equal(response.status,400,field+' must stay outside overview requests');
+}
+for (const body of [
+ {id:'STXBP1',lang:'en'}, {id:'HGNC:11444',lang:'xx'}, {id:'HGNC:11444',lang:'EN'},
+ {id:'HGNC:11444',lang:'en',enhance:'true'}, {id:'HGNC:11444'},
+ {id:'HGNC:'+ '1'.repeat(256),lang:'en'}, {id:'HGNC:11444\nprivate',lang:'en'},
+]) assert.equal((await overview(body)).status,400);
+assert.equal(upstreamCalls.length,beforeRejectedOverview,'Rejected private/invalid bodies never reach the backend');
+console.log('PASS actual overview BFF: all twelve locales, exact ID-only bodies, explicit enhancement, bounded timeouts and private-field rejection.');

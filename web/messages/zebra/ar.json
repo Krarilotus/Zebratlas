@@ -505,7 +505,14 @@
     "plan": "الاستعلام والأدلة",
     "remove": "أزل",
     "authBusy": "يرجى الانتظار…",
-    "therapies": "العلاجات"
+    "therapies": "العلاجات",
+    "entityOverview": {
+      "source": "نص المصدر",
+      "ai": "ملخص بالذكاء الاصطناعي",
+      "original": "المصدر الأصلي ({language})",
+      "sourceDetails": "المصادر",
+      "geneIdentity": "{symbol} هو جين. اسمه الرسمي هو {name}."
+    }
   },
   "proofWords": {
     "inferred": "سبب هذه الصلة",

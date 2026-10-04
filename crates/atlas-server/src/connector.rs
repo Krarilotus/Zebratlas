@@ -141,6 +141,7 @@ fn model_path(path: &str) -> bool {
         "/api/resolve"
             | "/api/search"
             | "/api/explore"
+            | "/api/explore/overview"
             | "/api/message"
             | "/api/llm/connections"
             | "/api/ask"
@@ -252,6 +253,11 @@ async fn scoped(State(scope): State<Scope>, mut request: Request, next: Next) ->
     };
     if let Some(choice) = &choice {
         if let Err(e) = scope.gateway.validate_choice(&llm, choice) {
+            // Reading source facts must survive an unavailable personal model.
+            if path == "/api/explore/overview" {
+                request.headers_mut().insert("x-atlas-overview-unavailable", "1".parse().unwrap());
+                return next.run(request).await;
+            }
             // Preserve lexical choices when a saved device is unavailable. The explicit
             // connection header still prevents any hosted model fallback.
             if !understand || e.status() != StatusCode::SERVICE_UNAVAILABLE {

@@ -1,0 +1,18 @@
+.overview{padding:14px 0 16px;border-bottom:1px solid var(--z-line,#e2eaed);color:var(--z-ink,#182b36);text-align:start}
+.overview h2{margin:0 0 6px;font-size:1rem;font-weight:600;line-height:1.4}
+.body{max-width:76ch;margin:0;font-size:.98rem;line-height:1.6;overflow-wrap:anywhere}
+.footer{display:flex;align-items:center;gap:5px 15px;flex-wrap:wrap;margin-top:7px;font-size:.76rem;line-height:1.5;color:var(--z-muted,#617580)}
+.footer a,.sources summary{color:var(--z-teal,#17675f);text-decoration:underline;text-underline-offset:3px}
+.footer a{display:inline-flex;align-items:center;min-height:34px}
+.footer a:focus-visible,.sources summary:focus-visible{outline:2px solid var(--z-teal,#17675f);outline-offset:4px;border-radius:2px}
+.model{overflow-wrap:anywhere}
+.pending{display:inline-flex;align-items:center;gap:5px}
+.pending svg{width:15px;height:15px}
+.sources{position:relative}
+.sources summary{cursor:pointer;min-height:34px;display:flex;align-items:center}
+.records{width:min(76ch,calc(100vw - 48px));padding:8px 0;overflow-wrap:anywhere}
+.records>div{display:flex;flex-direction:column;gap:3px;padding:7px 0;border-top:1px solid var(--z-line,#e2eaed)}
+.records code{font-size:.7rem;white-space:normal}
+.records p{margin:5px 0}
+.srOnly{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:650px){.overview{padding:12px 0}.body{font-size:.94rem}.footer a,.sources summary{min-height:44px}.footer{gap:2px 12px}}
