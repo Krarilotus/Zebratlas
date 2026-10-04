@@ -1,5 +1,4 @@
 "use client";
-import { zebraCopyLocale } from "@/lib/zebra/locale";
 
 import { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
@@ -26,7 +25,7 @@ const enrichmentCache = new ResultSnapshotCache<Enrichment>();
 export default function ResultOverview({ data, results, query, busy, onFocus, onDetails, onEvidence, onRequest }: ResultOverviewProps) {
   const locale = useZebraLocale();
   const copy = useZebraCopy();
-  const words = resultCopy[zebraCopyLocale(locale)];
+  const words = resultCopy[locale];
   const kindLabel = useZebraKindLabel();
   const anchors = useMemo(() => data ? contextAnchors(data) : { conditions: [] as string[], gene: undefined }, [data]);
   const scopeKey = `${data?.query || query}|${anchors.conditions.join(",")}|${anchors.gene || ""}|${locale}`;
@@ -133,6 +132,6 @@ export default function ResultOverview({ data, results, query, busy, onFocus, on
     {active?.failed && <p className={styles.status} role="status">{words.unavailable}</p>}
     {!busy && !rows.length && active && !supplements.length && <p className={styles.status}>{words.empty}</p>}
     {!busy && /(?:rank|ranking|prioriti|prioris|silenc|silenz)/i.test(query) && rows.length > 0 && <p className={styles.status}>{words.noRanking}</p>}
-    {data && !busy && <div className={styles.note}><button className={styles.button} onClick={() => setNoteOpen(true)}>{findingsNoteWords[zebraCopyLocale(locale)].open}<Icon name="arrow" size={12} /></button>{noteOpen && <FindingsNote key={query} query={query} data={data} rows={[...rows, ...supplements.filter(row => !rows.some(existing => existing.result.id === row.result.id))]} limitations={active?.details.flatMap(detail => detail.gaps?.unknown.map(sentence => sentence.text) || [])} onClose={() => setNoteOpen(false)} />}</div>}
+    {data && !busy && <div className={styles.note}><button className={styles.button} onClick={() => setNoteOpen(true)}>{findingsNoteWords[locale].open}<Icon name="arrow" size={12} /></button>{noteOpen && <FindingsNote key={query} query={query} data={data} rows={[...rows, ...supplements.filter(row => !rows.some(existing => existing.result.id === row.result.id))]} limitations={active?.details.flatMap(detail => detail.gaps?.unknown.map(sentence => sentence.text) || [])} onClose={() => setNoteOpen(false)} />}</div>}
   </div>;
 }

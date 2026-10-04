@@ -1,5 +1,4 @@
 "use client";
-import { zebraCopyLocale } from "@/lib/zebra/locale";
 
 import { ZebraLoader } from "./ZebraLoader";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -73,8 +72,8 @@ export default function ResearchBrief(props: ResearchBriefProps) {
 function BriefEditor({ query, selected, detail, onClose, onLoadSections }: ResearchBriefProps) {
   const { copy, briefTasks, briefWords: words, sourceWords } = useZebraCatalog();
   const locale = useZebraLocale();
-  const emailWords = briefEmailWords[zebraCopyLocale(locale)];
-  const sourceDetails = sourceDetailCopy[zebraCopyLocale(locale)];
+  const emailWords = briefEmailWords[locale];
+  const sourceDetails = sourceDetailCopy[locale];
   const [profile, setProfile] = useState<{ display_name: string | null; email: string } | null>(null);
   useEffect(() => {
     const controller = new AbortController();
@@ -185,7 +184,7 @@ function BriefEditor({ query, selected, detail, onClose, onLoadSections }: Resea
     : taskId === "F07" && !(bridge?.communities.length && bridge.communities.length > 1)
       ? emailWords.researchStep
       : task.ask.replace(locale === "en" ? "Would the researcher review" : "Könnte die forschende Person prüfen", locale === "en" ? "Would you review" : "Könnten Sie prüfen").replace(locale === "en" ? "Can the partner review" : "Kann die Partnerstelle", locale === "en" ? "Could you review" : "Könnten Sie");
-  const body = editedBody ?? scriptedInquiry({ query, topic: detail?.summary?.condition.label || detail?.connections?.condition.label, record: labelOf(selected), task: taskId, ask: inquiryAsk, researcher, sender: profile?.display_name, locale: zebraCopyLocale(locale) });
+  const body = editedBody ?? scriptedInquiry({ query, topic: detail?.summary?.condition.label || detail?.connections?.condition.label, record: labelOf(selected), task: taskId, ask: inquiryAsk, researcher, sender: profile?.display_name, locale: locale });
   const [provider, setProvider] = useState<EmailProvider>("mailto");
   const [editedRecipient, setRecipient] = useState<string | null>(null);
   const [toSelf, setToSelf] = useState(false);
@@ -224,7 +223,7 @@ function BriefEditor({ query, selected, detail, onClose, onLoadSections }: Resea
     try {
       const result = await draftMessage({ condition: detail.id, connection: selected.id, lang, sender, kind: taskId === "F11" ? "proposal" : "message" }, controller.signal);
       if (controller.signal.aborted) return;
-      setDraft(result); setSubject(result.subject); setBody(wrapInquiry(result.body, { researcher, sender: profile?.display_name, locale: zebraCopyLocale(locale) }));
+      setDraft(result); setSubject(result.subject); setBody(wrapInquiry(result.body, { researcher, sender: profile?.display_name, locale: locale }));
       setStatus(result.validator.ok ? words.validationPassed : words.validationFailed);
     } catch { if (!controller.signal.aborted) setStatus(words.failed); }
     finally { if (!controller.signal.aborted) setBusy(false); }

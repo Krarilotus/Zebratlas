@@ -1,5 +1,4 @@
 "use client";
-import { zebraCopyLocale } from "@/lib/zebra/locale";
 
 import { ZebraLoader } from "./ZebraLoader";
 import { useState } from "react";
@@ -34,7 +33,7 @@ function downloadProvenance(id: string, value: unknown) {
 /** Keep each study/reference attached to its actual source assertion. */
 function EvidenceRecords({ items }: { items: Evidence[] }) {
   const { sourceWords: words } = useZebraCatalog();
-  const text = sourceDetailCopy[zebraCopyLocale(useZebraLocale())];
+  const text = sourceDetailCopy[useZebraLocale()];
   return <ol className={styles.sourceList}>{items.map((item, index) => <li key={`${item.record || item.source}-${index}`}>
     {safeSourceUrl(item.url) ? <a href={safeSourceUrl(item.url)} target="_blank" rel="noopener noreferrer" className={styles.sourceLink}>{item.source}<Icon name="external" size={12} /></a> : <strong>{item.source}</strong>}{item.quote && <blockquote>{item.quote}</blockquote>}
     <dl className={styles.metadata}>
@@ -55,7 +54,7 @@ function EvidenceRecords({ items }: { items: Evidence[] }) {
 
 function Trace({ id }: { id: string }) {
   const { copy, sourceWords: words } = useZebraCatalog();
-  const text = sourceDetailCopy[zebraCopyLocale(useZebraLocale())];
+  const text = sourceDetailCopy[useZebraLocale()];
   const [chain, setChain] = useState<ProvChain | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -117,7 +116,7 @@ function Trace({ id }: { id: string }) {
 
 export default function Sources({ evidence = [], sources = [], edges = [], assertions = [], coverage = [], limits = [], conflicts = [], relation, conditionId, entityId, edgeIds = [], onClose, llm = [], validator }: SourcesProps) {
   const { copy, sourceWords: words } = useZebraCatalog();
-  const text = sourceDetailCopy[zebraCopyLocale(useZebraLocale())];
+  const text = sourceDetailCopy[useZebraLocale()];
   const records = [...sources.map(source => ({ ...source, record: source.record || source.locator || source.id, date: source.retrieved_on })),
     ...evidence.map((evidence, index) => { const source = graphSourceRecord(evidence); return { ...source, id: source.record || `evidence-${index + 1}`, date: source.retrieved_at, tier: undefined, statement: undefined, quote: undefined }; })]
     .filter((source, index, all) => all.findIndex(other => `${other.id}|${other.url || ""}` === `${source.id}|${source.url || ""}`) === index);
