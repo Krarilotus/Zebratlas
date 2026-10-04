@@ -2,6 +2,9 @@
   "copy": {
     "language": "भाषा",
     "saved": "सहेजे गए",
-    "retry": "फिर कोशिश करें"
+    "retry": "फिर कोशिश करें",
+    "modelSettings": {
+      "title": "आपका भाषा मॉडल"
+    }
   }
 }

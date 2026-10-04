@@ -15,6 +15,8 @@ The public sample contains **15 conditions, 4 genes and 16 condition–gene asso
 Requires Node.js 24, Python 3.11+ and Rust 1.91+. Start the sample API in one terminal:
 
 ```bash
+git clone https://github.com/Krarilotus/Zebratlas.git
+cd Zebratlas
 cargo build --locked --release -j 2 -p atlas-server
 python tools/run_public_sample.py --binary target/release/atlas-server --sample data/public-sample --port 8000
 ```

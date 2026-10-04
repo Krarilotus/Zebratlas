@@ -22,20 +22,25 @@ export type BriefTask = { id: BriefTaskId; title: string; ask: string; questions
 export type ZebraCatalog = Omit<typeof en, "briefTasks"> & { briefTasks: BriefTask[] };
 export type ZebraCopy = typeof en.copy;
 
+type SparseCatalog = { copy: Partial<Omit<ZebraCopy, "modelSettings">> & { modelSettings?: Partial<ZebraCopy["modelSettings"]> } };
+function sparseCatalog({ copy }: SparseCatalog): ZebraCatalog {
+  return { ...en, copy: { ...en.copy, ...copy, modelSettings: { ...en.copy.modelSettings, ...copy.modelSettings } }, briefTasks: en.briefTasks as BriefTask[] };
+}
+
 // JSON imports retain the full key shape; every UI value stays a general string.
 const catalogs: Record<ZebraLocale, ZebraCatalog> = {
   en: { ...en, briefTasks: en.briefTasks as BriefTask[] },
   de: { ...de, briefTasks: de.briefTasks as BriefTask[] },
-  "es": { ...en, copy: { ...en.copy, ...es.copy }, briefTasks: en.briefTasks as BriefTask[] },
-  "fr": { ...en, copy: { ...en.copy, ...fr.copy }, briefTasks: en.briefTasks as BriefTask[] },
-  "pt": { ...en, copy: { ...en.copy, ...pt.copy }, briefTasks: en.briefTasks as BriefTask[] },
-  "it": { ...en, copy: { ...en.copy, ...it.copy }, briefTasks: en.briefTasks as BriefTask[] },
-  "zh-Hans": { ...en, copy: { ...en.copy, ...zhHans.copy }, briefTasks: en.briefTasks as BriefTask[] },
-  "ja": { ...en, copy: { ...en.copy, ...ja.copy }, briefTasks: en.briefTasks as BriefTask[] },
-  "hi": { ...en, copy: { ...en.copy, ...hi.copy }, briefTasks: en.briefTasks as BriefTask[] },
-  "ar": { ...en, copy: { ...en.copy, ...ar.copy }, briefTasks: en.briefTasks as BriefTask[] },
-  "ru": { ...en, copy: { ...en.copy, ...ru.copy }, briefTasks: en.briefTasks as BriefTask[] },
-  "tr": { ...en, copy: { ...en.copy, ...tr.copy }, briefTasks: en.briefTasks as BriefTask[] },
+  "es": sparseCatalog(es),
+  "fr": sparseCatalog(fr),
+  "pt": sparseCatalog(pt),
+  "it": sparseCatalog(it),
+  "zh-Hans": sparseCatalog(zhHans),
+  "ja": sparseCatalog(ja),
+  "hi": sparseCatalog(hi),
+  "ar": sparseCatalog(ar),
+  "ru": sparseCatalog(ru),
+  "tr": sparseCatalog(tr),
 
 };
 

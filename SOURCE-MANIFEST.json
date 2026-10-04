@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "source_commit": "4b3b667136044729834932047d126f63f705c813",
+  "source_commit": "d559802367312de962a9ac133f088b4cb0a9a494",
   "source_capture": "Exact committed Git cat-file blobs; selected files additionally compared against commit:path blobs before package transformations",
   "native_source_policy": "Native implementation, selected crate manifests, root workspace manifest and Cargo.lock retained byte-exact. Compile-time SOURCES registry and historical default benchmark are explicit reviewed transformations below. Unused atlas-extract omitted from the wildcard workspace.",
   "data_policy": "Only compile-time public rules and the explicitly reviewed, hash-pinned Orphadata/HGNC public sample. No private runtime data or credentials.",
@@ -24,7 +24,7 @@
       "matching_probes": 237,
       "passed": true
     },
-    "source_commit": "4b3b667136044729834932047d126f63f705c813"
+    "source_commit": "d559802367312de962a9ac133f088b4cb0a9a494"
   },
   "contact_review": {
     "crates/atlas-accounts/src/model.rs": {
@@ -215,9 +215,15 @@
       "origin": "Submission packaging and concise documentation"
     },
     {
+      "path": "CITATION.cff",
+      "bytes": 301,
+      "sha256": "ed75949caee641b001dacc6e77dc6dbef09ed92831e71befafd2bf0fee06b5d1",
+      "origin": "Submission packaging and concise documentation"
+    },
+    {
       "path": "CONTRIBUTING.md",
-      "bytes": 1025,
-      "sha256": "07d9329dac1c47800d33680f12077c8da721c6098a421fda5abba798802c1101",
+      "bytes": 1446,
+      "sha256": "f5e65e22107b18f993380c213748c6208595591dd9f59fd7ac073f1ff85d4318",
       "origin": "Submission packaging and concise documentation"
     },
     {
@@ -265,8 +271,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2943,
-      "sha256": "d6470341843441ea9a3da594109d56190671a9a0cec1960b4261e93126772a29",
+      "bytes": 3010,
+      "sha256": "f8c18cab9417f26a4cabed650b47294440d3c79259ccc5690d25750f0313dd1b",
       "origin": "Submission packaging and concise documentation"
     },
     {
@@ -2853,8 +2859,8 @@
     },
     {
       "path": "docs/SETUP.md",
-      "bytes": 2436,
-      "sha256": "ee9379f6c569c1043498d0f57d603c661a21d0c64f2e2190fe540d22175d58ab",
+      "bytes": 2447,
+      "sha256": "88aa855066a2d2cba362555c27fed8a53dad78e2d6f2106bf13fc0d16c56b961",
       "origin": "Submission packaging and concise documentation"
     },
     {
@@ -3022,6 +3028,12 @@
       "source_sha256": "3addf4c1f175fde7760739ddbe4ebbfd52d1e79fc42032f7b82514fbcfe2647b"
     },
     {
+      "path": "requirements-dev.txt",
+      "bytes": 158,
+      "sha256": "9a80f069d625d8e46403e7a01076b1c346925f189e5af4ad18b8e5a06b6bd1d6",
+      "origin": "Submission packaging and concise documentation"
+    },
+    {
       "path": "rustfmt.toml",
       "bytes": 16,
       "sha256": "e090969e99df9360705680cc0097cfaddae10c22dc2e01470592cf3b9787fd36",
@@ -3180,9 +3192,9 @@
     },
     {
       "path": "web/app/zebra/zebra.css",
-      "bytes": 36354,
-      "sha256": "0bd815fe4e000864018c87e8e83e748121a419486fc22c07a1c94c132fc6acf0",
-      "source_sha256": "0bd815fe4e000864018c87e8e83e748121a419486fc22c07a1c94c132fc6acf0"
+      "bytes": 36443,
+      "sha256": "7f1129865210fa2f653b53237435e10f7f626c49174369f4f9c28a074fc20802",
+      "source_sha256": "7f1129865210fa2f653b53237435e10f7f626c49174369f4f9c28a074fc20802"
     },
     {
       "path": "web/components/account/api.ts",
@@ -3354,9 +3366,9 @@
     },
     {
       "path": "web/components/zebra/NetworkDirectory.module.css",
-      "bytes": 3173,
-      "sha256": "e02f56e5f97fffd28159bd1d10344d1749bb3206b060bd39eac926b7b7de5528",
-      "source_sha256": "e02f56e5f97fffd28159bd1d10344d1749bb3206b060bd39eac926b7b7de5528"
+      "bytes": 3190,
+      "sha256": "d45c7e9d895e67ca4e25240b027e892940a03c62e82d65f8653e20b2e94d7ab4",
+      "source_sha256": "d45c7e9d895e67ca4e25240b027e892940a03c62e82d65f8653e20b2e94d7ab4"
     },
     {
       "path": "web/components/zebra/NetworkDirectory.tsx",
@@ -3522,9 +3534,9 @@
     },
     {
       "path": "web/components/zebra/Workspace.tsx",
-      "bytes": 47933,
-      "sha256": "3c092afc0c1af3e3ce46581529741d27d2218516a17eed2892f56702c159ce65",
-      "source_sha256": "3c092afc0c1af3e3ce46581529741d27d2218516a17eed2892f56702c159ce65"
+      "bytes": 47970,
+      "sha256": "a32863d4faafe567312add2c2188d8056d821ce084291a6e16c4f60f7f65a978",
+      "source_sha256": "a32863d4faafe567312add2c2188d8056d821ce084291a6e16c4f60f7f65a978"
     },
     {
       "path": "web/components/zebra/ZebraLoader.module.css",
@@ -3768,9 +3780,9 @@
     },
     {
       "path": "web/lib/zebra/locale.ts",
-      "bytes": 3782,
-      "sha256": "110d5c51e2d2feaeb3d4d8e4c9c145147af16a6098c6f1796340cf8682213bd2",
-      "source_sha256": "110d5c51e2d2feaeb3d4d8e4c9c145147af16a6098c6f1796340cf8682213bd2"
+      "bytes": 3462,
+      "sha256": "d9082786332a3fdcdd8b82d126c70f7c1777d55834f164c0ca70eeca6b84dee9",
+      "source_sha256": "d9082786332a3fdcdd8b82d126c70f7c1777d55834f164c0ca70eeca6b84dee9"
     },
     {
       "path": "web/lib/zebra/menu-dismissal.ts",
@@ -4296,75 +4308,75 @@
     },
     {
       "path": "web/messages/zebra/ar.json",
-      "bytes": 125,
-      "sha256": "bbc1890f4d0be77ae61f3ed50decb86fb6734645bc2dfead5b1b3a4497425744",
-      "source_sha256": "bbc1890f4d0be77ae61f3ed50decb86fb6734645bc2dfead5b1b3a4497425744"
+      "bytes": 198,
+      "sha256": "9b04d6e1c8754c9fec2d67ced9679b0ade55d0155543975135e58d5d8a410246",
+      "source_sha256": "9b04d6e1c8754c9fec2d67ced9679b0ade55d0155543975135e58d5d8a410246"
     },
     {
       "path": "web/messages/zebra/de.json",
-      "bytes": 42013,
-      "sha256": "38e5ca2568154e4bc145eaf7b04857082a58ab2bdd7485819b683981c3d53603",
-      "source_sha256": "38e5ca2568154e4bc145eaf7b04857082a58ab2bdd7485819b683981c3d53603"
+      "bytes": 42019,
+      "sha256": "1bac90ea56af25661d9dbfccd164ec94e482f83b847172f503b9bd0f526579ff",
+      "source_sha256": "1bac90ea56af25661d9dbfccd164ec94e482f83b847172f503b9bd0f526579ff"
     },
     {
       "path": "web/messages/zebra/en.json",
-      "bytes": 36298,
-      "sha256": "64a7eca5f747b64391e028008911f0e7fe01b313fc5a3afab72f154f1478412f",
-      "source_sha256": "64a7eca5f747b64391e028008911f0e7fe01b313fc5a3afab72f154f1478412f"
+      "bytes": 36307,
+      "sha256": "31616873508358855524153f8ae1c65ba4502e05c4288183b611a6c9961622ad",
+      "source_sha256": "31616873508358855524153f8ae1c65ba4502e05c4288183b611a6c9961622ad"
     },
     {
       "path": "web/messages/zebra/es.json",
-      "bytes": 104,
-      "sha256": "cdb4e6b0e88ab50620617844084f712048fac542b2c7eb12345fa39463d24ea9",
-      "source_sha256": "cdb4e6b0e88ab50620617844084f712048fac542b2c7eb12345fa39463d24ea9"
+      "bytes": 173,
+      "sha256": "104b99f81ed0cd99c360c23785f6201be52b0cc6024d4e0064507ac878cc0dbc",
+      "source_sha256": "104b99f81ed0cd99c360c23785f6201be52b0cc6024d4e0064507ac878cc0dbc"
     },
     {
       "path": "web/messages/zebra/fr.json",
-      "bytes": 100,
-      "sha256": "468837e539473fb91bc5657ff930ddda74ab048460bd90d24c3f7b6a55179ab1",
-      "source_sha256": "468837e539473fb91bc5657ff930ddda74ab048460bd90d24c3f7b6a55179ab1"
+      "bytes": 172,
+      "sha256": "813a270f2e746f7df78b47ed23f852a6f568460192083650f1265c1bfa4b6664",
+      "source_sha256": "813a270f2e746f7df78b47ed23f852a6f568460192083650f1265c1bfa4b6664"
     },
     {
       "path": "web/messages/zebra/hi.json",
-      "bytes": 145,
-      "sha256": "be7f063b7fee7c5fdb75884545b98f71ebcb54afb467d1171123190f7f255080",
-      "source_sha256": "be7f063b7fee7c5fdb75884545b98f71ebcb54afb467d1171123190f7f255080"
+      "bytes": 231,
+      "sha256": "3b7c0663ee1be7e45a8670e7dad8eb26e4d92d995b1f50e5b2d32654cfd6f370",
+      "source_sha256": "3b7c0663ee1be7e45a8670e7dad8eb26e4d92d995b1f50e5b2d32654cfd6f370"
     },
     {
       "path": "web/messages/zebra/it.json",
-      "bytes": 93,
-      "sha256": "4e8ecc0b139c8f837eb4156bcdd3e7a463c7371269dbaa51a0c761195efc2055",
-      "source_sha256": "4e8ecc0b139c8f837eb4156bcdd3e7a463c7371269dbaa51a0c761195efc2055"
+      "bytes": 167,
+      "sha256": "ca4a3ac9ebfcf5b75966d64496f5cb41ec24db449b83779baf1d13aa23bd567e",
+      "source_sha256": "ca4a3ac9ebfcf5b75966d64496f5cb41ec24db449b83779baf1d13aa23bd567e"
     },
     {
       "path": "web/messages/zebra/ja.json",
-      "bytes": 109,
-      "sha256": "c0b58e1ebbe6fd658ff2fcfe271e615b5b5be019ac7a070f65e283b88f3d529d",
-      "source_sha256": "c0b58e1ebbe6fd658ff2fcfe271e615b5b5be019ac7a070f65e283b88f3d529d"
+      "bytes": 184,
+      "sha256": "9784b195796fa6c42c7165154a0fe3034b85b542a716a31a69c16e620e0ea83f",
+      "source_sha256": "9784b195796fa6c42c7165154a0fe3034b85b542a716a31a69c16e620e0ea83f"
     },
     {
       "path": "web/messages/zebra/pt.json",
-      "bytes": 101,
-      "sha256": "cc1f856c3fa121ccbd25ed4acd806431c6d0cf25344d49e9c1bda18fe2388113",
-      "source_sha256": "cc1f856c3fa121ccbd25ed4acd806431c6d0cf25344d49e9c1bda18fe2388113"
+      "bytes": 174,
+      "sha256": "f0cc8189ee7c058f8bfcb2349dc5840f1e3edb460db2fbd379fb639541be39c6",
+      "source_sha256": "f0cc8189ee7c058f8bfcb2349dc5840f1e3edb460db2fbd379fb639541be39c6"
     },
     {
       "path": "web/messages/zebra/ru.json",
-      "bytes": 136,
-      "sha256": "a35455de715d4a7df96029f85f212fd5d1e8d542108e378002b3b046770ea980",
-      "source_sha256": "a35455de715d4a7df96029f85f212fd5d1e8d542108e378002b3b046770ea980"
+      "bytes": 222,
+      "sha256": "f1a6566f77ddce7f3eaf404bb8a0b56651afd12343689a39f7ce11ef824fb218",
+      "source_sha256": "f1a6566f77ddce7f3eaf404bb8a0b56651afd12343689a39f7ce11ef824fb218"
     },
     {
       "path": "web/messages/zebra/tr.json",
-      "bytes": 100,
-      "sha256": "5543f7b1d712d20b400ae1cda65417d5636c28c51f63981f7ab732abfe024856",
-      "source_sha256": "5543f7b1d712d20b400ae1cda65417d5636c28c51f63981f7ab732abfe024856"
+      "bytes": 161,
+      "sha256": "01346fcff93cecb976a9798318618122bf19cb5b7263993d906c531266b917d9",
+      "source_sha256": "01346fcff93cecb976a9798318618122bf19cb5b7263993d906c531266b917d9"
     },
     {
       "path": "web/messages/zebra/zh-Hans.json",
-      "bytes": 100,
-      "sha256": "c8dea7da5dc20096f7318c1477a0feb48bd16bf5d388271e1202a509eb52a37e",
-      "source_sha256": "c8dea7da5dc20096f7318c1477a0feb48bd16bf5d388271e1202a509eb52a37e"
+      "bytes": 166,
+      "sha256": "084b09793becf6b178de2fb22d2a2342f7cbc8d52d04688a01ea9a16ee72c5b7",
+      "source_sha256": "084b09793becf6b178de2fb22d2a2342f7cbc8d52d04688a01ea9a16ee72c5b7"
     },
     {
       "path": "web/messages/zh-Hans.json",
@@ -4638,6 +4650,13 @@
       "source_sha256": "a5ea4d9f8a3b8ff8d673e900d5835837720a05cc59806159b4fb0422094282c2"
     },
     {
+      "path": "web/scripts/build-zebra-tbox.py",
+      "bytes": 9502,
+      "sha256": "ee9547052c3cbb014390343208f8c597ba08f62b01ea9b1f8a2ff18131353ea4",
+      "source_sha256": "f9a6b1d6984b53b14f4a49c142fafafe8f851f67fe5943c41cc4a353a613587f",
+      "transformation": "Require explicit source/output/pin arguments rather than a developer worktree default. Authored module checksums, ontology parsing and byte-deterministic projection unchanged."
+    },
+    {
       "path": "web/scripts/check-adapt-evidence.ts",
       "bytes": 5357,
       "sha256": "e0f3de7959bc74d351d74d58f7f8497e87182472b0150d1c946b5e9054710181",
@@ -4748,9 +4767,9 @@
     },
     {
       "path": "web/scripts/check-zebra-locale.mjs",
-      "bytes": 2820,
-      "sha256": "bd3deda3e54b13c61e0571d03938d06d5a3249ee06b6529d0ef3593531d3b32e",
-      "source_sha256": "bd3deda3e54b13c61e0571d03938d06d5a3249ee06b6529d0ef3593531d3b32e"
+      "bytes": 3684,
+      "sha256": "c57c4b18935a7a68095b11e8a01f42004234c9597a056bf660e6007e2a384c9a",
+      "source_sha256": "c57c4b18935a7a68095b11e8a01f42004234c9597a056bf660e6007e2a384c9a"
     },
     {
       "path": "web/scripts/check-zebra-models.mjs",
@@ -4832,9 +4851,10 @@
     },
     {
       "path": "web/scripts/check-zebra-tbox.mjs",
-      "bytes": 8969,
-      "sha256": "8fa72f7cefe3db7f8dc15d4b2ac07ab677da1d7af350f9cf66440a08a4063ab6",
-      "source_sha256": "8fa72f7cefe3db7f8dc15d4b2ac07ab677da1d7af350f9cf66440a08a4063ab6"
+      "bytes": 8911,
+      "sha256": "e07001032cb7577191b28a41607cb15c41eb37f57172c1053ccb8df8c4514372",
+      "source_sha256": "8fa72f7cefe3db7f8dc15d4b2ac07ab677da1d7af350f9cf66440a08a4063ab6",
+      "transformation": "Regenerate from the already shipped byte-pinned authored ontology modules instead of an unavailable external worktree. All property, expression, hash, rendering and determinism assertions unchanged."
     },
     {
       "path": "web/scripts/query-graph-view-parser.mjs",

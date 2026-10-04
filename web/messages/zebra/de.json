@@ -398,7 +398,7 @@
       "exactMatch": "exakter Name"
     },
     "modelSettings": {
-      "title": "Dein Modell",
+      "title": "Dein Sprachmodell",
       "connection": "Verbindung",
       "model": "Modell",
       "defaultModel": "Standard dieser Verbindung",

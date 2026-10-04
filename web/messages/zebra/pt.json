@@ -2,6 +2,9 @@
   "copy": {
     "language": "Idioma",
     "saved": "Guardado",
-    "retry": "Tentar de novo"
+    "retry": "Tentar de novo",
+    "modelSettings": {
+      "title": "O seu modelo de linguagem"
+    }
   }
 }

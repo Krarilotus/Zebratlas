@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import ts from 'typescript';
+import { fixtureModule } from './zebra-fixture-module.mjs';
 function load(path, dependencies = {}) {
   const compiledUnit = { exports: {} };
   const source = ts.transpileModule(readFileSync(new URL(path, import.meta.url), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
@@ -40,3 +41,15 @@ for (const locale of config.LOCALES) assert.equal(zebraCopyLocale(locale), local
 const authView = readFileSync(new URL("../components/zebra/AccountAuth.tsx", import.meta.url), "utf8");
 assert.match(authView, /deliveryLocale = zebraCopyLocale\(locale\)/);
 for (const action of ["verifyEmail", "resendVerification", "forgotPassword", "resetPassword"]) assert.match(authView, new RegExp(action + "\\([^;\\n]*deliveryLocale"));
+
+const catalogs = fixtureModule('@/lib/zebra/locale');
+const englishSettings = catalogs.getZebraCopy('en').modelSettings;
+for (const locale of config.LOCALES) {
+  const settings = catalogs.getZebraCopy(locale).modelSettings;
+  assert.ok(settings.title.trim(), `${locale}: language-model heading is present`);
+  assert.deepEqual(Object.keys(settings).sort(), Object.keys(englishSettings).sort(), `${locale}: sparse heading preserves all model and connector controls`);
+  if (locale !== 'en' && locale !== 'de') {
+    for (const key of Object.keys(englishSettings).filter(key => key !== 'title')) assert.equal(settings[key], englishSettings[key], `${locale}: ${key} retains its English fallback`);
+  }
+}
+console.log('Twelve catalog headings preserve the complete nested model/connector control contract');

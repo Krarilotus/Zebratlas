@@ -398,7 +398,7 @@
       "exactMatch": "exact name"
     },
     "modelSettings": {
-      "title": "Your model",
+      "title": "Your language model",
       "connection": "Connection",
       "model": "Model",
       "defaultModel": "Connection default",

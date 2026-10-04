@@ -2,6 +2,9 @@
   "copy": {
     "language": "Dil",
     "saved": "Kaydedilenler",
-    "retry": "Tekrar dene"
+    "retry": "Tekrar dene",
+    "modelSettings": {
+      "title": "Dil modeliniz"
+    }
   }
 }

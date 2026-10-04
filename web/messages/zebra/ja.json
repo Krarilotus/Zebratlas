@@ -2,6 +2,9 @@
   "copy": {
     "language": "言語",
     "saved": "保存済み",
-    "retry": "もう一度試す"
+    "retry": "もう一度試す",
+    "modelSettings": {
+      "title": "あなたの言語モデル"
+    }
   }
 }

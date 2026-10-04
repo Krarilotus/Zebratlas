@@ -18,3 +18,5 @@ npm run build
 ```
 
 The data boundary audit checks source manifests, dependency notices and forbidden artifacts. New data requires separate licence and privacy review. Credentials, downloaded records, account state and private documents stay outside the repository.
+
+For ontology and release-validation changes, install `requirements-dev.txt` in a virtual environment and build `cargo build --locked -j 2 -p atlas-release`. Run `python -m unittest discover -s crates/atlas-release/scripts -p 'test_*.py'` and `node --no-warnings web/scripts/check-zebra-tbox.mjs`. These checks use synthetic fixtures and the bundled authored ontology, not private snapshots or historical benchmark data.

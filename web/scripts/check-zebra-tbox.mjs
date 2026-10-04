@@ -8,7 +8,7 @@ import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import ts from "typescript";
 const directory = path.dirname(fileURLToPath(import.meta.url)), require = createRequire(import.meta.url);
-const web = path.resolve(directory, ".."), artifact = path.join(web, "public/zebra/tbox/1.0.0"), sourceDirectory = path.resolve(web, "../../wt-graph-expansion/ontology/atlas/1.0.0");
+const web = path.resolve(directory, ".."), artifact = path.join(web, "public/zebra/tbox/1.0.0"), sourceDirectory = artifact;
 const pin = JSON.parse(fs.readFileSync(path.join(web, "lib/zebra/tbox-pin.json"), "utf8"));
 const raw = fs.readFileSync(path.join(artifact, "view.json")), data = JSON.parse(raw);
 const sha = value => crypto.createHash("sha256").update(value).digest("hex");

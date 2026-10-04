@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: Cite this application and the upstream data sources you use.
+type: software
+title: Zebratlas
+url: https://zebratlas.org
+repository-code: https://github.com/Krarilotus/Zebratlas
+license:
+  - MIT
+  - Apache-2.0
+authors:
+  - given-names: Johannes
+    family-names: Mitschunas
