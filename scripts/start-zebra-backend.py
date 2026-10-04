@@ -8,6 +8,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import socket
 import subprocess
@@ -23,6 +24,74 @@ def start_child(command, *, env, flags):
         command, env=env, creationflags=flags,
         stdin=subprocess.DEVNULL, stdout=sys.stdout, stderr=sys.stderr,
     )
+
+
+def read_environment(path, allowed=None):
+    """Read literal dotenv values without expansion, execution, or value logging."""
+    if path.stat().st_size > 1024 * 1024:
+        raise SystemExit("Local environment source exceeds its byte limit")
+    values = {}
+    for raw in path.read_text(encoding="utf-8-sig").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        line = re.sub(r"^export\s+", "", line)
+        key, sep, value = line.partition("=")
+        key, value = key.strip(), value.strip()
+        # Shared parent/repo files may contain unrelated application settings.
+        # Automatic credential loading never parses or imports those values.
+        if allowed is not None and key not in allowed:
+            continue
+        if not sep or not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", key):
+            raise SystemExit("Unsupported local environment line; use KEY=value")
+        if value[:1] in ("'", '"'):
+            quote = value[0]
+            end = value.rfind(quote)
+            if end == 0 or (value[end + 1:].strip() and not value[end + 1:].lstrip().startswith("#")):
+                raise SystemExit("Unsupported local environment quoting")
+            value = value[1:end]
+        else:
+            value = re.split(r"\s+#", value, maxsplit=1)[0].rstrip()
+        if any(c in value for c in "\x00\r\n"):
+            raise SystemExit("Unsupported local environment value")
+        values[key] = value
+    return values
+
+
+def provider_environment(inherited, data, explicit=()):
+    """Environment > explicit files (last wins) > repo keys > parent keys.
+
+    Automatic sources load provider credentials only, preserving pinned data,
+    account storage, inference profiles and the caller's model configuration.
+    """
+    root = data.resolve().parent
+    explicit_values = {}
+    for path in explicit:
+        explicit_values.update(read_environment(path))
+    configured = dict(explicit_values)
+    configured.update(inherited)
+    allowed = {"OPENROUTER_API_KEY", "OPENAI_API_KEY", "ANTHROPIC_API_KEY", "GEMINI_API_KEY", "KISSKI_API_KEY"}
+    config_path = configured.get("ATLAS_LLM_CONFIG")
+    if config_path:
+        config = tomllib.loads(Path(config_path).read_text(encoding="utf-8"))
+        def key_names(value):
+            if isinstance(value, dict):
+                for name, nested in value.items():
+                    if name == "key_env" and isinstance(nested, str) and re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", nested):
+                        allowed.add(nested)
+                    key_names(nested)
+            elif isinstance(value, list):
+                for nested in value:
+                    key_names(nested)
+        key_names(config)
+    loaded = {}
+    for path in (root.parent / ".env", root / ".env"):
+        if path.is_file():
+            loaded.update(read_environment(path, allowed))
+    loaded.update(explicit_values)
+    env = loaded
+    env.update(inherited)
+    return env
 
 
 def digest(path):
@@ -89,7 +158,7 @@ def main():
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--schema", type=Path)
     parser.add_argument("--reasoning-manifest", type=Path, help="Optional verified, bounded hierarchy reasoning profile")
-    parser.add_argument("--env-file", type=Path, help="Optional local provider settings; values are never printed")
+    parser.add_argument("--env-file", type=Path, action="append", default=[], help="Optional local settings; repeat in precedence order. Values are never printed")
     parser.add_argument("--data", type=Path, default=Path("data"))
     parser.add_argument("--accounts-db", type=Path, help="Explicit account database; otherwise keep configured/shared accounts")
     parser.add_argument("--contributions-db", type=Path, help="Explicit submissions database; otherwise keep configured/shared submissions")
@@ -97,20 +166,7 @@ def main():
     parser.add_argument("--api-port", type=int, default=8001)
     parser.add_argument("--nrese-port", type=int, default=3161)
     args = parser.parse_args()
-    env = os.environ.copy()
-    if args.env_file:
-        for raw in args.env_file.read_text(encoding="utf-8-sig").splitlines():
-            line = raw.strip()
-            if not line or line.startswith("#"):
-                continue
-            line = line.removeprefix("export ")
-            key, sep, value = line.partition("=")
-            if not sep or not key.replace("_", "").isalnum():
-                raise SystemExit("Unsupported local environment line; use KEY=value")
-            value = value.strip()
-            if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
-                value = value[1:-1]
-            env.setdefault(key, value)
+    env = provider_environment(os.environ.copy(), args.data, args.env_file)
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     if manifest.get("public_release") is not False or manifest.get("runtime_reasoning") is not False:
         raise SystemExit("Expected the private, non-reasoning operational adapter manifest")

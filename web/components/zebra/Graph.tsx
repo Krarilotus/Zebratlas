@@ -7,6 +7,7 @@ import ReasoningProof from "./ReasoningProof";
 import Sources from "./Sources";
 import { graphLabelScale, rankGraphLabels, visibleGraphLabels, type GraphLabelCandidate, type ScreenLabelBox } from "./graph-labels";
 import { ZebraLoader } from "./ZebraLoader";
+import { graphPreviewCaption, graphPreviewScope } from "./graph-preview";
 import styles from "./Graph.module.css";
 
 export type GraphNode = { id: string; label: string; kind: string; subkind?: string; matched?: boolean; context?: boolean; anchor_id?: string; community_seed_ids?: string[] };
@@ -14,7 +15,7 @@ export type GraphEdge = SearchGraphEdge;
 export type GraphData = { nodes: GraphNode[]; edges: GraphEdge[]; community?: GraphCommunity };
 export type GraphLabels = {
   region: string; zoomIn: string; zoomOut: string; fit: string; selectNode: string; nodeList: string; connections: string;
-  moreNodes?: string; back?: string; reset?: string; previousNeighbors?: string; nextNeighbors?: string;
+  preview?: string; previewScope?: string; moreNodes?: string; back?: string; reset?: string; previousNeighbors?: string; nextNeighbors?: string;
   moreNeighbors?: string; noNeighbors?: string; loading?: string; kinds?: Record<string, string>;
   edgeProperties?: string; property?: string; close?: string; sources?: string; evidence?: string; noEdgeEvidence?: string; inferred?: string; hypothesis?: string;
 };
@@ -865,7 +866,7 @@ export default function Graph({ graph, selectedNodeId, resultNodeIds, onSelectNo
     };
     const observer = new ResizeObserver(resize); observer.observe(host); resize();
     const wheel = (event: WheelEvent) => {
-      if (event.target instanceof Element && event.target.closest("[data-zebra-graph-scroll]")) return;
+      if (!event.ctrlKey) return;
       event.preventDefault(); event.stopPropagation();
       const bounds = canvas.getBoundingClientRect();
       transitionRef.current = null;
@@ -980,7 +981,9 @@ export default function Graph({ graph, selectedNodeId, resultNodeIds, onSelectNo
   const listPages = Math.max(1, Math.ceil(listedNodes.length / 40));
   const currentListPage = Math.min(listPage, listPages - 1);
   const patientGroups = mode === "community" ? index.nodes.filter(patientGroup) : [];
-  const neighborCaption = scene.overview ? `${labels.nodeList} · ${scene.totalNeighbors}` : (labels.moreNeighbors ?? labels.connections).replace("{count}", String(scene.totalNeighbors));
+  const previewCaption = labels.preview ? graphPreviewCaption(labels.preview, scene.nodes.length) : labels.nodeList;
+  const previewScope = labels.previewScope ? graphPreviewScope(labels.previewScope, scene.nodes.length, graph.nodes.length) : undefined;
+  const neighborCaption = (labels.moreNeighbors ?? labels.connections).replace("{count}", String(scene.totalNeighbors));
 
   return <div ref={hostRef} className={styles.graph} role="region" aria-label={labels.region} tabIndex={0} aria-busy={navigating}
     onKeyDown={event => {
@@ -1035,8 +1038,9 @@ export default function Graph({ graph, selectedNodeId, resultNodeIds, onSelectNo
       <Sources assertions={[inspected.edge]} evidence={inspected.edge.evidence} />
       {onSelectEdge && labels.evidence && <button type="button" className={styles.evidenceButton} onClick={() => onSelectEdge(inspected.edge)}>{labels.evidence}</button>}
     </aside>}
-    <div className={styles.neighborNavigation}>
-      {scene.totalNeighbors > 0 ? <span>{neighborCaption}</span> : root && labels.noNeighbors ? <span>{labels.noNeighbors}</span> : null}
+    <div className={styles.neighborNavigation} data-zebra-graph-navigation>
+      <span title={previewScope}>{previewCaption}</span>
+      {!scene.overview && (scene.totalNeighbors > 0 ? <span>{neighborCaption}</span> : root && labels.noNeighbors ? <span>{labels.noNeighbors}</span> : null)}
       {scene.pages > 1 && <div className={styles.pages}>
         <button type="button" onClick={() => setPager({ focusId, page: scene.page - 1 })} disabled={scene.page === 0} aria-label={labels.previousNeighbors ?? labels.back ?? labels.nodeList}><Arrow direction="back" /></button>
         <span>{scene.page + 1} / {scene.pages}</span>

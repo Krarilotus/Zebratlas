@@ -360,7 +360,8 @@ async fn kill_switch_byo_key_size_and_default() {
     let info = llm.list_connections(false).await;
     assert_eq!(info[0].free_tier.as_ref().unwrap().blocked, Some(QuotaReason::Disabled));
     if std::env::var_os("ATLAS_LLM_DEFAULT").is_none() {
-        assert_eq!(llm.default_connection(false), "kisski");
+        // An operator-disabled accounting gate cannot escape to a free provider.
+        assert_eq!(llm.default_connection(false), HOSTED_FREE);
     }
     assert!(s.received_requests().await.unwrap().is_empty());
 }
@@ -373,10 +374,10 @@ async fn missing_server_key_is_not_configured() {
          base_url = \"{}/api/v1/\"\nkey_env = \"ATLAS_TEST_DEFINITELY_UNSET_KEY\"\n",
         s.uri()
     );
-    let llm = Llm::new(
-        Registry::from_toml(&toml, false).unwrap(),
-        Cache::new(std::env::temp_dir(), CacheMode::Off),
-    );
+    let mut registry = Registry::from_toml(&toml, false).unwrap();
+    // Test credential absence independently of other parallel fixtures' ledger locks.
+    registry.set_free_tier(HOSTED_FREE, FreeTierConfig { spend_file: None, ..FreeTierConfig::default() });
+    let llm = Llm::new(registry, Cache::new(std::env::temp_dir(), CacheMode::Off));
     let e = llm.complete(&Call::new(HOSTED_FREE), req("x")).await.unwrap_err();
     assert_eq!(quota(&e), Some(QuotaReason::NotConfigured));
     let info = llm.list_connections(false).await;
@@ -447,9 +448,9 @@ async fn default_chain_falls_back_on_outage_but_not_on_quota() {
     assert_eq!(quota(&e), Some(QuotaReason::VisitorHourly));
     assert_eq!(backup.received_requests().await.unwrap().len(), 1);
 
-    // Hosted choices participate in the hierarchy while preserving visitor context.
+    // Explicit fallback opt-in preserves visitor context.
     let selected = llm
-        .complete(&Call::new(HOSTED_FREE).with_visitor("w"), req("x"))
+        .complete(&Call::new(HOSTED_FREE).with_visitor("w").with_fallback(true), req("x"))
         .await
         .unwrap();
     assert_eq!(selected.response.connection, "backup");

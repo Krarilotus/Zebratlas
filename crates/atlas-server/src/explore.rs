@@ -105,6 +105,8 @@ pub struct Plan {
 pub struct ExploreRequest {
     #[serde(default)]
     pub query: String,
+    /// Public display caption only; prepared document contents stay private.
+    pub caption: Option<String>,
     pub limit: Option<usize>,
     pub mode: Option<String>,
     /// A verified edited plan reruns without a model call.
@@ -137,46 +139,262 @@ pub async fn lookup(State(state): State<AppState>, Json(request): Json<LookupReq
     let shown_query = query.clone();
     let matches = tokio::task::spawn_blocking(move || {
         let index = state.explore_index.get_or_init(|| ConnectedIndex::new(&state.graph));
-        let mut matches = BTreeMap::new();
-        for node in link(&state.atlas, &state.graph, index, &query) {
-            matches.insert(
-                node.id.clone(),
-                json!({"id":node.id,"label":node.label,"kind":node.kind,"match":"exact"}),
-            );
-        }
-        if matches.is_empty() {
-            for hit in state.atlas.search().search(
-                &query,
-                SearchOptions {
-                    limit,
-                    include_retired: false,
-                },
-            ) {
-                let node = state.atlas.node_ref(hit.node);
-                if available(&state.atlas, &state.graph, &node.id).is_some() {
-                    matches
-                        .entry(node.id.clone())
-                        .or_insert_with(|| json!({"id":node.id,"label":node.label,"kind":node.kind,"match":"fuzzy"}));
-                }
-            }
-            if matches.is_empty()
-                && let Some(corrected) = state.atlas.search().correct(&query)
-            {
-                for node in link(&state.atlas, &state.graph, index, &corrected) {
-                    matches.insert(
-                        node.id.clone(),
-                        json!({"id":node.id,"label":node.label,"kind":node.kind,"match":"fuzzy"}),
-                    );
-                }
-            }
-        }
-        matches.into_values().take(limit).collect::<Vec<_>>()
+        state.withhold.with_query_visibility(|allowed| {
+            indexed_lookup_visible(&state.atlas, &state.graph, index, &query, limit, allowed)
+        })
     })
     .await
     .map_err(internal)?;
     Ok(Json(
-        json!({"query":shown_query,"mode":"indexed_name_lookup","model_calls":0,"engine":"indexed-atlas","matches":matches}),
+        json!({"query":shown_query,"corrected_query":matches.1,"mode":"indexed_name_lookup","model_calls":0,"engine":"indexed-atlas","matches":matches.0}),
     ))
+}
+
+/// Suggestions remain choices, never automatically assigned scientific scope.
+fn indexed_lookup(
+    atlas: &Atlas,
+    graph: &Graph,
+    index: &ConnectedIndex,
+    query: &str,
+    limit: usize,
+) -> (Vec<Value>, Option<String>) {
+    indexed_lookup_visible(atlas, graph, index, query, limit, &|_| true)
+}
+
+fn indexed_lookup_visible(
+    atlas: &Atlas,
+    graph: &Graph,
+    index: &ConnectedIndex,
+    query: &str,
+    limit: usize,
+    allowed: &dyn Fn(&str) -> bool,
+) -> (Vec<Value>, Option<String>) {
+    let visible =
+        |node: &NodeRef| available(atlas, graph, &node.id).is_some() && allowed(&node.id) && allowed(&node.label);
+    let mut seen = BTreeSet::new();
+    let mut matches = Vec::new();
+    let mut collect = |nodes: Vec<NodeRef>, kind: &str| {
+        for node in nodes {
+            if matches.len() == limit {
+                break;
+            }
+            if visible(&node) && seen.insert(node.id.clone()) {
+                matches.push(json!({"id":node.id,"label":node.label,"kind":node.kind,"match":kind}));
+            }
+        }
+    };
+    collect(link(atlas, graph, index, query), "exact");
+    if !matches.is_empty() {
+        return (matches, None);
+    }
+    let prefix = |text: &str| -> Vec<NodeRef> {
+        atlas
+            .search()
+            .search(
+                text,
+                SearchOptions {
+                    limit: limit * 4,
+                    include_retired: false,
+                },
+            )
+            .into_iter()
+            .map(|hit| atlas.node_ref(hit.node))
+            .filter(visible)
+            .take(limit)
+            .collect()
+    };
+    // Core search already orders by actual match tier and source label; CURIE
+    // sorting must not move named subtypes ahead of a stronger prefix match.
+    let mut matches: Vec<_> = prefix(query)
+        .into_iter()
+        .filter(visible)
+        .map(|node| json!({"id":node.id,"label":node.label,"kind":node.kind,"match":"fuzzy"}))
+        .collect();
+    let mut corrected = None;
+    if matches.is_empty() && query.len() <= 96 && query.split_whitespace().count() <= 8 {
+        corrected = atlas.search().correct(query);
+        if let Some(text) = &corrected {
+            // Corrected shorthand need not be an exact full disease label.
+            // Search it through the same indexed prefix/token tiers.
+            let nodes = prefix(text);
+            matches = nodes
+                .into_iter()
+                .filter(visible)
+                .map(|node| json!({"id":node.id,"label":node.label,"kind":node.kind,"match":"fuzzy"}))
+                .collect();
+            if matches.is_empty() {
+                matches = link(atlas, graph, index, text)
+                    .into_iter()
+                    .filter(visible)
+                    .take(limit)
+                    .map(|node| json!({"id":node.id,"label":node.label,"kind":node.kind,"match":"fuzzy"}))
+                    .collect();
+            }
+        }
+    }
+    (matches, corrected)
+}
+
+fn short_name(query: &str) -> bool {
+    // Intake normalizes pasted input with a trailing newline. Whitespace at
+    // the boundary is not a multiline question; internal newlines still are.
+    let query = query.trim();
+    let words: Vec<_> = query.split_whitespace().collect();
+    !words.is_empty()
+        && words.len() <= 4
+        && query.len() <= 80
+        && !query.chars().any(|c| matches!(c, '?' | '!' | '\n' | '\r' | ';'))
+        && !words.iter().any(|word| {
+            matches!(
+                word.to_ascii_lowercase().as_str(),
+                "find"
+                    | "search"
+                    | "compare"
+                    | "show"
+                    | "list"
+                    | "which"
+                    | "what"
+                    | "who"
+                    | "how"
+                    | "where"
+                    | "why"
+                    | "give"
+                    | "explain"
+                    | "studies"
+                    | "conditions"
+                    | "researchers"
+                    | "contacts"
+                    | "recruiting"
+                    | "and"
+                    | "or"
+                    | "for"
+                    | "about"
+                    | "model"
+                    | "models"
+                    | "paper"
+                    | "papers"
+                    | "trial"
+                    | "trials"
+                    | "study"
+                    | "registry"
+                    | "registries"
+                    | "resource"
+                    | "resources"
+                    | "group"
+                    | "groups"
+                    | "researcher"
+                    | "contact"
+                    | "symptom"
+                    | "symptoms"
+                    | "phenotypes"
+                    | "pathways"
+                    | "treatment"
+                    | "treatments"
+                    | "therapy"
+                    | "therapies"
+                    | "drug"
+                    | "drugs"
+                    | "funding"
+                    | "grant"
+                    | "grants"
+                    | "ipsc"
+                    | "organoids"
+                    | "recruit"
+                    | "symptome"
+                    | "forscher"
+                    | "studie"
+                    | "studien"
+                    | "modelle"
+                    | "therapie"
+                    | "register"
+                    | "finanzierung"
+                    | "kontakte"
+                    | "ressourcen"
+            )
+        })
+        && !(words.len() > 1 && words[0].eq_ignore_ascii_case("rank"))
+}
+
+async fn name_candidates(
+    state: &AppState,
+    query: &str,
+    limit: usize,
+) -> Result<(Vec<Value>, Option<String>), ApiError> {
+    let state = state.clone();
+    let query = query.to_owned();
+    tokio::task::spawn_blocking(move || {
+        let index = state.explore_index.get_or_init(|| ConnectedIndex::new(&state.graph));
+        state.withhold.with_query_visibility(|allowed| {
+            indexed_lookup_visible(&state.atlas, &state.graph, index, &query, limit, allowed)
+        })
+    })
+    .await
+    .map_err(internal)
+}
+
+async fn candidate_response(
+    state: &AppState,
+    caption: &str,
+    private_query: &str,
+    mut matches: Vec<Value>,
+    mut corrected: Option<String>,
+    diagnostics: Option<Value>,
+) -> Value {
+    if matches.is_empty() {
+        if let Ok((found, correction)) = name_candidates(state, private_query, 10).await {
+            matches = found;
+            corrected = correction;
+        }
+    }
+    let mut hash = None;
+    let mut truncated = false;
+    let mut index_status = None;
+    if matches.is_empty() {
+        let result = crate::explore_candidates::search(state, private_query, 10).await;
+        matches = result.0;
+        hash = result.1;
+        truncated = result.2;
+        index_status = result.3;
+    }
+    // Candidate-only output never echoes prepared source text or model tool
+    // arguments. Keep stable route receipts, costs and admission classifications.
+    let mut routing = diagnostics
+        .as_ref()
+        .and_then(|d| d.get("routing"))
+        .cloned()
+        .unwrap_or_else(|| json!({"route":"lexical","reason":"explicit_identity_selection","attempted":[]}));
+    if let Some(failed) = routing.get_mut("failed_executions").and_then(Value::as_array_mut) {
+        for execution in failed {
+            if let Some(object) = execution.as_object_mut() {
+                object.remove("tool_trace");
+            }
+        }
+    }
+    for candidate in &mut matches {
+        candidate["method"] = json!("lexical");
+    }
+    // Correction may reconstruct an entire prepared letter. It is public only
+    // when the caller explicitly supplied that same text as the display caption.
+    if caption != private_query {
+        corrected = None;
+    }
+    json!({"query":caption,"interpretation":{"mode":"indexed","entities":[],"intent":"all","routing":routing},
+        "results":[],"graph":{"nodes":[],"edges":[]},"execution":{"engine":"indexed-atlas","sparql":null,"queries":[],"reasoning":false},
+        "possible_matches":matches,"retrieval":{"status":if matches.is_empty(){"empty"}else{"candidates"},"scope":"name_candidates_only","method":"lexical","model_calls":0,"index_sha256":hash,"truncated":truncated,"index_status":index_status,"corrected_query":corrected},
+        "question_status":"not_checked","activities":[]})
+}
+
+/// Public display identity is independent of prepared planning input. Applies
+/// equally to canonical answers and deterministic exact-ID neighborhood reruns.
+fn admit_public_caption(body: &mut Value, caption: Option<&str>) {
+    if let Some(caption) = caption {
+        if body["query"].as_str() != Some(caption) {
+            if let Some(interpretation) = body.get_mut("interpretation").and_then(Value::as_object_mut) {
+                interpretation.remove("suggestion");
+            }
+        }
+        body["query"] = json!(caption);
+    }
 }
 
 /// A compact binary-search index for connected-layer labels. Built once off the async worker.
@@ -345,25 +563,8 @@ fn local_understanding(
     }
     let mut suggestion = None;
     if found.is_empty() && query.len() <= 96 && words.len() <= 8 {
-        // Only short queries need autocomplete and typo correction.
-        for hit in atlas.search().search(
-            query,
-            SearchOptions {
-                limit: 3,
-                include_retired: false,
-            },
-        ) {
-            let node = atlas.node_ref(hit.node);
-            found.insert(node.id.clone(), node);
-        }
-        if found.is_empty() {
-            suggestion = atlas.search().correct(query);
-            if let Some(corrected) = &suggestion {
-                for node in link(atlas, graph, index, corrected) {
-                    found.insert(node.id.clone(), node);
-                }
-            }
-        }
+        // Corrections are suggestions only, never automatically executed scope.
+        suggestion = atlas.search().correct(query);
     }
     let q = query.to_ascii_lowercase();
     let any = |words: &[&str]| words.iter().any(|w| q.contains(w));
@@ -670,7 +871,7 @@ fn validated_sparql_context(s: &AppState, ids: &[String]) -> Result<Vec<NodeRef>
                     return Err(explore_error(StatusCode::BAD_REQUEST, "Invalid or duplicate context identifier"));
                 }
                 available(&s.atlas, &s.graph, id)
-                    .filter(|node| node.id == *id && allowed(id))
+                    .filter(|node| node.id == *id && allowed(id) && allowed(&node.label))
                     .ok_or_else(|| explore_error(StatusCode::BAD_REQUEST, "Context is unavailable"))
             })
             .collect()
@@ -715,6 +916,13 @@ pub async fn sparql(State(s): State<AppState>, Json(req): Json<SparqlRequest>) -
 pub async fn search(State(s): State<AppState>, headers: HeaderMap, Json(req): Json<ExploreRequest>) -> ApiResult {
     let started = Instant::now();
     let lang = search_language(&headers)?;
+    if req
+        .caption
+        .as_ref()
+        .is_some_and(|caption| caption.len() > 512 || caption.contains('\0'))
+    {
+        return Err(explore_error(StatusCode::BAD_REQUEST, "Caption exceeds 512 bytes"));
+    }
     if req.query.len() > MAX_QUERY || (req.query.trim().is_empty() && req.plan.is_none()) {
         return Err(explore_error(
             StatusCode::BAD_REQUEST,
@@ -747,6 +955,27 @@ pub async fn search(State(s): State<AppState>, headers: HeaderMap, Json(req): Js
         )
     };
     let query = prepared.as_ref().map(|p| p.sent.clone()).unwrap_or_default();
+    let mut name_focus = None;
+    if req.plan.is_none() && short_name(&query) {
+        let (matches, corrected) = name_candidates(&s, &query, 10).await?;
+        if matches.len() == 1 && matches[0]["match"] == "exact" {
+            name_focus = matches[0]["id"]
+                .as_str()
+                .and_then(|id| available(&s.atlas, &s.graph, id));
+        } else {
+            return Ok(Json(
+                candidate_response(
+                    &s,
+                    req.caption.as_deref().unwrap_or(""),
+                    &query,
+                    matches,
+                    corrected,
+                    None,
+                )
+                .await,
+            ));
+        }
+    }
     let s2 = s.clone();
     let q2 = query.clone();
     let (mut entities, mut intent, suggestion) = tokio::task::spawn_blocking(move || {
@@ -761,6 +990,13 @@ pub async fn search(State(s): State<AppState>, headers: HeaderMap, Json(req): Js
     })
     .await
     .map_err(internal)?;
+    entities.retain(|node| {
+        s.withhold
+            .with_query_visibility(|allowed| allowed(&node.id) && allowed(&node.label))
+    });
+    if let Some(node) = &name_focus {
+        entities = vec![node.clone()];
+    }
     let mode = "indexed";
     let warning: Option<&str> = None;
     let activities: Vec<String> = Vec::new();
@@ -779,14 +1015,12 @@ pub async fn search(State(s): State<AppState>, headers: HeaderMap, Json(req): Js
     let connection: Option<String> = None;
     if let Some(plan) = req.plan {
         validate_plan(&s.atlas, &s.graph, &plan)?;
-        entities = plan
-            .focus
-            .iter()
-            .filter_map(|id| available(&s.atlas, &s.graph, id))
-            .collect();
+        entities = validated_sparql_context(&s, &plan.focus)?;
         intent = plan.intent;
         filters = plan.filters;
-    } else if query.split_whitespace().count() > 1 || entities.is_empty() || headers.contains_key("x-llm-connection") {
+    } else if name_focus.is_none()
+        && (query.split_whitespace().count() > 1 || entities.is_empty() || headers.contains_key("x-llm-connection"))
+    {
         let linked_ids: Vec<String> = entities.iter().map(|n| n.id.clone()).collect();
         let outcome = crate::explore_query::understand(
             &s,
@@ -795,9 +1029,25 @@ pub async fn search(State(s): State<AppState>, headers: HeaderMap, Json(req): Js
             &linked_ids,
             lang,
         )
-        .await
-        .map_err(routing_error)?;
-        return Ok(Json(canonical_response(&s, &query, &entities, outcome, limit)));
+        .await;
+        return match outcome {
+            Ok(outcome) => {
+                let mut body = canonical_response(&s, &query, &entities, outcome, limit);
+                admit_public_caption(&mut body, req.caption.as_deref());
+                Ok(Json(body))
+            }
+            Err(error) => Ok(Json(
+                candidate_response(
+                    &s,
+                    req.caption.as_deref().unwrap_or(""),
+                    &query,
+                    vec![],
+                    None,
+                    Some(error.diagnostics),
+                )
+                .await,
+            )),
+        };
     }
     if req.mode.as_deref() == Some("community") && intent == Intent::All {
         intent = Intent::Researchers;
@@ -898,6 +1148,7 @@ pub async fn search(State(s): State<AppState>, headers: HeaderMap, Json(req): Js
     body["interpretation"] = json!({"mode":mode,"entities":entities,"intent":intent,"warning":warning,"suggestion":suggestion,"model":model,"connection":connection,"activities":activities,"redactions":prepared.as_ref().map(|p| &p.redacted.counts)});
     body["execution"] = json!({"engine":engine,"sparql":sparql,"queries":executed_queries,"dataset":if engine == "nrese" { dataset_lineage() } else {Value::Null},"runtime_reasoning":false,"elapsed_ms":started.elapsed().as_millis() as u64,"truncated":store_truncated || body["truncated"].as_bool().unwrap_or(false)});
     body.as_object_mut().expect("object").remove("truncated");
+    admit_public_caption(&mut body, req.caption.as_deref());
     Ok(Json(body))
 }
 
@@ -912,10 +1163,15 @@ fn canonical_response(
     limit: usize,
 ) -> Value {
     let returned: BTreeSet<String> = outcome.result_ids.iter().cloned().collect();
-    let mut ids = returned.clone();
+    let mut ids = outcome.result_ids.clone();
+    let mut admitted = returned.clone();
     for t in &outcome.triples {
-        ids.insert(t.from.clone());
-        ids.insert(t.to.clone());
+        if admitted.insert(t.from.clone()) {
+            ids.push(t.from.clone());
+        }
+        if admitted.insert(t.to.clone()) {
+            ids.push(t.to.clone());
+        }
     }
     let inputs: BTreeSet<String> = linked.iter().map(|n| n.id.clone()).collect();
     // Inputs identify the question, including an aggregate with no entity rows.
@@ -953,7 +1209,11 @@ fn canonical_response(
             Some(json!({"id":id,"source":t.from,"target":t.to,"relation":t.relation,"label":t.relation.replace('_'," "),"highlighted":true,"evidence":canonical_evidence(&outcome.query_execution,&id,true)}))
         }
     }).collect();
-    let mut results: Vec<Value> = nodes.values().filter(|n| returned.contains(&n.id)).take(limit).map(|n|json!({"id":n.id,"label":n.label,"kind":n.kind,"reason":"Returned by the checked graph query","score":1,"evidence":canonical_evidence(&outcome.query_execution,&n.id,false),"url":reach(&s.graph,n)})).collect();
+    let mut results: Vec<Value> = outcome.result_ids.iter().filter_map(|id| nodes.get(id)).take(limit).map(|n| {
+        let indexes = canonical_query_indexes(&outcome.query_execution, &n.id);
+        let scopes: Vec<_> = indexes.iter().filter_map(|index| keyword_query_scope(s, &outcome.query_execution, *index)).collect();
+        json!({"id":n.id,"label":n.label,"kind":n.kind,"reason":"Returned in source query order","score":1,"query_indexes":indexes,"query_scopes":scopes,"evidence":canonical_evidence(&outcome.query_execution,&n.id,false),"url":reach(&s.graph,n)})
+    }).collect();
     for result in &mut results {
         enrich_result(&s.graph, result);
     }
@@ -969,7 +1229,8 @@ fn canonical_response(
                 .any(|r| r["activity"]["parameters"]["infer"].as_bool() == Some(true))
         });
     let executed_queries: Vec<Value> = outcome.query_execution["answer"]["results"].as_array().into_iter().flatten()
-        .filter(|result| result["query"].is_string()).map(|result| json!({
+        .enumerate().filter(|(_,result)| result["query"].is_string()).map(|(index,result)| json!({
+            "query_index":index,"scope":keyword_query_scope(s,&outcome.query_execution,index),
             "sparql":result["query"],"engine":result["backend"],"stage":"canonical",
             "row_cap":result["activity"]["parameters"]["row_cap"],"limit":result["activity"]["parameters"]["row_cap"],
             "reasoning":result["activity"]["parameters"]["infer"],"activity":result["activity"],
@@ -980,6 +1241,49 @@ fn canonical_response(
         "results":results,"graph":{"nodes":graph_nodes,"edges":edges},
         "execution":{"engine":outcome.backend,"sparql":outcome.sparql,"queries":executed_queries,"elapsed_ms":outcome.elapsed_ms,"truncated":outcome.truncated || returned.len()>limit,"dataset":dataset_lineage(),"runtime_reasoning":reasoning,"reasoning_warning":outcome.reasoning_warning,"reasoning_proofs":outcome.reasoning_proofs},
         "query_execution":outcome.query_execution})
+}
+
+fn canonical_query_indexes(execution: &Value, id: &str) -> Vec<usize> {
+    execution["answer"]["results"]
+        .as_array()
+        .into_iter()
+        .flatten()
+        .enumerate()
+        .filter(|(_, table)| {
+            table["data"]["results"]["bindings"]
+                .as_array()
+                .into_iter()
+                .flatten()
+                .any(|row| {
+                    row.as_object()
+                        .into_iter()
+                        .flat_map(|fields| fields.values())
+                        .any(|term| {
+                            term["type"] == "uri"
+                                && term["value"].as_str().and_then(explore_sparql::iri_to_id).as_deref() == Some(id)
+                        })
+                })
+        })
+        .map(|(index, _)| index)
+        .collect()
+}
+
+/// Only an actual typed keyword execution supplies a scope. Semantic/display
+/// focus is not a SPARQL constraint or evidence of which VALUES seed matched.
+fn keyword_query_scope(s: &AppState, execution: &Value, index: usize) -> Option<Value> {
+    let trace = execution["answer"]["tool_trace"].as_array()?.iter().find(|trace| {
+        trace["stage"] == "keyword_query"
+            && trace["status"] == "executed"
+            && trace["evidence_query_index"].as_u64() == Some(index as u64)
+    })?;
+    let focus: Vec<_> = trace["plan"]["focus"]
+        .as_array()?
+        .iter()
+        .filter_map(|id| id.as_str().and_then(|id| available(&s.atlas, &s.graph, id)))
+        .collect();
+    Some(
+        json!({"query_index":index,"category":trace["category"],"focus":focus,"matched_focus":null,"ownership":"query_focus_alternatives"}),
+    )
 }
 
 fn search_language(headers: &HeaderMap) -> Result<&str, ApiError> {
@@ -1738,6 +2042,7 @@ pub async fn community(State(s): State<AppState>, Query(params): Query<Community
                 HeaderMap::new(),
                 Json(ExploreRequest {
                     query: String::new(),
+                    caption: None,
                     limit: Some(per_seed),
                     mode: Some("community".into()),
                     plan: Some(Plan {
@@ -2050,6 +2355,118 @@ fn merge_community(focus: &[String], neighborhoods: &[Value], limit: usize) -> V
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn public_caption_boundary_keeps_canonical_tables_and_explicit_plan_scope() {
+        for mut body in [
+            json!({"query":"private prepared contents","interpretation":{"mode":"agent"},"query_execution":{"answer":{"results":[{"data":{"count":0}}]}}}),
+            json!({"query":"private prepared contents","interpretation":{"mode":"indexed","suggestion":"corrected private prepared contents"},"plan":{"focus":["HGNC:11444"]},"execution":{"engine":"nrese","queries":[]}}),
+        ] {
+            let original = body.clone();
+            admit_public_caption(&mut body, Some("reviewed-🧬.txt"));
+            assert_eq!(body["query"], "reviewed-🧬.txt");
+            assert_eq!(body["query_execution"], original["query_execution"]);
+            assert_eq!(body["plan"], original["plan"]);
+            assert_eq!(body["execution"], original["execution"]);
+            assert!(!body.to_string().contains("private prepared contents"));
+        }
+        let mut legacy = json!({"query":"explicit typed question"});
+        admit_public_caption(&mut legacy, None);
+        assert_eq!(legacy["query"], "explicit typed question");
+    }
+    #[test]
+    fn short_name_does_not_capture_question_verbs_or_research_jobs() {
+        for name in ["Altzheimer", "Alzheimer disease", "Rett syndrome", "RANK", "HGNC:11908"] {
+            assert!(short_name(name), "{name}");
+        }
+        for question in [
+            "Rank the research opportunities",
+            "Find STXBP1",
+            "MECP2 and Rett",
+            "Who studies Rett?",
+            "NPC studies",
+            "show Alzheimer",
+            "STXBP1 models",
+            "STXBP1 conditions",
+            "AP4B1 papers",
+            "Rett trials",
+            "Rett Symptome",
+        ] {
+            assert!(!short_name(question), "{question}");
+        }
+    }
+    #[test]
+    fn real_prepared_names_take_zero_model_preflight_but_multiline_input_does_not() {
+        let prepared = atlas_intake::prepare(
+            atlas_intake::Input::Paste("Altzheimer"),
+            &atlas_intake::Limits::default(),
+        )
+        .unwrap();
+        assert!(
+            prepared.sent.ends_with('\n'),
+            "Fixture must exercise real intake normalization"
+        );
+        assert!(short_name(&prepared.sent));
+        assert_eq!(
+            prepared.sent, "Altzheimer\n",
+            "Classifier must not mutate prepared input"
+        );
+        for input in [
+            "Altzheimer\nresearch contacts",
+            "Rett\nsyndrome",
+            "Find STXBP1 researchers",
+        ] {
+            let prepared =
+                atlas_intake::prepare(atlas_intake::Input::Paste(input), &atlas_intake::Limits::default()).unwrap();
+            assert!(!short_name(&prepared.sent), "{input}");
+        }
+    }
+    #[tokio::test]
+    async fn candidate_only_response_preserves_public_caption_and_no_scientific_execution() {
+        let state = crate::test_support::state();
+        let private = "private prepared document contents";
+        let response = candidate_response(&state, "reviewed-file.txt", private,
+            vec![json!({"id":"MONDO:9999999","label":"Actual synthetic record","kind":"disease","match":"fuzzy"})], Some(private.into()),
+            Some(json!({"routing":{"route":"unavailable","attempted":[{"connection":"hosted-free","status":"rate_limited"}],"failed_executions":[{"connection":"hosted-free","tool_trace":[{"arguments":private}],"model_provenance":[],"activity":{}}]}}))).await;
+        assert_eq!(response["query"], "reviewed-file.txt");
+        assert_eq!(response["retrieval"]["status"], "candidates");
+        assert_eq!(response["question_status"], "not_checked");
+        assert!(response["results"].as_array().unwrap().is_empty());
+        assert!(response["graph"]["nodes"].as_array().unwrap().is_empty());
+        assert!(response["execution"]["sparql"].is_null());
+        assert!(response["retrieval"]["corrected_query"].is_null());
+        assert!(!response.to_string().contains(private));
+    }
+
+    #[test]
+    fn typo_suggestions_search_corrected_prefix_and_preserve_source_match_order() {
+        let (atlas, graph) = fixture();
+        let mut diseases = atlas.diseases().to_vec();
+        for (id, label) in [
+            ("MONDO:9999999", "Alzheimer disease"),
+            ("MONDO:0000001", "Alzheimer disease 2"),
+            ("MONDO:0000002", "Alzheimer disease 5"),
+        ] {
+            let mut d = Disease::new(id, ActivityIdx(0));
+            d.name = label.into();
+            diseases.push(d);
+        }
+        let atlas = Atlas::new(vec![], DiseaseIdentity::default(), atlas.provenance.clone(), diseases);
+        let index = ConnectedIndex::new(&graph);
+        let (suggestions, corrected) = indexed_lookup(&atlas, &graph, &index, "Altzheimer", 3);
+        assert_eq!(corrected.as_deref(), Some("alzheimer"));
+        assert_eq!(suggestions.len(), 3);
+        assert_eq!(
+            suggestions[0]["id"], "MONDO:9999999",
+            "Core search's shorter source label precedes lexical subtype CURIEs"
+        );
+        assert!(suggestions.iter().all(|n| n["match"] == "fuzzy"));
+        let (exact, correction) = indexed_lookup(&atlas, &graph, &index, "Alzheimer disease", 3);
+        assert_eq!(exact.len(), 1);
+        assert_eq!(exact[0]["match"], "exact");
+        assert!(correction.is_none());
+        let (none, _) = indexed_lookup(&atlas, &graph, &index, "unresolvable-synthetic-token-987654321", 3);
+        assert!(none.is_empty());
+    }
 
     #[test]
     fn routing_failure_retains_safe_diagnostics_without_claiming_an_executed_answer() {
@@ -2287,8 +2704,8 @@ mod tests {
         assert_eq!(response["graph"]["nodes"][0]["input"], true);
     }
 
-    #[test]
-    fn removed_context_identifier_is_rejected_without_rebuilding_the_graph() {
+    #[tokio::test]
+    async fn removed_context_identifier_is_rejected_without_rebuilding_the_graph() {
         use atlas_core::withhold::{KeyKind, SuppressionEntry};
         let mut state = crate::test_support::state();
         let data = tempfile::tempdir().unwrap();
@@ -2305,6 +2722,87 @@ mod tests {
         state.withhold.reload();
         assert!(available(&state.atlas, &state.graph, id).is_some(), "immutable source node is unchanged");
         assert!(validated_sparql_context(&state, &[id.into()]).is_err(), "runtime removal also applies to query context");
+        let plan = Plan { focus: vec![id.into()], intent: Intent::All, filters: Filters::default() };
+        assert!(validate_plan(&state.atlas, &state.graph, &plan).is_ok(), "static source alone cannot detect runtime removal");
+        assert!(validated_sparql_context(&state, &plan.focus).is_err(), "selected candidate is rejected after removal");
+        assert!(validated_sparql_context(&state, &[id.into(), id.into()]).is_err(), "duplicate selected identities are rejected");
+        let error = search(State(state), HeaderMap::new(), Json(ExploreRequest {
+            query: String::new(), caption: Some("reviewed-file.txt".into()), limit: Some(20), mode: None, plan: Some(plan),
+        })).await.unwrap_err();
+        assert_eq!(error.0, StatusCode::BAD_REQUEST, "removed candidate is rejected before any executor call");
+    }
+
+    #[test]
+    fn capped_preview_keeps_first_source_table_and_explicit_combined_scope() {
+        let (atlas, graph) = fixture();
+        let mut diseases = atlas.diseases().to_vec();
+        let mut exact = diseases[0].clone();
+        exact.id = "MONDO:0013551".into();
+        exact.name = "Synthetic exact AP4B1 condition".into();
+        exact.genes[0].symbol = "AP4B1".into();
+        exact.genes[0].hgnc = Some("HGNC:572".into());
+        diseases.push(exact);
+        let mut broader = Disease::new("MONDO:0019064", ActivityIdx(0));
+        broader.name = "Synthetic broader HSP condition".into();
+        diseases.push(broader);
+        let atlas = Atlas::new(vec![], DiseaseIdentity::default(), atlas.provenance.clone(), diseases);
+        let mut data = graph.data().clone();
+        let first = ["NCT04712812".to_owned(), "NCT06948019".to_owned()];
+        let broad: Vec<String> = (0..20).map(|i| format!("NCT{i:08}")).collect();
+        let order: Vec<_> = first.iter().chain(broad.iter()).cloned().collect();
+        let template = data.studies[0].clone();
+        data.studies = order
+            .iter()
+            .map(|id| {
+                let mut study = template.clone();
+                study.id = id.clone();
+                study.title = format!("Synthetic study {id}");
+                study
+            })
+            .collect();
+        let mut state = crate::test_support::state();
+        state.atlas = std::sync::Arc::new(atlas);
+        state.graph = std::sync::Arc::new(Graph::new(data));
+        let table = |ids: &[String]| json!({"data":{"results":{"bindings":ids.iter().map(|id|json!({"result":{"type":"uri","value":explore_sparql::node_iri(id)}})).collect::<Vec<_>>()}}});
+        let execution = json!({"semantic_focus":["HGNC:572"],"answer":{"results":[table(&first),table(&broad)],"tool_trace":[
+            {"stage":"keyword_query","status":"executed","category":"studies","evidence_query_index":0,"plan":{"focus":["HGNC:572"]}},
+            {"stage":"keyword_query","status":"executed","category":"studies","evidence_query_index":1,"plan":{"focus":["MONDO:0013551","MONDO:0019064"]}}
+        ]}});
+        let outcome = crate::explore_query::QueryOutcome {
+            query_execution: execution,
+            result_ids: order,
+            triples: vec![],
+            backend: "nrese".into(),
+            sparql: None,
+            elapsed_ms: 1,
+            truncated: false,
+            model: None,
+            connection: None,
+            activities: vec![],
+            reasoning_proofs: vec![],
+            reasoning_warning: None,
+        };
+        let response = canonical_response(&state, "Synthetic captured multi-scope request", &[], outcome, 20);
+        assert_eq!(response["results"].as_array().unwrap().len(), 20);
+        assert_eq!(response["results"][0]["id"], first[0]);
+        assert_eq!(response["results"][1]["id"], first[1]);
+        assert_eq!(response["results"][0]["query_indexes"], json!([0]));
+        assert_eq!(response["results"][0]["query_scopes"][0]["focus"][0]["id"], "HGNC:572");
+        let scope = &response["results"][2]["query_scopes"][0];
+        assert_eq!(scope["query_index"], 1);
+        assert_eq!(scope["focus"].as_array().unwrap().len(), 2);
+        assert!(scope["matched_focus"].is_null());
+        assert_eq!(scope["ownership"], "query_focus_alternatives");
+        assert!(response["execution"]["truncated"].as_bool().unwrap());
+        assert!(
+            keyword_query_scope(
+                &state,
+                &json!({"semantic_focus":["HGNC:572"],"answer":{"tool_trace":[]}}),
+                0
+            )
+            .is_none(),
+            "Display context alone never becomes executed query scope"
+        );
     }
 
     #[test]

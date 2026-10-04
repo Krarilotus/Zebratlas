@@ -9,12 +9,15 @@ use serde_json::Value;
 
 use crate::cache::{Cache, CacheEntry, CacheMode, DEFAULT_DIR, cache_key, prompt_hash};
 use crate::error::{LlmError, Result, truncate};
-use crate::free_tier::{Admission, HOSTED_FREE, QuotaReason};
+use crate::free_tier::{Admission, HOSTED_FREE, HOSTED_KISSKI, QuotaReason};
 use crate::provenance::{CallFacts, LlmCall, now_rfc3339};
 use crate::provider::{Availability, KeyPolicy};
 use crate::registry::{Connection, ConnectionInfo, Registry};
 use crate::request::{CompletionRequest, CompletionResponse, Message, ProviderOutput};
 use crate::secret::ApiKey;
+
+const MAX_DEFAULT_CONNECTIONS: usize = 8;
+const MAX_FALLBACK_DURATION: Duration = Duration::from_secs(30);
 
 /// Who/what a call is for: connection name, optional BYO key, provenance inputs.
 #[derive(Clone, Debug, Default)]
@@ -105,7 +108,8 @@ pub struct Llm {
 }
 
 /// D48 fallback order after the hosted free tier: `ATLAS_FREE_FALLBACKS` (comma list; empty =
-/// none), else `kisski` (demo only), then `ollama` (local `gpt-oss:20b`) when `ATLAS_OLLAMA_URL`
+/// none), else KISSKI (demo only), then
+/// `ollama` (local `gpt-oss:20b`) when `ATLAS_OLLAMA_URL`
 /// is set. Connections without a usable key are skipped at call time.
 pub fn fallbacks_from_env() -> Vec<String> {
     if let Ok(list) = std::env::var("ATLAS_FREE_FALLBACKS") {
@@ -205,6 +209,9 @@ impl Llm {
         if probe {
             let mut set = tokio::task::JoinSet::new();
             for (i, c) in self.registry.iter().enumerate() {
+                if c.config.internal == Some(true) {
+                    continue;
+                }
                 let p = c.provider.clone();
                 set.spawn(async move { (i, p.probe().await) });
             }
@@ -215,6 +222,7 @@ impl Llm {
         self.registry
             .iter()
             .zip(found)
+            .filter(|(c, _)| c.config.internal != Some(true))
             .map(|(c, a)| {
                 let mut info = c.info(a);
                 if let Some(t) = self.registry.free_tier(c.name()) {
@@ -283,7 +291,7 @@ impl Llm {
 
     /// Connection for a request that names none: `ATLAS_LLM_DEFAULT`; else, without an own key,
     /// the first usable connection of [`Llm::default_chain`] (D48: `hosted-free` = OpenRouter
-    /// gpt-oss-120b, then KISSKI, then local Ollama); else `kisski`.
+    /// gpt-oss-120b, then configured guarded fallbacks); else `kisski`.
     pub fn default_connection(&self, has_own_key: bool) -> String {
         if let Ok(name) = std::env::var("ATLAS_LLM_DEFAULT")
             && !name.trim().is_empty()
@@ -302,17 +310,32 @@ impl Llm {
     /// paid provider's server key outside the free-tier guard.
     pub fn default_chain(&self) -> Vec<String> {
         let mut chain = Vec::new();
+        // Keep a disabled accounting gate terminal even when it has no key;
+        // default selection must never escape a kill/ledger failure via KISSKI.
+        if self.registry.free_tier(HOSTED_FREE).is_some_and(|t| t.is_disabled()) {
+            return vec![HOSTED_FREE.into()];
+        }
         if let Ok(conn) = self.registry.get(HOSTED_FREE)
-            && let Some(t) = self.registry.free_tier(HOSTED_FREE)
-            && !t.is_disabled()
+            && self.registry.free_tier(HOSTED_FREE).is_some()
             && self.free_key(conn).is_some()
         {
             chain.push(HOSTED_FREE.to_owned());
         }
-        for name in &self.fallbacks {
+        for configured in &self.fallbacks {
+            // Historical fallback configuration can say kisski, but implicit
+            // hosted routing always resolves it to the guarded alias.
+            let name = if configured == "kisski" && self.registry.get(HOSTED_KISSKI).is_ok() {
+                HOSTED_KISSKI
+            } else {
+                configured.as_str()
+            };
             let Ok(conn) = self.registry.get(name) else { continue };
-            let usable = if let Some(tier) = self.registry.free_tier(name) {
-                !tier.is_disabled() && self.free_key(conn).is_some()
+            // A personal execution route requires an explicit user selection.
+            if conn.kind.is_cli() || conn.kind == crate::ProviderKind::Connector {
+                continue;
+            }
+            let usable = if self.registry.free_tier(name).is_some() {
+                self.free_key(conn).is_some()
             } else {
                 match &conn.key_policy {
                     KeyPolicy::Required { env_fallback: true, .. } => conn.key_policy.resolve(None).is_some(),
@@ -320,8 +343,8 @@ impl Llm {
                     KeyPolicy::Optional { .. } | KeyPolicy::None => !conn.kind.is_cli(),
                 }
             };
-            if usable && !chain.contains(name) {
-                chain.push(name.clone());
+            if usable && !chain.iter().any(|n| n == name) {
+                chain.push(name.to_owned());
             }
         }
         chain
@@ -381,67 +404,77 @@ impl Llm {
     }
 
     async fn complete_with_fallback(&self, call: &Call, req: CompletionRequest) -> Result<Completion> {
-        let model_override = req.model.as_ref().is_some_and(|model| {
-            !self
-                .registry
-                .get(&call.connection)
-                .is_ok_and(|connection| connection.config.default_model.as_ref() == Some(model))
-        });
-        if call.key.is_some()
-            || model_override
-            || !(call.connection == HOSTED_FREE || call.fallback)
-            || self
-                .registry
-                .get(&call.connection)
-                .is_ok_and(|c| c.kind == crate::ProviderKind::Connector)
-            || call.connection.starts_with("connector:")
-        {
-            return self.complete_once(call, req).await;
-        }
-        let mut candidates = vec![call.connection.clone()];
-        for name in self.default_chain() {
-            if !candidates.contains(&name) {
-                candidates.push(name);
-            }
-        }
-        let started = Instant::now();
-        let mut failed = Vec::new();
-        let mut last = LlmError::Unavailable("no usable hosted provider".into());
-        for (index, name) in candidates.iter().enumerate() {
-            let remaining = req.deadline.saturating_sub(started.elapsed());
+        let chain = self.call_chain(call, &req)?;
+        let bounded = chain.len() > 1;
+        let total = if bounded {
+            req.deadline.min(MAX_FALLBACK_DURATION)
+        } else {
+            req.deadline
+        };
+        let start = Instant::now();
+        let mut attempts = Vec::new();
+        let mut last = None;
+        for (index, name) in chain.iter().enumerate() {
+            let remaining = total.saturating_sub(start.elapsed());
             if remaining.is_zero() {
-                return Err(LlmError::Timeout(req.deadline));
+                return Err(last.unwrap_or(LlmError::Timeout(total)));
             }
-            let mut attempt = req.clone();
-            if index > 0 {
-                attempt.model = None;
-            }
-            attempt.deadline = remaining / (candidates.len() - index) as u32;
+            let attempt_time = remaining / u32::try_from(chain.len() - index).unwrap_or(1);
+            let mut request = req.clone();
+            request.deadline = attempt_time;
+            if name != &call.connection { request.model = None; }
             let next = Call {
                 connection: name.clone(),
-                key: None,
                 fallback: false,
                 ..call.clone()
             };
-            match self.complete_once(&next, attempt).await {
+            attempts.push(name.clone());
+            let result = tokio::time::timeout(attempt_time, self.complete_once(&next, request))
+                .await
+                .unwrap_or_else(|_| Err(LlmError::Timeout(attempt_time)));
+            match result {
                 Ok(mut done) => {
-                    if !failed.is_empty() {
-                        let p = &mut done.provenance.activity.parameters;
-                        p.insert("fallback.from".into(), call.connection.clone());
-                        p.insert("fallback.failed_connections".into(), failed.join(","));
-                        p.insert("fallback_from".into(), call.connection.clone());
-                        p.insert("fallback_reason".into(), error_code(&last).into());
-                    }
+                    annotate_fallback(&mut done, call, &attempts, last.as_ref());
                     return Ok(done);
                 }
-                Err(error) if crate::routing::can_fallback(&error) => {
-                    failed.push(name.clone());
-                    last = error;
+                Err(e) if bounded && falls_back(&e) => {
+                    eprintln!(
+                        "atlas-llm: fallback attempt {}/{} failed ({})",
+                        index + 1,
+                        chain.len(),
+                        error_code(&e)
+                    );
+                    last = Some(e);
                 }
-                Err(error) => return Err(error),
+                Err(e) => return Err(e),
             }
         }
-        Err(last)
+        Err(last.unwrap_or_else(|| LlmError::Unavailable("no configured provider could serve the request".into())))
+    }
+
+    fn call_chain(&self, call: &Call, req: &CompletionRequest) -> Result<Vec<String>> {
+        let mut chain = vec![call.connection.clone()];
+        if call.fallback
+            && call.key.is_none()
+            && req.model.is_none()
+            && !call.connection.starts_with("connector:")
+            && !self
+                .registry
+                .get(&call.connection)
+                .is_ok_and(|c| c.kind == crate::ProviderKind::Connector || c.kind.is_cli())
+        {
+            for name in self.default_chain() {
+                if !chain.contains(&name) {
+                    chain.push(name);
+                }
+            }
+        }
+        if chain.len() > MAX_DEFAULT_CONNECTIONS {
+            return Err(LlmError::Config(
+                "default provider chain exceeds eight connections".into(),
+            ));
+        }
+        Ok(chain)
     }
 
     async fn complete_once(&self, call: &Call, mut req: CompletionRequest) -> Result<Completion> {
@@ -464,6 +497,12 @@ impl Llm {
         let tier = self.registry.free_tier(&call.connection).cloned();
         let mut task_prices = None;
         if let Some(t) = &tier {
+            if t.is_disabled() {
+                return Err(LlmError::FreeQuota {
+                    reason: QuotaReason::Disabled,
+                    retry_after_secs: None,
+                });
+            }
             let fixed_model = conn.config.default_model.as_deref().unwrap_or(&t.config().model);
             if req.model.as_deref().is_some_and(|m| m != fixed_model) {
                 return Err(LlmError::InvalidRequest(
@@ -677,8 +716,9 @@ impl Llm {
     pub async fn complete_json<T: DeserializeOwned>(
         &self,
         call: &Call,
-        req: CompletionRequest,
+        mut req: CompletionRequest,
     ) -> Result<JsonCompletion<T>> {
+        if let Some(deadline) = call.deadline { req.deadline = req.deadline.min(deadline); }
         let schema = req
             .schema
             .as_ref()
@@ -686,7 +726,66 @@ impl Llm {
             .schema
             .clone();
         jsonschema::validator_for(&schema).map_err(|e| LlmError::InvalidSchema(e.to_string()))?;
-        let first = self.complete(call, req.clone()).await?;
+        let chain = self.call_chain(call, &req)?;
+        let bounded = chain.len() > 1;
+        let total = if bounded {
+            req.deadline.min(MAX_FALLBACK_DURATION)
+        } else {
+            req.deadline
+        };
+        let start = Instant::now();
+        let mut attempts = Vec::new();
+        let mut last = None;
+        for (index, name) in chain.iter().enumerate() {
+            let remaining = total.saturating_sub(start.elapsed());
+            if remaining.is_zero() {
+                return Err(last.unwrap_or(LlmError::Timeout(total)));
+            }
+            let attempt_time = remaining / u32::try_from(chain.len() - index).unwrap_or(1);
+            let mut request = req.clone();
+            request.deadline = attempt_time;
+            if name != &call.connection { request.model = None; }
+            let next = Call {
+                connection: name.clone(),
+                fallback: false,
+                ..call.clone()
+            };
+            attempts.push(name.clone());
+            let result = tokio::time::timeout(attempt_time, self.complete_json_once::<T>(&next, request, &schema))
+                .await
+                .unwrap_or_else(|_| Err(LlmError::Timeout(attempt_time)));
+            match result {
+                Ok(mut done) => {
+                    for completion in &mut done.calls {
+                        annotate_fallback(completion, call, &attempts, last.as_ref());
+                    }
+                    return Ok(done);
+                }
+                Err(e) if bounded && falls_back(&e) => {
+                    eprintln!(
+                        "atlas-llm: structured fallback attempt {}/{} failed ({})",
+                        index + 1,
+                        chain.len(),
+                        error_code(&e)
+                    );
+                    last = Some(e);
+                }
+                Err(e) => return Err(e),
+            }
+        }
+        Err(last
+            .unwrap_or_else(|| LlmError::Unavailable("no configured provider could produce a validated result".into())))
+    }
+
+    async fn complete_json_once<T: DeserializeOwned>(
+        &self,
+        call: &Call,
+        req: CompletionRequest,
+        schema: &Value,
+    ) -> Result<JsonCompletion<T>> {
+        let start = Instant::now();
+        let total = req.deadline;
+        let first = self.complete_once(call, req.clone()).await?;
         let err = match typed::<T>(&schema, &first.response.text) {
             Ok((value, json)) => {
                 return Ok(JsonCompletion {
@@ -698,12 +797,16 @@ impl Llm {
             Err(e) => e,
         };
         let mut retry = req;
+        retry.deadline = total.saturating_sub(start.elapsed());
+        if retry.deadline.is_zero() {
+            return Err(LlmError::Timeout(total));
+        }
         retry.messages.push(Message::assistant(first.response.text.clone()));
         retry.messages.push(Message::user(format!(
             "Your reply did not validate against the JSON schema: {err}\n\
              Reply again with only the corrected JSON value, nothing else."
         )));
-        let second = self.complete(call, retry).await?;
+        let second = self.complete_once(call, retry).await?;
         match typed::<T>(&schema, &second.response.text) {
             Ok((value, json)) => Ok(JsonCompletion {
                 value,
@@ -712,6 +815,48 @@ impl Llm {
             }),
             Err(e) => Err(LlmError::SchemaValidation(e)),
         }
+    }
+}
+
+fn annotate_fallback(done: &mut Completion, call: &Call, attempts: &[String], last: Option<&LlmError>) {
+    if attempts.len() < 2 {
+        return;
+    }
+    let p = &mut done.provenance.activity.parameters;
+    p.insert("fallback.from".into(), call.connection.clone());
+    p.insert("fallback.failed_connections".into(), attempts[..attempts.len() - 1].join(","));
+    p.insert("fallback_from".into(), call.connection.clone());
+    p.insert(
+        "fallback_reason".into(),
+        last.map(error_code).unwrap_or("unavailable").into(),
+    );
+    p.insert("fallback_attempt_count".into(), attempts.len().to_string());
+    p.insert(
+        "fallback_connections".into(),
+        serde_json::to_string(attempts).unwrap_or_default(),
+    );
+}
+
+/// Failures that say "this connection cannot serve right now", not "this request is wrong" or
+/// "this visitor/day is over its limit": only these move on along the default chain.
+fn falls_back(e: &LlmError) -> bool {
+    match e {
+        // Disabled includes the operator kill switch and accounting/ledger I/O
+        // failures. Neither may escape through an unguarded academic fallback.
+        // A paid route may be out of USD while a guarded zero-cost route can
+        // still admit the visitor. Request/rate/concurrency gates remain terminal.
+        LlmError::FreeQuota { reason, .. } => matches!(reason, QuotaReason::NotConfigured | QuotaReason::DailyBudget),
+        LlmError::Unavailable(_)
+        | LlmError::Timeout(_)
+        | LlmError::RateLimited(_)
+        | LlmError::Auth(_)
+        | LlmError::MissingKey { .. }
+        | LlmError::UnknownConnection(_)
+        | LlmError::BadOutput(_)
+        | LlmError::SchemaValidation(_) => true,
+        // 404: OpenRouter found no endpoint matching the routing preferences (ZDR, price cap).
+        LlmError::Provider { status, .. } => status.is_none_or(|s| s >= 500 || matches!(s, 402 | 404 | 429)),
+        _ => false,
     }
 }
 

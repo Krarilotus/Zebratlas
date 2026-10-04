@@ -412,13 +412,13 @@ async fn production_pair_choose_answer_and_revoke() {
     };
     let (response, ()) = tokio::join!(pending, fail);
     let response = response.unwrap();
-    assert_eq!(response.status(), StatusCode::SERVICE_UNAVAILABLE);
+    assert_eq!(response.status(), StatusCode::OK);
     let failed: Value = response.json().await.unwrap();
-    assert!(failed["detail"].as_str().is_some_and(|s| !s.is_empty()));
-    assert!(
-        failed.get("graph").is_none(),
-        "selected failure cannot masquerade as indexed results"
-    );
+    assert_eq!(failed["retrieval"]["scope"], "name_candidates_only");
+    assert!(failed["graph"]["nodes"].as_array().unwrap().is_empty());
+    assert!(failed["results"].as_array().unwrap().is_empty());
+    assert!(failed["execution"]["sparql"].is_null(), "selected failure cannot masquerade as executed results");
+    assert_eq!(failed["interpretation"]["routing"]["attempted"].as_array().unwrap().len(), 1, "explicit device choice cannot move to another provider");
 
     // The real summary route uses the saved model without a connection header.
     let pending = cookie_request(

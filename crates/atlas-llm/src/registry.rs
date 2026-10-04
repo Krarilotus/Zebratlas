@@ -26,7 +26,8 @@ use serde::{Deserialize, Serialize};
 use crate::cli::{claude::ClaudeCode, codex, codex::CodexCli, gemini::GeminiCli, opencode::OpenCodeCli};
 use crate::error::{LlmError, Result};
 use crate::free_tier::{
-    DEFAULT_FREE_MODEL, FreeTier, FreeTierConfig, FreeTierStatus, GPT_OSS_120B_MAX_PRICE, HOSTED_FREE,
+    DEFAULT_FREE_MODEL, FreeTier, FreeTierConfig, FreeTierStatus, GPT_OSS_120B_MAX_PRICE, HOSTED_ANTHROPIC,
+    HOSTED_FREE, HOSTED_GEMINI, HOSTED_KISSKI, Prices,
 };
 use crate::http::{HttpProvider, SchemaMode};
 use crate::provider::{Availability, KeyPolicy, Provider, ProviderKind};
@@ -60,6 +61,11 @@ pub struct ConnectionConfig {
     pub max_parallel: Option<usize>,
     /// D23: the project's server key behind the free-tier limits (`ATLAS_FREE_*`).
     pub free_tier: Option<bool>,
+    /// Model-specific hosted guard sharing another connection's entire budget.
+    /// Required for the additional hosted presets; server keys remain distinct.
+    pub shared_budget: Option<String>,
+    /// Implementation-only hosted aliases are omitted from the public model picker.
+    pub internal: Option<bool>,
     /// Send `temperature` (default true; false for models that reject sampling parameters).
     pub sampling: Option<bool>,
     /// Anthropic prompt-cache breakpoints (default true).
@@ -139,6 +145,49 @@ fn preset(name: &str) -> Option<ConnectionConfig> {
             Some("ANTHROPIC_API_KEY"),
             true,
         ),
+        HOSTED_ANTHROPIC => ConnectionConfig {
+            internal: Some(true),
+            free_tier: Some(true),
+            env_fallback: Some(true),
+            shared_budget: Some(HOSTED_FREE.into()),
+            ..c(
+                K::Anthropic,
+                "Hosted Anthropic (shared budget)",
+                None,
+                Some("claude-sonnet-4-6"),
+                Some("ANTHROPIC_API_KEY"),
+                true,
+            )
+        },
+        HOSTED_GEMINI => ConnectionConfig {
+            internal: Some(true),
+            free_tier: Some(true),
+            env_fallback: Some(true),
+            shared_budget: Some(HOSTED_FREE.into()),
+            ..c(
+                K::Gemini,
+                "Hosted Gemini (shared budget)",
+                None,
+                Some("gemini-2.5-flash"),
+                Some("GEMINI_API_KEY"),
+                true,
+            )
+        },
+        HOSTED_KISSKI => ConnectionConfig {
+            internal: Some(true),
+            free_tier: Some(true),
+            env_fallback: Some(true),
+            shared_budget: Some(HOSTED_FREE.into()),
+            demo_only: Some(true),
+            ..c(
+                K::OpenAiCompatible,
+                "Hosted KISSKI (shared request limits)",
+                Some(KISSKI_BASE_URL),
+                Some(KISSKI_MODEL),
+                Some("KISSKI_API_KEY"),
+                true,
+            )
+        },
         // D48: OpenAI open-weight model via OpenRouter, private endpoints only.
         HOSTED_FREE => ConnectionConfig {
             env_fallback: Some(true),
@@ -292,6 +341,9 @@ pub fn free_routing(model: &str) -> serde_json::Value {
 
 pub const PRESETS: &[&str] = &[
     HOSTED_FREE,
+    HOSTED_ANTHROPIC,
+    HOSTED_GEMINI,
+    HOSTED_KISSKI,
     "openai",
     "openai-hosted",
     "anthropic",
@@ -330,6 +382,8 @@ fn merge(base: ConnectionConfig, over: ConnectionConfig) -> ConnectionConfig {
         executable: over.executable.or(base.executable),
         max_parallel: over.max_parallel.or(base.max_parallel),
         free_tier: over.free_tier.or(base.free_tier),
+        shared_budget: over.shared_budget.or(base.shared_budget),
+        internal: over.internal.or(base.internal),
         sampling: over.sampling.or(base.sampling),
         prompt_cache: over.prompt_cache.or(base.prompt_cache),
         schema_mode: over.schema_mode.or(base.schema_mode),
@@ -377,6 +431,9 @@ impl Connection {
                 "connection '{}': a paid provider may use a server env key only as a free tier (free_tier = true, D23)",
                 config.name
             )));
+        }
+        if config.shared_budget.is_some() && config.free_tier != Some(true) {
+            return Err(LlmError::Config("shared_budget requires free_tier=true".into()));
         }
         if config.provider_routing.is_some() && kind != ProviderKind::OpenRouter {
             return Err(LlmError::Config(format!(
@@ -576,7 +633,56 @@ impl Registry {
 
     /// Add a connection; for `free_tier` connections, build the guard from env (errors surface).
     pub fn add(&mut self, c: Connection) -> Result<()> {
-        if c.config.free_tier == Some(true) && !self.free_tiers.contains_key(c.name()) {
+        if c.config.free_tier == Some(true) {
+            if let Some(parent) = &c.config.shared_budget {
+                let budget = self.free_tiers.get(parent).ok_or_else(|| {
+                    LlmError::Config(format!(
+                        "shared budget '{parent}' must be configured before '{}'",
+                        c.name()
+                    ))
+                })?;
+                let model = c
+                    .config
+                    .default_model
+                    .clone()
+                    .ok_or_else(|| LlmError::Config("shared hosted model must be fixed".into()))?;
+                // Never use global ATLAS_FREE_PRICE_* overrides here: a zero-cost
+                // primary such as Apodex must not underprice paid model fallbacks.
+                let pinned_academic = c.name() == HOSTED_KISSKI
+                    && c.kind == ProviderKind::OpenAiCompatible
+                    && model == KISSKI_MODEL
+                    && c.config.base_url.as_deref().map(|url| url.trim_end_matches('/')) == Some(KISSKI_BASE_URL);
+                let prices = (if pinned_academic {
+                    Some(Prices {
+                        input: 0.0,
+                        output: 0.0,
+                        cache_read: 0.0,
+                        cache_write: 0.0,
+                    })
+                } else {
+                    Prices::for_model(&model)
+                })
+                .ok_or_else(|| LlmError::Config("shared hosted fallback has no known model-specific price".into()))?;
+                let unchanged_credentials = self.connections.get(c.name()).is_some_and(|previous| {
+                    previous.kind == c.kind
+                        && previous.config.base_url == c.config.base_url
+                        && previous.config.key_env == c.config.key_env
+                        && previous.config.default_model == c.config.default_model
+                });
+                let server_key = if unchanged_credentials {
+                    self.free_tiers.get(c.name()).and_then(|t| t.server_key().cloned())
+                } else {
+                    None
+                };
+                self.free_tiers
+                    .insert(c.name().into(), budget.with_model(model, prices, server_key)?);
+                self.connections.insert(c.config.name.clone(), c);
+                return Ok(());
+            }
+            if self.free_tiers.contains_key(c.name()) {
+                self.connections.insert(c.config.name.clone(), c);
+                return Ok(());
+            }
             let mut cfg = FreeTierConfig::from_env()?;
             if let Some(m) = c.config.default_model.as_ref().filter(|m| **m != cfg.model) {
                 // The TOML model wins over ATLAS_FREE_MODEL; its price must be known or explicit.
@@ -607,8 +713,39 @@ impl Registry {
 
     /// Install or replace the free-tier guard of a connection (tests, admin tools).
     pub fn set_free_tier(&mut self, name: &str, config: FreeTierConfig) -> Arc<FreeTier> {
-        let t = FreeTier::new(config);
+        let t = if let Some(parent) = self.connections.get(name).and_then(|c| c.config.shared_budget.as_ref()) {
+            match self.free_tiers.get(parent).and_then(|budget| {
+                budget
+                    .with_model(config.model.clone(), config.prices, config.server_key.clone())
+                    .ok()
+            }) {
+                Some(t) => t,
+                None => FreeTier::new(FreeTierConfig {
+                    disabled: true,
+                    spend_file: None,
+                    ..config
+                }),
+            }
+        } else {
+            FreeTier::new(config)
+        };
         self.free_tiers.insert(name.to_owned(), t.clone());
+        // Replacing a primary test/admin guard must also rebind its dependents,
+        // rather than leave them attached to an old ledger or stale kill switch.
+        let children: Vec<_> = self
+            .connections
+            .values()
+            .filter(|c| c.config.shared_budget.as_deref() == Some(name))
+            .map(|c| c.config.name.clone())
+            .collect();
+        for child in children {
+            if let Some(previous) = self.free_tiers.get(&child) {
+                let cfg = previous.config();
+                if let Ok(view) = t.with_model(cfg.model.clone(), cfg.prices, cfg.server_key.clone()) {
+                    self.free_tiers.insert(child, view);
+                }
+            }
+        }
         t
     }
 

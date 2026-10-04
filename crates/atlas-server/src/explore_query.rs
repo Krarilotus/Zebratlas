@@ -320,11 +320,16 @@ async fn assemble(
     answer: atlas_ask::query::boundary::SearchAnswer,
     linked_ids: &[String],
 ) -> Result<QueryOutcome, String> {
-    let mut ids = BTreeSet::new();
+    let mut ids = Vec::new();
+    let mut seen = BTreeSet::new();
     let mut triples = Vec::new();
     for result in &answer.answer.results {
         let (found, edges) = graph_items(state, result);
-        ids.extend(found);
+        for id in ordered_graph_ids(&result.data, &found) {
+            if seen.insert(id.clone()) {
+                ids.push(id);
+            }
+        }
         triples.extend(edges);
     }
     ids = ids.into_iter().take(100).collect();
@@ -453,6 +458,20 @@ async fn assemble(
     })
 }
 
+/// Preserve executed table/row order; CURIE lexical order is not relevance.
+fn ordered_graph_ids(data: &Value, allowed: &BTreeSet<String>) -> Vec<String> {
+    let mut seen = BTreeSet::new();
+    data["results"]["bindings"]
+        .as_array()
+        .into_iter()
+        .flatten()
+        .flat_map(|row| row.as_object().into_iter().flat_map(|fields| fields.values()))
+        .filter(|term| term["type"] == "uri")
+        .filter_map(|term| term["value"].as_str().and_then(iri_to_id))
+        .filter(|id| allowed.contains(id) && seen.insert(id.clone()))
+        .collect()
+}
+
 fn known(state: &AppState, id: &str) -> bool {
     if state
         .graph
@@ -535,6 +554,18 @@ fn graph_items(state: &AppState, result: &QueryResult) -> (BTreeSet<String>, Vec
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn projected_identifiers_keep_actual_row_order_without_alias_or_literal_matches() {
+        let ids = ["NCT06948019", "NCT04712812", "NCT00023075"];
+        let mut rows: Vec<_> = ids
+            .iter()
+            .map(|id| json!({"result":{"type":"uri","value":crate::explore_sparql::node_iri(id)}}))
+            .collect();
+        rows.push(rows[0].clone());
+        rows.push(json!({"result":{"type":"literal","value":crate::explore_sparql::node_iri(ids[0])}}));
+        let allowed = ids.iter().map(|id| id.to_string()).collect();
+        assert_eq!(ordered_graph_ids(&json!({"results":{"bindings":rows}}), &allowed), ids);
+    }
     #[test]
     fn recruiting_studies_and_models_keep_filters_on_their_own_source_paths() {
         let prepared = atlas_intake::prepare(

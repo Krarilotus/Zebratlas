@@ -41,7 +41,7 @@ export const runSparqlQuery = async (sparql: string, query: string, signal: Abor
   const result = await request<ExploreResponse>("sparql", json({ sparql, query, focus: settings.focus, semantic_focus: settings.semantic_focus, limit: settings.limit, reasoning: settings.reasoning }, signal));
   return { ...result, execution: { ...result.execution, rerun_context: settings } };
 };
-export const explore = (query: string, options: { mode?: "knowledge" | "community"; limit?: number; signal?: AbortSignal; plan?: ExplorePlan } = {}) => request<ExploreResponse>("search", json({ query, mode: options.mode, limit: options.limit, plan: options.plan }, options.signal));
+export const explore = (query: string, options: { caption?: string; mode?: "knowledge" | "community"; limit?: number; signal?: AbortSignal; plan?: ExplorePlan } = {}) => request<ExploreResponse>("search", json({ query, caption: options.caption, mode: options.mode, limit: options.limit, plan: options.plan }, options.signal));
 export const exploreSchema = (signal?: AbortSignal) => request<ExploreSchema>("schema", { signal });
 export const community = (options: { limit?: number; signal?: AbortSignal } = {}) => request<ExploreResponse>(`community?limit=${options.limit ?? 60}`, { signal: options.signal });
 export const condition = (id: string, lang = "en", signal?: AbortSignal, sections: ConditionSection[] = ["summary", "connections", "gaps"]) => request<ConditionDetail>(`condition?id=${enc(id)}&lang=${enc(lang)}&sections=${sections.join(",")}`, { signal });

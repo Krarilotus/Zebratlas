@@ -13,16 +13,22 @@ const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.Modu
 const helperSource = fs.readFileSync(path.join(__dirname, "../components/zebra/graph-labels.ts"), "utf8");
 const helper = {};
 new Function("exports", ts.transpileModule(helperSource, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 } }).outputText)(helper);
-const api = new Function("exports", "require", compiled + ";return {indexGraph,makeScene,makeEdgeRoutes,displayName,relationName,paint,wheelView,laneNormal,relationCaptions,seedMetrics,fairSeedNodes,contextHit,patientGroup,nodeKind,nodeColor,contextLabels};")({}, name => name === "./graph-labels" ? helper : name.endsWith(".css") || ["./ReasoningProof", "./Sources", "./ZebraLoader"].includes(name) ? {} : requireFromHere(name));
+const preview = {};
+new Function("exports", ts.transpileModule(fs.readFileSync(path.join(__dirname, "../components/zebra/graph-preview.ts"), "utf8"), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 } }).outputText)(preview);
+const api = new Function("exports", "require", compiled + ";return {indexGraph,makeScene,makeEdgeRoutes,displayName,relationName,paint,wheelView,laneNormal,relationCaptions,seedMetrics,fairSeedNodes,contextHit,patientGroup,nodeKind,nodeColor,contextLabels};")({}, name => name === "./graph-labels" ? helper : name === "./graph-preview" ? preview : name.endsWith(".css") || ["./ReasoningProof", "./Sources", "./ZebraLoader"].includes(name) ? {} : requireFromHere(name));
+
+assert.equal(preview.graphPreviewCaption("Limited graph preview · {count} nodes", 73), "Limited graph preview · 73 nodes");
+assert.equal(preview.graphPreviewScope("{visible} displayed of {loaded} loaded nodes", 73, 100), "73 displayed of 100 loaded nodes", "Rendered and loaded counts remain distinct");
+assert(source.includes("graphPreviewCaption(labels.preview, scene.nodes.length)"), "Preview label counts the actual rendered scene, never indexed neighbors or the dataset");
 
 const initialView = { scale: 1, x: 0, y: 0 }, cursor = { x: 200, y: 100 };
-assert(api.wheelView(initialView, -100, 0, cursor, 700).scale > 1, "Normal wheel up zooms in without Ctrl");
-assert(api.wheelView(initialView, 100, 0, cursor, 700).scale < 1, "Normal wheel down zooms out");
+assert(api.wheelView(initialView, -100, 0, cursor, 700).scale > 1, "Ctrl+wheel up zooms in");
+assert(api.wheelView(initialView, 100, 0, cursor, 700).scale < 1, "Ctrl+wheel down zooms out");
 assert.deepEqual(api.wheelView(initialView, 1, 1, cursor, 700), api.wheelView(initialView, 16, 0, cursor, 700), "Line-mode wheel is normalized");
 const zoomed = api.wheelView(initialView, -100, 0, cursor, 700);
 assert.equal((cursor.x - zoomed.x) / zoomed.scale, cursor.x, "Zoom keeps the cursor's world point fixed");
 assert(source.includes('host.addEventListener("wheel", wheel, { passive: false })'), "Wheel applies to node/edge overlays as well as canvas");
-assert(!source.includes('if (!event.ctrlKey && !event.metaKey) return'), "Ordinary wheel is enabled");
+assert(source.includes('if (!event.ctrlKey) return'), "Ordinary wheel retains native page scrolling; graph zoom requires Ctrl");
 assert(source.includes('host.removeEventListener("wheel", wheel)'), "Wheel listener is removed on unmount");
 const css = fs.readFileSync(path.join(__dirname, "../components/zebra/Graph.module.css"), "utf8");
 assert(!css.includes("text-overflow: ellipsis"), "Properties have no ellipsis");

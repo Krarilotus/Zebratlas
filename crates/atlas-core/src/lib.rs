@@ -8,6 +8,7 @@ pub mod curie;
 pub mod disease;
 pub mod error;
 pub mod evidence;
+pub mod fuzzy_search;
 pub mod graph;
 pub mod identity;
 pub mod identity_policy;

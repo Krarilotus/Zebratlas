@@ -43,6 +43,7 @@ export type QueryExecution = {
   activity: Record<string, unknown>;
 };
 export type SparqlRunSettings = { limit: number; reasoning: boolean; focus: string[]; semantic_focus: string[]; linked: { id: string; label: string; kind?: string }[] };
+export type ExploreNameCandidate = { id: string; label: string; kind: string; match: "fuzzy"; method: "lexical"; score?: number };
 export type ExploreResponse = {
   query: string;
   interpretation: { mode: "agent" | "indexed" | "sparql"; entities: { id: string; label: string; kind: string }[]; intent: string; warning?: string; routing?: { route: string } };
@@ -51,6 +52,8 @@ export type ExploreResponse = {
   execution: { engine: "indexed-atlas" | "nrese" | "none"; sparql?: string | null; queries?: { seed_ids: string[]; community_seed_id?: string; stage: string; sparql: string; engine: "nrese"; row_count: number; limit: number; reasoning?: boolean; activity?: Record<string, unknown> }[]; elapsed_ms: number; truncated: boolean; runtime_reasoning?: boolean; reasoning_proofs?: unknown[]; reasoning_warning?: string | null; rerun_context?: SparqlRunSettings };
   plan?: ExplorePlan;
   query_execution?: QueryExecution;
+  possible_matches?: ExploreNameCandidate[];
+  retrieval?: { status: "candidates" | "empty"; index_sha256?: string; scope: "name_candidates_only"; truncated: boolean };
 };
 export type JobItem = { id: string; what: { kind: string; label: string }; holder?: { id?: string; name: string; kind?: string } | null; how_to_get: { route: string; url?: string; note?: string }; facts: { key: string; value: string }[]; match: string; via: { edge_id: string; relation: string; reason?: string }; source?: { name: string; record: string; url?: string; retrieved_at?: string; sha256?: string }; licence?: { id?: string; class?: string; release?: boolean } };
 export type JobsResponse = { subject: { id: string; kind: string; label: string }; genes: { id: string; kind: string; label: string }[]; jobs: { job: string; label: unknown; total: number; items: JobItem[]; none_found?: unknown; searched: { source: string; label: string; status: string; retrieved_at?: string; records: number }[] }[] };

@@ -1,5 +1,12 @@
 {
   "copy": {
+    "possibleMatches": {
+      "title": "Possible matches",
+      "scope": "Name matches only",
+      "select": "Look up",
+      "empty": "No indexed name match found.",
+      "unavailable": "Indexed name matches are unavailable."
+    },
     "app": "Zebratlas",
     "skip": "Skip to content",
     "welcome": "Welcome to Zebratlas",
@@ -121,6 +128,8 @@
     "fit": "Fit graph",
     "selectNode": "Select node",
     "nodeList": "Graph nodes",
+    "graphPreview": "Limited graph preview · {count} nodes",
+    "graphPreviewScope": "{visible} displayed of {loaded} loaded nodes. This preview is not the complete knowledge graph.",
     "connections": "Connections",
     "moreNodes": "{count} more nodes available in the list",
     "plan": "Query and evidence",
@@ -471,7 +480,9 @@
       "bothBridges": "BFO and DUL mappings",
       "datatype": "Datatype property",
       "definition": "Definition"
-    }
+    },
+    "graphPreview": "Limited graph preview · {count} nodes",
+    "graphPreviewScope": "{visible} displayed of {loaded} loaded nodes. This preview is not the complete knowledge graph."
   },
   "briefTasks": [
     {

@@ -15,7 +15,7 @@ const compile = (name) => ts.transpileModule(fs.readFileSync(path.join(component
 const helper = {};
 new Function("exports", compile("graph-labels.ts"))(helper);
 const { paint, contextHit } = new Function("exports", "require", compile("Graph.tsx") + ";return {paint,contextHit};")({}, name =>
-  name === "./graph-labels" ? helper : name.endsWith(".css") || ["./ReasoningProof", "./Sources", "./ZebraLoader"].includes(name) ? {} : requireFromHere(name));
+  name === "./graph-labels" ? helper : name.endsWith(".css") || ["./ReasoningProof", "./Sources", "./ZebraLoader", "./graph-preview"].includes(name) ? {} : requireFromHere(name));
 
 function recordingCanvas() {
   const text = [], dots = [], strokes = [];

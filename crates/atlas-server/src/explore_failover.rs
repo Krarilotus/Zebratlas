@@ -16,8 +16,9 @@ use std::{
     time::{Duration, Instant},
 };
 
-const TOTAL: Duration = Duration::from_secs(80);
-const ATTEMPT: Duration = Duration::from_secs(30);
+// Reserve eight seconds for source queries inside the BFF's 35-second budget.
+const TOTAL: Duration = Duration::from_secs(24);
+const ATTEMPT: Duration = Duration::from_secs(8);
 const COOLDOWN: Duration = Duration::from_secs(60);
 static COOLDOWNS: OnceLock<Mutex<HashMap<String, Instant>>> = OnceLock::new();
 
@@ -103,10 +104,16 @@ fn candidate_headers(headers: &HeaderMap, candidate: &Candidate) -> Result<Heade
 }
 
 fn failure(error: &str) -> &'static str {
-    if error.starts_with("model_rate_limited:")
-        || error.starts_with("rate limited:")
-        || error.starts_with("free quota reached:")
-    {
+    if error.starts_with("free quota reached:") {
+        return if error.contains("today's free budget is used up") {
+            "daily_budget"
+        } else if error.contains("not set up on this server") {
+            "not_configured"
+        } else {
+            "local_quota"
+        };
+    }
+    if error.starts_with("model_rate_limited:") || error.starts_with("rate limited:") {
         "rate_limited"
     } else if error.contains("not replayed") || error.contains("timed out") || error.contains("deadline") {
         "timeout"
@@ -139,10 +146,25 @@ where
     F: FnMut(Candidate) -> Fut,
     Fut: Future<Output = Result<T, String>>,
 {
+    attempts_bounded(candidates, &mut call, TOTAL, ATTEMPT).await
+}
+
+async fn attempts_bounded<T, F, Fut>(
+    candidates: Vec<Candidate>,
+    mut call: F,
+    total: Duration,
+    per_attempt: Duration,
+) -> (Option<T>, Vec<Receipt>, &'static str)
+where
+    F: FnMut(Candidate) -> Fut,
+    Fut: Future<Output = Result<T, String>>,
+{
     let start = Instant::now();
     let mut receipts = Vec::new();
     let mut reason = "model_unavailable";
-    for candidate in candidates.into_iter().take(4) {
+    let candidates: Vec<_> = candidates.into_iter().take(4).collect();
+    let count = candidates.len();
+    for (index, candidate) in candidates.into_iter().enumerate() {
         if cooling(&candidate.quota_group) {
             receipts.push(Receipt {
                 connection: candidate.connection,
@@ -152,7 +174,7 @@ where
             reason = "model_rate_limited";
             continue;
         }
-        let remaining = TOTAL.saturating_sub(start.elapsed());
+        let remaining = total.saturating_sub(start.elapsed());
         if remaining.is_zero() {
             break;
         }
@@ -162,7 +184,8 @@ where
             status: "succeeded",
         };
         let group = candidate.quota_group.clone();
-        match tokio::time::timeout(ATTEMPT.min(remaining), call(candidate)).await {
+        let fair = remaining / (count - index) as u32;
+        match tokio::time::timeout(per_attempt.min(fair), call(candidate)).await {
             Ok(Ok(value)) => {
                 receipts.push(receipt);
                 return (Some(value), receipts, reason);
@@ -178,8 +201,10 @@ where
                     cool(group);
                 }
                 receipts.push(Receipt { status, ..receipt });
-                // A timed-out provider might have received the request. Never replay it.
-                if status == "timeout" {
+                // Shared admission gates stop all model routes. Monetary exhaustion
+                // may continue to a guarded zero-cost provider; remote timeouts may
+                // advance to a different provider, never replaying the old one.
+                if status == "local_quota" {
                     break;
                 }
             }
@@ -201,8 +226,12 @@ pub async fn understand(
         let explicit_primary = !call.fallback;
         let primary = call.connection;
         let mut names = vec![primary.clone()];
-        let mut others = llm.default_chain();
-        if let Ok(configured) = std::env::var("ATLAS_QUERY_FAILOVER_CONNECTIONS") {
+        let mut others = if explicit_primary {
+            Vec::new()
+        } else {
+            llm.default_chain()
+        };
+        if !explicit_primary && let Ok(configured) = std::env::var("ATLAS_QUERY_FAILOVER_CONNECTIONS") {
             others.extend(
                 configured
                     .split(',')
@@ -212,11 +241,13 @@ pub async fn understand(
                     .map(str::to_owned),
             );
         }
-        // Reserve the final model slot for the configured KISSKI connection.
-        names.extend(others.into_iter().filter(|n| n != &primary && n != "kisski").take(16));
-        if primary != "kisski" {
-            names.push("kisski".into());
-        }
+        names.extend(
+            others
+                .into_iter()
+                .map(|n| if n == "kisski" { "hosted-kisski".into() } else { n })
+                .filter(|n| n != &primary)
+                .take(16),
+        );
         let mut seen = BTreeSet::new();
         for name in names {
             if !seen.insert(name.clone()) {
@@ -227,8 +258,7 @@ pub async fn understand(
             };
             let is_primary = name == primary;
             let info = conn.info(None);
-            let eligible_kind =
-                !conn.kind.is_cli() && conn.kind != ProviderKind::Connector && conn.kind != ProviderKind::Gemini;
+            let eligible_kind = !conn.kind.is_cli() && conn.kind != ProviderKind::Connector;
             let free = llm.registry().free_tier(&name).is_some();
             // Paid-family fallback must remain under its configured free-tier guard.
             let safe_cost = fallback_cost_allowed(
@@ -242,9 +272,6 @@ pub async fn understand(
             if (!is_primary || !explicit_primary)
                 && (!eligible_kind || !safe_cost || (info.needs_key && !info.key_from_env_available && !free))
             {
-                continue;
-            }
-            if !is_primary && name != "kisski" && candidates.iter().filter(|c: &&Candidate| !c.primary).count() >= 2 {
                 continue;
             }
             let key_scope = if is_primary {
@@ -287,7 +314,14 @@ pub async fn understand(
                 "connection":candidate.connection,"model_provenance":outcome.query_execution["answer"]["model_provenance"],
                 "activity":outcome.query_execution["activity"],"tool_trace":sanitized
             }));
-            return Err(if status == "rate_limited" { "model_rate_limited:".into() } else { "model unavailable".into() });
+            // Keep stable classifications across the lossless answer boundary.
+            return Err(match status {
+                "rate_limited" => "model_rate_limited:",
+                "local_quota" => "free quota reached: the free assistant is switched off right now",
+                "daily_budget" => "free quota reached: today's free budget is used up",
+                "timeout" => "deadline exceeded",
+                _ => "model unavailable",
+            }.into());
         }
         Ok((outcome, candidate.primary))
     }).await;
@@ -307,7 +341,7 @@ pub async fn understand(
         value
     } else {
         let value = tokio::time::timeout(
-            Duration::from_secs(10),
+            Duration::from_secs(8),
             crate::explore_query::keyword_once(state, prepared, linked_ids, lang),
         )
         .await;
@@ -672,7 +706,7 @@ mod tests {
         assert!(!serde_json::to_string(&receipts).unwrap().contains("secret"));
     }
     #[tokio::test]
-    async fn ambiguous_timeout_does_not_replay_another_model() {
+    async fn timeout_can_advance_to_distinct_provider_without_replaying() {
         let candidates = vec![
             Candidate {
                 connection: "fixture-timeout".into(),
@@ -685,8 +719,61 @@ mod tests {
         let (result, receipts, _) =
             attempts::<(), _, _>(candidates, |_| async { Err("deadline exceeded (not replayed)".into()) }).await;
         assert!(result.is_none());
-        assert_eq!(receipts.len(), 1);
+        assert_eq!(receipts.len(), 2);
         assert_eq!(receipts[0].status, "timeout");
+    }
+    #[tokio::test]
+    async fn shared_admission_stops_models_but_daily_budget_can_continue() {
+        for (error, expected) in [
+            ("free quota reached: you reached the free limit for this hour", 1),
+            ("free quota reached: all free slots are busy", 1),
+            ("free quota reached: the free assistant is switched off right now", 1),
+            ("free quota reached: today's free budget is used up", 2),
+        ] {
+            let candidates = (0..2)
+                .map(|i| Candidate {
+                    connection: format!("fixture-admission-{i}"),
+                    model: None,
+                    quota_group: format!("admission-{i}"),
+                    primary: i == 0,
+                })
+                .collect();
+            let (value, receipts, _) = attempts(candidates, |c| async move {
+                if c.primary { Err(error.into()) } else { Ok(17) }
+            })
+            .await;
+            assert_eq!(receipts.len(), expected);
+            assert_eq!(value, (expected == 2).then_some(17));
+        }
+    }
+    #[tokio::test]
+    async fn fair_outer_deadline_attempts_last_provider_and_leaves_keyword_budget() {
+        let candidates = (0..4)
+            .map(|i| Candidate {
+                connection: format!("fixture-fair-{i}"),
+                model: None,
+                quota_group: format!("fair-{i}"),
+                primary: i == 0,
+            })
+            .collect();
+        let start = Instant::now();
+        let (value, receipts, _) = attempts_bounded(
+            candidates,
+            |c| async move {
+                if c.connection == "fixture-fair-3" {
+                    Ok(31)
+                } else {
+                    std::future::pending::<Result<i32, String>>().await
+                }
+            },
+            Duration::from_millis(160),
+            Duration::from_millis(100),
+        )
+        .await;
+        assert_eq!(value, Some(31));
+        assert_eq!(receipts.len(), 4);
+        assert!(start.elapsed() < Duration::from_millis(300));
+        assert_eq!(receipts[3].status, "succeeded");
     }
     #[test]
     fn keyword_plans_use_only_indexed_focus_and_closed_relations() {

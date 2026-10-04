@@ -31,6 +31,9 @@ use crate::secret::ApiKey;
 
 /// Name of the hosted free connection.
 pub const HOSTED_FREE: &str = "hosted-free";
+pub const HOSTED_ANTHROPIC: &str = "hosted-anthropic";
+pub const HOSTED_GEMINI: &str = "hosted-gemini";
+pub const HOSTED_KISSKI: &str = "hosted-kisski";
 /// Default model (D48: OpenAI open-weight via OpenRouter); `ATLAS_FREE_MODEL` overrides it.
 pub const DEFAULT_FREE_MODEL: &str = "openai/gpt-oss-120b";
 /// Where the gpt-oss prices come from.
@@ -43,6 +46,10 @@ pub const OPENROUTER_PRICES_SOURCE: &str = "OpenRouter endpoint list for openai/
 /// Where the Anthropic prices come from (a `hosted-free` configured on Anthropic in TOML, D23).
 pub const ANTHROPIC_PRICES_SOURCE: &str = "Anthropic model table (claude-api reference, cached 2026-09-25, checked 2026-10-03): \
      claude-sonnet-5-5 $2.00 input / $10.00 output / $0.20 cache read per MTok; cache write (5 min) = 1.25x input";
+pub const GEMINI_PRICES_SOURCE: &str = "Google Gemini Developer API pricing \
+    (https://ai.google.dev/gemini-api/docs/pricing, checked 2026-10-04): gemini-2.5-flash \
+    $0.30 text input / $2.50 output including thinking per MTok; implicit cache reads \
+    conservatively charged at the full input rate; no explicit cache storage requested";
 /// Worst-case gpt-oss-120b price on OpenRouter's ZDR endpoints (USD per MTok: input, output), see
 /// [`OPENROUTER_PRICES_SOURCE`]; also sent as `provider.max_price` so routing never exceeds it.
 pub const GPT_OSS_120B_MAX_PRICE: (f64, f64) = (0.35, 0.95);
@@ -55,6 +62,8 @@ pub fn prices_source(model: &str) -> &'static str {
         OPENROUTER_PRICES_SOURCE
     } else if model.starts_with("claude") {
         ANTHROPIC_PRICES_SOURCE
+    } else if model == "gemini-2.5-flash" {
+        GEMINI_PRICES_SOURCE
     } else if model.starts_with("gemini-") {
         "Google Gemini https://ai.google.dev/gemini-api/docs/pricing"
     } else if model == "gpt-5.4-mini" {
@@ -112,7 +121,7 @@ impl Prices {
             "gemini-2.5-flash" => Self {
                 input: 0.30,
                 output: 2.50,
-                cache_read: 0.03,
+                cache_read: 0.30,
                 cache_write: 0.30,
             },
             // Use the published post-promotion prices as a conservative reservation.
@@ -410,10 +419,10 @@ const MINUTE: Duration = Duration::from_secs(60);
 #[derive(Debug)]
 pub struct FreeTier {
     config: FreeTierConfig,
-    disabled: AtomicBool,
+    disabled: Arc<AtomicBool>,
     gate: Arc<Semaphore>,
-    _ledger_lock: Option<std::fs::File>,
-    state: Mutex<State>,
+    _ledger_lock: Option<Arc<std::fs::File>>,
+    state: Arc<Mutex<State>>,
 }
 
 /// An admitted call; settle it with the actual cost. Dropping it unsettled keeps the reservation
@@ -467,7 +476,7 @@ impl FreeTier {
                     .write(true)
                     .open(path.with_extension("lock"))?;
                 lock.try_lock().map_err(std::io::Error::other)?;
-                ledger_lock = Some(lock);
+                ledger_lock = Some(Arc::new(lock));
                 match std::fs::read(path) {
                     Ok(bytes) => {
                         let f: SpendFile = serde_json::from_slice(&bytes)?;
@@ -486,16 +495,41 @@ impl FreeTier {
             failed |= loaded.is_err();
         }
         Arc::new(Self {
-            disabled: AtomicBool::new(config.disabled || failed),
+            disabled: Arc::new(AtomicBool::new(config.disabled || failed)),
             _ledger_lock: ledger_lock,
             gate: Arc::new(Semaphore::new(config.max_concurrent.clamp(1, Semaphore::MAX_PERMITS))),
-            state: Mutex::new(state),
+            state: Arc::new(Mutex::new(state)),
             config,
         })
     }
 
     pub fn config(&self) -> &FreeTierConfig {
         &self.config
+    }
+
+    /// A model-specific view over the SAME admission/visitor/spend ledger. Only
+    /// model, prices and its own key change; inherited zero prices never leak into
+    /// a paid fallback. No second process lock, budget, rate gate or kill switch.
+    pub(crate) fn with_model(
+        self: &Arc<Self>,
+        model: String,
+        prices: Prices,
+        server_key: Option<ApiKey>,
+    ) -> Result<Arc<Self>> {
+        let mut config = self.config.clone();
+        config.model = model;
+        config.prices = prices;
+        config.server_key = server_key;
+        if !config.valid_limits() {
+            return Err(LlmError::Config("invalid shared hosted model prices".into()));
+        }
+        Ok(Arc::new(Self {
+            config,
+            disabled: self.disabled.clone(),
+            gate: self.gate.clone(),
+            _ledger_lock: self._ledger_lock.clone(),
+            state: self.state.clone(),
+        }))
     }
 
     pub fn server_key(&self) -> Option<&ApiKey> {
@@ -557,7 +591,9 @@ impl FreeTier {
             .map_err(|_| Self::quota(QuotaReason::Busy, Some(5)))?;
         let mut s = self.state.lock().expect("free-tier state");
         Self::roll(&mut s);
-        if s.spent + s.reserved + estimate > self.config.daily_usd {
+        // Monetary exhaustion does not block a configured zero-cost route;
+        // shared concurrency/request/visitor gates below still apply.
+        if estimate > 0.0 && s.spent + s.reserved + estimate > self.config.daily_usd {
             return Err(Self::quota(QuotaReason::DailyBudget, Some(secs_to_utc_midnight())));
         }
         let now = Instant::now();

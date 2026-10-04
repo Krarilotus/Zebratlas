@@ -36,7 +36,10 @@ pub mod tasks;
 
 pub use cache::{Cache, CacheMode};
 pub use error::{LlmError, Result};
-pub use free_tier::{FreeTierConfig, FreeTierStatus, HOSTED_FREE, Prices, QuotaReason, visitor_key};
+pub use free_tier::{
+    FreeTierConfig, FreeTierStatus, HOSTED_ANTHROPIC, HOSTED_FREE, HOSTED_GEMINI, HOSTED_KISSKI, Prices, QuotaReason,
+    visitor_key,
+};
 pub use llm::{Call, Completion, JsonCompletion, Llm, check_json, extract_json, fallbacks_from_env};
 pub use model_label::{ModelLabel, model_label, model_labels};
 pub use provenance::LlmCall;

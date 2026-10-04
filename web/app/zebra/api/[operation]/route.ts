@@ -180,6 +180,8 @@ async function handle(request: Request, context: Context): Promise<Response> {
       }
       if (operation === "search") {
         const query = boundedString(body.query ?? "", "search", 32000, !body.plan);
+        const caption = body.caption === undefined ? undefined : boundedString(body.caption, "search caption", 512, false);
+        if (caption !== undefined && Buffer.byteLength(caption) > 512) throw new HttpError(400, "Please keep search captions under 512 bytes.");
         if (Buffer.byteLength(query) > 32000) throw new HttpError(400, "Please keep searches under 32 KB.");
         if (body.mode !== undefined && body.mode !== "knowledge" && body.mode !== "community") throw new HttpError(400, "Invalid search mode.");
         const limit = body.limit === undefined ? 20 : Number(body.limit);
@@ -194,7 +196,10 @@ async function handle(request: Request, context: Context): Promise<Response> {
           for (const key of ["country", "kind"]) if (filters[key] != null && (typeof filters[key] !== "string" || (filters[key] as string).length > 100)) throw new HttpError(400, "Invalid search filter.");
           if (filters.recruiting != null && typeof filters.recruiting !== "boolean") throw new HttpError(400, "Invalid recruiting filter.");
         }
-        return jsonResponse(await upstreamJson(request, "/api/explore", { method: "POST", body: { query, mode: body.mode || "knowledge", limit, plan: body.plan }, timeout: 95000 }));
+        const response = await upstreamJson(request, "/api/explore", { method: "POST", body: { query, caption, mode: body.mode || "knowledge", limit, plan: body.plan }, timeout: 95000 }) as Record<string, unknown>;
+        const retrieval = response?.retrieval as Record<string, unknown> | undefined;
+        // Candidate responses carry a public caption, never extracted document text.
+        return jsonResponse(retrieval?.scope === "name_candidates_only" ? { ...response, query: caption ?? "" } : response);
       }
       if (operation === "auth") {
         const mode = body.mode;

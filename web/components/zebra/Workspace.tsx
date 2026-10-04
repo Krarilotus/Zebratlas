@@ -30,6 +30,7 @@ import ContactFilters from "./ContactFilters";
 import { contactPlan, contactRole, type ContactRole } from "./contact-filters";
 import { classifyExploreError } from "@/lib/zebra/explore-error";
 import { isShortIndexedName, lookupIndexedNames, type IndexedLookupMatch } from "@/lib/zebra/indexed-lookup";
+import { possibleMatchPlan, possibleMatchState, publicSearchCaption } from "./possible-matches";
 
 function GraphPending() { const copy = useZebraCopy(); return <div className="z-graph-loading" role="status"><ZebraLoader /><span>{copy.loading}</span></div>; }
 const Graph = dynamic(() => import("./Graph"), { ssr: false, loading: GraphPending });
@@ -42,6 +43,7 @@ const ProgrammeRoutes = dynamic(() => import("./ProgrammeRoutes"));
 const ConditionPanel = dynamic(() => import("./ConditionPanel").then((module) => module.ConditionPanel));
 const Utility = dynamic(() => import("./Utility").then((module) => module.Utility));
 const ExploreError = dynamic(() => import("./ExploreError").then(module => module.ExploreError));
+const PossibleMatches = dynamic(() => import("./PossibleMatches"));
 type View = "home" | "community" | "contribute" | "saved" | "account" | "about" | "privacy" | "request-removal" | "imprint";
 const queryInfoSymbol = "i";
 const viewWords = { en: { expand: "Explore graph", collapse: "Show findings", back: "Back to results", query: "Inspect query", bookmarks: "Search results", nodes: "nodes", edges: "connections", limited: "Limited view" }, de: { expand: "Graph erkunden", collapse: "Ergebnisse anzeigen", back: "Zurück zu den Ergebnissen", query: "Abfrage ansehen", bookmarks: "Suchergebnisse", nodes: "Knoten", edges: "Verbindungen", limited: "Begrenzte Ansicht" } };
@@ -66,7 +68,7 @@ export function Workspace({ initialQuery = "", initialView = "home", initialNode
   const kindLabel = useZebraKindLabel();
   const views = viewWords[zebraCopyLocale(locale)];
   const href = (path: string) => zebraHref(path, locale);
-  const graphLabels = { region: copy.graphRegion, zoomIn: copy.zoomIn, zoomOut: copy.zoomOut, fit: copy.fit, selectNode: copy.selectNode, nodeList: copy.nodeList, connections: copy.connections, moreNodes: copy.moreNodes, back: copy.graphBack, reset: copy.graphReset, previousNeighbors: copy.graphPrevious, nextNeighbors: copy.graphNext, moreNeighbors: copy.graphMoreNeighbors, noNeighbors: copy.graphNoNeighbors, loading: copy.loading, kinds: copy.kinds, edgeProperties: copy.graphRelations, property: copy.graphProperty, noEdgeEvidence: copy.graphNoEdgeEvidence, close: copy.close, evidence: copy.evidence, inferred: copy.graphInferred, hypothesis: copy.graphHypothesis };
+  const graphLabels = { region: copy.graphRegion, zoomIn: copy.zoomIn, zoomOut: copy.zoomOut, fit: copy.fit, selectNode: copy.selectNode, nodeList: copy.nodeList, preview: copy.graphPreview, previewScope: copy.graphPreviewScope, connections: copy.connections, moreNodes: copy.moreNodes, back: copy.graphBack, reset: copy.graphReset, previousNeighbors: copy.graphPrevious, nextNeighbors: copy.graphNext, moreNeighbors: copy.graphMoreNeighbors, noNeighbors: copy.graphNoNeighbors, loading: copy.loading, kinds: copy.kinds, edgeProperties: copy.graphRelations, property: copy.graphProperty, noEdgeEvidence: copy.graphNoEdgeEvidence, close: copy.close, evidence: copy.evidence, inferred: copy.graphInferred, hypothesis: copy.graphHypothesis };
   const [query, setQuery] = useState(initialQuery);
   const [searchRevision, setSearchRevision] = useState(0);
   const [data, setData] = useState<ExploreResponse | null>(null);
@@ -172,19 +174,19 @@ export function Workspace({ initialQuery = "", initialView = "home", initialNode
     actualQuery.current = text;
     indexedRequest.current?.abort(); setIndexedMatches([]); setIndexedCorrection(undefined); setIndexedBusy(false); setErrorCause(null);
     queryOpened.current = false;
-    if (!plan) { heroInitialized.current = false; heroStartExpanded.current = communityView && !text; }
+    if (!plan) { heroInitialized.current = false; heroStartExpanded.current = true; }
     if (updateUrl || !activeSearch.current) { snapshots.current.clear(); activeSearch.current = crypto.randomUUID(); }
     setQuery(display); setBusy(true); setData(null); setRootData(null); setError(""); setFilter("all"); setSelectedId(null); setSelectedExtra(null); setSelectedContext(undefined); setDetail(null); setOpenPanel(plan && inspectPlan ? "plan" : null); if (!focusId) { setPage("results"); pageRef.current = "results"; }
     const searchUrl = updateUrl && !communityView ? zebraHref("/zebra", resolveZebraLocale(document.documentElement.lang)) : window.location.href;
     window.history.replaceState({ ...queryHistoryState(window.history.state), zebra: { search: activeSearch.current, page: "results" } }, "", publicSearchUrl(searchUrl, "", []));
     try {
-      const response = await explore(text, { mode: plan && !inspectPlan ? "knowledge" : communityView ? "community" : "knowledge", signal: controller.signal, plan }); if (controller.signal.aborted) return;
+      const response = await explore(text, { caption: publicSearchCaption(display), mode: plan && !inspectPlan ? "knowledge" : communityView ? "community" : "knowledge", signal: controller.signal, plan }); if (controller.signal.aborted) return;
       setData(response); setRootData(response); graphHistory.current = [{ data: response, selectedId: focusId ?? null }];
-      snapshots.current.set(activeSearch.current, { data: response, query: display, text, filter: "all", scroll: heroDistance.current, visits: graphHistory.current, extra: new Map() });
+      snapshots.current.set(activeSearch.current, { data: response, query: display, text, filter: "all", scroll: plan ? readingScroll.current?.scrollTop ?? 0 : 0, visits: graphHistory.current, extra: new Map() });
       if (snapshots.current.size > 8) snapshots.current.delete(snapshots.current.keys().next().value!);
       window.history.replaceState({ ...queryHistoryState(window.history.state), zebra: { search: activeSearch.current, page: focusId ? "info" : "results", node: focusId } }, "", publicSearchUrl(window.location.href, display, response.graph.nodes.map((node) => node.id), focusId));
       if (focusId && response.graph.nodes.some((node) => node.id === focusId)) { setSelectedId(focusId); setPage("info"); pageRef.current = "info"; if (!(document.activeElement instanceof HTMLElement && document.activeElement.closest(".z-search"))) setOpenPanel("overview"); }
-      if (!plan && readingScroll.current) { readingScroll.current.scrollTop = communityView && !text ? 0 : heroDistance.current; }
+      if (!plan && readingScroll.current) { readingScroll.current.scrollTop = 0; }
     }
     catch (e) { if (!controller.signal.aborted) { setData(null); setErrorCause(e); setError(e instanceof Error ? e.message : getZebraCopy(resolveZebraLocale(document.documentElement.lang)).offline); if (!plan && text === display && classifyExploreError(e).kind === "unsupported" && isShortIndexedName(text)) { const lookupController = new AbortController(); indexedRequest.current = lookupController; setIndexedBusy(true); void lookupIndexedNames(text, lookupController.signal).then(response => { if (!lookupController.signal.aborted && !controller.signal.aborted) { setIndexedMatches(response.matches); setIndexedCorrection(response.corrected_query); } }).catch(() => {}).finally(() => { if (!lookupController.signal.aborted && !controller.signal.aborted) setIndexedBusy(false); }); } } }
     finally { if (!controller.signal.aborted) setBusy(false); }
@@ -205,13 +207,13 @@ export function Workspace({ initialQuery = "", initialView = "home", initialNode
       snapshots.current.clear(); graphHistoryIndex.current = 0;
       setNavigationDepth(0); setFilter("all"); setSelectedId(null); setSelectedExtra(null);
       setSelectedContext(undefined); setDetail(null); setPage("results"); pageRef.current = "results";
-      queryOpened.current = false; setOpenPanel(null); heroStartExpanded.current = false; heroInitialized.current = false;
+      queryOpened.current = false; setOpenPanel(null); heroStartExpanded.current = true; heroInitialized.current = false;
       const url = new URL(window.location.href); url.searchParams.delete("node");
       window.history.replaceState({ ...queryHistoryState(window.history.state), zebra: { search, page: "results" } }, "", `${url.pathname}${url.search}${url.hash}`);
       setData(response); setRootData(response);
       graphHistory.current = [{ data: response, selectedId: null }];
-      snapshots.current.set(search, { data: response, query: caption, text, filter: "all", scroll: heroDistance.current, visits: graphHistory.current, extra: new Map() });
-      readingScroll.current?.scrollTo({ top: heroDistance.current, behavior: "auto" });
+      snapshots.current.set(search, { data: response, query: caption, text, filter: "all", scroll: 0, visits: graphHistory.current, extra: new Map() });
+      readingScroll.current?.scrollTo({ top: 0, behavior: "auto" });
     } catch (cause) {
       if (!controller.signal.aborted) { setErrorCause(cause); setError(cause instanceof Error ? cause.message : copy.offline); }
     } finally { if (!controller.signal.aborted) setBusy(false); }
@@ -327,6 +329,8 @@ export function Workspace({ initialQuery = "", initialView = "home", initialNode
     return () => controller.abort();
   }, [conditionId, panelOpen, locale]);
   const resultData = rootData ?? data;
+  const candidateState = useMemo(() => possibleMatchState(resultData), [resultData]);
+  function choosePossibleMatch(id: string) { const plan = possibleMatchPlan(resultData, id); if (plan) void runSearch(actualQuery.current, query, false, undefined, plan, false); }
   function chooseRole(role: ContactRole) { const plan = contactPlan(resultData, role); if (plan) void runSearch(actualQuery.current, query, false, undefined, plan, false); }
   function chooseFilter(value: string) { setFilter(value); const snapshot = snapshots.current.get(activeSearch.current); if (snapshot) snapshot.filter = value; }
   const kinds = useMemo(() => [...new Set(resultData?.results.map((result) => result.kind) ?? [])], [resultData]);
@@ -437,23 +441,24 @@ export function Workspace({ initialQuery = "", initialView = "home", initialNode
               {data?.graph.nodes.length ? <Graph graph={data.graph} resultNodeIds={resultData?.results.map((result) => result.id)} selectedNodeId={selectedId} highlightedNodeIds={highlightedNodes} highlightedEdgeIds={highlightedEdges} onSelectNode={(id) => openInfo(id, "overview", undefined, undefined, true)} navigating={navigating} labels={graphLabels} mode={communityView ? "community" : "search"} /> : null}
             </div>
             {!!data?.graph.nodes.length && <>
-              <div className="z-hero-controls"><span>{data.graph.nodes.length} {views.nodes}{" · "}{data.graph.edges.length} {views.edges}{(data.graph.community || data.execution.truncated) && <> · {views.limited}</>}</span><button type="button" aria-expanded={graphExpanded} onClick={() => revealGraph(!graphExpanded)}><Icon name={graphExpanded ? "arrow" : "graph"} size={16} style={graphExpanded ? { transform: "rotate(90deg)" } : undefined} />{graphExpanded ? views.collapse : views.expand}</button></div>
+              <div className="z-hero-controls"><button type="button" aria-expanded={graphExpanded} onClick={() => revealGraph(!graphExpanded)}><Icon name={graphExpanded ? "arrow" : "graph"} size={16} style={graphExpanded ? { transform: "rotate(90deg)" } : undefined} />{graphExpanded ? views.collapse : views.expand}</button></div>
             </>}
           </section>
           <div className={`z-findings-sheet ${page === "info" ? "z-slide-info" : "z-slide-results"}`} inert={phone && drawerShown}>
             {page === "results" ? <section className="z-results z-results-page" aria-label={copy.results}>
-              <div className="z-results-heading"><div><p className="z-eyebrow">{communityView ? copy.community : copy.results}</p><h1>{resultTitle}</h1>{query && query !== resultTitle && <details className="z-original-query"><summary>{query.length > 110 ? `${query.slice(0, 110)}...` : query}</summary><p>{query}</p></details>}</div><button type="button" className="z-query-info" title={views.query} aria-label={views.query} onClick={openQuery}>{queryInfoSymbol}</button></div>
-              {keywordRouting && <p className="z-eyebrow" role="status"><strong>{copy.exploreError.keyword}</strong>{" · "}{copy.exploreError.keywordScope}</p>}
-              {resultData && <ContactFilters value={contactRole(resultData, communityView)} disabled={busy || !contactPlan(resultData, "all")} onChange={chooseRole} />}
+              <div className="z-results-heading"><div><p className="z-eyebrow">{communityView ? copy.community : copy.results}</p><h1>{resultTitle}</h1>{query && query !== resultTitle && <details className="z-original-query"><summary>{query.length > 110 ? `${query.slice(0, 110)}...` : query}</summary><p>{query}</p></details>}</div>{!candidateState && <button type="button" className="z-query-info" title={views.query} aria-label={views.query} onClick={openQuery}>{queryInfoSymbol}</button>}</div>
+              {keywordRouting && !candidateState && <p className="z-eyebrow" role="status"><strong>{copy.exploreError.keyword}</strong>{" · "}{copy.exploreError.keywordScope}</p>}
+              {resultData && !candidateState && <ContactFilters value={contactRole(resultData, communityView)} disabled={busy || !contactPlan(resultData, "all")} onChange={chooseRole} />}
               {kinds.length > 1 && <div className="z-filters" aria-label={copy.results}><button aria-pressed={filter === "all"} onClick={() => chooseFilter("all")}>{copy.all}<span>{resultData?.results.length}</span></button>{kinds.map((kind) => <button key={kind} aria-pressed={filter === kind} onClick={() => chooseFilter(kind)}>{kindLabel(kind)}<span>{resultData?.results.filter((item) => item.kind === kind).length}</span></button>)}</div>}
               <div className="z-results-content" aria-busy={busy}>
                 {(communityView || results.some((result) => result.kind === "person" || result.kind === "organisation")) && <PrivacyNotice />}
                 {busy && <div className="z-result-status" role="status"><ZebraLoader /><p>{copy.loading}</p></div>}
                 {!busy && error && <ExploreError error={errorCause || error} onRetry={() => void runSearch(actualQuery.current || query || "research community", query)} onIndexedLookup={isShortIndexedName(query) ? () => void indexedLookup() : undefined} matches={indexedMatches} correctedQuery={indexedCorrection} indexedBusy={indexedBusy} onSelectMatch={match => void runSearch("", match.label, true, undefined, { focus: [match.id], intent: "all", filters: {} })} />}
-                {!busy && !error && resultData?.query_execution && <QueryAnswer execution={resultData.query_execution} graph={resultData.graph} onSelectNode={(id) => openInfo(id, "overview", undefined, undefined, true)} />}
-                {!busy && !error && !results.length && !canonicalAnswer && <div className="z-result-status"><h2>{copy.empty}</h2><p>{copy.emptyHint}</p></div>}
-                {!busy && !error && resultData && <ResultOverview data={resultData} query={query} busy={busy} results={results} selectedId={selectedId} onFocus={(id) => openInfo(id, "overview", undefined, undefined, true)} onDetails={(id, result, context) => openInfo(id, "overview", result, context)} onRequest={(id, result, context) => openInfo(id, "request", result, context)} onEvidence={(id, result, context) => openInfo(id, "evidence", result, context)} />}
-                {!busy && !error && resultData && <ProgrammeRoutes />}
+                {!busy && !error && candidateState && <PossibleMatches matches={candidateState.matches} invalid={candidateState.invalid} busy={busy} onSelect={match => choosePossibleMatch(match.id)} />}
+                {!busy && !error && !candidateState && resultData?.query_execution && <QueryAnswer execution={resultData.query_execution} graph={resultData.graph} onSelectNode={(id) => openInfo(id, "overview", undefined, undefined, true)} />}
+                {!busy && !error && !candidateState && !results.length && !canonicalAnswer && <div className="z-result-status"><h2>{copy.empty}</h2><p>{copy.emptyHint}</p></div>}
+                {!busy && !error && !candidateState && resultData && <ResultOverview data={resultData} query={query} busy={busy} results={results} selectedId={selectedId} onFocus={(id) => openInfo(id, "overview", undefined, undefined, true)} onDetails={(id, result, context) => openInfo(id, "overview", result, context)} onRequest={(id, result, context) => openInfo(id, "request", result, context)} onEvidence={(id, result, context) => openInfo(id, "evidence", result, context)} />}
+                {!busy && !error && !candidateState && resultData && <ProgrammeRoutes />}
               </div>
               <div className="z-results-footer"><button onClick={() => void share()}><Icon name="share" size={15} />{copy.share}</button><button onClick={() => void save()}><Icon name="bookmark" size={15} />{copy.save}</button><button onClick={() => window.print()}>{copy.print}</button><Link href={contributionHref({}, locale)} className="z-help-improve">{copy.contribute}</Link></div>
             </section> : <section className="z-information-page" aria-label={selected?.label ?? copy.details}>

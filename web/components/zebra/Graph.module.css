@@ -1,5 +1,6 @@
 .graph { --g-label-ink:var(--z-ink,#182b36); --g-label-muted:#4c6470; --g-label-active:#102e2c; --g-label-surface:var(--z-paper,#f8fafb); --g-label-hover:#edf5f2; --g-label-focus:#e1f1eb; --g-label-line:var(--z-line,#e2eaed); --g-label-ring:var(--z-teal,#17675f); position: relative; width: 100%; height: 100%; min-height: 380px; overflow: hidden; isolation: isolate; background: radial-gradient(ellipse at 50% 48%, #e8f2f240, transparent 68%); }
 .graph:focus-visible { outline: 2px solid var(--g-label-ring); outline-offset: -3px; }
+:global(.z-hero-scene) .graph { min-height:0; }
 .canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
 .canvas:active { cursor: grabbing; }
 .nodeLayer { position: absolute; inset: 0; pointer-events: none; transform-origin: 0 0; }
@@ -22,7 +23,7 @@
 .controls { position: absolute; right: 20px; bottom: 18px; display: flex; align-items: center; gap: 1px; padding: 3px; border: 1px solid #e2eaed; border-radius: 12px; background: #fffffff5; box-shadow: 0 3px 15px #182b3605; }
 .controls button { display: grid; place-items: center; width: 42px; min-height: 44px; padding: 0; border: 0; border-radius: 8px; background: transparent; color: #47616e; font: 22px/1 system-ui,sans-serif; cursor: pointer; }
 .controls button:hover, .controls button[aria-expanded="true"] { background: #edf5f3; color: #17675f; }
-.neighborNavigation { position: absolute; bottom: 21px; left: 20px; display: flex; align-items: center; gap: 9px; max-width: calc(100% - 216px); color: #71848d; font-size: 11px; line-height: 1.5; }
+.neighborNavigation { position: absolute; bottom: 21px; left: 20px; z-index:3; display: flex; align-items: center; flex-wrap:wrap; gap: 3px 9px; max-width: calc(100% - 216px); color: #71848d; font-size: 11px; line-height: 1.5; transform:translateY(calc(-1 * var(--z-hero-offset,0px))); }
 .pages { display: flex; align-items: center; gap: 3px; white-space: nowrap; }
 .pages button { display: grid; place-items: center; width: 34px; min-height: 44px; padding: 0; border: 0; border-radius: 7px; background: transparent; color: #48636c; cursor: pointer; }
 .pages button:hover:enabled { background: #eaf3ef; }

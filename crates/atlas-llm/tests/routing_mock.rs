@@ -71,7 +71,7 @@ async fn gemini_outage_falls_back_to_openai_with_its_own_key() {
     let done = llm
         .complete(
             &Call::new("gemini-free").with_visitor("visitor").with_private().with_fallback(true),
-            request().with_model("gemini-3.8-flash").with_temperature(0.0),
+            request().with_temperature(0.0),
         )
         .await
         .unwrap();

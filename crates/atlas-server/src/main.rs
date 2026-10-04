@@ -21,6 +21,7 @@ mod copy_related;
 mod coverage;
 mod drugs;
 mod explore;
+mod explore_candidates;
 mod explore_document;
 mod explore_failover;
 mod explore_projection;
